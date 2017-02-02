@@ -28,7 +28,7 @@ article.slide {
 	box-sizing: border-box;
 	color: #ffffff;
 	font-family: courier, monospace;
-	font-size: 12px;
+	font-size: .75em;
 	transition: visibility 0s .5s, opacity .5s linear;
 	padding: 67px 12px 50px 83%;
 	overflow: hidden;
@@ -130,7 +130,7 @@ article.slide:target > :not(nav):not(header):not(footer):not(aside) {
 	/* Ease in-out... */
 	max-height: 80%;
 	max-width: 50%;
-	font-size: inherit;
+	font-size: 1em;
 }
 
 /* We want just the first one: unset the others... */
@@ -639,9 +639,29 @@ article.slide p, article.slide ol, article.slide ul {
 }
 
 article.slide blockquote {
-	margin: 16px 40px !important;
 	color: #afafaf;
 	font-style: italic;
+}
+
+article.slide:target > blockquote {
+/*
+	:: whatever you set here, unless you want differently, please
+	   restore it in the unset place `@leeloo_blockquote_content`! ::
+*/
+	font-size: 1.2em !important;
+}
+
+article.slide > * blockquote,
+article.slide:target > :not(nav):not(header):not(footer):not(aside) ~ blockquote {
+/*
+	--> unset place: `@leeloo_blockquote_content`
+*/
+	font-size: inherit !important;
+}
+
+article.slide > * blockquote,
+article.slide > :not(nav):not(header):not(footer):not(aside) ~ blockquote {
+	margin: 16px 32px !important;
 	position: relative;
 	left: 0;
 	top: 0;
@@ -658,13 +678,13 @@ article.slide blockquote::after {
 
 article.slide blockquote::before {
 	content: "\201C";
-	left: -32px;
+	left: -24px;
 	top: 12px;
 }
 
 article.slide blockquote::after {
 	content: "\201E";
-	right: -40px;
+	right: -24px;
 	bottom: 12px;
 }
 
@@ -677,7 +697,7 @@ article.slide blockquote cite {
 article.slide blockquote cite::before {
 	content: "\2014";
 	display: inline-block;
-	width: 12px;
+	width: 1em;
 }
 
 
