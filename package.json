@@ -1,0 +1,16 @@
+{
+	"name": "takefive.css",
+	"version": "1.0.0",
+	"description": "A stand-alone, semantically-consistent, microdata-oriented, pure-CSS slide renderer",
+	"style": "takefive.css",
+	"license": "GPL-3.0",
+	"author": "Stefano Gioffr\u00E9",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/madmurphy/takefive.css.git"
+	},
+	"bugs": {
+		"url": "https://github.com/madmurphy/takefive.css/issues"
+	},
+	"homepage": "https://madmurphy.github.io/takefive.css/"
+}
