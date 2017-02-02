@@ -40,24 +40,27 @@
 	}
 
 </style>
-<script>
-function printById (sId) {
-	var oWin = open("","print_window","width=700,height=500,left=400,top=100,resizable=yes,fullscreen=no,menubar=yes,toolbar=no,location=no,scrollbars=yes,status=no");
+<script type="text/javascript">
+	function printById (sId) {
+		var oWin = open("","print_window","width=700,height=500,left=400,top=100,resizable=yes,fullscreen=no,menubar=yes,toolbar=no,location=no,scrollbars=yes,status=no");
 
-oWin.document.open();
-oWin.document.write("<!doctype html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text\/html;charset=UTF-8\" \/>\n<style type=\"text\/css\">a{color:#000;text-decoration:none}a[href^=\"http\"]::after{content:\"(\" attr(href) \")\";vertical-align:super;font-size:x-small}nav,aside{display:none}<\/style>\n<\/head>\n<body onload=\"print();\">\n\n" + document.getElementById(sId).outerHTML + "\n\n<\/body>\n<\/html>");
-oWin.document.close();
-
-}
+		oWin.document.open();
+		oWin.document.write("<!doctype html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text\/html;charset=UTF-8\" \/>\n<style type=\"text\/css\">a{color:#000;text-decoration:none}a[href^=\"http\"]::after{content:\"(\" attr(href) \")\";vertical-align:super;font-size:x-small}nav,aside{display:none}<\/style>\n<\/head>\n<body onload=\"print();\">\n\n" + document.getElementById(sId).outerHTML + "\n\n<\/body>\n<\/html>");
+		oWin.document.close();
+	}
 </script>
 </head>
 
 <body>
 
-<h1>Take five!</h1>
-<h5>A stand-alone, semantically-consistent, microdata-oriented, pure-CSS slide renderer.</h5></hgroup>
+<hgroup>
+	<h1>Take five!</h1>
+	<h5>A stand-alone, semantically-consistent, microdata-oriented, pure-CSS slide renderer.</h5>
+</hgroup>
 
-<p style="text-align: center; font-size: 2em;"><a href="#my-gallery">I want to see the demo</a></p>
+<p style="text-align: center; font-size: 2em;">
+	<a href="#my-gallery">I want to see the demo</a>
+</p>
 
 <nav>
 	<h3>Table of contents</h3>
@@ -79,7 +82,9 @@ oWin.document.close();
 	</ol>
 </nav>
 
-<p style="text-align: center; font-size: 2em;"><a href="man.html">I want to read the manual</a></p>
+<p style="text-align: center; font-size: 2em;">
+	<a href="man.html">I want to read the manual</a>
+</p>
 
 <section itemscope itemtype="http://schema.org/ImageGallery">
 
@@ -89,7 +94,7 @@ oWin.document.close();
 			<a href="#quotation-example" rel="next" data-label="First slide">Get started!</a>
 			<a href="#example-photo-1" rel="first">Example photo #1</a>
 			<a href="#audio-example" rel="last">Embedded audio example</a>
-			<a href="#my-gallery" rel="bookmark" itemprop="url">Take five! example gallery</a>
+			<a href="#my-gallery" rel="bookmark" itemprop="url">Take five! live demo</a>
 			<a href="http://www.example.com/">Custom link</a>
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
 			<a href="#example-gallery-about" data-label="See also">About</a>
@@ -156,7 +161,7 @@ oWin.document.close();
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
-			<a href="#my-gallery" rel="prev">All photos</a>
+			<a href="#my-gallery" rel="prev">Index</a>
 			<a href="#example-photo-1" rel="next">Example photo #1</a>
 			<a href="#example-photo-1" rel="first">Example photo #1</a>
 			<a href="#audio-example" rel="last">Embedded audio example</a>
@@ -165,12 +170,12 @@ oWin.document.close();
 			<a href="http://www.example.com/">Custom link</a>
 		</nav>
 		<header>
-			<h1>A quotation for getting started&hellip;</h1>
+			<h1>A quotation</h1>
 		</header>
 		<blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning. <cite>Albert Einstein</cite></blockquote>
 	</article>
 
-	<article class="slide" id="example-photo-1" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-photo-1" itemscope itemtype="http://schema.org/ImageObject">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -185,12 +190,12 @@ oWin.document.close();
 			<h1>Slide 1 of 10</h1>
 		</header>
 		<figure>
-			<img src="images/1.jpg" />
+			<img src="images/1.jpg" itemprop="image" />
 			<figcaption itemprop="caption">Into the woods</figcaption>
 		</figure>
 	</article>
 
-	<article class="slide" id="example-photo-2" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-photo-2" itemscope itemtype="http://schema.org/ImageObject">
 		<header>
 			<h1>Slide 2 of 10</h1>
 		</header>
@@ -206,12 +211,12 @@ oWin.document.close();
 			<a href="http://www.example.com/">Custom link</a>
 		</nav>
 		<figure>
-			<img src="images/2.jpg" />
+			<img src="images/2.jpg" itemprop="image" />
 			<figcaption itemprop="caption">Yellow at the lake</figcaption>
 		</figure>
 	</article>
 
-	<article class="slide" id="example-photo-3" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-photo-3" itemscope itemtype="http://schema.org/ImageObject">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -227,13 +232,13 @@ oWin.document.close();
 			<h1>Slide 3 of 10</h1>
 		</header>
 		<figure>
-			<img src="images/3.jpg" />
+			<img src="images/3.jpg" itemprop="image" />
 			<figcaption itemprop="caption">Winter tree</figcaption>
 		</figure>
 		<footer>This is the <code>&lt;footer&gt;</code> element.</footer>
 	</article>
 
-	<article class="slide" id="example-photo-4" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-photo-4" itemscope itemtype="http://schema.org/ImageObject">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -249,13 +254,13 @@ oWin.document.close();
 			<h1>Slide 4 of 10</h1>
 		</header>
 		<figure>
-			<img src="images/4.jpg" />
+			<img src="images/4.jpg" itemprop="image" />
 			<figcaption itemprop="caption">Autumn</figcaption>
 		</figure>
 		<aside>This is the <code>&lt;aside&gt;</code> element.</aside>
 	</article>
 
-	<article class="slide" id="example-photo-5" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-photo-5" itemscope itemtype="http://schema.org/ImageObject">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -271,7 +276,7 @@ oWin.document.close();
 			<h1>Slide 5 of 10</h1>
 		</header>
 		<figure>
-			<img src="images/5.jpg" />
+			<img src="images/5.jpg" itemprop="image" />
 			<figcaption itemprop="caption">The old castle</figcaption>
 		</figure>
 		<p>Here goes the rest of the content&hellip;</p>
@@ -287,7 +292,7 @@ oWin.document.close();
 		</footer>
 	</article>
 
-	<article class="slide" id="example-photo-6" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-photo-6" itemscope itemtype="http://schema.org/ImageObject">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -303,7 +308,7 @@ oWin.document.close();
 			<h1>Slide 6 of 10</h1>
 		</header>
 		<figure>
-			<img src="images/6.jpg" />
+			<img src="images/6.jpg" itemprop="image" />
 			<figcaption itemprop="caption">Frozen source</figcaption>
 		</figure>
 		<footer>
@@ -311,7 +316,7 @@ oWin.document.close();
 		</footer>
 	</article>
 
-	<article class="slide" id="example-photo-7" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-photo-7" itemscope itemtype="http://schema.org/ImageObject">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -327,7 +332,7 @@ oWin.document.close();
 			<h1>Slide 7 of 10</h1>
 		</header>
 		<figure>
-			<img src="images/7.jpg" />
+			<img src="images/7.jpg" itemprop="image" />
 			<figcaption itemprop="caption">Water drop</figcaption>
 		</figure>
 		<aside>
@@ -337,7 +342,7 @@ oWin.document.close();
 		</aside>
 	</article>
 
-	<article class="slide" id="video-example" itemprop="image" itemscope itemtype="https://schema.org/VideoObject">
+	<article class="slide" id="video-example" itemscope itemtype="https://schema.org/VideoObject">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -353,12 +358,12 @@ oWin.document.close();
 			<h1>Slide 8 of 10</h1>
 		</header>
 		<figure>
-			<video src="http://techslides.com/demos/sample-videos/small.ogv" controls="controls" poster="images/video.jpg"><p>Sorry, your browser doesn't support embedded videos, but don't worry, you can <a href="http://techslides.com/demos/sample-videos/small.ogv">download it</a> and watch it with your favorite video player!</p></video>
+			<video src="http://techslides.com/demos/sample-videos/small.ogv" controls="controls" poster="images/video.jpg"  itemprop="video"><p>Sorry, your browser doesn't support embedded videos, but don't worry, you can <a href="http://techslides.com/demos/sample-videos/small.ogv">download it</a> and watch it with your favorite video player!</p></video>
 			<figcaption itemprop="caption">HTML5 video example &ndash; <a href="http://techslides.com/demos/sample-videos/small.ogv">download</a></figcaption>
 		</figure>
 	</article>
 
-	<article class="slide" id="youtube-example" itemprop="image" itemscope itemtype="https://schema.org/VideoObject">
+	<article class="slide" id="youtube-example" itemscope itemtype="https://schema.org/VideoObject">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -374,12 +379,12 @@ oWin.document.close();
 			<h1>Slide 9 of 10</h1>
 		</header>
 		<figure>
-			<iframe style="width: 640px; height: 360px;" src="https://www.youtube.com/embed/KDOLHClNTOI" frameborder="0" allowfullscreen></iframe>
+			<iframe style="width: 640px; height: 360px;" src="https://www.youtube.com/embed/KDOLHClNTOI" frameborder="0" allowfullscreen itemprop="video"></iframe>
 			<figcaption itemprop="caption">When We Left Earth &ndash; The NASA Missions &mdash; source: <a href="http://www.youtube.com/watch?v=KDOLHClNTOI" target="_blank">http://www.youtube.com/watch?v=KDOLHClNTOI</a></figcaption>
 		</figure>
 	</article>
 
-	<article class="slide" id="audio-example" itemprop="image" itemscope itemtype="https://schema.org/AudioObject">
+	<article class="slide" id="audio-example" itemscope itemtype="https://schema.org/AudioObject">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -394,7 +399,7 @@ oWin.document.close();
 			<h1>Slide 10 of 10</h1>
 		</header>
 		<figure>
-			<audio src="https://upload.wikimedia.org/wikipedia/commons/9/90/Erik_Satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg" controls="controls"><p>Sorry, your browser doesn't support embedded audio, but don't worry, you can <a href="https://upload.wikimedia.org/wikipedia/commons/9/90/Erik_Satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg">download it</a> and listen to it with your favorite video player!</p></audio>
+			<audio src="https://upload.wikimedia.org/wikipedia/commons/9/90/Erik_Satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg" controls="controls" itemprop="audio">><p>Sorry, your browser doesn't support embedded audio, but don't worry, you can <a href="https://upload.wikimedia.org/wikipedia/commons/9/90/Erik_Satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg">download it</a> and listen to it with your favorite video player!</p></audio>
 			<figcaption itemprop="caption">Erik Satie, <em>Gymnopedies</em> &ndash; La 1ere. Lent et douloureux</figcaption>
 		</figure>
 	</article>
@@ -420,7 +425,7 @@ oWin.document.close();
 			<p>Aenean dapibus tempus pellentesque. Suspendisse eget lobortis ipsum. Ut sit amet scelerisque ipsum. Phasellus tincidunt nisi ut justo fermentum facilisis. Donec nec dui eu leo dapibus elementum et sed purus. Donec quis tristique purus, at interdum turpis. In placerat turpis semper dolor finibus, vel cursus quam bibendum. Vivamus vel elementum urna. Donec sit amet mattis sem. Maecenas nec risus nec nibh laoreet congue. Nulla scelerisque elit vel porta volutpat. Proin porttitor interdum metus eu tincidunt. Proin lacinia lobortis posuere. Curabitur molestie tincidunt odio, sit amet scelerisque sem ultricies eget. Etiam aliquet augue sit amet euismod hendrerit.</p><hr />
 			<p>Nulla tincidunt ullamcorper mattis. Vivamus suscipit viverra porttitor. Fusce porta accumsan mauris a vestibulum. Donec fermentum mollis venenatis. Suspendisse iaculis risus erat, sit amet feugiat nisi feugiat vel. Mauris neque erat, sagittis ut enim sed, commodo porttitor ipsum. Donec ultrices scelerisque massa nec fermentum. Maecenas porta tempor neque non aliquet. Maecenas tristique lobortis dui, ut aliquet eros rhoncus at. Donec ac ornare sem. Aenean eu metus commodo sapien varius gravida non at felis. Mauris non aliquet metus. Nunc hendrerit lectus eu purus pulvinar, ut pulvinar purus tristique. Suspendisse euismod maximus est et laoreet. Fusce pulvinar, lacus et ornare lobortis, dui velit condimentum arcu, eget laoreet elit sem vel lectus. Donec a imperdiet ex.</p>
 		</article>
-		<section><a href="#example-gallery-contact-me">Leave a message!</a></section>
+		<p style="font-size: larger;"><a href="#example-gallery-contact-me">Leave a message!</a></p>
 		<aside>
 			<p>The <code>&lt;aside&gt;</code> element is the perfect place for additional <code>&lt;nav&gt;</code> containers!</p>
 			<nav style="font-size:48px;">
@@ -438,7 +443,7 @@ oWin.document.close();
 		</aside>
 	</article>
 
-	<article class="slide" id="example-gallery-contact-me" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-gallery-contact-me" itemscope itemtype="http://schema.org/ImageObject">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -467,7 +472,20 @@ oWin.document.close();
 </section>
 
 <h3>License</h3>
-<p><strong>Take five!</strong> is released under the GNU Public License, version 3 or later (<a href="http://www.gnu.org/licenses/gpl-3.0-standalone.html">read</a>). The code is <a href="https://github.com/madmurphy/takefive.css" target="_blank">available on GitHub</a>.</p>
+
+<p>
+	<strong>Take five!</strong> is released under the GNU Public License, version 3 or later (<a href="http://www.gnu.org/licenses/gpl-3.0-standalone.html">read</a>). The code is <a href="https://github.com/madmurphy/takefive.css" target="_blank">available on GitHub</a>.
+</p>
+
+<script type="text/javascript">
+	var aBookmarks = document.querySelectorAll("article.slide a[rel=\"bookmark\"]");
+	for (var nItem = 0; nItem < aBookmarks.length; nItem++) {
+		aBookmarks[nItem].onclick = function () {
+			alert("Please, copy the link.");
+			return false;
+		};
+	}
+</script>
 
 </body>
 </html>
