@@ -13,7 +13,7 @@
 <h3>Introduction</h3>
 <p><a href="https://github.com/madmurphy/takefive.css" target="_blank"><strong>Take five!</strong></a> is a slide renderer written in pure CSS (no JavaScript required), orientated to the semantics of HTML (i.e., <a href="http://www.w3schools.com/html/html5_semantic_elements.asp" target="_blank">semantic nodes</a>, <a href="https://en.wikipedia.org/wiki/Microdata_(HTML)" target="_blank">HTML5 Microdata</a>). Before further reading, please consider to see the <a href="index.html">live demo</a>.</p>
 <h3>Getting started</h3>
-<p>For creating a slide with <strong>Take five!</strong>, all you need to do is to include <strong>takefive.css</strong> in your document, then use one of the following basic syntaxes:</p>
+<p>For creating a slide with <strong>Take five!</strong>, all you need to do is to include <strong>takefive.css</strong> in your document, then use one of the following basic examples:</p>
 <ul>
 <li>
 <pre>&lt;article&nbsp;id="my_hash1" itemscope class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ffff00;">&lt;element-to-be-slided /&gt;</span><br />&lt;/article&gt;</pre>
@@ -27,6 +27,7 @@
 <li>
 <pre>&lt;article id="my_hash4" itemscope class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#nowhere" rel="up"&gt;My home&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#my_hash2" rel="prev"&gt;[previous slide name]&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#my_hash2" rel="next"&gt;[next slide name]&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;[title]&lt;/h1&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ffff00;">&lt;this-element-will-be-slided /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ff7777;">&lt;this-element-will-be-displayed-on-the-right-side-of-the-screen /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ff7777;">&lt;this-element-will-be-displayed-on-the-right-side-of-the-screen /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ff7777;">&lt;etc. /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;footer&gt;[footer]&lt;/footer&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;aside&gt;[aside]&lt;/aside&gt;<br />&lt;/article&gt;</pre>
 </li>
+<li>etc.</li>
 </ul>
 <h4>Example</h4>
 <p>The following minimalistic code</p>
@@ -35,7 +36,7 @@
 <h3>Slides containers (viewports)</h3>
 <p>Each slide is defined through the element <code><span style="background-color: #ffff00;">&lt;article </span><span style="background-color: #ff7777;">id="my-hash-tag"</span><span style="background-color: #ffff00;"> class="slide"&gt; </span><span style="background-color: #ff7777;">&hellip;</span><span style="background-color: #ffff00;"> &lt;/article&gt;</span></code>. Such element is constructed so that:</p>
 <ul>
-<li>it is independent and does not require any special container; it can nevertheless link to other slides, forming so a <em>gallery</em></li>
+<li>it is independent and does not require any special container; it can nevertheless link to other slides, forming so a gallery</li>
 <li>it can contain any kind of children elements and in any number (but be aware of the limits of the screen)</li>
 <li>no further classes are required by the CSS, beside the <code>"slide"</code> class defined above.</li>
 </ul>
@@ -48,7 +49,7 @@
 <li>The first <code>&lt;header&gt;</code> element found to be <em>direct child</em> of the slide will be placed on the top side of the viewport. Other <code>&lt;header&gt;</code> direct children will be normally displayed within the flow body of the main parent (i.e., on the right side, see below).</li>
 <li>The first <code>&lt;footer&gt;</code> element found to be <em>direct child</em> of the slide will be placed on the bottom-right corner of the viewport. Other <code>&lt;footer&gt;</code> direct children will be displayed normally within the flow body of the main parent (i.e., on the right side, see below).</li>
 <li>The first <code>&lt;aside&gt;</code> element found to be <em>direct child</em> of the slide will be placed on the bottom-left corner of the viewport. Other <code>&lt;aside&gt;</code> direct children will be displayed normally within the flow body of the main parent (i.e., on the right side, see below)..</li>
-<li>The first direct child found to be neither <code>&lt;nav&gt;</code>, nor <code>&lt;header&gt;</code>, nor <code>&lt;footer&gt;</code>, nor <code>&lt;aside&gt;</code> &ndash; i.e., CSS syntax: <code>:not(nav):not(header):not(footer):not(aside)</code> &ndash; will be placed at the center of the slide and will be considered the main content of the slide. <strong>From now on, this will be called &ldquo;The Fifth Element&rdquo; or &ldquo;<span style="text-decoration: underline;">the <code>&lt;<em>leeloo</em>&gt;</code> element</span>&rdquo; (after Luc Besson's movie).</strong></li>
+<li>The first direct child found to be neither <code>&lt;nav&gt;</code>, nor <code>&lt;header&gt;</code>, nor <code>&lt;footer&gt;</code>, nor <code>&lt;aside&gt;</code> &ndash; i.e., CSS syntax: <code>:not(nav):not(header):not(footer):not(aside)</code> &ndash; will be placed at the center of the slide and will be considered the main content of the slide. <span style="background-color: #ffff00;"><strong>From now on, this will be called &ldquo;The Fifth Element&rdquo; or &ldquo;<span style="text-decoration: underline;">the <code>&lt;<em>leeloo</em>&gt;</code> element</span>&rdquo; (after Luc Besson's movie).</strong></span></li>
 <li>Further direct children non matching the previous conditions will be displayed on the right side of the screen, in their normal order; the <code>overflow</code> property of this portion of the slide is set on <code>hidden</code>, so if you want a scrollable content you must create a scrollable container.</li>
 </ol></li>
 <li>Non-direct children (i.e., sub-children) of the viewport:<br /><ol>
@@ -68,11 +69,11 @@
 </ol></li>
 </ul>
 <h3>The <code>a[rel="up"]</code> element</h3>
-<p>In order to exit from the viewport the <code>a[rel="up"]</code> element is used (see above). <em>Normally this links to an unexisting hash</em> (in our examples we used the hash <code>"#nowhere"</code>), but in the case of nested galleries it can optionally link to the parent gallery (see below).</p>
+<p>In order to exit from the viewport the <code>a[rel="up"]</code> element is used (see above). <em>Normally this links to any unexisting hash</em> (in our examples we used the hash <code>"#nowhere"</code>), but in the case of nested galleries it can optionally link to the parent gallery (see below).</p>
 <h3>Nested galleries</h3>
 <p>Galleries can be nested within other galleries through the <code>&lt;section&gt;</code> element. In this case the link to the child gallery must be given explicitly somewhere.</p>
 <pre>&lt;section&gt;<br />&nbsp;&nbsp;&nbsp; &lt;article id="item-1" class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a href="#nowhere" rel="up"&gt;My diary&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="background-color: #ffff00;">&lt;element-to-be-slided /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="background-color: #ff7777;">&lt;a href="#item-1-1"&gt;Visit this gallery&lt;/a&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/p&gt;<br />&nbsp;&nbsp;&nbsp; &lt;/article&gt;<br />&nbsp;&nbsp;&nbsp; &lt;section&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;article id="item-1-1" class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a <span style="background-color: #ff7777;">href="#item-1"</span> rel="up"&gt;Item #1&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="background-color: #ffff00;">&lt;element-to-be-slided /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/article&gt;<br />&nbsp;&nbsp;&nbsp; &lt;/section&gt;<br />&lt;/section&gt;</pre>
-<p>The code above will produce <a href="nested_example.html" target="_blank">this result</a>.</p>
+<p>The code above will produce a result similar to <a href="nested_example.html" target="_blank">this example</a>.</p>
 <h3>Issues</h3>
 <p>For compatibility issues with other CSS, here follows the table of all the <code>z-indices</code> assigned by <strong>Take five!</strong>. They cover the range 11110-11118, therefore no other elements within the document should have a <code>z-index</code> higher than 11110 in order to not be displayed over the viewport.</p>
 <table border="1" cellspacing="0" cellpadding="4">
@@ -120,7 +121,7 @@
 </table>
 <h3>Notes</h3>
 <ul>
-<li>For learning more about the <code>itemscope</code> attribute and HTML5 microdata, please visit <a href="http://schema.org/" target="_blank">schema.org</a>.</li>
+<li>For learning more about the <code>itemscope</code> attribute and HTML5 microdata, please visit <a href="http://schema.org/" target="_blank">schema.org</a>. For a list of the known <code>rel</code> attributes, please visit <a href="https://www.w3.org/wiki/HTML/Elements/link#HTML_Attributes" target="_blank">this page</a>.</li>
 <li>It is possible to prevent the hashtag from being displayed in the viewport by using the class <code>"no-hashtag"</code> &ndash; as in <code>&lt;article itemscope class="slide <span style="background-color: #ffff00;">no-hashtag</span>" id="my-hash-name"&gt; &hellip; &lt;/article&gt;</code>.</li>
 <li>The special link <code>a[rel="up"]</code> complies with the following rule:
 <ul>
@@ -135,7 +136,7 @@
 then &rArr; it will be ignored by this CSS and will be normally displayed.</li>
 </ul>
 </li>
-<li>Feel free to make experiments. <strong>Take five!</strong> is very flexible, but in in case of problems, please do not hesitate to <a href="https://github.com/madmurphy/takefive.css/issues" target="_blank">write</a>!</li>
+<li>Feel free to make experiments. <strong>Take five!</strong> is very flexible, but in in case of problems, please do not hesitate to <a href="https://github.com/madmurphy/takefive.css/issues" target="_blank">write</a>.</li>
 </ul>
 <h3>License</h3>
 <p><strong>Take five!</strong> is released under the GNU Public License, version 3 or later (<a href="http://www.gnu.org/licenses/gpl-3.0-standalone.html">read</a>). The code is <a href="https://github.com/madmurphy/takefive.css" target="_blank">available on GitHub</a>.</p>
