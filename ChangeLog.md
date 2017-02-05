@@ -4,7 +4,7 @@
 
 Changes:
 
-* Margins of text containers (`&lt;p&gt;`, `&lt;h1&gt;`, `&lt;h2&gt;`, `&lt;h3&gt;` etc.)
+* Margins of text containers (&lt;p&gt;, &lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, etc.)
 * Documentation
 
 ## [1.1.0] - 2017-02-03
@@ -13,7 +13,7 @@ Changes:
 
 * Added embedded font "1942 report"
 * Converted `px` to `em` in all font-size properties
-* Styled `&lt;h1&gt;`, `&lt;h2&gt;` and `&lt;h3&gt;` elements
+* Styled &lt;h1&gt;, &lt;h2&gt; and &lt;h3&gt; elements
 
 ## [1.0.0] - 2017-02-02
 
