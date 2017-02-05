@@ -6,7 +6,7 @@
 |*|
 |*|	https://github.com/madmurphy/takefive.css/
 |*|
-|*|	Version 1.1.0
+|*|	Version 1.1.1
 |*|
 |*|	(c) Stefano Gioffre
 |*|
@@ -205,12 +205,6 @@ article.slide > nav:first-of-type {
 	font-size: 1.1em;
 }
 
-/* It's quite important: we want just one child of this type! You can put infinite other <nav> elements as sub-children... */
-
-article.slide > nav:not(:first-of-type) {
-	display: none;
-}
-
 /* One <header>, if present... */
 
 article.slide > header:first-of-type {
@@ -270,7 +264,7 @@ article.slide > aside:first-of-type {
 
 /* Navigation links */
 
-article.slide > nav a {
+article.slide > nav:first-of-type a {
 	display: block;
 	box-sizing: border-box;
 	font-weight: normal;
@@ -301,7 +295,7 @@ article.slide > nav a {
 
 /* (Cond. 1.) */
 
-article.slide > nav a[rel="up"] {
+article.slide > nav:first-of-type a[rel="up"] {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -319,7 +313,7 @@ article.slide > nav a[rel="up"] {
 	transition: 1s color;
 }
 
-article.slide > nav a[rel="up"]:hover {
+article.slide > nav:first-of-type a[rel="up"]:hover {
 	color: inherit;
 }
 
@@ -344,7 +338,8 @@ article.slide > :not(nav):not(header):not(footer):not(aside) a[rel="up"]:empty::
 	z-index: 11118;
 }
 
-article.slide > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside) a[rel="up"]:empty::before {
+article.slide > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside) a[rel="up"]:empty::before,
+article.slide > :not(nav):not(header):not(footer):not(aside) a[rel="up"]:empty ~ a[rel="up"]:empty::before {
 /*
 	--> unset place: `@leeloo_exit_layer`
 */
@@ -364,7 +359,7 @@ article.slide > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(hea
 
 /* All links but a[rel="up"]... */
 
-article.slide > nav a:not([rel="up"]):empty {
+article.slide > nav:first-of-type a:not([rel="up"]):empty {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -374,7 +369,7 @@ article.slide > nav a:not([rel="up"]):empty {
 	padding: 0;
 }
 
-article.slide > nav a:not([rel="up"]):not(:empty) {
+article.slide > nav:first-of-type a:not([rel="up"]):not(:empty) {
 	position: relative;
 	width: calc(100% + 12px);
 	top: 0;
@@ -393,14 +388,14 @@ article.slide > nav a:not([rel="up"]):not(:empty) {
 
 /* <nav>'s links "ease in/out" animation */
 
-article.slide > nav a:not([rel="up"]):not(:empty):hover {
+article.slide > nav:first-of-type a:not([rel="up"]):not(:empty):hover {
 	left: -12px;
 }
 
 /* Labels for semantic links... */
 
-article.slide > nav a[rel]:not(.no-label):not(:empty)::before,
-article.slide > nav a[data-label]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[rel]:not(.no-label):not(:empty)::before,
+article.slide > nav:first-of-type a[data-label]:not(.no-label):not(:empty)::before {
 	/* Here are the properties shared between of ALL the labels of <nav>'s links... */
 	/* Remember that a[rel="up"] will be placed on the top-right corner! */
 	display: block;
@@ -413,8 +408,8 @@ article.slide > nav a[data-label]:not(.no-label):not(:empty)::before {
 
 /*
 
-article.slide > nav a:not([rel="up"])[rel]:not(:empty)::before,
-article.slide > nav a:not([rel="up"])[data-label]:not(:empty)::before {
+article.slide > nav:first-of-type a:not([rel="up"])[rel]:not(.no-label):not(:empty)::before,
+article.slide > nav:first-of-type a:not([rel="up"])[data-label]:not(.no-label):not(:empty)::before {
 	background-color: red;
 }
 
@@ -422,51 +417,51 @@ article.slide > nav a:not([rel="up"])[data-label]:not(:empty)::before {
 
 /* Unknown "rel" attributes */
 
-article.slide > nav a[rel]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[rel]:not(.no-label):not(:empty)::before {
 	content: "[" attr(rel) "]";
 }
 
 /* Known "rel" attributes */
 
-article.slide > nav a[rel="up"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[rel="up"]:not(.no-label):not(:empty)::before {
 	content: "Back to:";
 }
 
-article.slide > nav a[rel="up"]:not(.no-label):empty::before {
+article.slide > nav:first-of-type a[rel="up"]:not(.no-label):empty::before {
 	content: "Click to exit";
 }
 
-article.slide > nav a[rel="index"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[rel="index"]:not(.no-label):not(:empty)::before {
 	content: "Index";
 }
 
-article.slide > nav a[rel="first"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[rel="first"]:not(.no-label):not(:empty)::before {
 	content: "First slide";
 }
 
-article.slide > nav a[rel="prev"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[rel="prev"]:not(.no-label):not(:empty)::before {
 	content: "Previous slide";
 }
 
-article.slide > nav a[rel="next"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[rel="next"]:not(.no-label):not(:empty)::before {
 	content: "Next slide";
 }
 
-article.slide > nav a[rel="last"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[rel="last"]:not(.no-label):not(:empty)::before {
 	content: "Last slide";
 }
 
-article.slide > nav a[rel="bookmark"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[rel="bookmark"]:not(.no-label):not(:empty)::before {
 	content: "Share it!";
 }
 
-article.slide > nav a[rel="author"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[rel="author"]:not(.no-label):not(:empty)::before {
 	content: "Author";
 }
 
-/* User-setted labels */
+/* User-set labels */
 
-article.slide > nav a[data-label]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[data-label]:not(.no-label):not(:empty)::before {
 	content: attr(data-label) !important;
 }
 
@@ -474,7 +469,7 @@ article.slide > nav a[data-label]:not(.no-label):not(:empty)::before {
 
 /* "Exit" */
 
-article.slide > nav a[rel="up"]::after {
+article.slide > nav:first-of-type a[rel="up"]::after {
 	content: "\00D7";
 	position: fixed;
 	display: block;
@@ -494,15 +489,15 @@ article.slide > nav a[rel="up"]::after {
 	transition: 1s top;
 }
 
-article.slide:target > nav a[rel="up"]::after {
+article.slide:target > nav:first-of-type a[rel="up"]::after {
 	top: 0;
 }
 
 /* Buttons generated by "First", "Last", "Index" */
 
-article.slide:target > nav a[rel="first"]::after,
-article.slide > nav a[rel="index"]::after,
-article.slide > nav a[rel="last"]::after {
+article.slide:target > nav:first-of-type a[rel="first"]::after,
+article.slide > nav:first-of-type a[rel="index"]::after,
+article.slide > nav:first-of-type a[rel="last"]::after {
 	position: fixed;
 	display: block;
 	margin: auto;
@@ -513,19 +508,19 @@ article.slide > nav a[rel="last"]::after {
 	text-align: center;
 }
 
-article.slide > nav a[rel="first"]::after {
+article.slide > nav:first-of-type a[rel="first"]::after {
 	content: "\21E4";
 	left: calc(50% - 75px);
 	bottom: 2%;
 }
 
-article.slide > nav a[rel="index"]::after {
+article.slide > nav:first-of-type a[rel="index"]::after {
 	content: "\2302";
 	left: calc(50% - 25px);
 	bottom: 2%;
 }
 
-article.slide > nav a[rel="last"]::after {
+article.slide > nav:first-of-type a[rel="last"]::after {
 	content: "\21E5";
 	left: calc(50% + 25px);
 	bottom: 2%;
@@ -533,10 +528,10 @@ article.slide > nav a[rel="last"]::after {
 
 /* Buttons generated by "Previous", "Next", "Bookmark", "Author" */
 
-article.slide > nav a[rel="prev"]::after,
-article.slide > nav a[rel="next"]::after,
-article.slide > nav a[rel="bookmark"]::after,
-article.slide > nav a[rel="author"]::after {
+article.slide > nav:first-of-type a[rel="prev"]::after,
+article.slide > nav:first-of-type a[rel="next"]::after,
+article.slide > nav:first-of-type a[rel="bookmark"]::after,
+article.slide > nav:first-of-type a[rel="author"]::after {
 	position: fixed;
 	display: block;
 	margin: auto;
@@ -546,7 +541,7 @@ article.slide > nav a[rel="author"]::after {
 	text-align: center;
 }
 
-article.slide > nav a[rel="prev"]::after {
+article.slide > nav:first-of-type a[rel="prev"]::after {
 	content: "\2039";
 	left: 20%;
 	top: 0;
@@ -554,7 +549,7 @@ article.slide > nav a[rel="prev"]::after {
 	font-size: 6em;
 }
 
-article.slide > nav a[rel="next"]::after {
+article.slide > nav:first-of-type a[rel="next"]::after {
 	content: "\203A";
 	right: 20%;
 	top: 0;
@@ -562,14 +557,14 @@ article.slide > nav a[rel="next"]::after {
 	font-size: 6em;
 }
 
-article.slide > nav a[rel="bookmark"]::after {
+article.slide > nav:first-of-type a[rel="bookmark"]::after {
 	content: "#";
 	right: 20%;
 	top: 10%;
 	font-size: 3.6em;
 }
 
-article.slide > nav a[rel="author"]::after {
+article.slide > nav:first-of-type a[rel="author"]::after {
 	content: "@";
 	right: 20%;
 	bottom: 10%;
@@ -626,8 +621,28 @@ article.slide h3 {
 
 article.slide article,
 article.slide section {
-	text-align: justify;
 	overflow: auto !important;
+}
+
+article.slide > :not(nav):not(header):not(footer):not(aside) ~ h1,
+article.slide > * h1,
+article.slide > :not(nav):not(header):not(footer):not(aside) ~ h2,
+article.slide > * h2,
+article.slide > :not(nav):not(header):not(footer):not(aside) ~ h3,
+article.slide > * h3,
+article.slide > :not(nav):not(header):not(footer):not(aside) ~ h4,
+article.slide > * h4,
+article.slide > :not(nav):not(header):not(footer):not(aside) ~ h5,
+article.slide > * h5,
+article.slide > :not(nav):not(header):not(footer):not(aside) ~ h6,
+article.slide > * h6,
+article.slide > :not(nav):not(header):not(footer):not(aside) ~ p,
+article.slide > * p {
+	margin: .5em 0 !important;
+}
+
+article.slide p {
+	text-align: justify;
 }
 
 article.slide > article,
@@ -729,6 +744,7 @@ article.slide button {
 	border: 1px #ffffff solid;
 	color: #ffffff;
 }
+
 
 	          /**\
 	         /*  *\

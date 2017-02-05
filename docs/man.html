@@ -45,7 +45,7 @@
 <h3>Children elements</h3>
 <ul>
 <li>Direct children of the viewport:<ol>
-<li>The first <code>&lt;nav&gt;</code> element found to be <em>direct child</em> of the slide will be placed on the left side of the viewport. In order to avoid confusion, <em>further <code>&lt;nav&gt;</code> elements found to be direct children of the slide will be hidden &ndash; while <code>&lt;nav&gt;</code> elements non directly children of the slide <em> (i.e., sub-children)</em> will be normally displayed</em>.</li>
+<li>The first <code>&lt;nav&gt;</code> element found to be <em>direct child</em> of the slide will be placed on the left side of the viewport. Other <code>&lt;nav&gt;</code> direct children will be normally displayed within the flow body of the main parent (i.e., on the right side, see below).</li>
 <li>The first <code>&lt;header&gt;</code> element found to be <em>direct child</em> of the slide will be placed on the top side of the viewport. Other <code>&lt;header&gt;</code> direct children will be normally displayed within the flow body of the main parent (i.e., on the right side, see below).</li>
 <li>The first <code>&lt;footer&gt;</code> element found to be <em>direct child</em> of the slide will be placed on the bottom-right corner of the viewport. Other <code>&lt;footer&gt;</code> direct children will be displayed normally within the flow body of the main parent (i.e., on the right side, see below).</li>
 <li>The first <code>&lt;aside&gt;</code> element found to be <em>direct child</em> of the slide will be placed on the bottom-left corner of the viewport. Other <code>&lt;aside&gt;</code> direct children will be displayed normally within the flow body of the main parent (i.e., on the right side, see below)..</li>
@@ -61,10 +61,10 @@
 <li><code>article.slide &gt; nav:first-of-type a[rel="last"]</code> will be accompained by the label &ldquo;Last slide&rdquo;</li>
 <li><code>article.slide &gt; nav:first-of-type a[rel="bookmark"]</code> will be accompained by the label &ldquo;Share it!&rdquo;</li>
 <li><code>article.slide &gt; nav:first-of-type a[rel="author"]</code> will be accompained by the label &ldquo;Author&rdquo;</li>
-<li><code>article.slide &gt; nav:first-of-type a[rel="up"],</code> will be accompained by the label &ldquo;Back to&rdquo; and showed in background</li>
-<li><code><em>leeloo</em> a[rel="up"]:empty</code> will be accompained by the label &ldquo;Click to exit&rdquo; and showed in background</li>
+<li><code>article.slide &gt; nav:first-of-type a[rel="up"],</code> will be showed in background and accompanied by the label &ldquo;Back to&rdquo; when not empty, or by the label &ldquo;Click to exit&rdquo; when empty</li>
+<li><code><em>leeloo</em> a[rel="up"]:empty</code> will entirely cover the <code><em>&lt;leeeloo&gt;</em></code> element</li>
 </ol>Custom labels can replace the default labels by setting a <code>data-label</code> attribute on the link. Furthermore, it is possible to remove the default labels by assigning the <code>"no-label"</code> class &ndash; as in: <code>&lt;a href="#sample-photo" rel="next" <span style="background-color: #ffff00;">class="no-label"</span>&gt;Sample photo&lt;/a&gt;</code>.</li>
-<li>Each of the elements matching the previous selectors can be omitted (but either #8 or #9 should not be omitted); when present, it is very important that each of them occur <strong>only once for each slide</strong>. Additional duplications of the above cited <code>a[rel="..."]</code> elements, but placed elsewhere (e.g.: <code>article.slide &gt; div a[rel="up"]</code>), are not relevant and can exist. All the previous 9 elements (note: also elements #8 and #9) can cohabitate together.</li>
+<li>Each of the elements matching the previous selectors can be omitted (but either #8 or #9 should not be omitted); when present, it is very important that each of them occur <strong>only once for each slide's main <code>&lt;nav&gt;</code></strong>. Additional duplications of the above cited <code>a[rel="..."]</code> elements, but placed elsewhere (e.g.: <code>article.slide &gt; div a[rel="up"]</code>), are not relevant and can exist. All the previous 9 elements (note: also elements #8 and #9) can cohabitate together.</li>
 <li>All other sub-children will be displayed normally.</li>
 </ol></li>
 </ul>
@@ -121,6 +121,7 @@
 </table>
 <h3>Notes</h3>
 <ul>
+<li>The code focuses on the semantics aspects of HTML5 (i.e., how a slide can be naturally declared), while the graphical result can be improved and eventually released under the terms of the GPL3.</li>
 <li>For learning more about the <code>itemscope</code> attribute and HTML5 microdata, please visit <a href="http://schema.org/" target="_blank">schema.org</a>. For a list of the known <code>rel</code> attributes, please visit <a href="https://www.w3.org/wiki/HTML/Elements/link#HTML_Attributes" target="_blank">this page</a>.</li>
 <li>It is possible to prevent the hashtag from being displayed in the viewport by using the class <code>"no-hashtag"</code> &ndash; as in <code>&lt;article itemscope class="slide <span style="background-color: #ffff00;">no-hashtag</span>" id="my-hash-name"&gt; &hellip; &lt;/article&gt;</code>.</li>
 <li>The special link <code>a[rel="up"]</code> complies with the following rule:
@@ -131,7 +132,7 @@
 <ul>
 <li>it is inside the <code><em>&lt;leeloo&gt;</em></code> element but <em>is not empty</em>,</li>
 <li>or it is outside both the <code>&lt;nav&gt;</code> and the <code><em>&lt;leeloo&gt;</em></code> elements (empty or not empty),</li>
-<li>or&nbsp;<code>a[rel="up"]</code> *is* the <code><em>&lt;leeloo&gt;</em></code> element iself &ndash; very unlikely...</li>
+<li>or <code>a[rel="up"]</code> *is* the <code><em>&lt;leeloo&gt;</em></code> element iself &ndash; very unlikely...</li>
 </ul>
 then &rArr; it will be ignored by this CSS and will be normally displayed.</li>
 </ul>
