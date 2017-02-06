@@ -2,43 +2,125 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Take five! pure-CSS slide renderer</title>
 <link rel="stylesheet" type="text/css" href="css/takefive_min.css" media="screen">
-<style>
+<title>Take five! pure-CSS slide renderer</title>
+<style type="text/css">
+@page {
+	margin: 1.5cm 1.1cm;
+}
 
-	form[name="contact-form"]:invalid .if_valid,
-	form[name="contact-form"]:valid .if_invalid {
-		display: none;
-	}
+body {
+	background: white;
+	background-position: top left;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	color: black;
+	counter-reset: exampleno figure issue;
+	font-family: sans-serif;
+	line-height: 1.5;
+	margin: 0 auto;
+	max-width: 50em;
+	padding: 2em 1em 2em 70px;
+}
 
+h1, h2, h3, h4, h5, h6 {
+	page-break-after: avoid;
+}
+
+h1, h2, h3 {
+	color: #005A9C;
+}
+
+h1 {
+	font: 170% sans-serif;
+}
+
+h2 {
+	font: 140% sans-serif;
+}
+
+h3 {
+	font: 120% sans-serif;
+}
+
+h4 {
+	font: bold 100% sans-serif;
+}
+
+h5 {
+	font: italic 100% sans-serif;
+}
+
+h6 {
+	font: small-caps 100% sans-serif;
+}
+
+h2, h3, h4, h5, h6 {
+	margin-top: 3em;
+}
+
+h1 + h2 {
+	margin-top: 0em;
+}
+
+h2 + h3, h3 + h4, h4 + h5, h5 + h6 {
+	margin-top: 1.2em;
+}
+
+ul, ol {
+	margin-left: 0;
+	padding-left: 2em;
+}
+
+a[href], a[href].visited {
+	color: inherit;
+	border-bottom: 1px solid silver;
+
+}
+
+a[href]:hover {
+	background: #ffffaa;
+}
+
+a[href]:active {
+	color: #cc0000;
+	background: transparent;
+}
+
+form:invalid .if_valid,
+form:valid .if_invalid {
+	display: none;
+}
+
+article.slide {
+	line-height: initial !important;
+}
 </style>
 <style type="text/css" media="print">
+a {
+	color: #000000;
+	text-decoration: none;
+}
 
-	a {
-		color: #000000;
-		text-decoration: none;
-	}
+a[href^="http"]::after {
+	content: "(" attr(href) ")";
+	vertical-align: super;
+	font-size: x-small;
+}
 
-	a[href^="http"]::after {
-		content: "(" attr(href) ")";
-		vertical-align: super;
-		font-size: x-small;
-	}
+nav, aside {
+	display: none;
+}
 
-	nav, aside {
-		display: none;
-	}
-
-	article.slide {
-		background-color: #ffffff;
-		color: #000000;
-		font-family: serif;
-		text-align: justify;
-		page-break-before: always;
-		page-break-after: always;
-		page-break-inside: avoid;
-	}
-
+article.slide {
+	background-color: #ffffff;
+	color: #000000;
+	font-family: serif;
+	text-align: justify;
+	page-break-before: always;
+	page-break-after: always;
+	page-break-inside: avoid;
+}
 </style>
 <script type="text/javascript">
 	function printById (sId) {
@@ -53,14 +135,10 @@
 
 <body>
 
-
 <h1>Take five!</h1>
 <h5>A stand-alone, semantically-consistent, microdata-oriented, pure-CSS slide renderer.</h5>
 
-
-<p style="text-align: center; font-size: 2em;">
-	<a href="#my-gallery">I want to see the demo</a>
-</p>
+<p style="text-align: center; font-size: 2em;"><a href="#my-gallery">I want to see the demo</a></p>
 
 <nav>
 	<h3>Table of contents</h3>
@@ -82,16 +160,14 @@
 	</ol>
 </nav>
 
-<p style="text-align: center; font-size: 2em;">
-	<a href="man.html">I want to read the manual</a>
-</p>
+<p style="text-align: center; font-size: 2em;"><a href="man.html">I want to read the manual</a></p>
 
 <section itemscope itemtype="http://schema.org/ImageGallery">
 
 	<article class="slide" id="my-gallery" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/SiteNavigationElement">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
-			<a href="#quotation-example" rel="next" data-label="First slide">Get started!</a>
+			<a href="#quotation-example" rel="next" data-label="First slide"></a>
 			<a href="#example-photo-1" rel="first">Example photo #1</a>
 			<a href="#audio-example" rel="last">Embedded audio example</a>
 			<a href="#my-gallery" rel="bookmark" itemprop="url">Take five! live demo</a>
@@ -177,7 +253,7 @@
 		<blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning. <cite>Albert Einstein</cite></blockquote>
 	</article>
 
-	<article class="slide" id="example-photo-1" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-photo-1" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -197,7 +273,7 @@
 		</figure>
 	</article>
 
-	<article class="slide" id="example-photo-2" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-photo-2" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
 		<header>
 			<h1>Slide 2 of 10</h1>
 		</header>
@@ -218,7 +294,7 @@
 		</figure>
 	</article>
 
-	<article class="slide" id="example-photo-3" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-photo-3" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -240,7 +316,7 @@
 		<footer>This is the <code>&lt;footer&gt;</code> element.</footer>
 	</article>
 
-	<article class="slide" id="example-photo-4" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-photo-4" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -262,7 +338,7 @@
 		<aside>This is the <code>&lt;aside&gt;</code> element.</aside>
 	</article>
 
-	<article class="slide" id="example-photo-5" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-photo-5" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -284,7 +360,7 @@
 		<p>Here goes the rest of the content&hellip;</p>
 		<article>
 			<h3>Lorem ipsum</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis libero et nulla ultricies, vitae interdum diam vestibulum. Sed ut convallis est, ac tristique turpis. Fusce ipsum est, fermentum in facilisis imperdiet, tincidunt ac justo. Nunc quis tortor sed nunc ornare ornare. Nullam accumsan ipsum risus, sed auctor enim varius eu. In ipsum sem, suscipit eget tortor nec, laoreet auctor metus. Integer quis erat nisl. In hac habitasse platea dictumst. Phasellus a finibus libero. Etiam lacus elit, tempor nec elit eu, bibendum dignissim magna. Vestibulum felis ante, imperdiet quis cursus ac, rutrum a nisl. Ut finibus accumsan augue condimentum suscipit.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis libero et nulla ultricies, vitae interdum diam vestibulum. Sed ut convallis est, ac tristique turpis. Fusce ipsum est, fermentum in facilisis imperdiet, tincidunt ac justo. Nunc quis tortor sed nunc ornare ornare. Nullam accumsan ipsum risus, sed auctor enim varius eu. In ipsum sem, suscipit eget tortor nec, laoreet auctor metus. Integer quis erat nisl. In hac habitasse platea dictumst. Phasellus a finibus libero. Etiam lacus elit, tempor nec elit eu, bibendum dignissim magna.</p>
 		</article>
 		<aside>
 			<p>This presentation is powered by <a href="https://github.com/madmurphy/takefive.css" target="_blank">Take five!</a> pure-CSS slide renderer.</p>
@@ -294,7 +370,7 @@
 		</footer>
 	</article>
 
-	<article class="slide" id="example-photo-6" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-photo-6" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -318,7 +394,7 @@
 		</footer>
 	</article>
 
-	<article class="slide" id="example-photo-7" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-photo-7" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -344,7 +420,7 @@
 		</aside>
 	</article>
 
-	<article class="slide" id="video-example" itemscope itemtype="https://schema.org/VideoObject">
+	<article class="slide" id="video-example" itemprop="video" itemscope itemtype="https://schema.org/VideoObject">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -365,7 +441,7 @@
 		</figure>
 	</article>
 
-	<article class="slide" id="youtube-example" itemscope itemtype="https://schema.org/VideoObject">
+	<article class="slide" id="youtube-example" itemprop="video" itemscope itemtype="https://schema.org/VideoObject">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -386,7 +462,7 @@
 		</figure>
 	</article>
 
-	<article class="slide" id="audio-example" itemscope itemtype="https://schema.org/AudioObject">
+	<article class="slide" id="audio-example" itemprop="audio" itemscope itemtype="https://schema.org/AudioObject">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -401,7 +477,7 @@
 			<h1>Slide 10 of 10</h1>
 		</header>
 		<figure>
-			<audio src="https://upload.wikimedia.org/wikipedia/commons/9/90/Erik_Satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg" controls="controls" itemprop="audio">><p>Sorry, your browser doesn't support embedded audio, but don't worry, you can <a href="https://upload.wikimedia.org/wikipedia/commons/9/90/Erik_Satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg">download it</a> and listen to it with your favorite video player!</p></audio>
+			<audio src="https://upload.wikimedia.org/wikipedia/commons/9/90/Erik_Satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg" controls="controls" itemprop="audio"><p>Sorry, your browser doesn't support embedded audio, but don't worry, you can <a href="https://upload.wikimedia.org/wikipedia/commons/9/90/Erik_Satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg">download it</a> and listen to it with your favorite video player!</p></audio>
 			<figcaption itemprop="caption">Erik Satie, <em>Gymnopedies</em> &ndash; La 1ere. Lent et douloureux</figcaption>
 		</figure>
 	</article>
@@ -418,7 +494,8 @@
 			<a href="#example-gallery-about" rel="bookmark" itemprop="url">About</a>
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
 			<a href="#example-gallery-contact-me" data-label="Contact">Leave me a message</a>
-			<a href="http://www.example.com/">Custom link</a>		</nav>
+			<a href="http://www.example.com/">Custom link</a>
+		</nav>
 		<article itemprop="articleBody">
 			<h1>About</h1>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis libero et nulla ultricies, vitae interdum diam vestibulum. Sed ut convallis est, ac tristique turpis. Fusce ipsum est, fermentum in facilisis imperdiet, tincidunt ac justo. Nunc quis tortor sed nunc ornare ornare. Nullam accumsan ipsum risus, sed auctor enim varius eu. In ipsum sem, suscipit eget tortor nec, laoreet auctor metus. Integer quis erat nisl. In hac habitasse platea dictumst. Phasellus a finibus libero. Etiam lacus elit, tempor nec elit eu, bibendum dignissim magna. Vestibulum felis ante, imperdiet quis cursus ac, rutrum a nisl. Ut finibus accumsan augue condimentum suscipit. Nullam velit eros, eleifend nec maximus eget, venenatis vestibulum erat.</p>
@@ -445,7 +522,7 @@
 		</aside>
 	</article>
 
-	<article class="slide" id="example-gallery-contact-me" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-gallery-contact-me" itemscope itemtype="http://schema.org/Text">
 		<nav>
 			<a href="#nowhere" rel="up">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>

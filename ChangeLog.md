@@ -1,11 +1,12 @@
 # Change Log
 
-## [1.1.1] - 2017-02-05
+## [1.1.1] - 2017-02-06
 
 Changes:
 
+* Style of some general HTML elements
 * Margins of text containers (&lt;p&gt;, &lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, etc.)
-* Documentation
+* Improved documentation and demo
 
 ## [1.1.0] - 2017-02-03
 

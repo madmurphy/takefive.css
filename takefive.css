@@ -27,17 +27,17 @@ article.slide {
 	top: 0;
 	left: 0;
 	visibility: hidden;
+	box-sizing: border-box;
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0,0,0,.9);
 	opacity: 0;
-	box-sizing: border-box;
+	padding: 67px 12px 50px 83%;
+	overflow: hidden;
 	color: #ffffff;
 	font-family: report, courier, monospace;
 	font-size: .75em;
 	transition: visibility 0s .5s, opacity .5s linear;
-	padding: 67px 12px 50px 83%;
-	overflow: hidden;
 }
 
 article.slide:target {
@@ -73,10 +73,15 @@ article.slide:not(.no-hashtag):target::after {
 |*|
 \*/
 
-article.slide a {
-	color: #ffffff;
+article.slide a[href], 
+article.slide a[href]:hover,
+article.slide a[href]:active,
+article.slide a[href]:visited {
+	color: inherit;
 	text-decoration: none;
 	font-weight: bold;
+	background: transparent;
+	border: none;
 }
 
 article.slide hr {
@@ -264,7 +269,7 @@ article.slide > aside:first-of-type {
 
 /* Navigation links */
 
-article.slide > nav:first-of-type a {
+article.slide > nav:first-of-type a[href] {
 	display: block;
 	box-sizing: border-box;
 	font-weight: normal;
@@ -272,22 +277,22 @@ article.slide > nav:first-of-type a {
 
 	/*****************************************
 
-	:: Special links: the a[rel="up"] link... ::
+	:: Special links: the a[href][rel="up"] link... ::
 
 	THE RULE IS THE FOLLOWING:
 
-	(Cond. 1.) If a[rel="up"] is inside a <nav> element:
+	(Cond. 1.) If a[href][rel="up"] is inside a <nav> element:
 
 		--> it will be shown on the top-right corner; a transparent, clickable, fixed,
 		    full-screen layer will be created.
 
-	(Cond. 2.) If a[rel="up"] is inside the <leeloo> element and is EMPTY:
+	(Cond. 2.) If a[href][rel="up"] is inside the <leeloo> element and is EMPTY:
 
 		--> a transparent clickable layer will cover the whole (and only) <leeloo> element.
 
-	(Cond. 3.) If a[rel="up"] is inside the <leeloo> element but is NOT EMPTY,
-	(Cond. 4.) or if a[rel="up"] is outside both the <nav> and the <leeloo> elements (empty or not empty),
-	(Cond. 5.) or if a[rel="up"] *is* <leeloo> -- very unlikely...:
+	(Cond. 3.) If a[href][rel="up"] is inside the <leeloo> element but is NOT EMPTY,
+	(Cond. 4.) or if a[href][rel="up"] is outside both the <nav> and the <leeloo> elements (empty or not empty),
+	(Cond. 5.) or if a[href][rel="up"] *is* <leeloo> -- very unlikely...:
 
 		--> it will be ignored by this CSS.
 
@@ -295,7 +300,7 @@ article.slide > nav:first-of-type a {
 
 /* (Cond. 1.) */
 
-article.slide > nav:first-of-type a[rel="up"] {
+article.slide > nav:first-of-type a[href][rel="up"] {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -313,7 +318,7 @@ article.slide > nav:first-of-type a[rel="up"] {
 	transition: 1s color;
 }
 
-article.slide > nav:first-of-type a[rel="up"]:hover {
+article.slide > nav:first-of-type a[href][rel="up"]:hover {
 	color: inherit;
 }
 
@@ -321,7 +326,7 @@ article.slide > nav:first-of-type a[rel="up"]:hover {
 
 /* This is a really special case */
 
-article.slide > :not(nav):not(header):not(footer):not(aside) a[rel="up"]:empty::before {
+article.slide > :not(nav):not(header):not(footer):not(aside) a[href][rel="up"]:empty::before {
 /*
 	:: whatever you set here, unless you want differently, please
 	   restore it in the unset place `@leeloo_exit_layer`! ::
@@ -338,8 +343,8 @@ article.slide > :not(nav):not(header):not(footer):not(aside) a[rel="up"]:empty::
 	z-index: 11118;
 }
 
-article.slide > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside) a[rel="up"]:empty::before,
-article.slide > :not(nav):not(header):not(footer):not(aside) a[rel="up"]:empty ~ a[rel="up"]:empty::before {
+article.slide > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside) a[href][rel="up"]:empty::before,
+article.slide > :not(nav):not(header):not(footer):not(aside) a[href][rel="up"]:empty ~ a[href][rel="up"]:empty::before {
 /*
 	--> unset place: `@leeloo_exit_layer`
 */
@@ -357,9 +362,9 @@ article.slide > :not(nav):not(header):not(footer):not(aside) a[rel="up"]:empty ~
 
 /* End of special case */
 
-/* All links but a[rel="up"]... */
+/* All links but a[href][rel="up"]... */
 
-article.slide > nav:first-of-type a:not([rel="up"]):empty {
+article.slide > nav:first-of-type a[href]:not([rel="up"]):empty {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -367,9 +372,10 @@ article.slide > nav:first-of-type a:not([rel="up"]):empty {
 	height: 0;
 	margin: 0;
 	padding: 0;
+	z-index: 11116;
 }
 
-article.slide > nav:first-of-type a:not([rel="up"]):not(:empty) {
+article.slide > nav:first-of-type a[href]:not([rel="up"]):not(:empty) {
 	position: relative;
 	width: calc(100% + 12px);
 	top: 0;
@@ -388,28 +394,28 @@ article.slide > nav:first-of-type a:not([rel="up"]):not(:empty) {
 
 /* <nav>'s links "ease in/out" animation */
 
-article.slide > nav:first-of-type a:not([rel="up"]):not(:empty):hover {
+article.slide > nav:first-of-type a[href]:not([rel="up"]):not(:empty):hover {
 	left: -12px;
 }
 
 /* Labels for semantic links... */
 
-article.slide > nav:first-of-type a[rel]:not(.no-label):not(:empty)::before,
-article.slide > nav:first-of-type a[data-label]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][rel]:not(.no-label):not(:empty)::before,
+article.slide > nav:first-of-type a[href][data-label]:not(.no-label):not(:empty)::before {
 	/* Here are the properties shared between of ALL the labels of <nav>'s links... */
-	/* Remember that a[rel="up"] will be placed on the top-right corner! */
+	/* Remember that a[href][rel="up"] will be placed on the top-right corner! */
 	display: block;
 	text-align: right;
 	font-size: smaller;
 	font-style: normal;
 }
 
-/* Uncomment the following markup if you want to style the labels of all <nav>'s links but a[rel="up"] */
+/* Uncomment the following markup if you want to style the labels of all <nav>'s links but a[href][rel="up"] */
 
 /*
 
-article.slide > nav:first-of-type a:not([rel="up"])[rel]:not(.no-label):not(:empty)::before,
-article.slide > nav:first-of-type a:not([rel="up"])[data-label]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href]:not([rel="up"])[rel]:not(.no-label):not(:empty)::before,
+article.slide > nav:first-of-type a[href]:not([rel="up"])[data-label]:not(.no-label):not(:empty)::before {
 	background-color: red;
 }
 
@@ -417,51 +423,51 @@ article.slide > nav:first-of-type a:not([rel="up"])[data-label]:not(.no-label):n
 
 /* Unknown "rel" attributes */
 
-article.slide > nav:first-of-type a[rel]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][rel]:not(.no-label):not(:empty)::before {
 	content: "[" attr(rel) "]";
 }
 
 /* Known "rel" attributes */
 
-article.slide > nav:first-of-type a[rel="up"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][rel="up"]:not(.no-label):not(:empty)::before {
 	content: "Back to:";
 }
 
-article.slide > nav:first-of-type a[rel="up"]:not(.no-label):empty::before {
+article.slide > nav:first-of-type a[href][rel="up"]:not(.no-label):empty::before {
 	content: "Click to exit";
 }
 
-article.slide > nav:first-of-type a[rel="index"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][rel="index"]:not(.no-label):not(:empty)::before {
 	content: "Index";
 }
 
-article.slide > nav:first-of-type a[rel="first"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][rel="first"]:not(.no-label):not(:empty)::before {
 	content: "First slide";
 }
 
-article.slide > nav:first-of-type a[rel="prev"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][rel="prev"]:not(.no-label):not(:empty)::before {
 	content: "Previous slide";
 }
 
-article.slide > nav:first-of-type a[rel="next"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][rel="next"]:not(.no-label):not(:empty)::before {
 	content: "Next slide";
 }
 
-article.slide > nav:first-of-type a[rel="last"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][rel="last"]:not(.no-label):not(:empty)::before {
 	content: "Last slide";
 }
 
-article.slide > nav:first-of-type a[rel="bookmark"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][rel="bookmark"]:not(.no-label):not(:empty)::before {
 	content: "Share it!";
 }
 
-article.slide > nav:first-of-type a[rel="author"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][rel="author"]:not(.no-label):not(:empty)::before {
 	content: "Author";
 }
 
 /* User-set labels */
 
-article.slide > nav:first-of-type a[data-label]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][data-label]:not(.no-label):not(:empty)::before {
 	content: attr(data-label) !important;
 }
 
@@ -469,7 +475,7 @@ article.slide > nav:first-of-type a[data-label]:not(.no-label):not(:empty)::befo
 
 /* "Exit" */
 
-article.slide > nav:first-of-type a[rel="up"]::after {
+article.slide > nav:first-of-type a[href][rel="up"]::after {
 	content: "\00D7";
 	position: fixed;
 	display: block;
@@ -489,15 +495,15 @@ article.slide > nav:first-of-type a[rel="up"]::after {
 	transition: 1s top;
 }
 
-article.slide:target > nav:first-of-type a[rel="up"]::after {
+article.slide:target > nav:first-of-type a[href][rel="up"]::after {
 	top: 0;
 }
 
 /* Buttons generated by "First", "Last", "Index" */
 
-article.slide:target > nav:first-of-type a[rel="first"]::after,
-article.slide > nav:first-of-type a[rel="index"]::after,
-article.slide > nav:first-of-type a[rel="last"]::after {
+article.slide:target > nav:first-of-type a[href][rel="first"]::after,
+article.slide > nav:first-of-type a[href][rel="index"]::after,
+article.slide > nav:first-of-type a[href][rel="last"]::after {
 	position: fixed;
 	display: block;
 	margin: auto;
@@ -508,19 +514,19 @@ article.slide > nav:first-of-type a[rel="last"]::after {
 	text-align: center;
 }
 
-article.slide > nav:first-of-type a[rel="first"]::after {
+article.slide > nav:first-of-type a[href][rel="first"]::after {
 	content: "\21E4";
 	left: calc(50% - 75px);
 	bottom: 2%;
 }
 
-article.slide > nav:first-of-type a[rel="index"]::after {
+article.slide > nav:first-of-type a[href][rel="index"]::after {
 	content: "\2302";
 	left: calc(50% - 25px);
 	bottom: 2%;
 }
 
-article.slide > nav:first-of-type a[rel="last"]::after {
+article.slide > nav:first-of-type a[href][rel="last"]::after {
 	content: "\21E5";
 	left: calc(50% + 25px);
 	bottom: 2%;
@@ -528,10 +534,10 @@ article.slide > nav:first-of-type a[rel="last"]::after {
 
 /* Buttons generated by "Previous", "Next", "Bookmark", "Author" */
 
-article.slide > nav:first-of-type a[rel="prev"]::after,
-article.slide > nav:first-of-type a[rel="next"]::after,
-article.slide > nav:first-of-type a[rel="bookmark"]::after,
-article.slide > nav:first-of-type a[rel="author"]::after {
+article.slide > nav:first-of-type a[href][rel="prev"]::after,
+article.slide > nav:first-of-type a[href][rel="next"]::after,
+article.slide > nav:first-of-type a[href][rel="bookmark"]::after,
+article.slide > nav:first-of-type a[href][rel="author"]::after {
 	position: fixed;
 	display: block;
 	margin: auto;
@@ -541,7 +547,7 @@ article.slide > nav:first-of-type a[rel="author"]::after {
 	text-align: center;
 }
 
-article.slide > nav:first-of-type a[rel="prev"]::after {
+article.slide > nav:first-of-type a[href][rel="prev"]::after {
 	content: "\2039";
 	left: 20%;
 	top: 0;
@@ -549,7 +555,7 @@ article.slide > nav:first-of-type a[rel="prev"]::after {
 	font-size: 6em;
 }
 
-article.slide > nav:first-of-type a[rel="next"]::after {
+article.slide > nav:first-of-type a[href][rel="next"]::after {
 	content: "\203A";
 	right: 20%;
 	top: 0;
@@ -557,14 +563,14 @@ article.slide > nav:first-of-type a[rel="next"]::after {
 	font-size: 6em;
 }
 
-article.slide > nav:first-of-type a[rel="bookmark"]::after {
+article.slide > nav:first-of-type a[href][rel="bookmark"]::after {
 	content: "#";
 	right: 20%;
 	top: 10%;
 	font-size: 3.6em;
 }
 
-article.slide > nav:first-of-type a[rel="author"]::after {
+article.slide > nav:first-of-type a[href][rel="author"]::after {
 	content: "@";
 	right: 20%;
 	bottom: 10%;
@@ -607,42 +613,9 @@ article.slide:target iframe {
 
 /* Text content */
 
-article.slide h1 {
-	font-size: 1.2em !important;
-}
-
-article.slide h2 {
-	font-size: 1.1em !important;
-}
-
-article.slide h3 {
-	font-size: 1.05em !important;
-}
-
 article.slide article,
 article.slide section {
 	overflow: auto !important;
-}
-
-article.slide > :not(nav):not(header):not(footer):not(aside) ~ h1,
-article.slide > * h1,
-article.slide > :not(nav):not(header):not(footer):not(aside) ~ h2,
-article.slide > * h2,
-article.slide > :not(nav):not(header):not(footer):not(aside) ~ h3,
-article.slide > * h3,
-article.slide > :not(nav):not(header):not(footer):not(aside) ~ h4,
-article.slide > * h4,
-article.slide > :not(nav):not(header):not(footer):not(aside) ~ h5,
-article.slide > * h5,
-article.slide > :not(nav):not(header):not(footer):not(aside) ~ h6,
-article.slide > * h6,
-article.slide > :not(nav):not(header):not(footer):not(aside) ~ p,
-article.slide > * p {
-	margin: .5em 0 !important;
-}
-
-article.slide p {
-	text-align: justify;
 }
 
 article.slide > article,
@@ -662,8 +635,57 @@ article.slide > :not(nav):not(header):not(footer):not(aside) ~ section {
 	padding: initial;
 }
 
-article.slide p, article.slide ol, article.slide ul {
-	margin: 12px 0;
+article.slide > :not(nav):not(header):not(footer):not(aside) ~ h1,
+article.slide > * h1,
+article.slide > :not(nav):not(header):not(footer):not(aside) ~ h2,
+article.slide > * h2,
+article.slide > :not(nav):not(header):not(footer):not(aside) ~ h3,
+article.slide > * h3,
+article.slide > :not(nav):not(header):not(footer):not(aside) ~ h4,
+article.slide > * h4,
+article.slide > :not(nav):not(header):not(footer):not(aside) ~ h5,
+article.slide > * h5,
+article.slide > :not(nav):not(header):not(footer):not(aside) ~ h6,
+article.slide > * h6,
+article.slide > :not(nav):not(header):not(footer):not(aside) ~ p,
+article.slide > * p,
+article.slide > :not(nav):not(header):not(footer):not(aside) ~ ol,
+article.slide > * ol,
+article.slide > :not(nav):not(header):not(footer):not(aside) ~ ul,
+article.slide > * ul {
+	margin: .5em 0 !important;
+}
+
+article.slide article,
+article.slide section,
+article.slide h1,
+article.slide h2,
+article.slide h3,
+article.slide h4,
+article.slide h5,
+article.slide h6,
+article.slide p {
+	font-family: inherit;
+	color: inherit;
+}
+
+article.slide h1 {
+	font-size: 1.2em !important;
+	font-weight: bold;
+}
+
+article.slide h2 {
+	font-size: 1.1em !important;
+	font-weight: bold;
+}
+
+article.slide h3 {
+	font-size: 1.05em !important;
+	font-weight: bold;
+}
+
+article.slide p {
+	text-align: justify;
 }
 
 article.slide blockquote {
