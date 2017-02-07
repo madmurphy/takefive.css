@@ -10,7 +10,7 @@
 
 	<p style="text-align: center; font-size: 2em;"><a href="#item-1">Nested galleries</a></p>
 
-	<section>
+	<section itemscope itemtype="http://schema.org/ImageGallery">
 		<article id="item-1" class="slide" itemscope itemtype="http://schema.org/ImageObject">
 			<nav>
 				<a href="#nowhere" rel="up">My diary</a>
@@ -19,10 +19,10 @@
 			<header>
 				<h1>Item #1</h1>
 			</header>
-			<img src="images/1.jpg" itemprop="image" alt="Photo of the day" />
-			<p><a href="#item-1-1">Visit this gallery</a></p>
+			<img src="images/1.jpg" itemprop="image" alt="Sample image" itemprop="image" />
+			<p><a href="#item-1-1">Visit the nested gallery</a></p>
 		</article>
-		<section>
+		<section itemscope itemtype="http://schema.org/ImageGallery">
 			<article id="item-1-1" class="slide" itemscope itemtype="http://schema.org/ImageObject">
 				<nav>
 					<a href="#item-1" rel="up">Item #1</a>
@@ -31,20 +31,8 @@
 				<header>
 					<h1>Item #1.1</h1>
 				</header>
-				<img src="images/2.jpg" itemprop="image"  alt="Photo of the day" />
-				<p><a href="#item-1-1-1">Visit this gallery</a></p>
+				<img src="images/4.jpg" itemprop="image" alt="Sample image" itemprop="image" />
 			</article>
-			<section>
-				<article id="item-1-1-1" class="slide" itemscope itemtype="http://schema.org/ImageObject">
-					<nav>
-						<a href="#item-1-1" rel="up">Item #1.1</a>
-					</nav>
-					<header>
-						<h1>Item #1.1.1</h1>
-					</header>
-					<img src="images/3.jpg" itemprop="image" alt="Photo of the day" />
-				</article>
-			</section>
 			<article id="item-1-2" class="slide" itemscope itemtype="http://schema.org/ImageObject">
 				<nav>
 					<a href="#item-1" rel="up">Item #1</a>
@@ -53,8 +41,20 @@
 				<header>
 					<h1>Item #1.2</h1>
 				</header>
-				<img src="images/4.jpg" itemprop="image" alt="Photo of the day" />
+				<img src="images/2.jpg" itemprop="image" alt="Sample image" itemprop="image" />
+				<p><a href="#item-1-2-1">Visit the sub-nested gallery!</a></p>
 			</article>
+			<section itemscope itemtype="http://schema.org/ImageGallery">
+				<article id="item-1-2-1" class="slide" itemscope itemtype="http://schema.org/ImageObject">
+					<nav>
+						<a href="#item-1-2" rel="up">Item #1.2</a>
+					</nav>
+					<header>
+						<h1>Item #1.2.1</h1>
+					</header>
+					<img src="images/3.jpg" itemprop="image" alt="Sample image" itemprop="image" />
+				</article>
+			</section>
 		</section>
 		<article id="item-2" class="slide" itemscope itemtype="http://schema.org/ImageObject">
 			<nav>
@@ -64,7 +64,7 @@
 			<header>
 				<h1>Item #2</h1>
 			</header>
-			<img src="images/5.jpg" itemprop="image" alt="Photo of the day" />
+			<img src="images/5.jpg" itemprop="image" alt="Sample image" itemprop="image" />
 		</article>
 	</section>
 

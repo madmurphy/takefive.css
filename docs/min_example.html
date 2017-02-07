@@ -8,11 +8,13 @@
 
 <body>
 
-	<p style="text-align: center; font-size: 2em;"><a href="#photo_of_the_day">Photo of the day</a></p>
+	<p style="text-align: center; font-size: 2em;">
+		<a href="#photo_of_the_day">Photo of the day</a>
+	</p>
 
-	<article class="slide" id="photo_of_the_day">
+	<article class="slide" id="photo_of_the_day" itemscope itemtype="http://schema.org/ImageObject">
 		<nav><a href="#nowhere" rel="up"></a></nav>
-		<img src="images/1.jpg" alt="Photo of the day" />
+		<img src="images/1.jpg" alt="Photo of the day" itemprop="image" />
 	</article>
 
 	<p>This page is powered by <a href="https://madmurphy.github.io/takefive.css/" target="_blank">Take five!</a> pure-CSS slide renderer.</p>

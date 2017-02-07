@@ -37,6 +37,7 @@ article.slide {
 	color: #ffffff;
 	font-family: report, courier, monospace;
 	font-size: .75em;
+	z-index: 11109;
 	transition: visibility 0s .5s, opacity .5s linear;
 }
 
@@ -48,7 +49,7 @@ article.slide:target {
 
 /*\
 |*|
-|*|	An aimated hashtag at the bottom-right corner...
+|*|	An aimated hashtag at the right-bottom corner...
 |*|
 \*/
 
