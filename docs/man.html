@@ -12,9 +12,9 @@
 <h5>A stand-alone, semantically-consistent, microdata-oriented, pure-CSS slide renderer.</h5>
 <h2>Manual</h2>
 <h3>Introduction</h3>
-<p><a href="https://github.com/madmurphy/takefive.css" target="_blank"><strong>Take five!</strong></a> is a slide renderer written in pure CSS (no JavaScript required), orientated to the semantics of HTML (<a href="http://www.w3schools.com/html/html5_semantic_elements.asp" target="_blank">semantic nodes</a>, <a href="https://en.wikipedia.org/wiki/Microdata_(HTML)" target="_blank">HTML5 Microdata</a>). Before further reading, please consider to see the <a href="index.html">live demo</a>.</p>
+<p><a href="https://github.com/madmurphy/takefive.css" target="_blank"><strong>Take five!</strong></a> is a slide renderer written in pure CSS (no JavaScript required), oriented to the semantics of HTML (<a href="http://www.w3schools.com/html/html5_semantic_elements.asp" target="_blank">semantic nodes</a>, <a href="https://en.wikipedia.org/wiki/Microdata_(HTML)" target="_blank">HTML5 Microdata</a>). Before further reading, please consider to see the <a href="index.html">live demo</a>.</p>
 <h3>Getting started</h3>
-<p>For creating a slide with <strong>Take five!</strong>, all you need to do is to include <strong>takefive.css</strong> in your document, then use one of the following basic examples:</p>
+<p>For creating a slide with <strong>Take five!</strong>, all you need to do is to include <strong>takefive.css</strong> in your document, then use one of the following basic syntaxes:</p>
 <ul>
 <li>
 <pre class="example">&lt;article&nbsp;id="my_hash1" class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ffff00;">&lt;element-to-be-slided /&gt;</span><br />&lt;/article&gt;</pre>
@@ -23,10 +23,10 @@
 <pre class="example">&lt;article&nbsp;id="my_hash2" itemscope class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#nowhere" rel="up"&gt;&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ffff00;">&lt;element-to-be-slided /&gt;</span><br />&lt;/article&gt;</pre>
 </li>
 <li>
-<pre class="example">&lt;article&nbsp;id="my_hash3" itemscope class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ffff00;">&lt;element-to-be-slided /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#nowhere" rel="up"&gt;&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br />&lt;/article&gt;</pre>
+<pre class="example">&lt;article&nbsp;id="my_hash3" itemscope class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ffff00;">&lt;element-to-be-slided /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#nowhere" rel="up"&gt;My diary&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br />&lt;/article&gt;</pre>
 </li>
 <li>
-<pre class="example">&lt;article id="my_hash4" itemscope class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#nowhere" rel="up"&gt;My home&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#my_hash2" rel="prev"&gt;[previous slide name]&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#my_hash2" rel="next"&gt;[next slide name]&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;[title]&lt;/h1&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ffff00;">&lt;this-element-will-be-slided /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ff7777;">&lt;this-element-will-be-displayed-on-the-right-side-of-the-screen /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ff7777;">&lt;this-element-will-be-displayed-on-the-right-side-of-the-screen /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ff7777;">&lt;etc. /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;footer&gt;[footer]&lt;/footer&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;aside&gt;[aside]&lt;/aside&gt;<br />&lt;/article&gt;</pre>
+<pre class="example">&lt;article id="my_hash4" itemscope class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#nowhere" rel="up"&gt;My home page&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#my_hash2" rel="prev"&gt;[previous slide name]&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#my_hash2" rel="next"&gt;[next slide name]&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;[title]&lt;/h1&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ffff00;">&lt;this-element-will-be-slided /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ff7777;">&lt;this-element-will-be-displayed-on-the-right-side-of-the-screen /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ff7777;">&lt;this-element-will-be-displayed-on-the-right-side-of-the-screen /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ff7777;">&lt;etc. /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;footer&gt;[footer]&lt;/footer&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;aside&gt;[aside]&lt;/aside&gt;<br />&lt;/article&gt;</pre>
 </li>
 <li>etc.</li>
 </ul>
@@ -47,14 +47,14 @@
 <ul>
 <li>Direct children of the viewport:<ol>
 <li>The first <code>&lt;nav&gt;</code> element found to be <em>direct child</em> of the slide will be placed on the left side of the viewport. Other <code>&lt;nav&gt;</code> direct children will be normally displayed within the flow body of the main parent (i.e., on the right side, see below).</li>
-<li>The first <code>&lt;header&gt;</code> element found to be <em>direct child</em> of the slide will be placed on the top side of the viewport. Other <code>&lt;header&gt;</code> direct children will be normally displayed within the flow body of the main parent (i.e., on the right side, see below).</li>
-<li>The first <code>&lt;footer&gt;</code> element found to be <em>direct child</em> of the slide will be placed on the right-bottom corner of the viewport. Other <code>&lt;footer&gt;</code> direct children will be displayed normally within the flow body of the main parent (i.e., on the right side, see below).</li>
+<li>The first <code>&lt;header&gt;</code> element found to be <em>direct child</em> of the slide will be placed on the top side of the viewport. Other <code>&lt;header&gt;</code> direct children will be normally displayed within the flow body of the main parent (i.e., on the right side, see below) &ndash; but consider to use only one <code>&lt;header&gt;</code> element for each scoped parent.</li>
+<li>The first <code>&lt;footer&gt;</code> element found to be <em>direct child</em> of the slide will be placed on the right-bottom corner of the viewport. Other <code>&lt;footer&gt;</code> direct children will be displayed normally within the flow body of the main parent (i.e., on the right side, see below) &ndash; but consider to use only one <code>&lt;footer&gt;</code> element for each scoped parent.</li>
 <li>The first <code>&lt;aside&gt;</code> element found to be <em>direct child</em> of the slide will be placed on the left-bottom corner of the viewport. Other <code>&lt;aside&gt;</code> direct children will be displayed normally within the flow body of the main parent (i.e., on the right side, see below)..</li>
-<li>The first direct child found to be neither <code>&lt;nav&gt;</code>, nor <code>&lt;header&gt;</code>, nor <code>&lt;footer&gt;</code>, nor <code>&lt;aside&gt;</code> &ndash; i.e., CSS syntax: <code>:not(nav):not(header):not(footer):not(aside)</code> &ndash; will be placed at the center of the slide and will be considered the main content of the slide. <span style="background-color: #ffff00;"><strong>From now on, this will be called &ldquo;The Fifth Element&rdquo; or &ldquo;<span style="text-decoration: underline;">the <code>&lt;<em>leeloo</em>&gt;</code> element</span>&rdquo; (after Luc Besson's movie).</strong></span></li>
+<li>The first direct child found to be neither <code>&lt;nav&gt;</code>, nor <code>&lt;header&gt;</code>, nor <code>&lt;footer&gt;</code>, nor <code>&lt;aside&gt;</code> &ndash; i.e., CSS syntax: <code>:not(nav):not(header):not(footer):not(aside)</code> &ndash; will be placed at the center of the slide and considered to be the main content of the slide. <span style="background-color: #ffff00;"><strong>From now on, this will be called &ldquo;The Fifth Element&rdquo; or &ldquo;<span style="text-decoration: underline;">the <code>&lt;<em>leeloo</em>&gt;</code> element</span>&rdquo; (after <a href="https://en.wikipedia.org/wiki/The_Fifth_Element" target="_blank">Luc Besson's movie</a>).</strong></span></li>
 <li>Further direct children non matching the previous conditions will be displayed on the right side of the screen, in their normal order; the <code>overflow</code> property of this portion of the slide is set on <code>hidden</code>, so if you want a scrollable content you must create a scrollable container.</li>
 </ol></li>
 <li>Non-direct children (i.e., sub-children) of the viewport:<br /><ol>
-<li><code>&lt;a href="&hellip;"&gt;</code> elements direct children of the viewport's main <code>&lt;nav&gt;</code> will be considered as internal navigation links, and displayed on the left side of the viewport (with the exception of <code>a[rel="up"]</code>, see below). Within the main <code>&lt;nav&gt;</code> container, <strong>Take five!</strong> is sensitive to the <code>rel</code> attribute. In particular:<br /><ol>
+<li><code>&lt;a href="&hellip;"&gt;</code> elements children of the viewport's main <code>&lt;nav&gt;</code> will be considered as internal navigation links, and displayed on the left side of the viewport (with the exception of <code>a[rel="up"]</code>, see below). Within the main <code>&lt;nav&gt;</code> container, <strong>Take five!</strong> is sensitive to the <code>rel</code> attribute. In particular:<br /><ol>
 <li><code>article.slide &gt; nav:first-of-type a[rel="index"]</code> will be accompained by the label &ldquo;Index&rdquo;</li>
 <li><code>article.slide &gt; nav:first-of-type a[rel="first"]</code> will be accompained by the label &ldquo;First slide&rdquo;</li>
 <li><code>article.slide &gt; nav:first-of-type a[rel="next"]</code> will be accompained by the label &ldquo;Next slide&rdquo;</li>
@@ -64,13 +64,13 @@
 <li><code>article.slide &gt; nav:first-of-type a[rel="author"]</code> will be accompained by the label &ldquo;Author&rdquo;</li>
 <li><code>article.slide &gt; nav:first-of-type a[rel="up"],</code> will be showed in background and accompanied by the label &ldquo;Back to&rdquo; when not empty, or by the label &ldquo;Click to exit&rdquo; when empty</li>
 <li><code><em>leeloo</em> a[rel="up"]:empty</code> will entirely cover the <code><em>&lt;leeeloo&gt;</em></code> element</li>
-</ol>Custom labels can replace the default labels by setting a <code>data-label</code> attribute on the link. Furthermore, it is possible to remove the default labels by assigning the <code>"no-label"</code> class &ndash; as in: <code>&lt;a href="#sample-photo" rel="next" <span style="background-color: #ffff00;">class="no-label"</span>&gt;Sample photo&lt;/a&gt;</code>.</li>
-<li>Each of the elements matching the previous selectors can be omitted (but either #8 or #9 should not be omitted); when present, it is very important that each of them occur <strong>only once for each slide's main <code>&lt;nav&gt;</code></strong>. Additional duplications of the above cited <code>a[rel="..."]</code> elements, but placed elsewhere (e.g.: <code>article.slide &gt; div a[rel="up"]</code>), are not relevant and can exist. All the previous 9 elements (note: also elements #8 and #9) can cohabitate together.</li>
+</ol>Custom labels can replace the default labels by setting a <code>data-label</code> attribute on the link. Furthermore, it is possible to remove the default labels by assigning a <code>"no-label"</code> class to the link &ndash; as in: <code>&lt;a href="#sample-photo" rel="next" <span style="background-color: #ffff00;">class="no-label"</span>&gt;Sample photo&lt;/a&gt;</code>.</li>
+<li>Each of the elements matching the previous selectors can be omitted (but either #8 or #9 should not be omitted); when present, it is very important that each of them occur <strong>only once for each slide's main <code>&lt;nav&gt;</code></strong>. Additional duplications of the above cited <code>a[rel="&hellip;"]</code> elements, but placed elsewhere (e.g.: <code>article.slide &gt; div a[rel="up"]</code>), are not relevant and can exist. All the previous 9 elements (note: also elements #8 and #9) can cohabitate together.</li>
 <li>All other sub-children will be displayed normally.</li>
 </ol></li>
 </ul>
 <h3>The <code>a[rel="up"]</code> element</h3>
-<p>In order to exit from the viewport the <code>a[rel="up"]</code> element is used (see above). <em>Normally this links to any unexisting hash</em> (in our examples we used the hash <code>"#nowhere"</code>), but in the case of nested galleries it can optionally link to the parent gallery (see below).</p>
+<p>In order to exit from the viewport the <code>a[rel="up"]</code> element is used (see above). <em>Normally this links to any unexisting hash</em> (in our examples we used the hash <code>"#nowhere"</code>, but a simple <code>"#"</code> can be enough), but in the case of nested galleries it can optionally link to the parent gallery (see below).</p>
 <h3>Nested galleries</h3>
 <p>Galleries can be nested within other galleries through the <code>&lt;section&gt;</code> element. In this case the link to the child gallery must be given explicitly somewhere.</p>
 <pre class="example">&lt;section&gt;<br />&nbsp;&nbsp;&nbsp; &lt;article id="item-1" itemscope class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a href="#nowhere" rel="up"&gt;My diary&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="background-color: #ffff00;">&lt;element-to-be-slided /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;p&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="background-color: #ff7777;">&lt;a href="#item-1-1"&gt;Visit this gallery&lt;/a&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/p&gt;<br />&nbsp;&nbsp;&nbsp; &lt;/article&gt;<br />&nbsp;&nbsp;&nbsp; &lt;section&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;article id="item-1-1" itemscope class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a <span style="background-color: #ff7777;">href="#item-1"</span> rel="up"&gt;Item #1&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="background-color: #ffff00;">&lt;element-to-be-slided /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/article&gt;<br />&nbsp;&nbsp;&nbsp; &lt;/section&gt;<br />&lt;/section&gt;</pre>
@@ -91,7 +91,7 @@
 <td><code>11110</code></td>
 </tr>
 <tr>
-<td><code>article.slide &gt; nav a[rel="up"]</code></td>
+<td><code>article.slide &gt; nav:first-of-type a[rel="up"]</code></td>
 <td><code>11111</code></td>
 </tr>
 <tr>
@@ -111,11 +111,11 @@
 <td><code>11115</code></td>
 </tr>
 <tr>
-<td><code>article.slide &gt; nav a:not([rel="up"])</code></td>
+<td><code>article.slide &gt; nav:first-of-type a:not([rel="up"])</code></td>
 <td><code>11116</code></td>
 </tr>
 <tr>
-<td><code>article.slide &gt; nav a[rel="up"]::after</code></td>
+<td><code>article.slide &gt; nav:first-of-type a[rel="up"]::after</code></td>
 <td><code>11117</code></td>
 </tr>
 <tr>
@@ -126,7 +126,7 @@
 </table>
 <h3>Notes</h3>
 <ul>
-<li>The code focuses on the semantics aspects of HTML5 (i.e., how a slide can be naturally declared), while the graphical result can be still improved. If you have new ideas, please do not hesitate to propose them on <a href="https://github.com/madmurphy/takefive.css" target="_blank">GitHub</a>. Normally I accept good ideas, but in case of proposals too specific for a general-purpose slide renderer, the project can eventually be forked and released again as new project under the terms of the GPL3 (let me know!).</li>
+<li>The code focuses on the semantics aspects of HTML5 (i.e., how a slide can be naturally declared), while the graphical result can still be improved. If you have new ideas, please do not hesitate to propose them on <a href="https://github.com/madmurphy/takefive.css" target="_blank">GitHub</a>. Normally I accept good ideas, but in case of proposals too specific for a general-purpose slide renderer, the project can eventually be forked and released again as new project under the terms of the GPL3 (let me know!).</li>
 <li>For learning more about the <code>itemscope</code> attribute and HTML5 microdata, please see <a href="http://schema.org/" target="_blank">schema.org</a>. A list of the known <code>rel</code> attributes can be found <a href="https://www.w3.org/wiki/HTML/Elements/link#HTML_Attributes" target="_blank">here</a>.</li>
 <li>It is possible to prevent the hashtag from being displayed in the viewport by using the class <code>"no-hashtag"</code> &ndash; as in <code>&lt;article itemscope class="slide <span style="background-color: #ffff00;">no-hashtag</span>" id="my-hash-name"&gt; &hellip; &lt;/article&gt;</code>.</li>
 <li>The special link <code>a[rel="up"]</code> complies with the following rule:
@@ -145,7 +145,7 @@ then &rArr; it will be ignored by this CSS and will be normally displayed.</li>
 <li>Feel free to make experiments. <strong>Take five!</strong> is very flexible, but in in case of problems, please do not hesitate to <a href="https://github.com/madmurphy/takefive.css/issues" target="_blank">write</a>.</li>
 </ul>
 <h3>License</h3>
-<p><strong>Take five!</strong> is released under the GNU Public License, version 3 or later (<a href="http://www.gnu.org/licenses/gpl-3.0-standalone.html">read</a>). The code is <a href="https://github.com/madmurphy/takefive.css" target="_blank">available on GitHub</a>.</p>
+<p><strong>Take five!</strong> is released under the GNU Public License, version 3 or later (<a href="http://www.gnu.org/licenses/gpl-3.0-standalone.html" target="_blank">read</a>). The code is <a href="https://github.com/madmurphy/takefive.css" target="_blank">available on GitHub</a>.</p>
 
 </body>
 </html>

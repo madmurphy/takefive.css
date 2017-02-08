@@ -325,8 +325,6 @@ article.slide > nav:first-of-type a[href][rel="up"]:hover {
 
 /* (Cond. 2.) */
 
-/* This is a really special case */
-
 article.slide > :not(nav):not(header):not(footer):not(aside) a[href][rel="up"]:empty::before {
 /*
 	:: whatever you set here, unless you want differently, please
@@ -361,8 +359,6 @@ article.slide > :not(nav):not(header):not(footer):not(aside) a[href][rel="up"]:e
 	z-index: initial;
 }
 
-/* End of special case */
-
 /* All links but a[href][rel="up"]... */
 
 article.slide > nav:first-of-type a[href]:not([rel="up"]):empty {
@@ -393,7 +389,7 @@ article.slide > nav:first-of-type a[href]:not([rel="up"]):not(:empty) {
 	z-index: 11116;
 }
 
-/* <nav>'s links "ease in/out" animation */
+/* <nav> links' "ease in/out" animation */
 
 article.slide > nav:first-of-type a[href]:not([rel="up"]):not(:empty):hover {
 	left: -12px;
@@ -411,7 +407,7 @@ article.slide > nav:first-of-type a[href][data-label]:not(.no-label):not(:empty)
 	font-style: normal;
 }
 
-/* Uncomment the following markup if you want to style the labels of all <nav>'s links but a[href][rel="up"] */
+/* Uncomment the following markup if you want to style the labels of all <nav> links but a[href][rel="up"] */
 
 /*
 

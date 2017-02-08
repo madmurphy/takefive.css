@@ -1,10 +1,10 @@
 # Change Log
 
-## [1.1.1] - 2017-02-07
+## [1.1.1] - 2017-02-08
 
 Changes:
 
-* Set `article.slide`'s `z-index` to `11109`
+* `z-index` property of `article.slide` set to `11109`
 * Styled general HTML elements
 * Margins of text containers (&lt;p&gt;, &lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, etc.)
 * Improved documentation and demo
