@@ -6,7 +6,7 @@ Changes
 
 * Added support for `data-context` attribute in `article.slide`
 * Added support for `article.slide a[rel="tag"]`
-* Added a `max-width` property to the hashtag text
+* Added a `max-width` rule to the hashtag text
 * Few conversions from `px` to `em`
 * Styled &lt;code&gt; tag
 
