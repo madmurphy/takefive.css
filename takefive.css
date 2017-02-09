@@ -219,8 +219,6 @@ article.slide > nav:first-of-type {
 	overflow: visible;
 	padding: 0 12px;
 	text-align: left;
-	line-height: 1.2em;
-	font-size: 1.1em;
 }
 
 /* One <header>, if present... */
@@ -282,7 +280,7 @@ article.slide > aside:first-of-type {
 
 /* Navigation links */
 
-article.slide > nav:first-of-type a[href] {
+article.slide > nav:first-of-type a[href]:not([rel="tag"]) {
 	display: block;
 	box-sizing: border-box;
 	font-weight: normal;
@@ -371,7 +369,7 @@ article.slide > :not(nav):not(header):not(footer):not(aside) a[href][rel="up"]:e
 	z-index: initial;
 }
 
-/* All links but a[href][rel="up"]... */
+/* All links but a[href][rel="up"] when empty... */
 
 article.slide > nav:first-of-type a[href]:not([rel="up"]):empty {
 	position: absolute;
@@ -384,7 +382,9 @@ article.slide > nav:first-of-type a[href]:not([rel="up"]):empty {
 	z-index: 11116;
 }
 
-article.slide > nav:first-of-type a[href]:not([rel="up"]):not(:empty) {
+/* All links but a[href][rel="up"] and a[href][rel="tag"] when not empty... */
+
+article.slide > nav:first-of-type a[href]:not([rel="up"]):not([rel="tag"]):not(:empty) {
 	position: relative;
 	width: calc(100% + 12px);
 	top: 0;
@@ -399,18 +399,24 @@ article.slide > nav:first-of-type a[href]:not([rel="up"]):not(:empty) {
 	overflow: hidden;
 	transition: .5s left;
 	z-index: 11116;
+	line-height: 1.2em;
+	font-size: 1.1em;
 }
 
 /* <nav> links' "ease in/out" animation */
 
-article.slide > nav:first-of-type a[href]:not([rel="up"]):not(:empty):hover {
+article.slide > nav:first-of-type a[href]:not([rel="up"]):not([rel="tag"]):not(:empty):hover {
 	left: -12px;
+}
+
+article.slide a[href][rel="tag"]:not(:empty) {
+	font-size: .75em;
 }
 
 /* Labels for semantic links... */
 
-article.slide > nav:first-of-type a[href][rel]:not(.no-label):not(:empty)::before,
-article.slide > nav:first-of-type a[href][data-label]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][rel]:not([rel="tag"]):not(.no-label):not(:empty)::before,
+article.slide > nav:first-of-type a[href]:not([rel="tag"])[data-label]:not(.no-label):not(:empty)::before {
 	/* Here are the properties shared between of ALL the labels of <nav>'s links... */
 	/* Remember that a[href][rel="up"] will be placed on the top-right corner! */
 	display: block;
@@ -419,12 +425,12 @@ article.slide > nav:first-of-type a[href][data-label]:not(.no-label):not(:empty)
 	font-style: normal;
 }
 
-/* Uncomment the following markup if you want to style the labels of all <nav> links but a[href][rel="up"] */
+/* Uncomment the following markup if you want to style the labels of all <nav> links but a[href][rel="up"] and a[href][rel="tag"] */
 
 /*
 
-article.slide > nav:first-of-type a[href]:not([rel="up"])[rel]:not(.no-label):not(:empty)::before,
-article.slide > nav:first-of-type a[href]:not([rel="up"])[data-label]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href]:not([rel="up"]):not([rel="tag"])[rel]:not(.no-label):not(:empty)::before,
+article.slide > nav:first-of-type a[href]:not([rel="up"]):not([rel="tag"])[data-label]:not(.no-label):not(:empty)::before {
 	background-color: red;
 }
 
@@ -432,52 +438,73 @@ article.slide > nav:first-of-type a[href]:not([rel="up"])[data-label]:not(.no-la
 
 /* Unknown "rel" attributes */
 
-article.slide > nav:first-of-type a[href][rel]:not(.no-label):not(:empty)::before {
-	content: "[" attr(rel) "]";
+article.slide > nav:first-of-type a[href][rel]:not([data-label]):not(.no-label):not(:empty)::before {
+	content: attr(rel);
+	text-transform: capitalize;
+	
 }
 
 /* Known "rel" attributes */
 
-article.slide > nav:first-of-type a[href][rel="up"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][rel="up"]:not([data-label]):not(.no-label):not(:empty)::before {
 	content: "Back to:";
+	text-transform: none;
 }
 
-article.slide > nav:first-of-type a[href][rel="up"]:not(.no-label):empty::before {
+article.slide > nav:first-of-type a[href][rel="up"]:not([data-label]):not(.no-label):empty::before {
 	content: "Click to exit";
+	text-transform: none;
 }
 
-article.slide > nav:first-of-type a[href][rel="index"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][rel="index"]:not([data-label]):not(.no-label):not(:empty)::before {
 	content: "Index";
+	text-transform: none;
 }
 
-article.slide > nav:first-of-type a[href][rel="first"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][rel="first"]:not([data-label]):not(.no-label):not(:empty)::before {
 	content: "First slide";
+	text-transform: none;
 }
 
-article.slide > nav:first-of-type a[href][rel="prev"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][rel="prev"]:not([data-label]):not(.no-label):not(:empty)::before {
 	content: "Previous slide";
+	text-transform: none;
 }
 
-article.slide > nav:first-of-type a[href][rel="next"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][rel="next"]:not([data-label]):not(.no-label):not(:empty)::before {
 	content: "Next slide";
+	text-transform: none;
 }
 
-article.slide > nav:first-of-type a[href][rel="last"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][rel="last"]:not([data-label]):not(.no-label):not(:empty)::before {
 	content: "Last slide";
+	text-transform: none;
 }
 
-article.slide > nav:first-of-type a[href][rel="bookmark"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][rel="bookmark"]:not([data-label]):not(.no-label):not(:empty)::before {
 	content: "Share it!";
+	text-transform: none;
 }
 
-article.slide > nav:first-of-type a[href][rel="author"]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][rel="author"]:not([data-label]):not(.no-label):not(:empty)::before {
 	content: "Author";
+	text-transform: none;
+}
+
+article.slide a[href][rel="tag"]:not([data-label]):not(.no-label):not(:empty)::before {
+	content: "\2605" !important;
+	text-transform: none !important;
 }
 
 /* User-set labels */
 
+article.slide a[href][rel="tag"][data-label]:not(.no-label):not(:empty)::before,
 article.slide > nav:first-of-type a[href][data-label]:not(.no-label):not(:empty)::before {
 	content: attr(data-label) !important;
+}
+
+article.slide a[href][rel="tag"]:not(.no-label):not(:empty)::before {
+	margin-right: .3em;
 }
 
 /* Buttons */

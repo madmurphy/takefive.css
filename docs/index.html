@@ -86,11 +86,6 @@ a[href]:active {
 	background: transparent;
 }
 
-form:invalid .if_valid,
-form:valid .if_invalid {
-	display: none;
-}
-
 article.slide {
 	line-height: initial !important;
 }
@@ -492,7 +487,7 @@ article.slide {
 			<a href="#example-gallery-about" rel="bookmark" itemprop="url">About</a>
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
 			<a href="#example-gallery-contact-me" data-label="Contact">Leave me a message</a>
-			<a href="http://www.example.com/">Custom link</a>
+			<a href="http://www.example.com/" data-label="Custom label">Custom link</a>
 		</nav>
 		<article itemprop="articleBody">
 			<h1>About</h1>
@@ -502,7 +497,31 @@ article.slide {
 			<p>Aenean dapibus tempus pellentesque. Suspendisse eget lobortis ipsum. Ut sit amet scelerisque ipsum. Phasellus tincidunt nisi ut justo fermentum facilisis. Donec nec dui eu leo dapibus elementum et sed purus. Donec quis tristique purus, at interdum turpis. In placerat turpis semper dolor finibus, vel cursus quam bibendum. Vivamus vel elementum urna. Donec sit amet mattis sem. Maecenas nec risus nec nibh laoreet congue. Nulla scelerisque elit vel porta volutpat. Proin porttitor interdum metus eu tincidunt. Proin lacinia lobortis posuere. Curabitur molestie tincidunt odio, sit amet scelerisque sem ultricies eget. Etiam aliquet augue sit amet euismod hendrerit.</p><hr />
 			<p>Nulla tincidunt ullamcorper mattis. Vivamus suscipit viverra porttitor. Fusce porta accumsan mauris a vestibulum. Donec fermentum mollis venenatis. Suspendisse iaculis risus erat, sit amet feugiat nisi feugiat vel. Mauris neque erat, sagittis ut enim sed, commodo porttitor ipsum. Donec ultrices scelerisque massa nec fermentum. Maecenas porta tempor neque non aliquet. Maecenas tristique lobortis dui, ut aliquet eros rhoncus at. Donec ac ornare sem. Aenean eu metus commodo sapien varius gravida non at felis. Mauris non aliquet metus. Nunc hendrerit lectus eu purus pulvinar, ut pulvinar purus tristique. Suspendisse euismod maximus est et laoreet. Fusce pulvinar, lacus et ornare lobortis, dui velit condimentum arcu, eget laoreet elit sem vel lectus. Donec a imperdiet ex.</p>
 		</article>
-		<p style="font-size: larger;"><a href="#example-gallery-contact-me">Leave a message!</a></p>
+		<div>
+			<nav style="font-size: larger;">
+				<a href="#example-gallery-contact-me">Leave a message!</a>
+			</nav>
+			<h2>Tags:</h2>
+			<nav style="line-height: .75em;">
+				<a href="https://github.com/search?q=topic%3Acss&amp;type=Repositories" rel="tag" target="_blank">CSS</a>
+				<a href="https://github.com/search?q=topic%3Acss-gallery&amp;type=Repositories" rel="tag" target="_blank">CSS gallery</a>
+				<a href="https://github.com/search?q=topic%3Acss-lightbox&amp;type=Repositories" rel="tag" target="_blank">CSS lightbox</a>
+				<a href="https://github.com/search?q=topic%3Acss-slide-renderer&amp;type=Repositories" rel="tag" target="_blank">CSS slide renderer</a>
+				<a href="https://github.com/search?q=topic%3Acss3&amp;type=Repositories" rel="tag" target="_blank">CSS3</a>
+				<a href="https://github.com/search?q=topic%3Acss3-animations&amp;type=Repositories" rel="tag" target="_blank">CSS3 animations</a>
+				<a href="https://github.com/search?q=topic%3Ahtml-semantics&amp;type=Repositories" rel="tag" target="_blank">HTML semantics</a>
+				<a href="https://github.com/search?q=topic%3Ahtml5&amp;type=Repositories" rel="tag" target="_blank">HTML5</a>
+				<a href="https://github.com/search?q=topic%3Ahtml5-elements&amp;type=Repositories" rel="tag" target="_blank">HTML5 elements</a>
+				<a href="https://github.com/search?q=topic%3Aimage-gallery&amp;type=Repositories" rel="tag" target="_blank">Image gallery</a>
+				<a href="https://github.com/search?q=topic%3Alightbox&amp;type=Repositories" rel="tag" target="_blank">Lightbox</a>
+				<a href="https://github.com/search?q=topic%3Amicrodata&amp;type=Repositories" rel="tag" target="_blank">Microdata</a>
+				<a href="https://github.com/search?q=topic%3Aschema-org&amp;type=Repositories" rel="tag" target="_blank">schema.org</a>
+				<a href="https://github.com/search?q=topic%3Aslide-renderer&amp;type=Repositories" rel="tag" target="_blank">Slide renderer</a>
+				<a href="https://github.com/search?q=topic%3Aslides&amp;type=Repositories" rel="tag" target="_blank">Slides</a>
+				<a href="https://github.com/search?q=topic%3Aslideshow&amp;type=Repositories" rel="tag" target="_blank">Slideshow</a>
+
+			</nav>
+		</div>
 		<aside>
 			<p>The <code>&lt;aside&gt;</code> element is the perfect place for additional <code>&lt;nav&gt;</code> containers!</p>
 			<nav style="font-size:48px;">
@@ -530,13 +549,13 @@ article.slide {
 			<h1>Leave a message</h1>
 		</header>
 		<section>
-			<form name="contact-form" action="send.php">
+			<form name="contact-form" action="send.php" onsubmit="alert('This is just a demo :)'); return false;">
 				<fieldset>
 					<legend>Contact form</legend>
-					<p><span class="if_invalid">Well&hellip; First, consider to write here your email address:</span><span class="if_valid">From:</span> <input type="email" required name="sender"> <span class="if_invalid">&hellip;</span></p>
-					<p class="if_valid">Very well! Now express yourself.</p>
-					<p class="if_valid"><textarea name="message" style="width: 400px; height: 150px; box-sizing: border-box;"></textarea></p>
-					<p class="if_valid"><input type="submit" value="Send" /></p>
+					<p>From: <input type="email" required name="sender"></p>
+					<p>Message:</p>
+					<p><textarea name="message" style="width: 400px; height: 150px; box-sizing: border-box;"></textarea></p>
+					<p><input type="submit" value="Send" /></p>
 				</fieldset>
 
 			</form>
