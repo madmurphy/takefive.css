@@ -5,9 +5,9 @@
 Changes
 
 * Added support for `data-context` attribute in `article.slide`
-* Set `max-width` for `data-context` and hashtag text
+* Added a `max-width` property to the hashtag text
 * Few conversions from `px` to `em`
-* Styled &lt;code&gt; HTML tag
+* Styled &lt;code&gt; tag
 
 
 ## [1.1.1] - 2017-02-08
