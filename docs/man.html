@@ -128,7 +128,7 @@
 <ul>
 <li>The code focuses on the semantics aspects of HTML5 (i.e., how a slide can be naturally declared), while the graphical result can still be improved. If you have new ideas, please do not hesitate to propose them on <a href="https://github.com/madmurphy/takefive.css" target="_blank">GitHub</a>. Normally I accept good ideas, but in case of proposals too specific for a general-purpose slide renderer, the project can eventually be forked and released again as new project under the terms of the GPL3 (let me know!).</li>
 <li>For learning more about the <code>itemscope</code> attribute and HTML5 microdata, please see <a href="http://schema.org/" target="_blank">schema.org</a>. A list of the known <code>rel</code> attributes can be found <a href="https://www.w3.org/wiki/HTML/Elements/link#HTML_Attributes" target="_blank">here</a>.</li>
-<li>It is possible to prevent the hashtag from being displayed in the viewport by using the class <code>"no-hashtag"</code> &ndash; as in <code>&lt;article itemscope class="slide <span style="background-color: #ffff00;">no-hashtag</span>" id="my-hash-name"&gt; &hellip; &lt;/article&gt;</code>.</li>
+<li>It is possible to prevent the hashtag from being displayed in the viewport by using the class <code>"no-hashtag"</code> &ndash; as in <code>&lt;article class="slide <span style="background-color: #ffff00;">no-hashtag</span>" id="my-hash-name"&gt; &hellip; &lt;/article&gt;</code>.</li>
 <li>The special link <code>a[rel="up"]</code> complies with the following rule:
 <ul>
 <li>If it is inside a <code>&lt;nav&gt;</code> element &rArr; it will be shown on the top-right corner; a transparent, clickable, fixed, full-screen layer will be created.</li>
@@ -142,6 +142,7 @@
 then &rArr; it will be ignored by this CSS and will be normally displayed.</li>
 </ul>
 </li>
+<li>The slide container (<code>article.slide</code>) can optionally possess a <code>data-context</code> attribute, whose content will be displayed on the left-bottom of the viewport &ndash; as in <code>&lt;article class="slide" <span style="background-color: #ffff00;">data-context="Hello world!"</span> id="my-hash-name"&gt; &hellip; &lt;/article&gt;</code>.</li>
 <li>Feel free to make experiments. <strong>Take five!</strong> is very flexible, but in in case of problems, please do not hesitate to <a href="https://github.com/madmurphy/takefive.css/issues" target="_blank">write</a>.</li>
 </ul>
 <h3>License</h3>
