@@ -58,8 +58,8 @@ article.slide[data-context]::before,
 article.slide:not(.no-hashtag)::after {
 	display: block;
 	position: absolute;
-	bottom: -80px;
-	margin: 12px;
+	bottom: -80px;	/* -6.35em */
+	margin: .95em;
 	font-size: 1.05em;
 	transition: 1s bottom;
 	max-width: calc(50% - 87px);
@@ -456,11 +456,6 @@ article.slide > nav:first-of-type a[href][rel="up"]:not([data-label]):not(.no-la
 	text-transform: none;
 }
 
-article.slide > nav:first-of-type a[href][rel="index"]:not([data-label]):not(.no-label):not(:empty)::before {
-	content: "Index";
-	text-transform: none;
-}
-
 article.slide > nav:first-of-type a[href][rel="first"]:not([data-label]):not(.no-label):not(:empty)::before {
 	content: "First slide";
 	text-transform: none;
@@ -483,11 +478,6 @@ article.slide > nav:first-of-type a[href][rel="last"]:not([data-label]):not(.no-
 
 article.slide > nav:first-of-type a[href][rel="bookmark"]:not([data-label]):not(.no-label):not(:empty)::before {
 	content: "Share it!";
-	text-transform: none;
-}
-
-article.slide > nav:first-of-type a[href][rel="author"]:not([data-label]):not(.no-label):not(:empty)::before {
-	content: "Author";
 	text-transform: none;
 }
 
@@ -515,15 +505,15 @@ article.slide > nav:first-of-type a[href][rel="up"]::after {
 	content: "\00D7";
 	position: fixed;
 	display: block;
-	width: 50px;
-	height: 50px;
+	width: 1.8em;
+	height: 1.8em;
 	line-height: 1.6em;
 	font-size: 2.3em;
 	font-style: normal;
 	text-align: center;
 	color: #ffffff;
 	box-sizing: border-box;
-	top: -80px;
+	top: -80px;	/* -2.88em */
 	font-family: serif;
 	right: 0;
 	cursor: pointer;
@@ -586,7 +576,7 @@ article.slide > nav:first-of-type a[href][rel="prev"]::after {
 	left: 20%;
 	top: 0;
 	bottom: 0;
-	font-size: 6em;
+	font-size: 5.5em;
 }
 
 article.slide > nav:first-of-type a[href][rel="next"]::after {
@@ -594,11 +584,12 @@ article.slide > nav:first-of-type a[href][rel="next"]::after {
 	right: 20%;
 	top: 0;
 	bottom: 0;
-	font-size: 6em;
+	font-size: 5.5em;
 }
 
 article.slide > nav:first-of-type a[href][rel="bookmark"]::after {
 	content: "#";
+	/* try also: `content: "\1F4D1";` */
 	right: 20%;
 	top: 10%;
 	font-size: 3.6em;
