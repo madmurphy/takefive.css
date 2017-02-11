@@ -468,7 +468,6 @@ article.slide {
 			<a href="#example-photo-1" rel="first">Example photo #1</a>
 			<a href="#audio-example" rel="bookmark" itemprop="url">Embedded audio example</a>
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
-			<a href="http://www.example.com/">Custom link</a>
 		</nav>
 		<header>
 			<h1>Slide 10 of 10</h1>
@@ -477,6 +476,18 @@ article.slide {
 			<audio src="https://upload.wikimedia.org/wikipedia/commons/9/90/Erik_Satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg" controls="controls" itemprop="audio"><p>Sorry, your browser doesn't support embedded audio, but don't worry, you can <a href="https://upload.wikimedia.org/wikipedia/commons/9/90/Erik_Satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg">download it</a> and listen to it with your favorite video player!</p></audio>
 			<figcaption itemprop="caption">Erik Satie, <em>Gymnopedies</em> &ndash; La 1ere. Lent et douloureux</figcaption>
 		</figure>
+		<aside>
+			<p>The <code>&lt;aside&gt;</code> element is the perfect place for additional <code>&lt;nav&gt;</code> containers!</p>
+			<nav style="font-size:48px;">
+				<a href="javascript:printById('example-gallery-about');" style="font-weight: normal;">&#9113;</a>
+				<a href="#nowhere" style="font-weight: normal;">&#8986;</a>
+				<a href="#nowhere" style="font-weight: normal;">&#9749;</a>
+				<a href="#nowhere" style="font-weight: normal;">&#8981;</a>
+				<a href="#nowhere" style="font-weight: normal;">&#9167;</a>
+				<a href="#nowhere" style="font-weight: normal;">&#9742;</a>
+				<a href="#nowhere" style="font-weight: normal;">&#9166;</a>
+			</nav>
+		</aside>
 	</article>
 
 	<article class="slide" id="example-gallery-about" itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -485,12 +496,12 @@ article.slide {
 		</header>
 		<nav>
 			<a href="#nowhere" rel="parent">My diary</a>
-			<a href="#example-gallery-contact-me" rel="child">Leave me a message</a>
 			<a href="#my-gallery" rel="index">All photos</a>
 			<a href="#example-photo-1" rel="first">Example photo #1</a>
 			<a href="#audio-example" rel="last">Embedded audio example</a>
 			<a href="#example-gallery-about" rel="bookmark" itemprop="url">About</a>
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
+			<a href="#example-gallery-contact-me" rel="child">Leave a message</a>
 		</nav>
 		<article itemprop="articleBody">
 			<h1>Lorem ipsum</h1>
@@ -522,18 +533,6 @@ article.slide {
 
 			</p>
 		</div>
-		<aside>
-			<p>The <code>&lt;aside&gt;</code> element is the perfect place for additional <code>&lt;nav&gt;</code> containers!</p>
-			<nav style="font-size:48px;">
-				<a href="javascript:printById('example-gallery-about');" style="font-weight: normal;">&#9113;</a>
-				<a href="#nowhere" style="font-weight: normal;">&#8986;</a>
-				<a href="#nowhere" style="font-weight: normal;">&#9749;</a>
-				<a href="#nowhere" style="font-weight: normal;">&#8981;</a>
-				<a href="#nowhere" style="font-weight: normal;">&#9167;</a>
-				<a href="#nowhere" style="font-weight: normal;">&#9742;</a>
-				<a href="#nowhere" style="font-weight: normal;">&#9166;</a>
-			</nav>
-		</aside>
 	</article>
 
 	<!-- Nested gallery -->

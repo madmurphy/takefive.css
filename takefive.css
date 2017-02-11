@@ -297,7 +297,7 @@ article.slide > nav:first-of-type a[href][rel~="child"]:not([rel~="parent"]) {
 	line-height: 1.2em;
 	font-size: 1.1em;
 	border: 2px #ffffff dashed;
-	margin: .5em 0;
+	margin: .75em 0;
 	padding: 2px 6px;
 	border-radius: 8px;
 	width: auto;
