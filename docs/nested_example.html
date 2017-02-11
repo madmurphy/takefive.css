@@ -3,6 +3,9 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" type="text/css" href="css/takefive_min.css">
+	<link rel="index" type="text/html" href="index.html">
+	<link rel="up" type="text/html" href="man.html">
+	<link rel="prev" type="text/html" href="min_example.html">
 	<title>Take five! &ndash; Nested galleries</title>
 </head>
 
@@ -13,6 +16,7 @@
 	<section itemscope itemtype="http://schema.org/ImageGallery">
 		<article id="item-1" class="slide" itemscope itemtype="http://schema.org/ImageObject">
 			<nav>
+				<a href="#item-1-1" rel="child">Nested sub-gallery</a>
 				<a href="#nowhere" rel="up">My diary</a>
 				<a href="#item-2" rel="next">Item #2</a>
 			</nav>
@@ -23,7 +27,6 @@
 				<img src="images/1.jpg" itemprop="image" alt="Into the woods" itemprop="image" />
 				<figcaption itemprop="caption">Into the woods</figcaption>
 			</figure>
-			<p><a href="#item-1-1">Visit the nested sub-gallery</a></p>
 		</article>
 		<section itemscope itemtype="http://schema.org/ImageGallery">
 			<article id="item-1-1" class="slide" itemscope itemtype="http://schema.org/ImageObject">
@@ -41,6 +44,7 @@
 			</article>
 			<article id="item-1-2" class="slide" itemscope itemtype="http://schema.org/ImageObject">
 				<nav>
+					<a href="#item-1-2-1" rel="child">Nested sub-sub-gallery</a>
 					<a href="#item-1" rel="up">Item #1</a>
 					<a href="#item-1-1" rel="prev">Item #1.1</a>
 				</nav>
@@ -51,7 +55,6 @@
 					<img src="images/4.jpg" itemprop="image" alt="Autumn" itemprop="image" />
 					<figcaption itemprop="caption">Autumn</figcaption>
 				</figure>
-				<p><a href="#item-1-2-1">Visit the nested sub-sub-gallery!</a></p>
 			</article>
 			<section itemscope itemtype="http://schema.org/ImageGallery">
 				<article id="item-1-2-1" class="slide" itemscope itemtype="http://schema.org/ImageObject">

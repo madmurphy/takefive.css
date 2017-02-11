@@ -1,8 +1,16 @@
 # Change Log
 
+## [1.2.0] - 2017-02-11
+
+Changes:
+
+* Possibility of declaring more one than one token within the values of `rel` attributes
+* Changed unicode symbol for `prev` and `next`
+* Added support for `a[rel="child"]`
+
 ## [1.1.2] - 2017-02-09
 
-Changes
+Changes:
 
 * Added support for `data-context` attribute in `article.slide`
 * Added support for `article.slide a[rel="tag"]`
