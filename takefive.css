@@ -288,7 +288,7 @@ article.slide > nav:first-of-type a[href] {
 	clear: both;
 }
 
-article.slide > nav:first-of-type a[href][rel~="child"]:not([rel~="up"]) {
+article.slide > nav:first-of-type a[href][rel~="child"]:not([rel~="parent"]) {
 	position: relative;
 	text-align: right;
 	top: 0;
@@ -308,28 +308,28 @@ article.slide > nav:first-of-type a[href][rel~="child"]:not([rel~="up"]) {
 }
 
 
-article.slide > nav:first-of-type a[href][rel~="child"]:not([rel~="up"]):hover {
+article.slide > nav:first-of-type a[href][rel~="child"]:not([rel~="parent"]):hover {
 	background-color: rgba(184,205,226,.09);
 }
 
 	/*****************************************
 
-	:: Special links: the a[href][rel~="up"] link... ::
+	:: Special links: the a[href][rel~="parent"] link... ::
 
 	THE RULE IS THE FOLLOWING:
 
-	(Cond. 1.) If a[href][rel~="up"] is inside a <nav> element:
+	(Cond. 1.) If a[href][rel~="parent"] is inside a <nav> element:
 
 		--> it will be shown on the top-right corner; a transparent, clickable, fixed,
 		    full-screen layer will be created.
 
-	(Cond. 2.) If a[href][rel~="up"] is inside the <leeloo> element and is EMPTY:
+	(Cond. 2.) If a[href][rel~="parent"] is inside the <leeloo> element and is EMPTY:
 
 		--> a transparent clickable layer will cover the whole (and only) <leeloo> element.
 
-	(Cond. 3.) If a[href][rel~="up"] is inside the <leeloo> element but is NOT EMPTY,
-	(Cond. 4.) or if a[href][rel~="up"] is outside both the <nav> and the <leeloo> elements (empty or not empty),
-	(Cond. 5.) or if a[href][rel~="up"] *is* <leeloo> -- very unlikely...:
+	(Cond. 3.) If a[href][rel~="parent"] is inside the <leeloo> element but is NOT EMPTY,
+	(Cond. 4.) or if a[href][rel~="parent"] is outside both the <nav> and the <leeloo> elements (empty or not empty),
+	(Cond. 5.) or if a[href][rel~="parent"] *is* <leeloo> -- very unlikely...:
 
 		--> it will be ignored by this CSS.
 
@@ -337,7 +337,7 @@ article.slide > nav:first-of-type a[href][rel~="child"]:not([rel~="up"]):hover {
 
 /* (Cond. 1.) */
 
-article.slide > nav:first-of-type a[href][rel~="up"] {
+article.slide > nav:first-of-type a[href][rel~="parent"] {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -355,13 +355,13 @@ article.slide > nav:first-of-type a[href][rel~="up"] {
 	transition: 1s color;
 }
 
-article.slide > nav:first-of-type a[href][rel~="up"]:hover {
+article.slide > nav:first-of-type a[href][rel~="parent"]:hover {
 	color: inherit;
 }
 
 /* (Cond. 2.) */
 
-article.slide > :not(nav):not(header):not(footer):not(aside) a[href][rel~="up"]:empty::before {
+article.slide > :not(nav):not(header):not(footer):not(aside) a[href][rel~="parent"]:empty::before {
 /*
 	:: whatever you set here, unless you want differently, please
 	   restore it in the unset place `@leeloo_exit_layer`! ::
@@ -378,8 +378,8 @@ article.slide > :not(nav):not(header):not(footer):not(aside) a[href][rel~="up"]:
 	z-index: 11118;
 }
 
-article.slide > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside) a[href][rel~="up"]:empty::before,
-article.slide > :not(nav):not(header):not(footer):not(aside) a[href][rel~="up"]:empty ~ a[href][rel~="up"]:empty::before {
+article.slide > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside) a[href][rel~="parent"]:empty::before,
+article.slide > :not(nav):not(header):not(footer):not(aside) a[href][rel~="parent"]:empty ~ a[href][rel~="parent"]:empty::before {
 /*
 	--> unset place: `@leeloo_exit_layer`
 */
@@ -395,10 +395,10 @@ article.slide > :not(nav):not(header):not(footer):not(aside) a[href][rel~="up"]:
 	z-index: initial;
 }
 
-/* All links but a[href][rel~="up"] when empty... */
+/* All links but a[href][rel~="parent"] when empty... */
 
-article.slide > nav:first-of-type a[href]:not([rel~="up"]):not([rel~="child"]):empty,
-article.slide > nav:first-of-type a[href][rel~="child"].no-label:not([rel~="up"]):empty {
+article.slide > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="child"]):empty,
+article.slide > nav:first-of-type a[href][rel~="child"].no-label:not([rel~="parent"]):empty {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -418,9 +418,9 @@ article.slide > nav:first-of-type a[href][rel~="child"].no-label:not([rel~="up"]
 	z-index: 11116;
 }
 
-/* All links but a[href][rel~="up"] and a[href][rel~="tag"] when not empty... */
+/* All links but a[href][rel~="parent"] and a[href][rel~="tag"] when not empty... */
 
-article.slide > nav:first-of-type a[href]:not([rel~="up"]):not([rel~="child"]):not(:empty) {
+article.slide > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="child"]):not(:empty) {
 	position: relative;
 	width: calc(100% + 12px);
 	top: 0;
@@ -441,7 +441,7 @@ article.slide > nav:first-of-type a[href]:not([rel~="up"]):not([rel~="child"]):n
 
 /* <nav> links' "ease in/out" animation */
 
-article.slide > nav:first-of-type a[href]:not([rel~="up"]):not([rel~="child"]):not(:empty):hover {
+article.slide > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="child"]):not(:empty):hover {
 	left: -12px;
 }
 
@@ -454,19 +454,19 @@ article.slide a[href][rel~="tag"]:not(:empty) {
 article.slide > nav:first-of-type a[href][rel]:not(.no-label):not(:empty)::before,
 article.slide > nav:first-of-type a[href][data-label]:not(.no-label):not(:empty)::before {
 	/* Here are the properties shared between of ALL the labels of <nav>'s links... */
-	/* Remember that a[href][rel~="up"] will be placed on the top-right corner! */
+	/* Remember that a[href][rel~="parent"] will be placed on the top-right corner! */
 	display: block;
 	text-align: right;
 	font-size: smaller;
 	font-style: normal;
 }
 
-/* Uncomment the following markup if you want to style the labels of all <nav> links but a[href][rel~="up"] and a[href][rel~="child"] */
+/* Uncomment the following markup if you want to style the labels of all <nav> links but a[href][rel~="parent"] and a[href][rel~="child"] */
 
 /*
 
-article.slide > nav:first-of-type a[href]:not([rel~="up"]):not([rel~="child"])[rel]:not(.no-label):not(:empty)::before,
-article.slide > nav:first-of-type a[href]:not([rel~="up"]):not([rel~="child"])[data-label]:not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="child"])[rel]:not(.no-label):not(:empty)::before,
+article.slide > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="child"])[data-label]:not(.no-label):not(:empty)::before {
 	background-color: red;
 }
 
@@ -517,12 +517,12 @@ article.slide > nav:first-of-type a[href][rel~="child"]:not([data-label]):not(.n
 	text-transform: none;
 }
 
-article.slide > nav:first-of-type a[href][rel~="up"]:not([data-label]):not(.no-label):not(:empty)::before {
+article.slide > nav:first-of-type a[href][rel~="parent"]:not([data-label]):not(.no-label):not(:empty)::before {
 	content: "Back to:";
 	text-transform: none;
 }
 
-article.slide > nav:first-of-type a[href][rel~="up"]:not([data-label]):not(.no-label):empty::before {
+article.slide > nav:first-of-type a[href][rel~="parent"]:not([data-label]):not(.no-label):empty::before {
 	content: "Click to exit";
 	text-transform: none;
 }
@@ -540,13 +540,13 @@ article.slide a[href][rel~="tag"]:not(.no-label):not(:empty)::before {
 
 /* Buttons generated by "Author" "Bookmark" "First" "Last" "Index" "Prev" "Next" */
 
-article.slide:target > nav:first-of-type a[href][rel~="first"]:not([rel~="up"])::after,
-article.slide > nav:first-of-type a[href][rel~="index"]:not([rel~="up"])::after,
-article.slide > nav:first-of-type a[href][rel~="last"]:not([rel~="up"])::after,
-article.slide > nav:first-of-type a[href][rel~="prev"]:not([rel~="up"])::after,
-article.slide > nav:first-of-type a[href][rel~="next"]:not([rel~="up"])::after,
-article.slide > nav:first-of-type a[href][rel~="bookmark"]:not([rel~="up"])::after,
-article.slide > nav:first-of-type a[href][rel~="author"]:not([rel~="up"])::after {
+article.slide:target > nav:first-of-type a[href][rel~="first"]:not([rel~="parent"])::after,
+article.slide > nav:first-of-type a[href][rel~="index"]:not([rel~="parent"])::after,
+article.slide > nav:first-of-type a[href][rel~="last"]:not([rel~="parent"])::after,
+article.slide > nav:first-of-type a[href][rel~="prev"]:not([rel~="parent"])::after,
+article.slide > nav:first-of-type a[href][rel~="next"]:not([rel~="parent"])::after,
+article.slide > nav:first-of-type a[href][rel~="bookmark"]:not([rel~="parent"])::after,
+article.slide > nav:first-of-type a[href][rel~="author"]:not([rel~="parent"])::after {
 	position: fixed;
 	display: block;
 	margin: auto;
@@ -558,7 +558,7 @@ article.slide > nav:first-of-type a[href][rel~="author"]:not([rel~="up"])::after
 	/*width: 48px;*/
 }
 
-article.slide > nav:first-of-type a[href][rel~="author"]:not([rel~="up"])::after {
+article.slide > nav:first-of-type a[href][rel~="author"]:not([rel~="parent"])::after {
 	content: "@";
 	left: calc(80% - 48px);
 	top: initial;
@@ -566,7 +566,7 @@ article.slide > nav:first-of-type a[href][rel~="author"]:not([rel~="up"])::after
 	font-size: 48px;
 }
 
-article.slide > nav:first-of-type a[href][rel~="bookmark"]:not([rel~="up"])::after {
+article.slide > nav:first-of-type a[href][rel~="bookmark"]:not([rel~="parent"])::after {
 	content: "#";
 	/* try also: `content: "\1F4D1";` */
 	left: calc(80% - 48px);
@@ -575,7 +575,7 @@ article.slide > nav:first-of-type a[href][rel~="bookmark"]:not([rel~="up"])::aft
 	font-size: 48px;
 }
 
-article.slide > nav:first-of-type a[href][rel~="first"]:not([rel~="up"])::after {
+article.slide > nav:first-of-type a[href][rel~="first"]:not([rel~="parent"])::after {
 	content: "\21E4";
 	top: initial;
 	bottom: 2%;
@@ -583,7 +583,7 @@ article.slide > nav:first-of-type a[href][rel~="first"]:not([rel~="up"])::after 
 	font-size: 40px;
 }
 
-article.slide > nav:first-of-type a[href][rel~="last"]:not([rel~="up"])::after {
+article.slide > nav:first-of-type a[href][rel~="last"]:not([rel~="parent"])::after {
 	content: "\21E5";
 	top: initial;
 	bottom: 2%;
@@ -591,7 +591,7 @@ article.slide > nav:first-of-type a[href][rel~="last"]:not([rel~="up"])::after {
 	font-size: 40px;
 }
 
-article.slide > nav:first-of-type a[href][rel~="index"]:not([rel~="up"])::after {
+article.slide > nav:first-of-type a[href][rel~="index"]:not([rel~="parent"])::after {
 	content: "\2302";
 	top: initial;
 	bottom: 2%;
@@ -599,7 +599,7 @@ article.slide > nav:first-of-type a[href][rel~="index"]:not([rel~="up"])::after 
 	font-size: 40px;
 }
 
-article.slide > nav:first-of-type a[href][rel~="prev"]:not([rel~="up"])::after {
+article.slide > nav:first-of-type a[href][rel~="prev"]:not([rel~="parent"])::after {
 	content: "\276E";
 	left: 20%;
 	top: 0;
@@ -607,7 +607,7 @@ article.slide > nav:first-of-type a[href][rel~="prev"]:not([rel~="up"])::after {
 	font-size: 48px;
 }
 
-article.slide > nav:first-of-type a[href][rel~="next"]:not([rel~="up"])::after {
+article.slide > nav:first-of-type a[href][rel~="next"]:not([rel~="parent"])::after {
 	content: "\276F";
 	left: calc(80% - 48px);
 	top: 0;
@@ -617,7 +617,7 @@ article.slide > nav:first-of-type a[href][rel~="next"]:not([rel~="up"])::after {
 
 /* Exit button */
 
-article.slide > nav:first-of-type a[href][rel~="up"]::after {
+article.slide > nav:first-of-type a[href][rel~="parent"]::after {
 	content: "\00D7";
 	position: fixed;
 	display: block;
@@ -637,7 +637,7 @@ article.slide > nav:first-of-type a[href][rel~="up"]::after {
 	transition: 1s top;
 }
 
-article.slide:target > nav:first-of-type a[href][rel~="up"]::after {
+article.slide:target > nav:first-of-type a[href][rel~="parent"]::after {
 	top: 0;
 }
 

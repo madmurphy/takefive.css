@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" type="text/css" href="css/takefive_min.css">
 	<link rel="index" type="text/html" href="index.html">
-	<link rel="up" type="text/html" href="man.html">
+	<link rel="parent" type="text/html" href="man.html">
 	<link rel="prev" type="text/html" href="min_example.html">
 	<title>Take five! &ndash; Nested galleries</title>
 </head>
@@ -17,7 +17,7 @@
 		<article id="item-1" class="slide" itemscope itemtype="http://schema.org/ImageObject">
 			<nav>
 				<a href="#item-1-1" rel="child">Nested sub-gallery</a>
-				<a href="#nowhere" rel="up">My diary</a>
+				<a href="#nowhere" rel="parent">My diary</a>
 				<a href="#item-2" rel="next">Item #2</a>
 			</nav>
 			<header>
@@ -31,7 +31,7 @@
 		<section itemscope itemtype="http://schema.org/ImageGallery">
 			<article id="item-1-1" class="slide" itemscope itemtype="http://schema.org/ImageObject">
 				<nav>
-					<a href="#item-1" rel="up">Item #1</a>
+					<a href="#item-1" rel="parent">Item #1</a>
 					<a href="#item-1-2" rel="next">Item #1.2</a>
 				</nav>
 				<header>
@@ -45,7 +45,7 @@
 			<article id="item-1-2" class="slide" itemscope itemtype="http://schema.org/ImageObject">
 				<nav>
 					<a href="#item-1-2-1" rel="child">Nested sub-sub-gallery</a>
-					<a href="#item-1" rel="up">Item #1</a>
+					<a href="#item-1" rel="parent">Item #1</a>
 					<a href="#item-1-1" rel="prev">Item #1.1</a>
 				</nav>
 				<header>
@@ -59,7 +59,7 @@
 			<section itemscope itemtype="http://schema.org/ImageGallery">
 				<article id="item-1-2-1" class="slide" itemscope itemtype="http://schema.org/ImageObject">
 					<nav>
-						<a href="#item-1-2" rel="up">Item #1.2</a>
+						<a href="#item-1-2" rel="parent">Item #1.2</a>
 					</nav>
 					<header>
 						<h1>Item #1.2.1</h1>
@@ -73,7 +73,7 @@
 		</section>
 		<article id="item-2" class="slide" itemscope itemtype="http://schema.org/ImageObject">
 			<nav>
-				<a href="#nowhere" rel="up">My diary</a>
+				<a href="#nowhere" rel="parent">My diary</a>
 				<a href="#item-1" rel="prev">Item #1</a>
 			</nav>
 			<header>

@@ -21,19 +21,19 @@
 <pre class="example">&lt;article&nbsp;id="my_hash1" class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ffff00;">&lt;element-to-be-slided /&gt;</span><br />&lt;/article&gt;</pre>
 </li>
 <li>
-<pre class="example">&lt;article&nbsp;id="my_hash2" itemscope class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#nowhere" rel="up"&gt;&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ffff00;">&lt;element-to-be-slided /&gt;</span><br />&lt;/article&gt;</pre>
+<pre class="example">&lt;article&nbsp;id="my_hash2" itemscope class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#nowhere" rel="parent"&gt;&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ffff00;">&lt;element-to-be-slided /&gt;</span><br />&lt;/article&gt;</pre>
 </li>
 <li>
-<pre class="example">&lt;article&nbsp;id="my_hash3" itemscope class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ffff00;">&lt;element-to-be-slided /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#nowhere" rel="up"&gt;My diary&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br />&lt;/article&gt;</pre>
+<pre class="example">&lt;article&nbsp;id="my_hash3" itemscope class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ffff00;">&lt;element-to-be-slided /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#nowhere" rel="parent"&gt;My diary&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br />&lt;/article&gt;</pre>
 </li>
 <li>
-<pre class="example">&lt;article id="my_hash4" itemscope class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#nowhere" rel="up"&gt;My home page&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#my_hash2" rel="prev"&gt;[previous slide name]&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#my_hash2" rel="next"&gt;[next slide name]&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;[title]&lt;/h1&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ffff00;">&lt;this-element-will-be-slided /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ff7777;">&lt;this-element-will-be-displayed-on-the-right-side-of-the-screen /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ff7777;">&lt;this-element-will-be-displayed-on-the-right-side-of-the-screen /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ff7777;">&lt;etc. /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;footer&gt;[footer]&lt;/footer&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;aside&gt;[aside]&lt;/aside&gt;<br />&lt;/article&gt;</pre>
+<pre class="example">&lt;article id="my_hash4" itemscope class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#nowhere" rel="parent"&gt;My home page&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#my_hash2" rel="prev"&gt;[previous slide name]&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#my_hash2" rel="next"&gt;[next slide name]&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;[title]&lt;/h1&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ffff00;">&lt;this-element-will-be-slided /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ff7777;">&lt;this-element-will-be-displayed-on-the-right-side-of-the-screen /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ff7777;">&lt;this-element-will-be-displayed-on-the-right-side-of-the-screen /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: #ff7777;">&lt;etc. /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;footer&gt;[footer]&lt;/footer&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;aside&gt;[aside]&lt;/aside&gt;<br />&lt;/article&gt;</pre>
 </li>
 <li>etc.</li>
 </ul>
 <h4>Example</h4>
 <p>The following minimalistic code</p>
-<pre class="example">&lt;p style="text-align: center; font-size: 2em;"&gt;<br />&nbsp;&nbsp; &nbsp;&lt;a href="#photo_of_the_day"&gt;Photo of the day&lt;/a&gt;<br />&lt;/p&gt;<br /><br />&lt;article class="slide" id="photo_of_the_day" itemscope itemtype="http://schema.org/ImageObject"&gt;<br />&nbsp;&nbsp; &nbsp;&lt;nav&gt;&lt;a href="#nowhere" rel="up"&gt;&lt;/a&gt;&lt;/nav&gt;<br />&nbsp;&nbsp; &nbsp;&lt;img src="images/1.jpg" alt="Photo of the day" itemprop="image" /&gt;<br />&lt;/article&gt;</pre>
+<pre class="example">&lt;p style="text-align: center; font-size: 2em;"&gt;<br />&nbsp;&nbsp; &nbsp;&lt;a href="#photo_of_the_day"&gt;Photo of the day&lt;/a&gt;<br />&lt;/p&gt;<br /><br />&lt;article class="slide" id="photo_of_the_day" itemscope itemtype="http://schema.org/ImageObject"&gt;<br />&nbsp;&nbsp; &nbsp;&lt;nav&gt;&lt;a href="#nowhere" rel="parent"&gt;&lt;/a&gt;&lt;/nav&gt;<br />&nbsp;&nbsp; &nbsp;&lt;img src="images/1.jpg" alt="Photo of the day" itemprop="image" /&gt;<br />&lt;/article&gt;</pre>
 <p>will produce <a href="min_example.html" target="_blank">this result</a>.</p>
 <h3>Slides containers (viewports)</h3>
 <p>Each slide is defined through the element <code><span style="background-color: #ffff00;">&lt;article </span><span style="background-color: #ff7777;">id="my-hash-tag"</span><span style="background-color: #ffff00;"> class="slide"&gt; </span><span style="background-color: #ff7777;">&hellip;</span><span style="background-color: #ffff00;"> &lt;/article&gt;</span></code>. Such element is constructed so that:</p>
@@ -56,7 +56,7 @@
 </ol>
 <h4>Non-direct children of the viewport&nbsp;(sub-children)</h4>
 <ol>
-<li><code>&lt;a href="&hellip;"&gt;</code> elements children of the viewport's main <code>&lt;nav&gt;</code> will be considered as internal navigation links, and displayed on the left side of the viewport (with the exception of <code>a[rel="up"]</code>, see below). Within the main <code>&lt;nav&gt;</code> container, <strong>Take five!</strong> is sensitive to the <code>rel</code> attribute. In particular:<br /><ol>
+<li><code>&lt;a href="&hellip;"&gt;</code> elements children of the viewport's main <code>&lt;nav&gt;</code> will be considered as internal navigation links, and displayed on the left side of the viewport (with the exception of <code>a[rel="parent"]</code>, see below). Within the main <code>&lt;nav&gt;</code> container, <strong>Take five!</strong> is sensitive to the <code>rel</code> attribute. In particular:<br /><ol>
 <li><code>article.slide &gt; nav:first-of-type a[rel="index"]</code> will be accompained by the label &ldquo;Index&rdquo;</li>
 <li><code>article.slide &gt; nav:first-of-type a[rel="first"]</code> will be accompained by the label &ldquo;First slide&rdquo;</li>
 <li><code>article.slide &gt; nav:first-of-type a[rel="next"]</code> will be accompained by the label &ldquo;Next slide&rdquo;</li>
@@ -65,20 +65,20 @@
 <li><code>article.slide &gt; nav:first-of-type a[rel="bookmark"]</code> will be accompained by the label &ldquo;Share it!&rdquo;</li>
 <li><code>article.slide &gt; nav:first-of-type a[rel="author"]</code> will be accompained by the label &ldquo;Author&rdquo;</li>
 <li><code>article.slide &gt; nav:first-of-type a[rel="child"]</code> will be accompained by the label &ldquo;More&rdquo; and styled differently</li>
-<li><code>article.slide &gt; nav:first-of-type a[rel="up"],</code> will be showed in background and accompanied by the label &ldquo;Back to&rdquo; when not empty, or by the label &ldquo;Click to exit&rdquo; when empty</li>
-<li><code><em>leeloo</em> a[rel="up"]:empty</code> will entirely cover the <code><em>&lt;leeeloo&gt;</em></code> element</li>
+<li><code>article.slide &gt; nav:first-of-type a[rel="parent"],</code> will be showed in background and accompanied by the label &ldquo;Back to&rdquo; when not empty, or by the label &ldquo;Click to exit&rdquo; when empty</li>
+<li><code><em>leeloo</em> a[rel="parent"]:empty</code> will entirely cover the <code><em>&lt;leeeloo&gt;</em></code> element</li>
 </ol>Other <code>a[rel="&hellip;"]</code> elements not listed above but placed inside the main <code>&lt;nav&gt;</code> &ndash; with the exception of <code>a[rel="tag"]</code> &ndash; will be accompanied by a label containing their <code>rel</code> attribute. Tag links <em>placed anywhere within the slide</em> (i.e., <code>article.slide a[rel="tag"]</code>) will be styled with a star preceding the text.<code></code> Custom labels can replace the default labels (or tag links' stars) by setting a <code>data-label</code> attribute on the link. Furthermore, it is possible to remove the default labels by assigning a <code>"no-label"</code> class to the link &ndash; as in: <code>&lt;a href="#sample-photo" rel="next" <span style="background-color: #ffff00;">class="no-label"</span>&gt;Sample photo&lt;/a&gt;</code>.</li>
-<li>Each of the elements matching the selectors 1-10 can be omitted (but either 9 or 10 should be present in order to give the possibility to exit from the slide); when present, it is very important that each of them, with the exception of <code>a[rel="child"]</code>, occur <strong>only once for each slide's main <code>&lt;nav&gt;</code></strong>. Further <code>a[rel="&hellip;"]</code> elements (for example, <code>a[rel="archives"]</code>) and <code>a[rel="child"]</code>, can occur more the once within the main <code>&lt;nav&gt;</code>. Moreover, additional duplications of the above cited <code>a[rel="&hellip;"]</code> elements, but placed elsewhere (e.g.: <code>article.slide &gt; div a[rel="up"]</code>), are not relevant and can exist. All the previous 10 elements (note: also elements #9 and #10) can cohabitate together.</li>
+<li>Each of the elements matching the selectors 1-10 can be omitted (but either 9 or 10 should be present in order to give the possibility to exit from the slide); when present, it is very important that each of them, with the exception of <code>a[rel="child"]</code>, occur <strong>only once for each slide's main <code>&lt;nav&gt;</code></strong>. Further <code>a[rel="&hellip;"]</code> elements (for example, <code>a[rel="archives"]</code>) and <code>a[rel="child"]</code>, can occur more the once within the main <code>&lt;nav&gt;</code>. Moreover, additional duplications of the above cited <code>a[rel="&hellip;"]</code> elements, but placed elsewhere (e.g.: <code>article.slide &gt; div a[rel="parent"]</code>), are not relevant and can exist. All the previous 10 elements (note: also elements #9 and #10) can cohabitate together.</li>
 <li>All other sub-children will be displayed normally.</li>
 </ol>
-<h4>The <code>a[rel="up"]</code> element</h4>
-<p>In order to exit from the viewport the <code>a[rel="up"]</code> element is used (see above). <em>Normally this links to any unexisting hash</em> (in our examples we used the hash <code>"#nowhere"</code>, but a simple <code>"#"</code> can be enough), but in the case of nested galleries it can optionally link to the parent gallery (see below).</p>
+<h4>The <code>a[rel="parent"]</code> element</h4>
+<p>In order to exit from the viewport the <code>a[rel="parent"]</code> element is used (see above). <em>Normally this links to any unexisting hash</em> (in our examples we used the hash <code>"#nowhere"</code>, but a simple <code>"#"</code> can be enough), but in the case of nested galleries it can optionally link to the parent gallery (see below).</p>
 <h4>More than one token in the <code>rel</code> attribute</h4>
 <p>It is&nbsp;syntactically and semantically valid to give more than one token to the <code>rel</code> attribute. As explained in the <a href="https://www.w3.org/TR/html5/links.html#links-created-by-a-and-area-elements" target="_blank">W3C Recommendation 28 October 2014</a>,</p>
 <blockquote>The attribute's value must be a set of space-separated tokens.</blockquote>
 <p>In this case, within the main <code>&lt;nav&gt;</code>, the CSS will choose the most important token according to the following order (the higher the number the less important):</p>
 <ol>
-<li><code>"up"</code></li>
+<li><code>"parent"</code></li>
 <li><code>"child"</code></li>
 <li><code>"next"</code></li>
 <li><code>"prev"</code></li>
@@ -88,13 +88,13 @@
 <li><code>"bookmark"</code></li>
 <li><code>"author"</code></li>
 </ol>
-<p>For instance, <code>&lt;a href="#hello-world" rel="<span style="background-color: #ffff00;">index prev</span>"&gt;Hello world&lt;/a&gt;</code> will be styled as if it contained just the token <code>"prev"</code>, while <code>&lt;a href="#hello-world" rel="<span style="background-color: #ffff00;">prev up</span>"&gt;Hello world&lt;/a&gt;</code> will be styled as if it contained just the token <code>"up"</code>, and so on. Moreover, the token <code>"child"</code> used together with one of the tokens 3-9 of the previous list will preserve the button generated by the latter.</p>
+<p>For instance, <code>&lt;a href="#hello-world" rel="<span style="background-color: #ffff00;">index prev</span>"&gt;Hello world&lt;/a&gt;</code> will be styled as if it contained just the token <code>"prev"</code>, while <code>&lt;a href="#hello-world" rel="<span style="background-color: #ffff00;">prev parent</span>"&gt;Hello world&lt;/a&gt;</code> will be styled as if it contained just the token <code>"parent"</code>, and so on. Moreover, the token <code>"child"</code> used together with one of the tokens 3-9 of the previous list will preserve the button generated by the latter.</p>
 <p>The possible values for the <code>rel</code> attribute are several. <a href="https://html.spec.whatwg.org/multipage/semantics.html#other-link-types" target="_blank">Furthermore</a>:</p>
 <blockquote>Extensions to the predefined set of link types may be registered in the <a href="http://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions" target="_blank">microformats wiki existing-rel-values page</a>.</blockquote>
 <p>Links containing the <code>"tag"</code> token will be styled as &ldquo;tag links&rdquo; just when <code>"tag"</code> is the only token present.</p>
 <h3>Nested galleries</h3>
 <p>Galleries can be nested within other galleries, possibly through the <code>&lt;section&gt;</code> element. In this case the link to the child gallery is usually given through a <code>a[rel="child"]</code> link.</p>
-<pre class="example">&lt;section&gt;<br />&nbsp;&nbsp;&nbsp; &lt;article id="item-1" itemscope class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a href="#item-1-1" <span style="background-color: #ff7777;">rel="child"</span>&gt;Nested gallery&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a href="#nowhere" rel="up"&gt;My diary&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="background-color: #ffff00;">&lt;element-to-be-slided /&gt;</span><br />&nbsp;&nbsp;&nbsp; &lt;/article&gt;<br />&nbsp;&nbsp;&nbsp; &lt;section&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;article id="item-1-1" itemscope class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a <span style="background-color: #ff7777;">href="#item-1"</span> rel="up"&gt;Item #1&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="background-color: #ffff00;">&lt;element-to-be-slided /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/article&gt;<br />&nbsp;&nbsp;&nbsp; &lt;/section&gt;<br />&lt;/section&gt;</pre>
+<pre class="example">&lt;section&gt;<br />&nbsp;&nbsp;&nbsp; &lt;article id="item-1" itemscope class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a href="#item-1-1" <span style="background-color: #ff7777;">rel="child"</span>&gt;Nested gallery&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a href="#nowhere" rel="parent"&gt;My diary&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="background-color: #ffff00;">&lt;element-to-be-slided /&gt;</span><br />&nbsp;&nbsp;&nbsp; &lt;/article&gt;<br />&nbsp;&nbsp;&nbsp; &lt;section&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;article id="item-1-1" itemscope class="slide"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;a <span style="background-color: #ff7777;">href="#item-1"</span> rel="parent"&gt;Item #1&lt;/a&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="background-color: #ffff00;">&lt;element-to-be-slided /&gt;</span><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/article&gt;<br />&nbsp;&nbsp;&nbsp; &lt;/section&gt;<br />&lt;/section&gt;</pre>
 <p>The code above will produce a result similar to <a href="nested_example.html" target="_blank">this example</a>.</p>
 <h3>Issues</h3>
 <p>For compatibility issues with other CSS, here follows the table of all the <code>z-indices</code> assigned by <strong>Take five!</strong>. They cover the range 11109-11118, therefore no other elements within the document should have a <code>z-index</code> higher than 11109 in order to not be displayed over the viewport.</p>
@@ -112,7 +112,7 @@
 <td><code>11110</code></td>
 </tr>
 <tr>
-<td><code>article.slide &gt; nav:first-of-type a[rel="up"]</code></td>
+<td><code>article.slide &gt; nav:first-of-type a[rel="parent"]</code></td>
 <td><code>11111</code></td>
 </tr>
 <tr>
@@ -132,15 +132,15 @@
 <td><code>11115</code></td>
 </tr>
 <tr>
-<td><code>article.slide &gt; nav:first-of-type a:not([rel="up"])</code></td>
+<td><code>article.slide &gt; nav:first-of-type a:not([rel="parent"])</code></td>
 <td><code>11116</code></td>
 </tr>
 <tr>
-<td><code>article.slide &gt; nav:first-of-type a[rel="up"]::after</code></td>
+<td><code>article.slide &gt; nav:first-of-type a[rel="parent"]::after</code></td>
 <td><code>11117</code></td>
 </tr>
 <tr>
-<td><code><em>leeloo</em> a[rel="up"]:empty::before</code></td>
+<td><code><em>leeloo</em> a[rel="parent"]:empty::before</code></td>
 <td><code>11118</code></td>
 </tr>
 </tbody>
@@ -150,7 +150,7 @@
 <li>The code focuses on the semantics aspects of HTML5 (i.e., how a slide can be naturally declared), while the graphical result can still be improved. If you have new ideas, please do not hesitate to propose them on <a href="https://github.com/madmurphy/takefive.css" target="_blank">GitHub</a>. Normally I accept good ideas, but in case of proposals too specific for a general-purpose slide renderer, the project can eventually be forked and released again as new project under the terms of the GPL3 (let me know!).</li>
 <li>For learning more about the <code>itemscope</code> attribute and HTML5 microdata, please see <a href="http://schema.org/" target="_blank">schema.org</a>. A lists of the main <code>rel</code> attributes can be found <a href="https://www.w3.org/wiki/HTML/Elements/link#HTML_Attributes" target="_blank">here</a>, while its extension can be found <a href="http://microformats.org/wiki/existing-rel-values" target="_blank">here</a>.</li>
 <li>It is possible to prevent the hashtag from being displayed in the viewport by using the class <code>"no-hashtag"</code> &ndash; as in <code>&lt;article class="slide <span style="background-color: #ffff00;">no-hashtag</span>" id="my-hash-name"&gt; &hellip; &lt;/article&gt;</code>.</li>
-<li>The special link <code>a[rel="up"]</code> complies with the following rule:
+<li>The special link <code>a[rel="parent"]</code> complies with the following rule:
 <ul>
 <li>If it is inside a <code>&lt;nav&gt;</code> element &rArr; it will be shown on the top-right corner; a transparent, clickable, fixed, full-screen layer will be created.</li>
 <li>If it is inside the <code><em>&lt;leeloo&gt;</em></code> element and <em>is empty</em> &rArr; a transparent clickable layer will cover the whole (and only) <code><em>&lt;leeloo&gt;</em></code> element.</li>
@@ -158,7 +158,7 @@
 <ul>
 <li>it is inside the <code><em>&lt;leeloo&gt;</em></code> element but <em>is not empty</em>,</li>
 <li>or it is outside both the <code>&lt;nav&gt;</code> and the <code><em>&lt;leeloo&gt;</em></code> elements (empty or not empty),</li>
-<li>or <code>a[rel="up"]</code> *is* the <code><em>&lt;leeloo&gt;</em></code> element iself &ndash; very unlikely...</li>
+<li>or <code>a[rel="parent"]</code> *is* the <code><em>&lt;leeloo&gt;</em></code> element iself &ndash; very unlikely...</li>
 </ul>
 then &rArr; it will be ignored by this CSS and will be normally displayed.</li>
 </ul>

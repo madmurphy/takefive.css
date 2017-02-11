@@ -4,8 +4,9 @@
 
 Changes:
 
-* Possibility of declaring more one than one token within the values of `rel` attributes
-* Changed unicode symbol for `prev` and `next`
+* Relational token `up` replaced by `parent`
+* Possibility of declaring more one than one token within the `rel` attribute
+* Changed unicode symbols for `prev` and `next`
 * Added support for `a[rel="child"]`
 
 ## [1.1.2] - 2017-02-09
