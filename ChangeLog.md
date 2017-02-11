@@ -4,8 +4,8 @@
 
 Changes:
 
-* Relational token `up` replaced by `parent`
-* Possibility of declaring more one than one token within the `rel` attribute
+* Relational token `up` replaced with `parent`
+* Possibility of declaring more one than one token within the `rel` attributes
 * Changed unicode symbols for `prev` and `next`
 * Added support for `a[rel="child"]`
 
