@@ -1,7 +1,7 @@
 {
 	"name": "Take five!",
 	"version": "1.2.0",
-	"description": "A stand-alone, semantically-consistent, microdata-oriented, pure-CSS slide renderer",
+	"description": "A semantically-consistent pure-CSS slide renderer",
 	"style": "takefive.css",
 	"license": "GPL-3.0",
 	"author": "Stefano Gioffr\u00E9",

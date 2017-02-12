@@ -1,6 +1,6 @@
 # Take five!
 
-A stand-alone, semantically-consistent, microdata-oriented, pure-CSS slide renderer.
+A semantically-consistent pure-CSS slide renderer
 
 See:
 
