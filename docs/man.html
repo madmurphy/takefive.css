@@ -76,12 +76,12 @@
 <p>In order to exit from the viewport the <code>a[rel="parent"]</code> element is used (see above). <em>Normally this links to any unexisting hash</em> (in our examples we used the hash <code>"#nowhere"</code>, but a simple <code>"#"</code> can be enough), but in the case of nested galleries it can optionally link to the parent gallery (see below).</p>
 <p>The special link <code>a[rel="parent"]</code> complies with the following rule:</p>
 <ul>
-<li>If it is inside a <code>&lt;nav&gt;</code> element &rArr; it will be shown on the top-right corner; a transparent, clickable, fixed, full-screen layer will be created.</li>
-<li>If it is inside the <code><em>&lt;leeloo&gt;</em></code> element and <em>is empty</em> &rArr; a transparent clickable layer will cover the whole (and only) <code><em>&lt;leeloo&gt;</em></code> element.</li>
+<li>If it is inside the main <code>&lt;nav&gt;</code> &rArr; it will be shown on the top-right corner; a transparent, clickable, full-screen layer will be created.</li>
+<li>If it is inside the <code><em>&lt;leeloo&gt;</em></code> element and is <em>empty</em> &rArr; a transparent clickable layer will cover the whole (and only) <code><em>&lt;leeloo&gt;</em></code> element.</li>
 <li>If, instead,<br />
 <ul>
-<li>it is inside the <code><em>&lt;leeloo&gt;</em></code> element but <em>is not empty</em>,</li>
-<li>or it is outside both the <code>&lt;nav&gt;</code> and the <code><em>&lt;leeloo&gt;</em></code> elements (empty or not empty),</li>
+<li>it is inside the <code>&lt;leeloo&gt;</code> element but is <em>not empty</em>,</li>
+<li>or it is outside both the main <code>&lt;nav&gt;</code> and the <code><em>&lt;leeloo&gt;</em></code> element (empty or not empty),</li>
 <li>or <code>a[rel="parent"]</code> *is* the <code><em>&lt;leeloo&gt;</em></code> element iself &ndash; very unlikely...</li>
 </ul>
 then &rArr; it will be ignored by this CSS and will be normally displayed.</li>

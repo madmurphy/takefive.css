@@ -326,18 +326,18 @@ article.slide > nav:first-of-type a[href][rel~="child"]:not([rel~="parent"]):hov
 
 	THE RULE IS THE FOLLOWING:
 
-	(Cond. 1.) If a[href][rel~="parent"] is inside a <nav> element:
+	(Cond. 1.) If a[href][rel~="parent"] is inside the main <nav>:
 
-		--> it will be shown on the top-right corner; a transparent, clickable, fixed,
-		    full-screen layer will be created.
+		--> it will be shown on the top-right corner; a transparent, clickable, full-screen
+		    layer will be created.
 
 	(Cond. 2.) If a[href][rel~="parent"] is inside the <leeloo> element and is EMPTY:
 
 		--> a transparent clickable layer will cover the whole (and only) <leeloo> element.
 
 	(Cond. 3.) If a[href][rel~="parent"] is inside the <leeloo> element but is NOT EMPTY,
-	(Cond. 4.) or if a[href][rel~="parent"] is outside both the <nav> and the <leeloo> elements (empty or not empty),
-	(Cond. 5.) or if a[href][rel~="parent"] *is* <leeloo> -- very unlikely...:
+	(Cond. 4.) or if a[href][rel~="parent"] is outside both the main <nav> and the <leeloo> element (empty or not empty),
+	(Cond. 5.) or if a[href][rel~="parent"] *is* <leeloo> itself -- very unlikely...:
 
 		--> it will be ignored by this CSS.
 
