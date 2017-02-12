@@ -8,6 +8,8 @@ Changes:
 * Possibility of declaring more one than one token within the `rel` attributes
 * Changed unicode symbols for `prev` and `next`
 * Added support for `a[rel="child"]`
+* Added support for `"no-nav"` class
+* Improved &lt;blockquote&gt; elements
 * Improved documentation and demo
 
 ## [1.1.2] - 2017-02-09
