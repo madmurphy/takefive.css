@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.2.1] - 2017-02-13
+
+Changes:
+
+* Labels of links within the main &lt;nav&gt;
+* Documentation
+
 ## [1.2.0] - 2017-02-12
 
 Changes:

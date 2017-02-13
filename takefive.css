@@ -7,7 +7,7 @@
 |*|
 |*|	https://github.com/madmurphy/takefive.css/
 |*|
-|*|	Version 1.2.0
+|*|	Version 1.2.1
 |*|
 |*|	(c) Stefano Gioffr&eacute;
 |*|
@@ -407,7 +407,7 @@ article.slide > :not(nav):not(header):not(footer):not(aside) a[href][rel~="paren
 	z-index: initial;
 }
 
-/* All links but a[href][rel~="parent"] when empty... */
+/* All links but a[href][rel~="parent"] and a[href][rel~="child"] when empty... */
 
 article.slide > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="child"]):empty,
 article.slide > nav:first-of-type a[href][rel~="child"].no-label:not([rel~="parent"]):empty {
@@ -429,7 +429,7 @@ article.slide > nav:first-of-type a[href][rel~="child"].no-label:not([rel~="pare
 	z-index: 11116;
 }
 
-/* All links but a[href][rel~="parent"] and a[href][rel~="tag"] when not empty... */
+/* All links but a[href][rel~="parent"] and a[href][rel~="child"] when not empty... */
 
 article.slide > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="child"]):not(:empty) {
 	position: relative;
@@ -466,6 +466,7 @@ article.slide > nav:first-of-type a[href][data-label]:not(.no-label):not(:empty)
 	display: block;
 	font-size: smaller;
 	font-style: normal;
+	margin: 0;
 }
 
 article.slide > nav:first-of-type a[href][rel]:not([rel~="child"]):not(.no-label):not(:empty)::before,
@@ -500,6 +501,15 @@ article.slide > nav:first-of-type a[href][rel]:not([data-label]):not(.no-label):
 
 article.slide a[href][rel~="tag"]:not([data-label]):not(.no-label):not(:empty)::before {
 	content: "\2605";
+}
+
+article.slide > nav:first-of-type a[href][rel~="tag"]:not([data-label]):not(.no-label):not(:empty)::before {
+	content: "Tagged content";
+	text-transform: none;
+}
+
+article.slide > nav:first-of-type a[href][rel~="author"]:not([data-label]):not(.no-label):not(:empty)::before {
+	content: "Author";
 	text-transform: none;
 }
 
@@ -515,6 +525,11 @@ article.slide > nav:first-of-type a[href][rel~="first"]:not([data-label]):not(.n
 
 article.slide > nav:first-of-type a[href][rel~="last"]:not([data-label]):not(.no-label):not(:empty)::before {
 	content: "Last slide";
+	text-transform: none;
+}
+
+article.slide > nav:first-of-type a[href][rel~="index"]:not([data-label]):not(.no-label):not(:empty)::before {
+	content: "Index";
 	text-transform: none;
 }
 
