@@ -798,7 +798,6 @@ article.slide:target > blockquote {
 	font-size: 1.2em !important;
 }
 
-article.slide > * blockquote,
 article.slide:target > :not(nav):not(header):not(footer):not(aside) ~ blockquote {
 /*
 	--> unset place: `@leeloo_blockquote_content`
