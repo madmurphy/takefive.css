@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.2.2] - 2017-02-16
+
+Changes:
+
+* Unicode symbol for `a[rel="bookmark"]` set to `U+1F517`
+
 ## [1.2.1] - 2017-02-14
 
 Changes:

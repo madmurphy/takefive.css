@@ -7,7 +7,7 @@
 |*|
 |*|	https://github.com/madmurphy/takefive.css/
 |*|
-|*|	Version 1.2.1
+|*|	Version 1.2.2
 |*|
 |*|	(c) Stefano Gioffr&eacute;
 |*|
@@ -586,7 +586,6 @@ article.slide > nav:first-of-type a[href][rel~="author"]:not([rel~="parent"]):no
 	line-height: 48px;
 	text-align: center;
 	z-index: 11116;
-	/*width: 48px;*/
 }
 
 article.slide > nav:first-of-type a[href][rel~="author"]:not([rel~="parent"]):not(.no-nav)::after {
@@ -594,16 +593,17 @@ article.slide > nav:first-of-type a[href][rel~="author"]:not([rel~="parent"]):no
 	left: calc(80% - 48px);
 	top: initial;
 	bottom: 10%;
-	font-size: 48px;
+	font-size: 40px;
 }
 
 article.slide > nav:first-of-type a[href][rel~="bookmark"]:not([rel~="parent"]):not(.no-nav)::after {
-	content: "#";
+	content: "\1F517";
 	/* try also: `content: "\1F4D1";` */
+	/* try also: `content: "#";` */
 	left: calc(80% - 48px);
 	top: 10%;
 	bottom: initial;
-	font-size: 48px;
+	font-size: 40px;
 }
 
 article.slide > nav:first-of-type a[href][rel~="first"]:not([rel~="parent"]):not(.no-nav)::after {
