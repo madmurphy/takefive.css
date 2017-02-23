@@ -90,11 +90,11 @@ h4 {
 }
 
 h5 {
-	font: italic 100% sans-serif;
+	font: bold 110% sans-serif;
 }
 
 h6 {
-	font: small-caps 100% sans-serif;
+	font: italic 100% sans-serif;
 }
 
 h2, h3, h4, h5, h6 {
@@ -835,5 +835,29 @@ span.issue, span.note {
 	padding: .1em .5em .15em;
 	border-right-width: .5em;
 	border-right-style: solid;
+}
+
+dl.faq_list dt {
+	font-weight: bold;
+}
+
+dl.faq_list dd {
+	margin: 1em 0 1em 1em;
+}
+
+dl.faq_list dt::before,
+dl.faq_list dd::before {
+	border: 1px #000000 solid;
+	margin-right: 6px;
+	padding: 2px;
+	font-weight: bold;
+}
+
+dl.faq_list dt::before {
+	content: "Q";
+}
+
+dl.faq_list dd::before {
+	content: "A";
 }
 

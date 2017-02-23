@@ -1,6 +1,6 @@
 {
 	"name": "Take five!",
-	"version": "1.2.2",
+	"version": "1.2.3",
 	"description": "A semantically-consistent pure-CSS slide renderer",
 	"style": "takefive.css",
 	"license": "GPL-3.0",

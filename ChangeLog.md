@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.2.3] - 2017-02-23
+
+Changes:
+
+* Added support for `a.no-nav[href][rel~="parent"]`
+* Documentation
+
 ## [1.2.2] - 2017-02-16
 
 Changes:

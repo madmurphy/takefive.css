@@ -7,7 +7,7 @@
 |*|
 |*|	https://github.com/madmurphy/takefive.css/
 |*|
-|*|	Version 1.2.2
+|*|	Version 1.2.3
 |*|
 |*|	(c) Stefano Gioffr&eacute;
 |*|
@@ -345,7 +345,7 @@ article.slide > nav:first-of-type a[href][rel~="child"]:not([rel~="parent"]):hov
 
 /* (Cond. 1.) */
 
-article.slide > nav:first-of-type a[href][rel~="parent"] {
+article.slide > nav:first-of-type a[href][rel~="parent"]:not(.no-nav) {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -363,11 +363,7 @@ article.slide > nav:first-of-type a[href][rel~="parent"] {
 	transition: 1s color;
 }
 
-article.slide > nav:first-of-type a[href][rel~="parent"].no-nav {
-	padding-right: 16px;
-}
-
-article.slide > nav:first-of-type a[href][rel~="parent"]:hover {
+article.slide > nav:first-of-type a[href][rel~="parent"]:not(.no-nav):hover {
 	color: inherit;
 }
 
@@ -407,8 +403,9 @@ article.slide > :not(nav):not(header):not(footer):not(aside) a[href][rel~="paren
 	z-index: initial;
 }
 
-/* All links but a[href][rel~="parent"] and a[href][rel~="child"] when empty... */
+/* All links but a.no-nav[href][rel~="parent"] and a[href][rel~="child"] when empty... */
 
+article.slide > nav:first-of-type a.no-nav[href][rel~="parent"]:empty,
 article.slide > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="child"]):empty,
 article.slide > nav:first-of-type a[href][rel~="child"].no-label:not([rel~="parent"]):empty {
 	position: absolute;
@@ -429,8 +426,9 @@ article.slide > nav:first-of-type a[href][rel~="child"].no-label:not([rel~="pare
 	z-index: 11116;
 }
 
-/* All links but a[href][rel~="parent"] and a[href][rel~="child"] when not empty... */
+/* All links but a.no-nav[href][rel~="parent"] and a[href][rel~="child"] when not empty... */
 
+article.slide > nav:first-of-type a.no-nav[href][rel~="parent"]:not(:empty),
 article.slide > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="child"]):not(:empty) {
 	position: relative;
 	width: calc(100% + 12px);
@@ -453,6 +451,7 @@ article.slide > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="child"
 
 /* <nav> links' "ease in/out" animation */
 
+article.slide > nav:first-of-type a.no-nav[href][rel~="parent"]:not(:empty):hover,
 article.slide > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="child"]):not(:empty):hover {
 	left: -12px;
 }
@@ -555,6 +554,11 @@ article.slide > nav:first-of-type a[href][rel~="parent"]:not([data-label]):not(.
 
 article.slide > nav:first-of-type a[href][rel~="parent"]:not([data-label]):not(.no-label):empty::before {
 	content: "Click to exit";
+	text-transform: none;
+}
+
+article.slide > nav:first-of-type a.no-nav[href][rel~="parent"]:not([data-label]):not(.no-label)::before {
+	content: "Back to";
 	text-transform: none;
 }
 
