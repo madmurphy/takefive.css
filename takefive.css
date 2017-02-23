@@ -328,7 +328,7 @@ article.slide > nav:first-of-type a[href][rel~="child"]:not([rel~="parent"]):hov
 
 	(Cond. 1.) If a[href][rel~="parent"] is inside the main <nav>:
 
-		--> it will be shown on the top-right corner; a transparent, clickable, full-screen
+		--> it will be shown on the right-top corner; a transparent, clickable, full-screen
 		    layer will be created.
 
 	(Cond. 2.) If a[href][rel~="parent"] is inside the <leeloo> element and is EMPTY:

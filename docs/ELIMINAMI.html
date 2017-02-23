@@ -39,11 +39,11 @@ h3 {
 }
 
 h4 {
-	font: bold 110% sans-serif;
+	font: bold 100% sans-serif;
 }
 
 h5 {
-	font: bold 100% sans-serif;
+	font: bold 110% sans-serif;
 }
 
 h6 {
@@ -120,6 +120,24 @@ article.slide {
 		oWin.document.write("<!doctype html>\n<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text\/html;charset=UTF-8\" \/>\n<style type=\"text\/css\">a{color:#000;text-decoration:none}a[href^=\"http\"]::after{content:\"(\" attr(href) \")\";vertical-align:super;font-size:x-small}nav,aside{display:none}<\/style>\n<\/head>\n<body onload=\"print();\">\n\n" + document.getElementById(sId).outerHTML + "\n\n<\/body>\n<\/html>");
 		oWin.document.close();
 	}
+
+
+
+
+/* closes the slide currently open or does nothing */
+function closeCurrentSlide () {
+	var oSlide = document.querySelector("article.slide:target");
+	if (oSlide) {
+		var oExitLink = oSlide.querySelector("nav:first-of-type a[href][rel~=\"parent\"]");
+		location.assign(oExitLink ? oExitLink.href : "#");
+	}
+}
+
+document.addEventListener("keyup", function (oEvt) {
+	if (oEvt.key === "Escape") {
+		closeCurrentSlide();
+	}
+}, false);
 </script>
 </head>
 
