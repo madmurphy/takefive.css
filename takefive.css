@@ -20,7 +20,7 @@
 
 @font-face {
 /*
-	:: Put here your favorite font to be used by Take five! ::
+	:: The font used by Take five! ::
 */
 	font-family: "report";
 	src: url("fonts/1942-report/webfont.eot") format("embedded-opentype"), url("fonts/1942-report/webfont.woff") format("woff"), url("fonts/1942-report/webfont.ttf") format("truetype"), url("fonts/1942-report/webfont.svg") format("svg");
