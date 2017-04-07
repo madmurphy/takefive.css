@@ -1,13 +1,13 @@
 /*\
 |*|
-|*|					:: Take five! ::
+|*|			:: Take five! ::
 |*|
 |*|
 |*|	A semantically-consistent pure-CSS slide renderer
 |*|
 |*|	https://github.com/madmurphy/takefive.css/
 |*|
-|*|	Version 1.2.3
+|*|	Version 1.2.4
 |*|
 |*|	(c) Stefano Gioffr&eacute;
 |*|
@@ -19,9 +19,18 @@
 
 
 @font-face {
+/*
+	:: Put here your favorite font to be used by Take five! ::
+*/
 	font-family: "report";
 	src: url("fonts/1942-report/webfont.eot") format("embedded-opentype"), url("fonts/1942-report/webfont.woff") format("woff"), url("fonts/1942-report/webfont.ttf") format("truetype"), url("fonts/1942-report/webfont.svg") format("svg");
 }
+
+/*\
+|*|
+|*|	The viewport...
+|*|
+\*/
 
 article.slide {
 	position: fixed;
@@ -122,7 +131,7 @@ START {
 
 article.slide > :not(nav):not(header):not(footer):not(aside) {
 /*
-	:: whatever you set here, unless you want differently, please
+	:: Whatever you set here, unless you want differently, please
 	   restore it in the unset place `@leeloo_itself`! ::
 */
 	position: absolute;
@@ -148,7 +157,7 @@ article.slide > :not(nav):not(header):not(footer):not(aside) {
 
 article.slide:target > :not(nav):not(header):not(footer):not(aside) {
 /*
-	:: whatever you set here, unless you want differently, please
+	:: Whatever you set here, unless you want differently, please
 	   restore it in the unset place `@leeloo_ease_in_out`! ::
 */
 	/* Ease in-out... */
@@ -237,16 +246,16 @@ article.slide > header:first-of-type {
 	text-align: center;
 	overflow: visible;
 	font-size: larger;
-	z-index: 11110; /* the header is always *under* the clickable layer */
+	z-index: 11110;		/* the header is always *under* the clickable layer */
 }
 
 /* One <footer>, if present... */
 
 article.slide > footer:first-of-type {
 	position: absolute;
-	bottom: 50px; /* see article.slide.padding-bottom for this */
+	bottom: 50px;		/* see article.slide.padding-bottom for this */
 	box-sizing: border-box;
-	width: 17%; /* see article.slide.padding-right for this */
+	width: 17%;		/* see article.slide.padding-right for this */
 	text-align: right;
 	height: auto;
 	margin: 0;
@@ -261,7 +270,7 @@ article.slide > footer:first-of-type {
 article.slide > aside:first-of-type {
 	position: absolute;
 	left: 0;
-	bottom: 50px; /* see article.slide.padding-bottom for this */
+	bottom: 50px;	/* see article.slide.padding-bottom for this */
 	box-sizing: border-box;
 	width: 17%;
 	text-align: left;
@@ -371,7 +380,7 @@ article.slide > nav:first-of-type a[href][rel~="parent"]:not(.no-nav):hover {
 
 article.slide > :not(nav):not(header):not(footer):not(aside) a[href][rel~="parent"]:empty::before {
 /*
-	:: whatever you set here, unless you want differently, please
+	:: Whatever you set here, unless you want differently, please
 	   restore it in the unset place `@leeloo_exit_layer`! ::
 */
 	content: "";
@@ -656,14 +665,14 @@ article.slide > nav:first-of-type a[href][rel~="parent"]:not(.no-nav)::after {
 	content: "\00D7";
 	position: fixed;
 	display: block;
-	width: 50px; /* 1.8em */
-	height: 50px; /* 1.8em */
-	line-height: 44px; /* 1.6em */
-	font-size: 28px; /* 2.3em */
+	width: 50px;		/* 1.8em */
+	height: 50px;		/* 1.8em */
+	line-height: 44px;	/* 1.6em */
+	font-size: 28px;	/* 2.3em */
 	font-style: normal;
 	text-align: center;
 	color: #ffffff;
-	top: -80px;	/* -2.88em */
+	top: -80px;		/* -2.88em */
 	bottom: initial;
 	font-family: serif;
 	left: calc(100% - 50px);
@@ -720,7 +729,7 @@ article.slide section {
 article.slide > article,
 article.slide > section {
 /*
-	:: whatever you set here, unless you want differently, please
+	:: Whatever you set here, unless you want differently, please
 	   restore it in the unset place `@leeloo_text_content`! ::
 */
 	padding: 6px;
@@ -796,7 +805,7 @@ article.slide blockquote {
 
 article.slide:target > blockquote {
 /*
-	:: whatever you set here, unless you want differently, please
+	:: Whatever you set here, unless you want differently, please
 	   restore it in the unset place `@leeloo_blockquote_content`! ::
 */
 	font-size: 1.2em !important;

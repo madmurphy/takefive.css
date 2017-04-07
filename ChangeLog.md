@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.2.4] - 2017-04-7
+
+Changes:
+
+* Optional font `GNU Typewriter` is now available under `fonts/`
+
 ## [1.2.3] - 2017-02-23
 
 Changes:
