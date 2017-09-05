@@ -346,7 +346,7 @@ article.slide > nav:first-of-type a[href][rel~="child"]:not([rel~="parent"]):hov
 
 	(Cond. 3.) If a[href][rel~="parent"] is inside the <leeloo> element but is NOT EMPTY,
 	(Cond. 4.) or if a[href][rel~="parent"] is outside both the main <nav> and the <leeloo> element (empty or not empty),
-	(Cond. 5.) or if a[href][rel~="parent"] *is* <leeloo> itself -- very unlikely...:
+	(Cond. 5.) or if a[href][rel~="parent"] *is* <leeloo> itself:
 
 		--> it will be ignored by this CSS and displayed as a normal link.
 

@@ -1,6 +1,14 @@
 # Change Log
 
-## [1.2.4] - 2017-04-7
+## [1.2.5] - 2017-09-05
+
+Changes:
+
+* Attached Satie's _Gymnopedie_
+* Documentation
+
+
+## [1.2.4] - 2017-04-07
 
 Changes:
 
