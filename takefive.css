@@ -7,9 +7,9 @@
 |*|
 |*|	https://github.com/madmurphy/takefive.css/
 |*|
-|*|	Version 1.2.4
+|*|	Version 1.2.6
 |*|
-|*|	(c) Stefano Gioffr&eacute;
+|*|	(c) madmurphy
 |*|
 |*|	This CSS is released under the GNU Public License, version 3 or later.
 |*|	http://www.gnu.org/licenses/gpl-3.0.html
@@ -28,7 +28,7 @@
 
 /*\
 |*|
-|*|	The viewport...
+|*|	The viewport
 |*|
 \*/
 
@@ -122,8 +122,8 @@ article.slide hr {
 
 /*
 
-Search of the first *SEMANTICALLY VALID* element to be centered in the slide,
-i.e.: ":not(nav):not(header):not(footer):not(aside)", a.k.a. "the <leeloo> element" ...:
+Search of the first *semantically valid* element to be centered in the slide,
+i.e.: `:not(nav):not(header):not(footer):not(aside)`, a.k.a. "the <leeloo> element".
 
 START {
 
@@ -166,7 +166,7 @@ article.slide:target > :not(nav):not(header):not(footer):not(aside) {
 	font-size: 1em;
 }
 
-/* We want just the first one: unset the others... */
+/* We want just the first one: unset the others. */
 
 article.slide > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside) {
 /*
@@ -196,7 +196,7 @@ article.slide:target > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):
 	/* Kept values: font-size */
 }
 
-/* ALL DIRECT children BUT <leeloo> */
+/* All direct children but <leeloo> */
 
 article.slide > nav:not(:first-of-type),
 article.slide > header:not(:first-of-type),
@@ -215,7 +215,7 @@ article.slide > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(hea
 
 */
 
-/* One <nav>, if present... */
+/* One <nav>, if present */
 
 article.slide > nav:first-of-type {
 	display: block !important;
@@ -231,7 +231,7 @@ article.slide > nav:first-of-type {
 	text-align: left;
 }
 
-/* One <header>, if present... */
+/* One <header>, if present */
 
 article.slide > header:first-of-type {
 	position: absolute;
@@ -242,14 +242,14 @@ article.slide > header:first-of-type {
 	width: auto;
 	height: 50px;
 	margin: 0 50px;
-	padding: 0;
+	padding: 12px 0 0 0;
 	text-align: center;
 	overflow: visible;
 	font-size: larger;
 	z-index: 11110;		/* the header is always *under* the clickable layer */
 }
 
-/* One <footer>, if present... */
+/* One <footer>, if present */
 
 article.slide > footer:first-of-type {
 	position: absolute;
@@ -265,12 +265,12 @@ article.slide > footer:first-of-type {
 	z-index: 11113;
 }
 
-/* One <aside>, if present... */
+/* One <aside>, if present */
 
 article.slide > aside:first-of-type {
 	position: absolute;
 	left: 0;
-	bottom: 50px;	/* see article.slide.padding-bottom for this */
+	bottom: 50px;		/* see article.slide.padding-bottom for this */
 	box-sizing: border-box;
 	width: 17%;
 	text-align: left;
@@ -331,22 +331,22 @@ article.slide > nav:first-of-type a[href][rel~="child"]:not([rel~="parent"]):hov
 
 	/*****************************************
 
-	:: Special links: the a[href][rel~="parent"] link... ::
+	:: Special links: the `a[href][rel~="parent"]` link ::
 
 	THE RULE IS THE FOLLOWING:
 
-	(Cond. 1.) If a[href][rel~="parent"] is inside the main <nav>:
+	(Cond. 1.) If `a[href][rel~="parent"]` is inside the main <nav>:
 
 		--> it will be shown on the right-top corner; a transparent, clickable, full-screen
 		    layer will be created.
 
-	(Cond. 2.) If a[href][rel~="parent"] is inside the <leeloo> element and is EMPTY:
+	(Cond. 2.) If `a[href][rel~="parent"]` is inside the <leeloo> element and is *empty*:
 
 		--> a transparent clickable layer will cover the whole (and only) <leeloo> element.
 
-	(Cond. 3.) If a[href][rel~="parent"] is inside the <leeloo> element but is NOT EMPTY,
-	(Cond. 4.) or if a[href][rel~="parent"] is outside both the main <nav> and the <leeloo> element (empty or not empty),
-	(Cond. 5.) or if a[href][rel~="parent"] *is* <leeloo> itself:
+	(Cond. 3.) If `a[href][rel~="parent"]` is inside the <leeloo> element but is *not empty*,
+	(Cond. 4.) or if `a[href][rel~="parent"]` is outside both the main <nav> and the <leeloo> element (empty or not empty),
+	(Cond. 5.) or if `a[href][rel~="parent"]` *is* <leeloo> itself:
 
 		--> it will be ignored by this CSS and displayed as a normal link.
 
@@ -412,7 +412,7 @@ article.slide > :not(nav):not(header):not(footer):not(aside) a[href][rel~="paren
 	z-index: initial;
 }
 
-/* All links but a.no-nav[href][rel~="parent"] and a[href][rel~="child"] when empty... */
+/* All links when empty, except `a.no-nav[href][rel~="parent"]` and `a[href][rel~="child"]` */
 
 article.slide > nav:first-of-type a.no-nav[href][rel~="parent"]:empty,
 article.slide > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="child"]):empty,
@@ -435,7 +435,7 @@ article.slide > nav:first-of-type a[href][rel~="child"].no-label:not([rel~="pare
 	z-index: 11116;
 }
 
-/* All links but a.no-nav[href][rel~="parent"] and a[href][rel~="child"] when not empty... */
+/* All links when not empty, except `a.no-nav[href][rel~="parent"]` and `a[href][rel~="child"]` */
 
 article.slide > nav:first-of-type a.no-nav[href][rel~="parent"]:not(:empty),
 article.slide > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="child"]):not(:empty) {
@@ -451,7 +451,6 @@ article.slide > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="child"
 	box-shadow: 8px 8px 8px rgba(0,0,0,.9);
 	box-sizing: border-box;
 	text-align: right;
-	overflow: hidden;
 	transition: .5s left;
 	z-index: 11116;
 	line-height: 1.2em;
@@ -465,12 +464,12 @@ article.slide > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="child"
 	left: -12px;
 }
 
-/* Labels for semantic links... */
+/* Labels of semantic links */
 
 article.slide > nav:first-of-type a[href][rel]:not(.no-label):not(:empty)::before,
 article.slide > nav:first-of-type a[href][data-label]:not(.no-label):not(:empty)::before {
-	/* Here are the properties shared between of ALL the labels of <nav>'s links... */
-	/* Remember that a[href][rel~="parent"] will be placed on the top-right corner! */
+	/* Here are the properties shared between of ALL the labels of <nav>'s links. */
+	/* Remember that `a[href][rel~="parent"]` will be placed on the top-right corner of the viewport. */
 	display: block;
 	font-size: smaller;
 	font-style: normal;
@@ -486,7 +485,7 @@ article.slide > nav:first-of-type a[href][rel~="child"]:not([rel~="parent"]):not
 	text-align: center;
 }
 
-/* Uncomment the following markup if you want to style the labels of all <nav> links but a[href][rel~="parent"] and a[href][rel~="child"] */
+/* Uncomment the following selector if you want to style the labels of all <nav> links except `a[href][rel~="parent"]` and `a[href][rel~="child"]` */
 
 /*
 
