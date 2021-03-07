@@ -7,11 +7,13 @@
 |*|
 |*|	https://github.com/madmurphy/takefive.css/
 |*|
-|*|	Version 1.2.6
+|*|	Version 1.3.0
 |*|
 |*|	(c) madmurphy
 |*|
-|*|	This CSS is released under the GNU Public License, version 3 or later.
+|*|	This CSS is released under the GNU Public License, version 3 or any
+|*|	later version.
+|*|
 |*|	http://www.gnu.org/licenses/gpl-3.0.html
 |*|
 |*|
@@ -42,7 +44,7 @@ article.slide {
 	height: 100%;
 	background-color: rgba(0,0,0,.9);
 	opacity: 0;
-	padding: 67px 12px 50px 83%;
+	padding: 67px 15px 8% calc(80% + 15px);
 	overflow: hidden;
 	color: #ffffff;
 	font-family: report, courier, monospace;
@@ -162,7 +164,7 @@ article.slide:target > :not(nav):not(header):not(footer):not(aside) {
 */
 	/* Ease in-out... */
 	max-height: 80%;
-	max-width: 50%;
+	max-width: calc(100% - (20% + 40px + 15px) * 2);
 	font-size: 1em;
 }
 
@@ -223,11 +225,11 @@ article.slide > nav:first-of-type {
 	left: 0;
 	top: 90px;
 	box-sizing: border-box;
-	width: 17%;
+	width: calc(20% - 15px);	/* see article.slide.padding-right for this */
 	height: auto;
 	margin: 0;
 	overflow: visible;
-	padding: 0 12px;
+	padding: 0 0;
 	text-align: left;
 }
 
@@ -242,7 +244,7 @@ article.slide > header:first-of-type {
 	width: auto;
 	height: 50px;
 	margin: 0 50px;
-	padding: 12px 0 0 0;
+	padding: 15px 0 0 0;
 	text-align: center;
 	overflow: visible;
 	font-size: larger;
@@ -253,9 +255,9 @@ article.slide > header:first-of-type {
 
 article.slide > footer:first-of-type {
 	position: absolute;
-	bottom: 50px;		/* see article.slide.padding-bottom for this */
+	bottom: 8%;			/* see article.slide.padding-bottom for this */
 	box-sizing: border-box;
-	width: 17%;		/* see article.slide.padding-right for this */
+	width: calc(20% - 15px);	/* see article.slide.padding-right for this */
 	text-align: right;
 	height: auto;
 	margin: 0;
@@ -270,13 +272,13 @@ article.slide > footer:first-of-type {
 article.slide > aside:first-of-type {
 	position: absolute;
 	left: 0;
-	bottom: 50px;		/* see article.slide.padding-bottom for this */
+	bottom: 8%;			/* see article.slide.padding-bottom for this */
 	box-sizing: border-box;
-	width: 17%;
+	width: calc(20% - 15px);	/* see article.slide.padding-right for this */
 	text-align: left;
 	height: auto;
 	margin: 0;
-	padding: 0 0 0 12px;
+	padding: 0 0 0 15px;
 	text-align: left;
 	overflow: hidden;
 	z-index: 11112;
@@ -326,7 +328,7 @@ article.slide > nav:first-of-type a[href][rel~="child"]:not([rel~="parent"]) + a
 }
 
 article.slide > nav:first-of-type a[href][rel~="child"]:not([rel~="parent"]):hover {
-	background-color: rgba(184,205,226,.09);
+	background-color: rgba(184,184,184,.09);
 }
 
 	/*****************************************
@@ -440,9 +442,9 @@ article.slide > nav:first-of-type a[href][rel~="child"].no-label:not([rel~="pare
 article.slide > nav:first-of-type a.no-nav[href][rel~="parent"]:not(:empty),
 article.slide > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="child"]):not(:empty) {
 	position: relative;
-	width: calc(100% + 12px);
+	width: 100%;
 	top: 0;
-	left: -100%;
+	left: calc(15px + 12px - 100%);
 	margin: 0;
 	padding: 2px 6px;
 	border-top: 2px #ffffff solid;
@@ -461,7 +463,7 @@ article.slide > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="child"
 
 article.slide > nav:first-of-type a.no-nav[href][rel~="parent"]:not(:empty):hover,
 article.slide > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="child"]):not(:empty):hover {
-	left: -12px;
+	left: 0;
 }
 
 /* Labels of semantic links */
@@ -593,52 +595,66 @@ article.slide > nav:first-of-type a[href][rel~="author"]:not([rel~="parent"]):no
 	position: fixed;
 	display: block;
 	margin: auto;
-	width: 48px;
-	height: 48px;
-	line-height: 48px;
+	width: 40px;
 	text-align: center;
 	z-index: 11116;
 }
 
 article.slide > nav:first-of-type a[href][rel~="author"]:not([rel~="parent"]):not(.no-nav)::after {
-	content: "@";
-	left: calc(80% - 48px);
+	content: "\1FAB6";
+	/* try also: `content: "@";` */
+	/* try also: `content: "\270D";` */
+	left: calc(80% - 40px);
 	top: initial;
 	bottom: 10%;
-	font-size: 40px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 32px;
 }
 
 article.slide > nav:first-of-type a[href][rel~="bookmark"]:not([rel~="parent"]):not(.no-nav)::after {
-	content: "\1F517";
+	content: "\1F587";
+	/* try also: `content: "\1F3F7";` */
+	/* try also: `content: "\1F517";` */
 	/* try also: `content: "\1F4D1";` */
 	/* try also: `content: "#";` */
-	left: calc(80% - 48px);
+	left: calc(80% - 40px);
 	top: 10%;
 	bottom: initial;
-	font-size: 40px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 32px;
 }
 
 article.slide > nav:first-of-type a[href][rel~="first"]:not([rel~="parent"]):not(.no-nav)::after {
-	content: "\21E4";
+	content: "\23EE";
+	/* try also: `content: "\21E4";` */
 	top: initial;
-	bottom: 2%;
+	bottom: calc(10% - 40px - 3px);
 	left: calc(50% - 75px);
-	font-size: 40px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 24px;
 }
 
 article.slide > nav:first-of-type a[href][rel~="last"]:not([rel~="parent"]):not(.no-nav)::after {
-	content: "\21E5";
+	content: "\23ED";
+	/* try also: `content: "\21E5";` */
 	top: initial;
-	bottom: 2%;
+	bottom: calc(10% - 40px - 3px);
 	left: calc(50% + 27px);
-	font-size: 40px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 24px;
 }
 
 article.slide > nav:first-of-type a[href][rel~="index"]:not([rel~="parent"]):not(.no-nav)::after {
 	content: "\2302";
 	top: initial;
-	bottom: 2%;
+	bottom: calc(10% - 40px - 3px);
 	left: calc(50% - 24px);
+	height: 40px;
+	line-height: 40px;
 	font-size: 40px;
 }
 
@@ -647,15 +663,19 @@ article.slide > nav:first-of-type a[href][rel~="prev"]:not([rel~="parent"]):not(
 	left: 20%;
 	top: 0;
 	bottom: 0;
-	font-size: 48px;
+	height: 72px;
+	line-height: 72px;
+	font-size: 72px;
 }
 
 article.slide > nav:first-of-type a[href][rel~="next"]:not([rel~="parent"]):not(.no-nav)::after {
 	content: "\276F";
-	left: calc(80% - 48px);
+	left: calc(80% - 40px);
 	top: 0;
 	bottom: 0;
-	font-size: 48px;
+	height: 72px;
+	line-height: 72px;
+	font-size: 72px;
 }
 
 /* Exit button */
@@ -696,6 +716,10 @@ article.slide figure {
 	text-align: center;
 }
 
+article.slide figure figcaption {
+	margin: 6px 0;
+}
+
 article.slide img,
 article.slide audio,
 article.slide video,
@@ -706,7 +730,7 @@ article.slide iframe {
 	/* Animation */
 	max-height: 0;
 	max-width: 0;
-	transition: .5s max-width ease, .5s max-height, ease;
+	transition: .5s max-width ease, .5s max-height ease;
 }
 
 article.slide:target img,
@@ -852,7 +876,7 @@ article.slide blockquote::after {
 
 article.slide blockquote cite {
 	display: block;
-	margin: 12px 24px;
+	margin: 15px 24px;
 	font-style: normal;
 }
 
@@ -863,12 +887,13 @@ article.slide blockquote cite::before {
 }
 
 article.slide fieldset > legend {
-	font-size: larger;
+	font-size: 1.5em;
 	font-weight: bold;
-	padding: 3px 6px;
+	padding: 3px 12px;
+	background-color: transparent;
+	border: none;
 }
 
-article.slide fieldset > legend,
 article.slide input,
 article.slide textarea,
 article.slide select,
@@ -876,11 +901,31 @@ article.slide button {
 	background-color: transparent;
 	border: 1px #ffffff solid;
 	color: #ffffff;
+	font-family: report, courier, monospace;
+	font-size: 1.2em;
 }
 
 article.slide code {
 	font-family: monospace;
 	font-size: 1.2em;
+}
+
+/* smartphones, touchscreens, etc. */
+@media
+ only screen and (pointer: coarse),
+ only screen and (pointer: none),
+ only screen and (hover: none) {
+
+	article.slide > nav:first-of-type a.no-nav[href][rel~="parent"]:not(:empty),
+	article.slide > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="child"]):not(:empty) {
+		left: 0 !important;
+	}
+
+	article.slide:target > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside) {
+		max-width: initial !important;
+		/* Kept values: font-size */
+	}
+
 }
 
 

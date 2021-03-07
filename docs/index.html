@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="css/takefive_min.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/takefive-min.css" media="screen" />
 <title>Take five! pure-CSS slide renderer</title>
 <style type="text/css">
 body {
@@ -160,6 +160,9 @@ article.slide {
 <section itemscope itemtype="http://schema.org/ImageGallery">
 
 	<article class="slide" id="my-gallery" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/SiteNavigationElement">
+		<header>
+			<h2>Example gallery</h2>
+		</header>
 		<nav>
 			<a href="#nowhere" rel="parent">My diary</a>
 			<a href="#quotation-example" rel="next" data-label="Get started">Quotation</a>
@@ -170,9 +173,6 @@ article.slide {
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
 			<a href="#example-gallery-about" data-label="See also">About</a>
 		</nav>
-		<header>
-			<h2>Example gallery</h2>
-		</header>
 		<section>
 			<h2>Summary</h2>
 			<div style="text-align: center;">
@@ -205,15 +205,15 @@ article.slide {
 					<figcaption>Water drop</figcaption>
 				</figure>
 				<figure style="display: inline-block;">
-					<a href="#video-example"><img src="images/video_s.jpg" /></a>
+					<a href="#video-example"><img src="images/html5_video_s.jpg" /></a>
 					<figcaption>HTML5 video example</figcaption>
 				</figure>
 				<figure style="display: inline-block;">
-					<a href="#youtube-example"><img src="images/youtube_s.jpg" /></a>
+					<a href="#youtube-example"><img src="images/youtube_s.png" /></a>
 					<figcaption>Youtube/<code>iframe</code> example</figcaption>
 				</figure>
 				<figure style="display: inline-block;">
-					<a href="#audio-example"><img src="images/audio_s.svg" style="width: 200px; height: 150px;" /></a>
+					<a href="#audio-example"><img src="images/html5_audio_s.png" /></a>
 					<figcaption>HTML5 audio example</figcaption>
 				</figure>
 			</div>
@@ -231,6 +231,9 @@ article.slide {
 	</article>
 
 	<article class="slide" id="quotation-example" itemprop="citation" itemscope itemtype="http://schema.org/Text">
+		<header>
+			<h2>A quotation</h2>
+		</header>
 		<nav>
 			<a href="#nowhere" rel="parent">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -242,13 +245,13 @@ article.slide {
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
 			<a href="http://www.example.com/" data-label="Other">Custom link</a>
 		</nav>
-		<header>
-			<h2>A quotation</h2>
-		</header>
 		<blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning. <cite>Albert Einstein</cite></blockquote>
 	</article>
 
 	<article class="slide" id="example-photo-1" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+		<header>
+			<h2>Slide 1 of 10</h2>
+		</header>
 		<nav>
 			<a href="#nowhere" rel="parent">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -259,9 +262,6 @@ article.slide {
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
 			<a href="http://www.example.com/" data-label="Other">Custom link</a>
 		</nav>
-		<header>
-			<h2>Slide 1 of 10</h2>
-		</header>
 		<figure>
 			<img src="images/1.jpg" itemprop="image" />
 			<figcaption itemprop="caption">Into the woods</figcaption>
@@ -290,6 +290,9 @@ article.slide {
 	</article>
 
 	<article class="slide" id="example-photo-3" itemprop="image" itemscope itemtype="http://schema.org/ImageObject" data-context="(c) Abraham Lincoln">
+		<header>
+			<h2>Slide 3 of 10</h2>
+		</header>
 		<nav>
 			<a href="#nowhere" rel="parent">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -301,9 +304,6 @@ article.slide {
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
 			<a href="http://www.example.com/" data-label="Other">Custom link</a>
 		</nav>
-		<header>
-			<h2>Slide 3 of 10</h2>
-		</header>
 		<figure>
 			<img src="images/3.jpg" itemprop="image" />
 			<figcaption itemprop="caption">Winter tree</figcaption>
@@ -312,6 +312,9 @@ article.slide {
 	</article>
 
 	<article class="slide" id="example-photo-4" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+		<header>
+			<h2>Slide 4 of 10</h2>
+		</header>
 		<nav>
 			<a href="#nowhere" rel="parent">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -323,9 +326,6 @@ article.slide {
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
 			<a href="http://www.example.com/" data-label="Other">Custom link</a>
 		</nav>
-		<header>
-			<h2>Slide 4 of 10</h2>
-		</header>
 		<figure>
 			<img src="images/4.jpg" itemprop="image" />
 			<figcaption itemprop="caption">Autumn</figcaption>
@@ -334,6 +334,9 @@ article.slide {
 	</article>
 
 	<article class="slide" id="example-photo-5" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+		<header>
+			<h2>Slide 5 of 10</h2>
+		</header>
 		<nav>
 			<a href="#nowhere" rel="parent">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -345,9 +348,6 @@ article.slide {
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
 			<a href="http://www.example.com/" data-label="Other">Custom link</a>
 		</nav>
-		<header>
-			<h2>Slide 5 of 10</h2>
-		</header>
 		<figure>
 			<img src="images/5.jpg" itemprop="image" />
 			<figcaption itemprop="caption">The old castle</figcaption>
@@ -366,6 +366,9 @@ article.slide {
 	</article>
 
 	<article class="slide" id="example-photo-6" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+		<header>
+			<h2>Slide 6 of 10</h2>
+		</header>
 		<nav>
 			<a href="#nowhere" rel="parent">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -377,9 +380,6 @@ article.slide {
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
 			<a href="http://www.example.com/" data-label="Other">Custom link</a>
 		</nav>
-		<header>
-			<h2>Slide 6 of 10</h2>
-		</header>
 		<figure>
 			<img src="images/6.jpg" itemprop="image" />
 			<figcaption itemprop="caption">Frozen source</figcaption>
@@ -390,6 +390,9 @@ article.slide {
 	</article>
 
 	<article class="slide" id="example-photo-7" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+		<header>
+			<h2>Slide 7 of 10</h2>
+		</header>
 		<nav>
 			<a href="#nowhere" rel="parent">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -401,9 +404,6 @@ article.slide {
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
 			<a href="http://www.example.com/" data-label="Other">Custom link</a>
 		</nav>
-		<header>
-			<h2>Slide 7 of 10</h2>
-		</header>
 		<figure>
 			<img src="images/7.jpg" itemprop="image" />
 			<figcaption itemprop="caption">Water drop</figcaption>
@@ -416,6 +416,9 @@ article.slide {
 	</article>
 
 	<article class="slide" id="video-example" itemprop="video" itemscope itemtype="https://schema.org/VideoObject">
+		<header>
+			<h2>Slide 8 of 10</h2>
+		</header>
 		<nav>
 			<a href="#nowhere" rel="parent">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -427,37 +430,37 @@ article.slide {
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
 			<a href="http://www.example.com/" data-label="Other">Custom link</a>
 		</nav>
-		<header>
-			<h2>Slide 8 of 10</h2>
-		</header>
 		<figure>
-			<video src="http://techslides.com/demos/sample-videos/small.ogv" controls="controls" poster="images/video.jpg"  itemprop="video"><p>Sorry, your browser doesn't support embedded videos, but don't worry, you can <a href="http://techslides.com/demos/sample-videos/small.ogv">download it</a> and watch it with your favorite video player!</p></video>
+			<video src="http://techslides.com/demos/sample-videos/small.ogv" controls="controls" poster="images/html5_video.png"  itemprop="video"><p>Sorry, your browser doesn't support embedded videos, but don't worry, you can <a href="http://techslides.com/demos/sample-videos/small.ogv">download it</a> and watch it with your favorite video player!</p></video>
 			<figcaption itemprop="caption">HTML5 video example &ndash; <a href="http://techslides.com/demos/sample-videos/small.ogv">download</a></figcaption>
 		</figure>
 	</article>
 
 	<article class="slide" id="youtube-example" itemprop="video" itemscope itemtype="https://schema.org/VideoObject">
+		<header>
+			<h2>Slide 9 of 10</h2>
+		</header>
 		<nav>
 			<a href="#nowhere" rel="parent">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
 			<a href="#video-example" rel="prev">Video example</a>
-			<a href="#audio-example" rel="next">Embedded audio example</a>
+			<a href="#audio-example" rel="next last">Embedded audio example</a>
 			<a href="#example-photo-1" rel="first">Example photo #1</a>
 			<a href="#audio-example" rel="last">Embedded audio example</a>
 			<a href="#youtube-example" rel="bookmark" itemprop="url">Youtube example</a>
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
 			<a href="http://www.example.com/" data-label="Other">Custom link</a>
 		</nav>
-		<header>
-			<h2>Slide 9 of 10</h2>
-		</header>
 		<figure>
-			<iframe style="width: 640px; height: 360px;" src="https://www.youtube.com/embed/KDOLHClNTOI" allowfullscreen itemprop="video"></iframe>
-			<figcaption itemprop="caption">When We Left Earth &ndash; The NASA Missions &mdash; source: <a href="http://www.youtube.com/watch?v=KDOLHClNTOI" target="_blank">http://www.youtube.com/watch?v=KDOLHClNTOI</a></figcaption>
+			<iframe style="width: 640px; height: 360px;" src="https://www.youtube.com/embed/df-eLzao63I" allowfullscreen itemprop="video"></iframe>
+			<figcaption itemprop="caption">Wolfgang Amadeus Mozart, Piano Concerto No. 21, Andante &mdash; source: <a href="http://www.youtube.com/watch?v=df-eLzao63I" target="_blank">http://www.youtube.com/watch?v=df-eLzao63I</a></figcaption>
 		</figure>
 	</article>
 
 	<article class="slide" id="audio-example" itemprop="audio" itemscope itemtype="https://schema.org/AudioObject">
+		<header>
+			<h2>Slide 10 of 10</h2>
+		</header>
 		<nav>
 			<a href="#nowhere" rel="parent">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
@@ -467,9 +470,6 @@ article.slide {
 			<a href="#audio-example" rel="bookmark" itemprop="url">Embedded audio example</a>
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
 		</nav>
-		<header>
-			<h2>Slide 10 of 10</h2>
-		</header>
 		<figure>
 			<audio src="audio/satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg" controls="controls" itemprop="audio" style="box-sizing: content-box;"><p>Sorry, your browser doesn't support embedded audio, but don't worry, you can <a href="audio/satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg">download it</a> and listen to it with your favorite video player!</p></audio>
 			<figcaption itemprop="caption">Erik Satie, <em>Gymnopedies</em> &ndash; La 1ere. Lent et douloureux.<br />Performed by Robin Alciatore. Courtesy of <a href="http://musopen.com" target="_blank">Musopen</a>.</figcaption>
@@ -539,6 +539,9 @@ article.slide {
 	<section>
 
 		<article class="slide" id="example-gallery-contact-me" itemscope itemtype="http://schema.org/Text">
+			<header>
+				<h2>Leave a message</h2>
+			</header>
 			<nav>
 				<a href="#example-gallery-about" rel="parent">About</a>
 				<a href="#my-gallery" rel="index">All photos</a>
@@ -546,9 +549,6 @@ article.slide {
 				<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
 				<a href="http://www.example.com/" data-label="Other">Custom link</a>
 			</nav>
-			<header>
-				<h2>Leave a message</h2>
-			</header>
 			<section>
 				<form name="contact-form" action="send.php" onsubmit="alert('This is just a demo :)'); return false;">
 					<fieldset>

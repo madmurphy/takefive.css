@@ -1,9 +1,9 @@
 {
 	"name": "Take five!",
-	"version": "1.2.6",
+	"version": "1.3.0",
 	"description": "A semantically-consistent pure-CSS slide renderer",
 	"style": "takefive.css",
-	"license": "GPL-3.0",
+	"license": "GPL-3.0-or-later",
 	"author": "madmurphy",
 	"repository": {
 		"type": "git",

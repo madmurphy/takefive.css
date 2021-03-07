@@ -1,7 +1,18 @@
 # Change Log
 
 
-## [1.2.6] - 2018-06-05
+## 1.3.0 (2021-03-08)
+
+Changes:
+
+* Adjusted slide width and other parameters
+* Improved touchscreen support
+* Unicode symbols for `a[rel="first"]`, `a[rel="last"]`, `a[rel="author"]` and
+  `a[rel="bookmark"]` set to `U+23EE`, `U+23ED`, `U+1FAB6` and `U+1F587`
+* Fixed typo that affected some animations
+
+
+## 1.2.6 (2018-06-05)
 
 Changes:
 
@@ -9,7 +20,7 @@ Changes:
 * Documentation
 
 
-## [1.2.5] - 2017-09-05
+## 1.2.5 (2017-09-05)
 
 Changes:
 
@@ -18,14 +29,14 @@ Changes:
 
 
 
-## [1.2.4] - 2017-04-07
+## 1.2.4 (2017-04-07)
 
 Changes:
 
 * Optional font `GNU Typewriter` is now available under `fonts/`
 
 
-## [1.2.3] - 2017-02-23
+## 1.2.3 (2017-02-23)
 
 Changes:
 
@@ -33,14 +44,14 @@ Changes:
 * Documentation
 
 
-## [1.2.2] - 2017-02-16
+## 1.2.2 (2017-02-16)
 
 Changes:
 
 * Unicode symbol for `a[rel="bookmark"]` set to `U+1F517`
 
 
-## [1.2.1] - 2017-02-14
+## 1.2.1 (2017-02-14)
 
 Changes:
 
@@ -48,7 +59,7 @@ Changes:
 * Documentation
 
 
-## [1.2.0] - 2017-02-12
+## 1.2.0 (2017-02-12)
 
 Changes:
 
@@ -61,7 +72,7 @@ Changes:
 * Improved documentation and demo
 
 
-## [1.1.2] - 2017-02-09
+## 1.1.2 (2017-02-09)
 
 Changes:
 
@@ -73,17 +84,18 @@ Changes:
 
 
 
-## [1.1.1] - 2017-02-08
+## 1.1.1 (2017-02-08)
 
 Changes:
 
 * `z-index` property of `article.slide` set to `11109`
 * Styled general HTML elements
-* Margins of text containers (&lt;p&gt;, &lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, etc.)
+* Margins of text containers (&lt;p&gt;, &lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;,
+  etc.)
 * Improved documentation and demo
 
 
-## [1.1.0] - 2017-02-03
+## 1.1.0 (2017-02-03)
 
 Changes:
 
@@ -92,7 +104,7 @@ Changes:
 * Styled &lt;h1&gt;, &lt;h2&gt; and &lt;h3&gt; elements
 
 
-## [1.0.0] - 2017-02-02
+## 1.0.0 (2017-02-02)
 
 Take five! 1.0.0 is released!
 
