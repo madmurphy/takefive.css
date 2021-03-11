@@ -7,7 +7,7 @@
 |*|
 |*|	https://github.com/madmurphy/takefive.css/
 |*|
-|*|	Version 1.3.0
+|*|	Version 1.3.1
 |*|
 |*|	(c) madmurphy
 |*|
@@ -20,13 +20,34 @@
 \*/
 
 
+/*\
+|*|
+|*|	The font used by Take five!
+|*|
+\*/
+
 @font-face {
-/*
-	:: The font used by Take five! ::
-*/
 	font-family: "report";
-	src: url("fonts/1942-report/webfont.eot") format("embedded-opentype"), url("fonts/1942-report/webfont.woff") format("woff"), url("fonts/1942-report/webfont.ttf") format("truetype"), url("fonts/1942-report/webfont.svg") format("svg");
+	src: url("fonts/1942-report/1942-report.eot") format("embedded-opentype"), url("fonts/1942-report/1942-report.woff") format("woff"), url("fonts/1942-report/1942-report.ttf") format("truetype"), url("fonts/1942-report/1942-report.svg") format("svg");
 }
+
+
+/*  Uncomment this for using the GNU Typewriter font  */
+/*
+@font-face {
+	font-family: "typewriter";
+	src: url("fonts/gnutypewriter/gnutypewriter.eot") format("embedded-opentype"), url("fonts/gnutypewriter/gnutypewriter.otf") format("opentype"), url("fonts/gnutypewriter/gnutypewriter.woff") format("woff"), url("fonts/gnutypewriter/gnutypewriter.ttf") format("truetype"), url("fonts/gnutypewriter/gnutypewriter.svg") format("svg");
+}
+*/
+
+
+/*  Uncomment this for using the My Underwood font  */
+/*
+@font-face {
+	font-family: "My Underwood";
+	src: url("fonts/my-underwood/my-underwood.woff2") format("woff2"), url("fonts/my-underwood/my-underwood.eot") format("embedded-opentype"), url("fonts/my-underwood/my-underwood.woff") format("woff"), url("fonts/my-underwood/my-underwood.ttf") format("truetype"), url("fonts/my-underwood/my-underwood.otf") format("opentype");
+}
+*/
 
 /*\
 |*|
@@ -42,13 +63,13 @@ article.slide {
 	box-sizing: border-box;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0,0,0,.9);
+	background-color: rgba(0, 0, 0, .9);
 	opacity: 0;
 	padding: 67px 15px 8% calc(80% + 15px);
 	overflow: hidden;
 	color: #ffffff;
 	font-family: report, courier, monospace;
-	font-size: .75em;
+	font-size: .80em;
 	z-index: 11109;
 	transition: visibility 0s .5s, opacity .5s linear;
 }
@@ -104,7 +125,7 @@ article.slide a[href]:visited {
 	color: inherit;
 	text-decoration: none;
 	font-weight: bold;
-	background: transparent;
+	background-color: transparent;
 	border: none;
 }
 
@@ -307,7 +328,7 @@ article.slide > nav:first-of-type a[href][rel~="child"]:not([rel~="parent"]) {
 	line-height: 1.2em;
 	font-size: 1.1em;
 	border: 2px #ffffff dashed;
-	margin: 16px 0 0 50px;
+	margin: 24px 0 0 64px;
 	padding: 2px 6px;
 	border-radius: 8px;
 	box-sizing: border-box;
@@ -324,11 +345,11 @@ article.slide > nav:first-of-type a[href][rel~="parent"]:first-child + a[href][r
 
 article.slide > nav:first-of-type a[href][rel~="child"]:not([rel~="parent"]) + a[href]:not([rel~="parent"]):not([rel~="child"]),
 article.slide > nav:first-of-type a[href][rel~="child"]:not([rel~="parent"]) + a[href][rel~="parent"] + a[href]:not([rel~="parent"]):not([rel~="child"]) {
-	margin-top: 14px;
+	margin-top: 24px;
 }
 
 article.slide > nav:first-of-type a[href][rel~="child"]:not([rel~="parent"]):hover {
-	background-color: rgba(184,184,184,.09);
+	background-color: rgba(184, 184, 184, .09);
 }
 
 	/*****************************************
@@ -450,7 +471,7 @@ article.slide > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="child"
 	border-top: 2px #ffffff solid;
 	border-right: 2px #ffffff solid;
 	border-radius: 0 8px 8px 0;
-	box-shadow: 8px 8px 8px rgba(0,0,0,.9);
+	box-shadow: 8px 8px 8px rgba(0, 0, 0, .9);
 	box-sizing: border-box;
 	text-align: right;
 	transition: .5s left;
@@ -604,6 +625,7 @@ article.slide > nav:first-of-type a[href][rel~="author"]:not([rel~="parent"]):no
 	content: "\1FAB6";
 	/* try also: `content: "@";` */
 	/* try also: `content: "\270D";` */
+	/* try also: `content: "\1F464";` */
 	left: calc(80% - 40px);
 	top: initial;
 	bottom: 10%;
@@ -725,7 +747,7 @@ article.slide audio,
 article.slide video,
 article.slide iframe {
 	border: 3px #ffffff solid;
-	box-shadow: 8px 8px 8px rgba(0,0,0,.9);
+	box-shadow: 8px 8px 8px rgba(0, 0, 0, .9);
 	box-sizing: border-box;
 	/* Animation */
 	max-height: 0;
@@ -739,7 +761,7 @@ article.slide:target video,
 article.slide:target iframe {
 	max-width: 100%;
 	/* it makes no sense to set the max-height in percentage for sub-children... */
-	max-height: 12cm;
+	max-height: 75vh;
 }
 
 /* Text content */
@@ -886,6 +908,13 @@ article.slide blockquote cite::before {
 	width: 1em;
 }
 
+article.slide fieldset {
+	background-color: transparent;
+	border: 1px #ffffff solid;
+	color: #ffffff;
+	border-radius: 8px;
+}
+
 article.slide fieldset > legend {
 	font-size: 1.5em;
 	font-weight: bold;
@@ -901,8 +930,9 @@ article.slide button {
 	background-color: transparent;
 	border: 1px #ffffff solid;
 	color: #ffffff;
-	font-family: report, courier, monospace;
+	font-family: inherit;
 	font-size: 1.2em;
+	border-radius: 8px;
 }
 
 article.slide code {
@@ -924,6 +954,20 @@ article.slide code {
 	article.slide:target > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside) {
 		max-width: initial !important;
 		/* Kept values: font-size */
+	}
+
+	article.slide > nav:first-of-type a[href][rel~="prev"]:not([rel~="parent"]):not(.no-nav)::after {
+		/* increase the clickable area */
+		left: calc(20% + 40px - 100px) !important;
+		width: 100px !important;
+		text-align: right !important;
+	}
+
+	article.slide > nav:first-of-type a[href][rel~="next"]:not([rel~="parent"]):not(.no-nav)::after {
+		/* increase the clickable area */
+		left: calc(80% - 40px) !important;
+		width: 100px !important;
+		text-align: left !important;
 	}
 
 }

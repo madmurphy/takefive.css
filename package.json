@@ -1,16 +1,46 @@
 {
 	"name": "Take five!",
-	"version": "1.3.0",
+	"version": "1.3.1",
 	"description": "A semantically-consistent pure-CSS slide renderer",
-	"style": "takefive.css",
+	"author": "madmurphy333@gmail.com",
 	"license": "GPL-3.0-or-later",
-	"author": "madmurphy",
+	"homepage": "https://madmurphy.github.io/takefive.css",
+	"style": "takefive.css",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/madmurphy/takefive.css.git"
+		"url": "https://github.com/madmurphy/takefive.css.git"
 	},
 	"bugs": {
-		"url": "https://github.com/madmurphy/takefive.css/issues"
+		"url": "https://github.com/madmurphy/takefive.css/issues",
+		"email": "madmurphy333@gmail.com"
 	},
-	"homepage": "https://madmurphy.github.io/takefive.css/"
+	"src": [
+		"takefive.css",
+		"takefive-min.css",
+		"fonts/1942-report/1942-report.eot",
+		"fonts/1942-report/1942-report.svg",
+		"fonts/1942-report/1942-report.ttf",
+		"fonts/1942-report/1942-report.woff"
+	],
+	"keywords": [
+		"css",
+		"css-gallery",
+		"css-lightbox",
+		"css-slide-renderer",
+		"css3",
+		"css3-animations",
+		"html-semantics",
+		"html5",
+		"html5-elements",
+		"image-gallery",
+		"lightbox",
+		"microdata",
+		"microformats",
+		"microformats2",
+		"rdfa",
+		"schema-org",
+		"slide-renderer",
+		"slides",
+		"slideshow"
+	]
 }

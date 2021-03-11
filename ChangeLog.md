@@ -1,6 +1,19 @@
 # Change Log
 
 
+## 1.3.1 (2021-03-11)
+
+Changes:
+
+* Increased the clickable area of the `a[rel="prev"]` and `a[rel="next"]`
+  buttons for touchscreen devices
+* Used `75vh` instead of `12cm` for the `max-height` of `img`, `audio`, `video`
+  and `iframe` inside a slide
+* Added _My Underwood_ optional font to the package tree
+* Adjusted margins and other parameters
+* Improved examples
+
+
 ## 1.3.0 (2021-03-08)
 
 Changes:

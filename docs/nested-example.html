@@ -4,13 +4,32 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" type="text/css" href="css/takefive-min.css" media="screen" />
 	<link rel="index" type="text/html" href="index.html" />
-	<link rel="prev" type="text/html" href="min_example.html" />
+	<link rel="prev" type="text/html" href="base-example.html" />
 	<title>Take five! &ndash; Nested galleries</title>
 </head>
 
 <body>
 
 	<p style="text-align: center; font-size: 2em;"><a href="#item-1">Nested galleries</a></p>
+
+	<nav>
+		<h3>Table of contents</h3>
+		<ul>
+			<li>
+				<a href="#item-1">Item #1</a>
+				<ul>
+					<li><a href="#item-1-1">Item #1.1</a></li>
+					<li>
+						<a href="#item-1-2">Item #1.2</a>
+						<ul>
+							<li><a href="#item-1-2-1">Item #1.2.1</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li><a href="#item-2">Item #2</a></li>
+		</ul>
+	</nav>
 
 	<section itemscope itemtype="http://schema.org/ImageGallery">
 		<article id="item-1" class="slide" itemscope itemtype="http://schema.org/ImageObject">
