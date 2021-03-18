@@ -1,4 +1,4 @@
-# Take five!
+# Take Five!
 
 A semantically-consistent pure-CSS slide renderer
 

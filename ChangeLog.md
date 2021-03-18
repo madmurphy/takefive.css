@@ -1,6 +1,21 @@
 # Change Log
 
 
+## 2.0.0 (2021-03-18)
+
+Changes:
+
+* Class `"no-nav"` has been renamed to `"offstage"`
+* Support for a `"brief"` class has been added the main `<article>`
+* Support for `<picture>`, `<pre>` and `<svg>` elements has been added to the
+  CSS
+* Unicode symbol for `a[rel="author"]` has been set to `U+2709 U+FE0F`
+* A default label has been created for the links of the main `<nav>` that
+  do not possess a `rel` attribute
+* A schematic of the viewport has been added to the manual
+* Animations, examples and minor details have been improved
+
+
 ## 1.3.1 (2021-03-11)
 
 Changes:
@@ -68,7 +83,7 @@ Changes:
 
 Changes:
 
-* Labels of links within the main &lt;nav&gt;
+* Labels of links within the main `<nav>`
 * Documentation
 
 
@@ -81,7 +96,7 @@ Changes:
 * Changed unicode symbols for `prev` and `next`
 * Added support for `a[rel="child"]`
 * Added support for `"no-nav"` class
-* Improved &lt;blockquote&gt; elements
+* Improved `<blockquote>` elements
 * Improved documentation and demo
 
 
@@ -93,7 +108,7 @@ Changes:
 * Added support for `article.slide a[rel="tag"]`
 * Added a `max-width` rule to the hashtag text
 * Few conversions from `px` to `em`
-* Styled &lt;code&gt; tags
+* Styled `<code>` tags
 
 
 
@@ -103,7 +118,7 @@ Changes:
 
 * `z-index` property of `article.slide` set to `11109`
 * Styled general HTML elements
-* Margins of text containers (&lt;p&gt;, &lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;,
+* Margins of text containers (`<p>`, `<h1>`, `<h2>`, `<h3>`,
   etc.)
 * Improved documentation and demo
 
@@ -114,10 +129,10 @@ Changes:
 
 * Added embedded font "1942 report"
 * Converted `px` to `em` in all font-size properties
-* Styled &lt;h1&gt;, &lt;h2&gt; and &lt;h3&gt; elements
+* Styled `<h1>`, `<h2>` and `<h3>` elements
 
 
 ## 1.0.0 (2017-02-02)
 
-Take five! 1.0.0 is released!
+Take Five! 1.0.0 is released!
 

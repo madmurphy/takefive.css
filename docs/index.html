@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="css/takefive-min.css" media="screen" />
-<title>Take five! pure-CSS slide renderer</title>
+<title>Take Five! pure-CSS slide renderer</title>
 <style type="text/css">
 body {
 	background: white;
@@ -67,10 +67,10 @@ ul, ol {
 	padding-left: 2em;
 }
 
-a[href], a[href].visited {
+a[href], a[href]:visited {
 	color: inherit;
 	border-bottom: 1px solid silver;
-
+	text-decoration: none;
 }
 
 a[href]:hover {
@@ -82,8 +82,16 @@ a[href]:active {
 	background: transparent;
 }
 
-article.slide {
-	line-height: initial !important;
+textarea[name="message"] {
+	width: 0;
+	height: 0;
+	resize: none;
+	transition: width .6s ease, height .6s ease;
+}
+
+:target textarea[name="message"] {
+	width: 400px;
+	height: 150px;
 }
 </style>
 <style type="text/css" media="print">
@@ -126,7 +134,7 @@ article.slide {
 <body>
 
 <header>
-<h1>Take five!</h1>
+<h1>Take Five!</h1>
 <h6>A semantically-consistent pure-CSS slide renderer</h6>
 </header>
 
@@ -157,9 +165,9 @@ article.slide {
 	</ol>
 </nav>
 
-<section itemscope itemtype="http://schema.org/ImageGallery">
+<section itemscope itemtype="https://schema.org/ImageGallery">
 
-	<article class="slide" id="my-gallery" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/SiteNavigationElement">
+	<article class="slide" id="my-gallery" itemprop="mainContentOfPage" itemscope itemtype="https://schema.org/SiteNavigationElement">
 		<header>
 			<h2>Example gallery</h2>
 		</header>
@@ -168,52 +176,52 @@ article.slide {
 			<a href="#quotation-example" rel="next" data-label="Get started">Quotation</a>
 			<a href="#example-photo-1" rel="first">Example photo #1</a>
 			<a href="#audio-example" rel="last">Embedded audio example</a>
-			<a href="#my-gallery" rel="bookmark" itemprop="url">Take five! live demo</a>
-			<a href="http://www.example.com/" data-label="Other">Custom link</a>
+			<a href="#my-gallery" rel="bookmark" itemprop="url">Take Five! live demo</a>
+			<a href="https://www.example.com/" data-label="Other">Custom link</a>
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
-			<a href="#example-gallery-about" data-label="See also">About</a>
+			<a href="#example-gallery-about">About</a>
 		</nav>
 		<section>
 			<h2>Summary</h2>
 			<div style="text-align: center;">
 				<figure style="display: inline-block;">
-					<a href="#example-photo-1"><img src="images/1s.jpg" /></a>
+					<a href="#example-photo-1"><img src="media/1s.jpg" /></a>
 					<figcaption>Into the woods</figcaption>
 				</figure>
 				<figure style="display: inline-block;">
-					<a href="#example-photo-2"><img src="images/2s.jpg" /></a>
+					<a href="#example-photo-2"><img src="media/2s.jpg" /></a>
 					<figcaption>Yellow at the lake</figcaption>
 				</figure>
 				<figure style="display: inline-block;">
-					<a href="#example-photo-3"><img src="images/3s.jpg" /></a>
+					<a href="#example-photo-3"><img src="media/3s.jpg" /></a>
 					<figcaption>Winter tree</figcaption>
 				</figure>
 				<figure style="display: inline-block;">
-					<a href="#example-photo-4"><img src="images/4s.jpg" /></a>
+					<a href="#example-photo-4"><img src="media/4s.jpg" /></a>
 					<figcaption>Autumn</figcaption>
 				</figure>
 				<figure style="display: inline-block;">
-					<a href="#example-photo-5"><img src="images/5s.jpg" /></a>
+					<a href="#example-photo-5"><img src="media/5s.jpg" /></a>
 					<figcaption>The old castle</figcaption>
 				</figure>
 				<figure style="display: inline-block;">
-					<a href="#example-photo-6"><img src="images/6s.jpg" /></a>
+					<a href="#example-photo-6"><img src="media/6s.jpg" /></a>
 					<figcaption>Frozen source</figcaption>
 				</figure>
 				<figure style="display: inline-block;">
-					<a href="#example-photo-7"><img src="images/7s.jpg" /></a>
+					<a href="#example-photo-7"><img src="media/7s.jpg" /></a>
 					<figcaption>Water drop</figcaption>
 				</figure>
 				<figure style="display: inline-block;">
-					<a href="#video-example"><img src="images/html5_video_s.jpg" /></a>
+					<a href="#video-example"><img src="media/html5_video_s.jpg" /></a>
 					<figcaption>HTML5 video example</figcaption>
 				</figure>
 				<figure style="display: inline-block;">
-					<a href="#youtube-example"><img src="images/youtube_s.png" /></a>
+					<a href="#youtube-example"><img src="media/youtube_s.png" /></a>
 					<figcaption>Youtube/<code>iframe</code> example</figcaption>
 				</figure>
 				<figure style="display: inline-block;">
-					<a href="#audio-example"><img src="images/html5_audio_s.png" /></a>
+					<a href="#audio-example"><img src="media/html5_audio_s.png" /></a>
 					<figcaption>HTML5 audio example</figcaption>
 				</figure>
 			</div>
@@ -226,11 +234,11 @@ article.slide {
 			<p>(c) John Doe</p>
 		</footer>
 		<aside>
-			<p>This presentation is powered by <a href="https://github.com/madmurphy/takefive.css" target="_blank">Take five!</a> pure-CSS slide renderer.</p>
+			<p>This presentation is powered by <a href="https://github.com/madmurphy/takefive.css" target="_blank">Take Five!</a> pure-CSS slide renderer.</p>
 		</aside>
 	</article>
 
-	<article class="slide" id="quotation-example" itemprop="citation" itemscope itemtype="http://schema.org/Text">
+	<article class="slide" id="quotation-example" itemprop="citation" itemscope itemtype="https://schema.org/Text">
 		<header>
 			<h2>A quotation</h2>
 		</header>
@@ -243,12 +251,12 @@ article.slide {
 			<a href="#audio-example" rel="last">Embedded audio example</a>
 			<a href="#quotation-example" rel="bookmark" itemprop="url">Example photo #1</a>
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
-			<a href="http://www.example.com/" data-label="Other">Custom link</a>
+			<a href="https://www.example.com/" data-label="Other">Custom link</a>
 		</nav>
 		<blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning. <cite>Albert Einstein</cite></blockquote>
 	</article>
 
-	<article class="slide" id="example-photo-1" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-photo-1" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
 		<header>
 			<h2>Slide 1 of 10</h2>
 		</header>
@@ -260,15 +268,15 @@ article.slide {
 			<a href="#audio-example" rel="last">Embedded audio example</a>
 			<a href="#example-photo-1" rel="bookmark" itemprop="url">Example photo #1</a>
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
-			<a href="http://www.example.com/" data-label="Other">Custom link</a>
+			<a href="https://www.example.com/" data-label="Other">Custom link</a>
 		</nav>
 		<figure>
-			<img src="images/1.jpg" itemprop="image" />
+			<img src="media/1.jpg" itemprop="image" />
 			<figcaption itemprop="caption">Into the woods</figcaption>
 		</figure>
 	</article>
 
-	<article class="slide" id="example-photo-2" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-photo-2" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
 		<header>
 			<h2>Slide 2 of 10</h2>
 		</header>
@@ -281,15 +289,15 @@ article.slide {
 			<a href="#audio-example" rel="last">Embedded audio example</a>
 			<a href="#example-photo-2" rel="bookmark" itemprop="url">Example photo #2</a>
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
-			<a href="http://www.example.com/" data-label="Other">Custom link</a>
+			<a href="https://www.example.com/" data-label="Other">Custom link</a>
 		</nav>
 		<figure>
-			<img src="images/2.jpg" itemprop="image" />
+			<img src="media/2.jpg" itemprop="image" />
 			<figcaption itemprop="caption">Yellow at the lake</figcaption>
 		</figure>
 	</article>
 
-	<article class="slide" id="example-photo-3" itemprop="image" itemscope itemtype="http://schema.org/ImageObject" data-context="(c) Abraham Lincoln">
+	<article class="slide" id="example-photo-3" itemprop="image" itemscope itemtype="https://schema.org/ImageObject" data-context="(c) Abraham Lincoln">
 		<header>
 			<h2>Slide 3 of 10</h2>
 		</header>
@@ -302,16 +310,16 @@ article.slide {
 			<a href="#audio-example" rel="last">Embedded audio example</a>
 			<a href="#example-photo-3" rel="bookmark" itemprop="url">Example photo #3</a>
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
-			<a href="http://www.example.com/" data-label="Other">Custom link</a>
+			<a href="https://www.example.com/" data-label="Other">Custom link</a>
 		</nav>
 		<figure>
-			<img src="images/3.jpg" itemprop="image" />
+			<img src="media/3.jpg" itemprop="image" />
 			<figcaption itemprop="caption">Winter tree</figcaption>
 		</figure>
 		<footer>This is the <code>&lt;footer&gt;</code> element.</footer>
 	</article>
 
-	<article class="slide" id="example-photo-4" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-photo-4" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
 		<header>
 			<h2>Slide 4 of 10</h2>
 		</header>
@@ -324,16 +332,16 @@ article.slide {
 			<a href="#audio-example" rel="last">Embedded audio example</a>
 			<a href="#example-photo-4" rel="bookmark" itemprop="url">Example photo #4</a>
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
-			<a href="http://www.example.com/" data-label="Other">Custom link</a>
+			<a href="https://www.example.com/" data-label="Other">Custom link</a>
 		</nav>
 		<figure>
-			<img src="images/4.jpg" itemprop="image" />
+			<img src="media/4.jpg" itemprop="image" />
 			<figcaption itemprop="caption">Autumn</figcaption>
 		</figure>
 		<aside>This is the <code>&lt;aside&gt;</code> element.</aside>
 	</article>
 
-	<article class="slide" id="example-photo-5" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-photo-5" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
 		<header>
 			<h2>Slide 5 of 10</h2>
 		</header>
@@ -346,26 +354,31 @@ article.slide {
 			<a href="#example-photo-1" rel="first">Example photo #1</a>
 			<a href="#audio-example" rel="last">Embedded audio example</a>
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
-			<a href="http://www.example.com/" data-label="Other">Custom link</a>
+			<a href="https://www.example.com/" data-label="Other">Custom link</a>
 		</nav>
 		<figure>
-			<img src="images/5.jpg" itemprop="image" />
+			<img src="media/5.jpg" itemprop="image" />
 			<figcaption itemprop="caption">The old castle</figcaption>
 		</figure>
-		<p>Here goes the rest of the content&hellip;</p>
-		<article>
+		<article style="height: 100%; overflow: auto; padding-right: 6px;">
 			<h3>Lorem ipsum</h3>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis libero et nulla ultricies, vitae interdum diam vestibulum. Sed ut convallis est, ac tristique turpis. Fusce ipsum est, fermentum in facilisis imperdiet, tincidunt ac justo. Nunc quis tortor sed nunc ornare ornare. Nullam accumsan ipsum risus, sed auctor enim varius eu. In ipsum sem, suscipit eget tortor nec, laoreet auctor metus. Integer quis erat nisl. In hac habitasse platea dictumst. Phasellus a finibus libero. Etiam lacus elit, tempor nec elit eu, bibendum dignissim magna.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis libero et nulla ultricies, vitae interdum diam vestibulum. Sed ut convallis est, ac tristique turpis. Fusce ipsum est, fermentum in facilisis imperdiet, tincidunt ac justo. Nunc quis tortor sed nunc ornare ornare.</p>
+			<figure style="display: inline-block;">
+				<img src="media/7s.jpg" />
+				<figcaption>Water drop</figcaption>
+			</figure>
+			<p>Nullam accumsan ipsum risus, sed auctor enim varius eu. In ipsum sem, suscipit eget tortor nec, laoreet auctor metus. Integer quis erat nisl. In hac habitasse platea dictumst. Phasellus a finibus libero. Etiam lacus elit, tempor nec elit eu, bibendum dignissim magna.</p>
+			<p>Phasellus nec odio velit. In hac habitasse platea dictumst. Aliquam blandit nec nulla a aliquam. Donec eget erat a leo dapibus egestas sed a nunc. Phasellus elementum laoreet urna, vel porttitor lectus iaculis vitae. Duis a euismod lorem. Pellentesque quis auctor eros, at mollis mauris. Etiam sit amet finibus nulla. Cras at mi vitae lorem ultricies tristique.</p>
 		</article>
 		<aside>
-			<p>This presentation is powered by <a href="https://github.com/madmurphy/takefive.css" target="_blank">Take five!</a> pure-CSS slide renderer.</p>
+			<p>This presentation is powered by <a href="https://github.com/madmurphy/takefive.css" target="_blank">Take Five!</a> pure-CSS slide renderer.</p>
 		</aside>
 		<footer>
 			<p>(c) John Doe</p>
 		</footer>
 	</article>
 
-	<article class="slide" id="example-photo-6" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-photo-6" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
 		<header>
 			<h2>Slide 6 of 10</h2>
 		</header>
@@ -378,10 +391,10 @@ article.slide {
 			<a href="#audio-example" rel="last">Embedded audio example</a>
 			<a href="#example-photo-6" rel="bookmark" itemprop="url">Example photo #6</a>
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
-			<a href="http://www.example.com/" data-label="Other">Custom link</a>
+			<a href="https://www.example.com/" data-label="Other">Custom link</a>
 		</nav>
 		<figure>
-			<img src="images/6.jpg" itemprop="image" />
+			<img src="media/6.jpg" itemprop="image" />
 			<figcaption itemprop="caption">Frozen source</figcaption>
 		</figure>
 		<footer>
@@ -389,7 +402,7 @@ article.slide {
 		</footer>
 	</article>
 
-	<article class="slide" id="example-photo-7" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+	<article class="slide" id="example-photo-7" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
 		<header>
 			<h2>Slide 7 of 10</h2>
 		</header>
@@ -402,14 +415,14 @@ article.slide {
 			<a href="#audio-example" rel="last">Embedded audio example</a>
 			<a href="#example-photo-7" rel="bookmark" itemprop="url">Example photo #7</a>
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
-			<a href="http://www.example.com/" data-label="Other">Custom link</a>
+			<a href="https://www.example.com/" data-label="Other">Custom link</a>
 		</nav>
 		<figure>
-			<img src="images/7.jpg" itemprop="image" />
+			<img src="media/7.jpg" itemprop="image" />
 			<figcaption itemprop="caption">Water drop</figcaption>
 		</figure>
 		<aside>
-			<nav style="font-size:48px; text-align: right;">
+			<nav style="font-size:32px; text-align: right;">
 				<a href="javascript:printById('example-photo-7');" style="font-weight: normal;">&#9113;</a>
 			</nav>
 		</aside>
@@ -428,11 +441,11 @@ article.slide {
 			<a href="#audio-example" rel="last">Embedded audio example</a>
 			<a href="#video-example" rel="bookmark" itemprop="url">Video example</a>
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
-			<a href="http://www.example.com/" data-label="Other">Custom link</a>
+			<a href="https://www.example.com/" data-label="Other">Custom link</a>
 		</nav>
 		<figure>
-			<video src="http://techslides.com/demos/sample-videos/small.ogv" controls="controls" poster="images/html5_video.png"  itemprop="video"><p>Sorry, your browser doesn't support embedded videos, but don't worry, you can <a href="http://techslides.com/demos/sample-videos/small.ogv">download it</a> and watch it with your favorite video player!</p></video>
-			<figcaption itemprop="caption">HTML5 video example &ndash; <a href="http://techslides.com/demos/sample-videos/small.ogv">download</a></figcaption>
+			<video src="media/html5_video.ogv" controls="controls" poster="media/html5_video_p.png"  itemprop="video"><p>Sorry, your browser doesn't support embedded videos, but don't worry, you can <a href="media/html5_video.ogv" rel="attachment enclosure">download it</a> and watch it with your favorite video player!</p></video>
+			<figcaption itemprop="caption">HTML5 video example (<a href="https://techslides.com/demos/sample-videos/small.ogv">source</a>)<br />[<a href="media/html5_video.ogv" rel="attachment enclosure">download</a>]</figcaption>
 		</figure>
 	</article>
 
@@ -449,11 +462,11 @@ article.slide {
 			<a href="#audio-example" rel="last">Embedded audio example</a>
 			<a href="#youtube-example" rel="bookmark" itemprop="url">Youtube example</a>
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
-			<a href="http://www.example.com/" data-label="Other">Custom link</a>
+			<a href="https://www.example.com/" data-label="Other">Custom link</a>
 		</nav>
 		<figure>
 			<iframe style="width: 640px; height: 360px;" src="https://www.youtube.com/embed/df-eLzao63I" allowfullscreen itemprop="video"></iframe>
-			<figcaption itemprop="caption">Wolfgang Amadeus Mozart, Piano Concerto No. 21, Andante &mdash; source: <a href="http://www.youtube.com/watch?v=df-eLzao63I" target="_blank">http://www.youtube.com/watch?v=df-eLzao63I</a></figcaption>
+			<figcaption itemprop="caption">Wolfgang Amadeus Mozart, Piano Concerto No. 21, Andante &mdash; source: <a href="https://www.youtube.com/watch?v=df-eLzao63I" target="_blank">https://www.youtube.com/watch?v=df-eLzao63I</a></figcaption>
 		</figure>
 	</article>
 
@@ -465,14 +478,14 @@ article.slide {
 			<a href="#nowhere" rel="parent">My diary</a>
 			<a href="#my-gallery" rel="index">All photos</a>
 			<a href="#youtube-example" rel="prev">Youtube example</a>
-			<a href="#example-gallery-about" rel="next" data-label="See also">About</a>
+			<a href="#example-gallery-about" rel="next">About</a>
 			<a href="#example-photo-1" rel="first">Example photo #1</a>
 			<a href="#audio-example" rel="bookmark" itemprop="url">Embedded audio example</a>
 			<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
 		</nav>
 		<figure>
-			<audio src="audio/satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg" controls="controls" itemprop="audio" style="box-sizing: content-box;"><p>Sorry, your browser doesn't support embedded audio, but don't worry, you can <a href="audio/satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg">download it</a> and listen to it with your favorite video player!</p></audio>
-			<figcaption itemprop="caption">Erik Satie, <em>Gymnopedies</em> &ndash; La 1ere. Lent et douloureux.<br />Performed by Robin Alciatore. Courtesy of <a href="http://musopen.com" target="_blank">Musopen</a>.</figcaption>
+			<audio src="media/satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg" controls="controls" itemprop="audio" style="box-sizing: content-box;"><p>Sorry, your browser doesn't support embedded audio, but don't worry, you can <a href="media/satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg" rel="attachment enclosure">download it</a> and listen to it with your favorite audio player!</p></audio>
+			<figcaption itemprop="caption">Erik Satie, <em>Gymnopedies</em> &ndash; La 1ere. Lent et douloureux.<br />Performed by Robin Alciatore. Courtesy of <a href="https://musopen.com" target="_blank">Musopen</a>.<br />[<a href="media/satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg" rel="attachment enclosure">download</a>]</figcaption>
 		</figure>
 		<aside>
 			<p>The <code>&lt;aside&gt;</code> element is the perfect place for additional <code>&lt;nav&gt;</code> containers!</p>
@@ -488,7 +501,7 @@ article.slide {
 		</aside>
 	</article>
 
-	<article class="slide" id="example-gallery-about" itemprop="about" itemscope itemtype="http://schema.org/Thing">
+	<article class="slide" id="example-gallery-about" itemprop="about" itemscope itemtype="https://schema.org/Thing">
 		<header>
 			<h2>About</h2>
 		</header>
@@ -538,7 +551,7 @@ article.slide {
 
 	<section>
 
-		<article class="slide" id="example-gallery-contact-me" itemscope itemtype="http://schema.org/Text">
+		<article class="slide" id="example-gallery-contact-me" itemscope itemtype="https://schema.org/Text">
 			<header>
 				<h2>Leave a message</h2>
 			</header>
@@ -547,20 +560,18 @@ article.slide {
 				<a href="#my-gallery" rel="index">All photos</a>
 				<a href="#example-gallery-contact-me" rel="bookmark" itemprop="url">Contact me</a>
 				<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
-				<a href="http://www.example.com/" data-label="Other">Custom link</a>
+				<a href="https://www.example.com/" data-label="Other">Custom link</a>
 			</nav>
-			<section>
-				<form name="contact-form" action="send.php" onsubmit="alert('This is just a demo :)'); return false;">
-					<fieldset>
-						<legend>Contact form</legend>
-						<p>From: <input type="email" required name="sender"></p>
-						<p>Message:</p>
-						<p><textarea name="message" style="width: 400px; height: 150px; box-sizing: border-box; resize: none;"></textarea></p>
-						<p style="text-align: center;"><input type="submit" value="Send" /></p>
-					</fieldset>
+			<form name="contact-form" action="send.php" onsubmit="alert('This is just a demo :)'); return false;">
+				<fieldset>
+					<legend>Contact form</legend>
+					<p>From: <input type="email" required name="sender"></p>
+					<p>Message:</p>
+					<p><textarea name="message"></textarea></p>
+					<p style="text-align: center;"><input type="submit" value="Send" /></p>
+				</fieldset>
 
-				</form>
-			</section>
+			</form>
 			<div>
 				This is an example of nested gallery!
 			</div>
@@ -572,10 +583,10 @@ article.slide {
 
 </section>
 
-<h3>License</h3>
+<h3>Free software</h3>
 
 <p>
-	<strong>Take five!</strong> is released under the GNU Public License, version 3 or later (<a href="http://www.gnu.org/licenses/gpl-3.0-standalone.html" target="_blank">read</a>). The code is <a href="https://github.com/madmurphy/takefive.css/" target="_blank">available on GitHub</a>.
+	<strong>Take Five!</strong> is free software. You can redistribute it and/or modify it under the terms of the <a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html" target="_blank">GPL license</a>, version 3 or any later version. The code is <a href="https://github.com/madmurphy/takefive.css/" target="_blank">available on GitHub</a>.
 </p>
 
 <script type="text/javascript">

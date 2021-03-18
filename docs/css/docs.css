@@ -537,8 +537,8 @@ pre.idl {
 }
 
 pre.idl :link, pre.idl :visited {
-	color:inherit;
-	background:transparent;
+	color: inherit;
+	background: transparent;
 }
 
 /* Data tables */
