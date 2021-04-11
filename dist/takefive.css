@@ -81,7 +81,7 @@
 		height: 100%;
 		background-color: rgba(0, 0, 0, .9);
 		opacity: 0;
-		padding: 60px 1.887vmin 60px calc(82% + 0.888vw);
+		padding: 60px 1.887vmin 60px calc(82% + .888vw);
 		overflow: hidden;
 		color: #fff;
 		font-family: report, courier, monospace;
@@ -377,7 +377,7 @@
 		left: 1.887vmin;
 		top: 84px;
 		box-sizing: border-box;
-		width: calc(18% - 1.887vmin - 0.888vw);
+		width: calc(18% - 1.887vmin - .888vw);
 		height: auto;
 		margin: 0;
 		overflow: visible;
@@ -392,12 +392,12 @@
 		position: absolute;
 		left: 0;
 		right: 0;
-		bottom: calc(0.786vmin + 100% - 60px);
+		bottom: calc(.786vmin + 100% - 60px);
 		box-sizing: border-box;
 		width: calc(100% - 3.774vmin);
 		height: auto;
 		margin: 0 auto;
-		padding: 0 calc(18% - 1.887vmin + 0.888vw + 40px);
+		padding: 0 calc(18% - 1.887vmin + .888vw + 40px);
 		text-align: center;
 		overflow: visible;
 		font-size: larger;
@@ -412,7 +412,7 @@
 		position: absolute;
 		bottom: 40px;
 		box-sizing: border-box;
-		width: calc(18% - 1.887vmin - 0.888vw);
+		width: calc(18% - 1.887vmin - .888vw);
 		height: auto;
 		margin: 0;
 		max-height: calc(100% - 80px);
@@ -513,7 +513,7 @@
 		width: auto;
 		height: auto;
 		border-radius: 0;
-		margin: 1.887vmin calc(0.786vmin + 50px) 1.887vmin 1.887vmin;
+		margin: 1.887vmin calc(.786vmin + 50px) 1.887vmin 1.887vmin;
 		padding: 0;
 		visibility: hidden;
 		transition: visibility 0s 1s, color 1s 0s linear;
@@ -547,7 +547,7 @@
 		width: 100%;
 		height: 100%;
 		margin: 0;
-		padding: 1.887vmin calc(0.786vmin + 50px) 1.887vmin 1.887vmin;
+		padding: 1.887vmin calc(.786vmin + 50px) 1.887vmin 1.887vmin;
 		visibility: inherit;
 		z-index: 10008;
 	}
@@ -822,7 +822,7 @@
 	/*  Glyph slot `bctrl-c2`  */
 	article.slide > nav:first-of-type a[href][rel~="index"]:not(.no-rel)::after {
 		content: "\2302";
-		bottom: calc(20px - 0.472vh);
+		bottom: calc(20px - .472vh);
 		left: calc(50% - 20px);
 		font-size: 40px;
 	}
@@ -831,8 +831,8 @@
 	article.slide > nav:first-of-type a[href][rel~="last"]:not(.no-rel)::after {
 		content: "\23ED";
 		/*  try also: `content: "\21E5";`  */
-		bottom: calc(20px - 0.472vh);
-		left: calc(0.786vmin + 50% + 20px);
+		bottom: calc(20px - .472vh);
+		left: calc(.786vmin + 50% + 20px);
 		font-size: 24px;
 	}
 
@@ -840,8 +840,8 @@
 	article.slide > nav:first-of-type a[href][rel~="first"]:not(.no-rel)::after {
 		content: "\23EE";
 		/*  try also: `content: "\21E4";`  */
-		bottom: calc(20px - 0.472vh);
-		left: calc(50% - 0.786vmin - 60px);
+		bottom: calc(20px - .472vh);
+		left: calc(50% - .786vmin - 60px);
 		font-size: 24px;
 	}
 
@@ -888,52 +888,6 @@
 
 	article.slide:not(:target) > nav:first-of-type a[href][rel~="parent"]:not(.no-rel)::after {
 		top: -80px;
-	}
-
-
-	/*
-		If `a[href][rel~="parent"]` is inside the <leeloo> element and is
-		*empty* a transparent clickable layer will cover the whole (and only)
-		`<leeloo>` element.
-	*/
-
-	article.slide > :not(nav):not(header):not(footer):not(aside) > a[href][rel~="parent"]:not(.no-rel):empty::before {
-	/*
-		:: Whatever you set here, unless you want differently, please restore
-		   it in the *unset place* `@not_exit_layer` ::
-	*/
-		content: "";
-		display: block;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		margin: 0;
-		padding: 0;
-		z-index: 10015;
-	}
-
-	article.slide > :not(nav):not(header):not(footer):not(aside) > a[href][rel~="parent"]:not(.no-rel):empty::after {
-		content: none;
-	}
-
-	article.slide > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside) > a[href][rel~="parent"]:not(.no-rel):empty::before,
-	article.slide > :not(nav):not(header):not(footer):not(aside) > a[href][rel~="parent"]:not(.no-rel):empty ~ a[href][rel~="parent"]:not(.no-rel):empty::before {
-	/*
-		:: UNSET PLACE `@not_exit_layer` ::
-	*/
-		content: none;
-		display: inline;
-		position: static;
-		top: initial;
-		left: initial;
-		margin: 0;
-		padding: 0;
-		width: auto;
-		height: auto;
-		z-index: auto;
-		all: revert;
 	}
 
 
@@ -1176,7 +1130,7 @@
 
 	/*\
 	|*|
-	|*|	General classes
+	|*|	Generic classes
 	|*|
 	\*/
 
@@ -1278,14 +1232,14 @@
 	}
 
 	article.slide:not(.nonadaptive) {
-		padding: calc(22.8vmin + 0.472vh) 1.887vmin 1.887vmin 1.887vmin;
+		padding: calc(22.8vmin + .472vh) 1.887vmin 1.887vmin 1.887vmin;
 		overflow: auto;
 		font-size: 1em;
 
 	}
 
 	article.slide:not(.nonadaptive)::before {
-		padding: calc(12.887vmin + 0.236vh) 0 0 0;
+		padding: calc(12.887vmin + .236vh) 0 0 0;
 		font-size: 1.8vmin;
 		line-height: 1.8vmin;
 		text-align: center;
@@ -1477,7 +1431,7 @@
 	}
 
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="index"]:not(.no-rel)::after {
-		top: calc(1.887vmin + 0.472vh);
+		top: calc(1.887vmin + .472vh);
 		bottom: unset;
 		left: calc(50% - 5.5vmin);
 		font-size: 11vmin;
@@ -1487,7 +1441,7 @@
 	}
 
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="last"]:not(.no-rel)::after {
-		top: calc(1.887vmin + 0.472vh);
+		top: calc(1.887vmin + .472vh);
 		bottom: unset;
 		left: calc(16.5vmin + 50% + 5.328vw);
 		font-size: 11vmin;
@@ -1497,7 +1451,7 @@
 	}
 
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="first"]:not(.no-rel)::after {
-		top: calc(1.887vmin + 0.472vh);
+		top: calc(1.887vmin + .472vh);
 		bottom: unset;
 		left: calc(50% - 27.5vmin - 5.328vw);
 		font-size: 11vmin;
@@ -1507,7 +1461,7 @@
 	}
 
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="prev"]:not(.no-rel)::after {
-		top: calc(1.887vmin + 0.472vh);
+		top: calc(1.887vmin + .472vh);
 		bottom: unset;
 		left: calc(50% - 16.5vmin - 2.664vw);
 		width: 11vmin;
@@ -1518,7 +1472,7 @@
 	}
 
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="next"]:not(.no-rel)::after {
-		top: calc(1.887vmin + 0.472vh);
+		top: calc(1.887vmin + .472vh);
 		bottom: unset;
 		left: calc(5.5vmin + 50% + 2.664vw);
 		text-align: center;
@@ -1540,7 +1494,7 @@
 	}
 
 
-	/*  General classes  */
+	/*  Generic classes  */
 
 	article.slide .roomy {
 		max-height: none;

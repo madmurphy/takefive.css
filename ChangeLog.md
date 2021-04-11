@@ -1,7 +1,7 @@
 # Change Log
 
 
-## 3.0.0 (2021-03-11)
+## 3.0.0 (2021-03-12)
 
 Changes:
 
@@ -27,6 +27,8 @@ Changes:
 * New plugins have been created (`takefive-counters.css`,
   `takefive-glyphs.css`, `takefive-maxsize.css`, `takefive-polaroid.css` and
   `takefive-toolbar.css`)
+* Now `a[rel~="parent"]` never generates anything special outside of the main
+  `<nav>`
 * Documentation
 * Examples
 

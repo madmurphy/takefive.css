@@ -11,8 +11,6 @@
 
 <body>
 
-<header>
-<hgroup>
 <h1>Take Five! &ndash; The <code>rel</code> attribute</h1>
 <p>Within the main <code>&lt;nav&gt;</code> container &ndash; and in one case within the <code><em>&lt;leeloo&gt;</em></code> element &ndash; <strong>Take Five!</strong> is responsive to the <code>rel</code> attributes given to links. These can generate labels and navigation buttons according to the following table:</p>
 <table class="definition autolayout">
@@ -75,15 +73,10 @@
 <td>🗨</td>
 </tr>
 <tr>
-<td rowspan="2"><code>"parent"</code></td>
+<td><code>"parent"</code></td>
 <td><code>article.slide &gt; nav:first-of-type a[rel~="parent"]</code></td>
 <td>&ldquo;Back to&rdquo; when not empty or &ldquo;Click to exit&rdquo; when empty</td>
 <td>&times;</td>
-</tr>
-<tr>
-<td><code><mark><em>leeloo</em> &gt; a[rel~="parent"]:empty</mark></code></td>
-<td><em>None</em> (a clickable transparent layer will cover entirely the <code><em>&lt;leeloo&gt;</em></code> element)</td>
-<td><em>None</em></td>
 </tr>
 <tr>
 <td><code>"child"</code></td>
@@ -105,11 +98,11 @@
 </table>
 <h2>Notes</h2>
 <ul>
-<li>Each of the elements matching the selectors above may be omitted (but at least one of the two cases of <code>a[rel="parent"]</code> should be present in order to give the possibility to exit from the slide), and all of them can cohabitate together (note: also both cases of <code>a[rel="parent"]</code>).</li>
-<li>When present, it is important that each of the <code>rel</code> attributes above that generate buttons occur <strong>only once for each slide</strong>, or the button will be generated twice in the same position. Setting a <code>"no-rel"</code> class on the links will prevent the creation of buttons, thus allowing duplications &ndash; a typical case is the duplication of <code>a[rel~="author"]</code> in slides with more than one author (but consider to use a dedicated slide for listing more than one author). Other <code>a[rel="..."]</code> elements (for example, <code>a[rel="archives"]</code>, or <code>a[rel="child"]</code>, or <code>a[rel="tag"]</code>), do not generate buttons and may occur more the once within the main <code>&lt;nav&gt;</code>. Moreover, additional duplications of the above cited <code>a[rel="..."]</code> elements, but placed elsewhere (e.g.: <code>article.slide &gt; div a[rel="next"]</code>), are irrelevant for this CSS.</li>
-<li>Other <code>a[rel]</code> elements not listed above placed inside the main <code>&lt;nav&gt;</code> will be accompanied by a label containing their <code>rel</code> attribute. If no <code>rel</code> attribute is given, they will be accompanied by a &ldquo;See also&rdquo; label. Outside the main <code>&lt;nav&gt;</code>, tag links <em>placed anywhere else within the slide</em> (i.e., <code>article.slide a[rel="tag"]</code>) will be styled with a star preceding the text.</li>
+<li>Each of the elements matching the selectors above may be omitted (but at least <code>a[rel="parent"]</code> should be present in order to give the possibility to exit from the slide), and all of them can cohabitate together.</li>
+<li>When present, it is important that each of the <code>rel</code> attributes that generate buttons occur <strong>only once for each slide</strong>, or the button will be generated twice in the same position. Setting a <code>"no-rel"</code> class on the links will prevent the creation of buttons, thus allowing duplications &ndash; a typical case is the duplication of <code>a[rel~="author"]</code> in slides with more than one author (but consider to use a dedicated slide for listing more than one author). Links that do not generate buttons may occur more the once within the main <code>&lt;nav&gt;</code> (for example, <code>a[rel="archives"]</code>, or <code>a[rel="child"]</code>, or <code>a[rel="tag"]</code>). Moreover, additional duplications of links that possess one of the <code>rel</code> attributes above, but placed elsewhere, are irrelevant for this CSS (e.g.: <code>article.slide &gt; div a[rel="next"]</code>).</li>
+<li>When labels are displayed, <code>a[rel]</code> elements not listed above inside the main <code>&lt;nav&gt;</code> will be accompanied by a label containing their <code>rel</code> attribute. Links without a <code>rel</code> attribute will be accompanied by a &ldquo;See also&rdquo; label instead. Outside the main <code>&lt;nav&gt;</code>, tag links <em>placed anywhere else within the slide</em> (i.e., <code>article.slide a[rel="tag"]</code>) will be styled with a star preceding the text.</li>
 <li>Custom labels can express a pseudo-relationship in links without a <code>rel</code> attribute, or replace default labels in links with a <code>rel</code> attribute, by setting a <code>data-label</code> attribute on the link &ndash; as in <code>&lt;a href="#my-sweetheart" <mark>data-label="Thanks to"</mark>&gt;Carla&lt;/a&gt;</code> or <code>&lt;a href="#my-sweetheart" <mark class="bg1">rel="sweetheart"</mark> <mark>data-label="Thanks to"</mark>&gt;Carla&lt;/a&gt;</code>. The <code>data-label</code> attribute can also be used to replace tags' stars or to add a custom label to any link within a slide.</li>
-<li>It is possible to remove the default labels by assigning a <code>"no-label"</code> class to the link &ndash; as in: <code>&lt;a href="#sample-photo" rel="next" <mark>class="no-label"</mark>&gt;Sample photo&lt;/a&gt;</code>.</li>
+<li>It is possible to remove a label from a link by assigning a <code>"no-label"</code> class to it &ndash; as in: <code>&lt;a href="#sample-photo" rel="next" <mark>class="no-label"</mark>&gt;Sample photo&lt;/a&gt;</code>.</li>
 </ul>
 <h2>Further considerations</h2>
 <h3>The <code>a[rel~="parent"]</code> element</h3>
@@ -117,19 +110,12 @@
 <p>The special link <code>a[rel~="parent"]</code> complies with the following rule:</p>
 <ul>
 <li>If it is inside the main <code>&lt;nav&gt;</code> &rArr; it will be shown on the top right corner; a transparent, clickable, full-screen layer will be created.</li>
-<li>If it is inside the <code><em>&lt;leeloo&gt;</em></code> element (direct child) and is <em>empty</em> &rArr; a transparent clickable layer will cover the whole (and only) <code><em>&lt;leeloo&gt;</em></code> element.</li>
-<li>If, instead,
-<ul>
-<li>it is inside the <code><em>&lt;leeloo&gt;</em></code> element but is <em>not empty</em>,</li>
-<li>or it is outside both the main <code>&lt;nav&gt;</code> and the <code><em>&lt;leeloo&gt;</em></code> element (empty or not empty),</li>
-<li>or <code>a[rel~="parent"]</code> <strong>is</strong> the <code><em>&lt;leeloo&gt;</em></code> element itself</li>
-</ul>
-then &rArr; it will be ignored by this CSS and displayed as a normal link.</li>
+<li>If instead it is outside the main <code>&lt;nav&gt;</code> &rArr; it will be ignored by this CSS and displayed as a normal link.</li>
 </ul>
 <h3>More than one token in the <code>rel</code> attribute</h3>
 <p>It is syntactically and semantically valid to assign more than one token to the <code>rel</code> attribute. As explained in the <a href="https://html.spec.whatwg.org/multipage/links.html#links-created-by-a-and-area-elements" target="_blank" rel="noopener">W3C Recommendation 28 October 2014</a>,</p>
 <blockquote>The attribute's value must be a set of space-separated tokens.</blockquote>
-<p>In this case, within the main <code>&lt;nav&gt;</code>, the CSS will choose the most important token according to the following order (the more down in the list the less important):</p>
+<p>In this case, within the main <code>&lt;nav&gt;</code>, the CSS will choose the most significant token according to the following order (the more down in the list the less significant):</p>
 <ol>
 <li><code>"parent"</code></li>
 <li><code>"child"</code></li>

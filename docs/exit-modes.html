@@ -19,7 +19,6 @@
 	<li><a href="#default-empty-exit">Default case and a link with empty content</a></li>
 	<li><a href="#pinned-nonempty-exit">The <code>"pinned"</code> class</a></li>
 	<li><a href="#pinned-empty-exit">The <code>"pinned"</code> class and a link with empty content</a></li>
-	<li><a href="#a-layer-above-leeloo">A layer above <em><code>&lt;leeloo&gt;</code></em></a></li>
 </ol>
 
 <section>
@@ -36,7 +35,7 @@
 		<nav>
 			<a href="#nowhere" rel="parent">Exit modes</a>
 			<a href="#default-empty-exit" rel="next">Default case and a link with empty content</a>
-			<a href="#a-layer-above-leeloo" rel="last">A layer above <em><code>&lt;leeloo&gt;</code></em></a>
+			<a href="#pinned-empty-exit" rel="last">The <code>"pinned"</code> class and a link with empty content</a>
 		</nav>
 	</article>
 
@@ -53,7 +52,7 @@
 			<a href="#nowhere" rel="parent"></a>
 			<a href="#default-nonempty-exit" rel="prev first">Default case</a>
 			<a href="#pinned-nonempty-exit" rel="next">The <code>"pinned"</code> class</a>
-			<a href="#a-layer-above-leeloo" rel="last">A layer above <em><code>&lt;leeloo&gt;</code></em></a>
+			<a href="#pinned-empty-exit" rel="last">The <code>"pinned"</code> class and a link with empty content</a>
 		</nav>
 	</article>
 
@@ -70,8 +69,7 @@
 			<a href="#nowhere" rel="parent">Exit modes</a>
 			<a href="#default-nonempty-exit" rel="first">Default case</a>
 			<a href="#default-empty-exit" rel="prev">Default case and a link with empty content</a>
-			<a href="#pinned-empty-exit" rel="next">The <code>"pinned"</code> class and a link with empty content</a>
-			<a href="#a-layer-above-leeloo" rel="last">A layer above <em><code>&lt;leeloo&gt;</code></em></a>
+			<a href="#pinned-empty-exit" rel="next last">The <code>"pinned"</code> class and a link with empty content</a>
 		</nav>
 	</article>
 
@@ -88,23 +86,6 @@
 			<a href="#nowhere" rel="parent"></a>
 			<a href="#default-nonempty-exit" rel="first">Default case</a>
 			<a href="#pinned-nonempty-exit" rel="prev">The <code>"pinned"</code> class</a>
-			<a href="#a-layer-above-leeloo" rel="next last">A layer above <em><code>&lt;leeloo&gt;</code></em></a>
-		</nav>
-	</article>
-
-	<article class="slide" id="a-layer-above-leeloo">
-		<header>
-			<h2>A layer above <em><code>&lt;leeloo&gt;</code></em></h2>
-		</header>
-		<section>
-			<a href="#nowhere" rel="parent"></a>
-			<p>By putting an empty link with the <code>rel</code> attribute set to <code>"parent"</code> inside <em><code>&lt;leeloo&gt;</code></em>, <em>as a direct child</em>, an invisible clickable layer will cover the entire element.</p>
-			<p>Try to come close with your mouse!</p>
-			<pre>&lt;article class="slide" id="photo-of-the-day"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Photo of the day&lt;/h2&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;figure&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark>&lt;a href="#nowhere" rel="parent"&gt;&lt;/a&gt;</mark><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="media/1.jpg" /&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;figcaption&gt;Into the woods&lt;/figcaption&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/figure&gt;<br />&lt;/article&gt;</pre>
-		</section>
-		<nav>
-			<a href="#default-nonempty-exit" rel="first">Default case</a>
-			<a href="#pinned-empty-exit" rel="prev">The <code>"pinned"</code> class and a link with empty content</a>
 		</nav>
 	</article>
 

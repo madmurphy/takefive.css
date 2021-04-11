@@ -1,5 +1,9 @@
 /* Based on: https://tabatkins.github.io/specs/css-aliases/ */
 
+:root {
+	counter-reset: exampleno figureno issueno;
+}
+
 div.figure, div.sidefigure, pre, table.propdef, table.propdef-extra, .example {
 	break-inside: avoid;
 }
@@ -267,14 +271,14 @@ figure.sidefigure {
 }
 
 figcaption {
-	counter-increment: figure;
+	counter-increment: figureno;
 	font-size: 90%;
 	font-style: italic;
 	text-align: center;
 }
 
 figcaption::before {
-	content: "Figure " counter(figure) ". ";
+	content: "Figure " counter(figureno) ". ";
 	font-weight: bold;
 }
 
@@ -669,11 +673,11 @@ code.xml {
 .issue {
 	border-color: #E05252;
 	background: #FBE9E9;
-	counter-increment: issue;
+	counter-increment: issueno;
 }
 
 .issue::before {
-	content: "Issue " counter(issue);
+	content: "Issue " counter(issueno);
 	padding-right: 1em;
 	text-transform: uppercase;
 	color: #E05252;

@@ -1,11 +1,12 @@
 #!/bin/sh
 #
-# expand-calc.sh
+# nondev-gen.sh
 #
 # Expand all the CSS variables declared in `$MAINCSS` **recursively** and save
 # the files generated in the temporary `$EXPDIR` directory. Then simplify the
 # content of `calc()` everywhere and save the simplified files in `$SRCDIR`.
-# Then minify everything and save the minified files in `$MINDIR`.
+# Then minify everything and save the minified files in `$MINDIR`. Finally
+# move everything into `$DISTDIR`.
 #
 
 
@@ -16,7 +17,7 @@ MINDIR='min'
 DISTDIR='dist'
 
 _RE_VAR_='^\s*--\([^:]\+\): var(--[^,]\+, \([^\)]\+\));'
-# Maximum four levels of round bracket nesting is supported
+# Maximum four levels of nesting are supported
 _RE_CALC_='calc\(([^()]+|[^()]*\([^()]+\)[^()]*|[^()]*\([^()]*\([^()]+\)[^()]*\)[^()]*|[^()]*\([^()]*\([^()]*\([^()]+\)[^()]*\)[^()]*\)[^()]*|[^()]*\([^()]*\([^()]*\([^()]*\([^()]+\)[^()]*\)[^()]*\)[^()]*\)[^()]*)\)'
 
 _ALLVARS_="$(cat "${MAINCSS}" | grep -o "${_RE_VAR_}" "${MAINCSS}" | sed 's/'"${_RE_VAR_}"'/s\/var(--\1)\/\2\/g;/g')"
@@ -46,7 +47,7 @@ rm -f "${SRCDIR}/${EXPDIR}.diff"
 
 echo 'Simplifying the content of `calc()` ...'
 
-# Calculations yelding zero as final result are not implemented yet
+# Calculations yelding zero as final result are not supported
 find "${SRCDIR}" -type f -name '*.css' | while read -r _CSSFILE_ ; do
 	echo "${_CSSFILE_}"
 
@@ -73,6 +74,7 @@ find "${SRCDIR}" -type f -name '*.css' | while read -r _CSSFILE_ ; do
 				s/ %/ 1%/g;
 				s/ px/ 1px/g;
 				s/ vmin/ 1vmin/g;
+				s/^0\.\|\([\n\r\f \t\v]\)0\./\1./g;
 				s/\//\\\//g;
 				s/\*/\\*/g;
 				s/\xE2\x88\x92/-/g;

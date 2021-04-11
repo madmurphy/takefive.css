@@ -15,14 +15,14 @@
 		"email": "madmurphy333@gmail.com"
 	},
 	"src": [
-		"dist",
 		"dev",
-		"fonts/1942-report"
+		"dist"
 	],
 	"keywords": [
 		"css",
 		"css-gallery",
 		"css-lightbox",
+		"css-only",
 		"css-slide-renderer",
 		"css3",
 		"css3-animations",
@@ -34,10 +34,10 @@
 		"microdata",
 		"microformats",
 		"microformats2",
+		"pure-css",
 		"rdfa",
 		"schema-org",
 		"slide-renderer",
-		"slides",
-		"slideshow"
+		"slides"
 	]
 }

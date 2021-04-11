@@ -15,9 +15,9 @@
 	article.slide .toolbar > details {
 		position: fixed;
 		top: 0;
-		left: calc(0.786vmin - 18% - 80px);
+		left: calc(.786vmin - 18% - 80px);
 		height: calc(100% - 40px);
-		width: calc(18% - 0.786vmin);
+		width: calc(18% - .786vmin);
 		background-color: rgba(25, 25, 25, .9);
 		border-radius: 0 0 8px 0;
 		padding: .133em .5em .133em .5em;
@@ -110,7 +110,7 @@
 		display: block;
 		position: fixed;
 		left: calc(50% + 280px);
-		bottom: calc(20px - 0.472vh);
+		bottom: calc(20px - .472vh);
 		opacity: 1;
 		padding: 0;
 		width: 40px;
@@ -129,7 +129,7 @@
 
 	article.slide:target .toolbar > details[open] > summary:first-of-type::after {
 		bottom: calc(100% - 40px);
-		left: calc(18% - 0.786vmin);
+		left: calc(18% - .786vmin);
 		transition: bottom 1s 1s ease, left 1s 1s ease;
 	}
 

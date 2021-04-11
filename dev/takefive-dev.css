@@ -952,52 +952,6 @@
 	}
 
 
-	/*
-		If `a[href][rel~="parent"]` is inside the <leeloo> element and is
-		*empty* a transparent clickable layer will cover the whole (and only)
-		`<leeloo>` element.
-	*/
-
-	article.slide > :not(nav):not(header):not(footer):not(aside) > a[href][rel~="parent"]:not(.no-rel):empty::before {
-	/*
-		:: Whatever you set here, unless you want differently, please restore
-		   it in the *unset place* `@not_exit_layer` ::
-	*/
-		content: "";
-		display: block;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		margin: 0;
-		padding: 0;
-		z-index: 10015;
-	}
-
-	article.slide > :not(nav):not(header):not(footer):not(aside) > a[href][rel~="parent"]:not(.no-rel):empty::after {
-		content: none;
-	}
-
-	article.slide > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside) > a[href][rel~="parent"]:not(.no-rel):empty::before,
-	article.slide > :not(nav):not(header):not(footer):not(aside) > a[href][rel~="parent"]:not(.no-rel):empty ~ a[href][rel~="parent"]:not(.no-rel):empty::before {
-	/*
-		:: UNSET PLACE `@not_exit_layer` ::
-	*/
-		content: none;
-		display: inline;
-		position: static;
-		top: initial;
-		left: initial;
-		margin: 0;
-		padding: 0;
-		width: auto;
-		height: auto;
-		z-index: auto;
-		all: revert;
-	}
-
-
 
 	/*\
 	|*|
@@ -1237,7 +1191,7 @@
 
 	/*\
 	|*|
-	|*|	General classes
+	|*|	Generic classes
 	|*|
 	\*/
 
@@ -1292,23 +1246,6 @@
 		right: var(--t5lxw);
 	}
 
-	/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@ !DEV_ONLY! @@@@@@@@@@@@@@@@@@@@@@@@@@@*/
-	/*  increase the clickable area  */
-
-	/*
-	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="prev"]:not([rel~="parent"]):not(.no-rel)::after {
-		left: calc(var(--t5hp) - var(--t5gs) * 3 / 2);
-		width: calc(var(--t5gs) * 5 / 2);
-		text-align: right;
-	}
-
-	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="next"]:not([rel~="parent"]):not(.no-rel)::after {
-		right: calc(var(--t5hp) - var(--t5gs) * 3 / 2);
-		width: calc(var(--t5gs) * 5 / 2);
-		text-align: left;
-	}
-	*/
-	/*@@@@@@@@@@@@@@@@@@@@@@@@@@ !END_DEV_ONLY! @@@@@@@@@@@@@@@@@@@@@@@@@*/
 }
 
 
@@ -1618,7 +1555,7 @@
 	}
 
 
-	/*  General classes  */
+	/*  Generic classes  */
 
 	article.slide .roomy {
 		max-height: none;

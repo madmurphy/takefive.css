@@ -6,6 +6,6 @@ function). These are expanded in the final CSS released to ensure better
 compatibility.
 
 A shell script is available for stripping the variables and minifying the CSS
-files (`qalc` and `uglifycss` are required -- the original files will not be
-overwritten).
+files (the original files will not be overwritten -- `qalc` and `uglifycss` are
+required).
 

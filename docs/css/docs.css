@@ -1,9 +1,5 @@
 /* Based on: https://tabatkins.github.io/specs/css-aliases/ */
 
-:root {
-	counter-reset: exampleno figure issue;
-}
-
 /* General structural markup */
 
 h1, h2, h3, h4, h5, h6 {
@@ -54,7 +50,7 @@ pre {
 	margin: 1em 0 1em 2em;
 }
 
-pre, code, .idl-code {
+pre, code, .formatted-code {
 	font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
 	font-size: .9em;
 }
