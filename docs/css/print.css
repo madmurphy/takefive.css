@@ -1,0 +1,242 @@
+/*\
+|*|
+|*|			:: print.css ::
+|*|
+|*|
+|*|	The basic CSS to carry around in every website to make it adaptable to
+|*|	the printed page
+|*|
+|*|	https://github.com/madmurphy/print.css/
+|*|
+|*|	Version 1.0.0
+|*|
+|*|	(c) madmurphy333@gmail.com
+|*|
+|*|	**print.css!** is free software. You can redistribute it and/or modify
+|*|	it under the terms of the GPL license, version 3 or any later version.
+|*|
+|*|	https://www.gnu.org/licenses/gpl-3.0.html
+|*|
+|*|
+\*/
+
+
+@media only print {
+
+	@page {
+		margin: 6em;
+		box-decoration-break: clone;
+	}
+
+	body {
+		height: 100%;
+		width: 100%;
+		box-sizing: border-box;
+		font-family: Palatino, Georgia, "Times New Roman", Times, serif;
+		text-align: justify;
+		line-height: 1.5;
+		color: #000;
+	}
+
+	body * {
+		box-sizing: border-box;
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+	dd, hr, footer {
+		break-before: avoid;
+		/*  Old syntax  */
+		page-break-before: avoid;
+	}
+
+	h1, h2, h3, h4, h5, h6, figure, img, hr, li, summary {
+		break-inside: avoid;
+		/*  Old syntax  */
+		page-break-inside: avoid;
+	}
+
+	h1, h2, h3, h4, h5, h6, dt, summary {
+		break-after: avoid;
+		/*  Old syntax  */
+		page-break-after: avoid;
+	}
+
+	figure {
+		text-align: center;
+		border: none;
+	}
+
+	abbr[title]:after {
+		content: ' (' attr(title) ')';
+	}
+
+	a[href] {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	a[href^="http://"]::after,
+	a[href^="https://"]::after,
+	a[href^="ftp://"]::after {
+		content: "(" attr(href) ")";
+		vertical-align: super;
+		font-size: x-small;
+	}
+
+	hr {
+		border: none;
+		margin: 2em auto;
+	}
+
+	hr::before {
+		content: "\2747\2747\2747";
+		display: block;
+		text-align: center;
+		letter-spacing: 1.5em;
+	}
+
+	article > p:first-of-type::first-letter,
+	article > section > p:first-of-type::first-letter {
+		float: left;
+		font-size: 4em;
+		line-height: 1;
+		margin: .125em .25em;
+	}
+
+	article > p,
+	article > section > p {
+		margin: 1em 0 0 0;
+	}
+
+	article > p + p,
+	article > section > p + p {
+		text-indent: 2em;
+		margin: 0;
+	}
+
+	mark {
+		color: inherit;
+		background: none;
+		border-bottom: 1px #000 dashed;
+		text-decoration: none;
+	}
+
+	details > summary {
+		outline: none;
+		/*  Remove the default decoration according to the standard  */
+		list-style: none;
+	}
+
+	details > summary::-webkit-details-marker {
+		/*  Remove the default decoration in WebKit  */
+		display: none;
+	}
+
+	details:not([open]) > summary::after {
+		content: "\2014  ceteris omissis  \2014";
+		display: block;
+		font-style: italic;
+		font-weight: normal;
+		text-decoration: none;
+		font-size: smaller;
+		color: #000;
+		margin: 0 0 1em 1em;
+	}
+
+	nav, .non-printed {
+		display: none;
+	}
+
+	/*  Forms  */
+
+	fieldset {
+		border: 1px #000 solid;
+		margin: 2em 0;
+		padding: 1em 1.5em;
+	}
+
+	input,
+	output,
+	textarea,
+	select {
+		background-color: transparent;
+		color: inherit;
+		font-family: monospace;
+		font-size: 1em;
+		box-shadow: none;
+		outline: none;
+	}
+
+	input,
+	output {
+		border-top: none;
+		border-right: none;
+		border-bottom: 1px #000 dashed;
+		border-left: none;
+	}
+
+	textarea,
+	select,
+	:not(input):not(output):read-write {
+		border: 1px #000 dashed;
+	}
+
+	button,
+	input[type="button"],
+	input[type="submit"],
+	input[type="reset"] {
+		visibility: hidden;
+	}
+
+	input[type="color"] {
+		border-bottom: none;
+	}
+
+	input:disabled,
+	output:disabled,
+	textarea:disabled,
+	select:disabled {
+		background-color: #000;
+	}
+
+	input:read-only,
+	output:read-only,
+	textarea:read-only,
+	select:read-only {
+		border: none;
+	}
+
+	input[type="file"]::file-selector-button {
+		display: none;
+	}
+
+	input[type="range"]::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		visibility: hidden;
+		height: 100%;
+	}
+
+	input[type="range"]::-moz-range-thumb {
+		visibility: hidden;
+	}
+
+	input[type="range"]::-ms-thumb {
+		visibility: hidden;
+	}
+
+	input[type="range"]::-webkit-slider-runnable-track {
+		background-color: #ffffff;
+
+	}
+
+	input[type="range"]::-moz-range-track {
+		background-color: transparent;
+	}
+
+	input[type="range"]::-ms-track {
+		background-color: transparent;
+	}
+
+}
+

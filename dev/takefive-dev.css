@@ -1,0 +1,1700 @@
+/*\
+|*|
+|*|			:: Take Five! ::
+|*|
+|*|
+|*|	A semantically-consistent pure-CSS slide renderer
+|*|
+|*|	https://github.com/madmurphy/takefive.css/
+|*|
+|*|	Version 3.0.0
+|*|
+|*|	(c) madmurphy333@gmail.com
+|*|
+|*|	**Take Five!** is free software. You can redistribute it and/or modify
+|*|	it under the terms of the GPL license, version 3 or any later version.
+|*|
+|*|	https://www.gnu.org/licenses/gpl-3.0.html
+|*|
+|*|
+\*/
+
+
+
+/*\
+|*|
+|*|	The font used by Take Five!
+|*|
+\*/
+
+
+@font-face {
+	font-family: "report";
+	src: url("fonts/1942-report/1942-report.eot") format("embedded-opentype"), url("fonts/1942-report/1942-report.woff") format("woff"), url("fonts/1942-report/1942-report.ttf") format("truetype"), url("fonts/1942-report/1942-report.svg") format("svg");
+}
+
+
+/*  Uncomment this for using the GNU Typewriter font  */
+/*
+@font-face {
+	font-family: "typewriter";
+	src: url("fonts/gnutypewriter/gnutypewriter.eot") format("embedded-opentype"), url("fonts/gnutypewriter/gnutypewriter.otf") format("opentype"), url("fonts/gnutypewriter/gnutypewriter.woff") format("woff"), url("fonts/gnutypewriter/gnutypewriter.ttf") format("truetype"), url("fonts/gnutypewriter/gnutypewriter.svg") format("svg");
+}
+*/
+
+
+/*  Uncomment this for using the My Underwood font  */
+/*
+@font-face {
+	font-family: "My Underwood";
+	src: url("fonts/my-underwood/my-underwood.woff2") format("woff2"), url("fonts/my-underwood/my-underwood.eot") format("embedded-opentype"), url("fonts/my-underwood/my-underwood.woff") format("woff"), url("fonts/my-underwood/my-underwood.ttf") format("truetype"), url("fonts/my-underwood/my-underwood.otf") format("opentype");
+}
+*/
+
+
+
+/*\
+|*|
+|*|	All screens
+|*|
+\*/
+
+
+@media only screen {
+
+
+
+	/*\
+	|*|
+	|*|	The viewport
+	|*|
+	\*/
+
+
+	article.slide {
+		/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@ !DEV_ONLY! @@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+		/*  Vertical padding  */
+		--t5vp: var(--take5-vpadding, 60px);	/*  accepts viewport percentage (height)  */
+
+		/*  Horizontal padding  */
+		--t5hp: var(--take5-hpadding, 18%);	/*  accepts viewport percentage (width) */
+
+		/*  A vertical space   */
+		--t5vs: var(--take5-vspace, .472vh);	/*  absolute values only  */
+
+		/*  An orientation-agnostic (`vmin`) space  */
+		--t5as: var(--take5-aspace, .786vmin);	/*  absolute values only  */
+
+		/*  A horizontal space  */
+		--t5hs: var(--take5-hspace, .888vw);	/*  absolute values only  */
+
+		/*  Icon size  */
+		--t5gs: var(--take5-glyphsize, 40px);	/*  absolute values only  */
+
+		/*  `<footer>` and  `<aside>` vertical positioning  */
+		--t5fp: var(--take5-footer-y, 40px);	/*  accepts viewport percentage (height)  */
+
+		/*  External margins  */
+		--t5em: var(--take5-margin, 1.887vmin);	/*  absolute values only  */
+
+		/*  Horizontal overflow of tabs when `:not(:hover)`  */
+		--t5lo: var(--take5-navlink-of, 10%);	/*  percentages only (for IE)  */
+
+		/*  Horizontal overflow of tabs during `:hover`  */
+		--t5lho: var(--take5-navlink-hof, 2%);	/*  percentages only (for IE)  */
+
+		/*  Extra width of link tabs  */
+		--t5lxw: var(--take5-navlink-xw, 40%);	/*  percentages only (for IE)  */
+
+		/*  Vertical separator between `<nav>` links  */
+		--t5nvs: var(--take5-nav-vsep, 24px);	/*  absolute values only  */
+
+		/*  Horizontal separator between `<nav>` links and margins  */
+		--t5shm: var(--take5-nav-hsep, 32px);	/*  absolute values only  */
+
+		/*  Shadows  */
+		--t5sh: var(--take5-shadows, 0 0 20px #000);
+
+		/*  Border radius  */
+		--t5br: var(--take5-rounds, 8px);	/*  absolute values only  */
+
+		/*  Size of the exit icon  */
+		--t5es: var(--take5-exitsize, 50px);	/*  absolute values only  */
+
+		/*  How far outside of the viewport should elements disappear?  */
+		--t5fo: var(--take5-far-out, -80px);	/*  absolute values only  */
+
+		/*  Adaptive icon size  */
+		--t5abgs: var(--take5-apt-bglyphsize, 11vmin);	/*  absolute values only  */
+
+		/*  Adaptive small icon size  */
+		--t5ags: var(--take5-apt-glyphsize, 7vmin);	/*  absolute values only  */
+
+
+		/*@@@@@@@@@@@@@@@@@@@@@@@@@@ !END_DEV_ONLY! @@@@@@@@@@@@@@@@@@@@@@@@@*/
+		position: fixed;
+		top: 0;
+		left: 0;
+		visibility: hidden;
+		box-sizing: border-box;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, .9);
+		opacity: 0;
+		padding: var(--t5vp) var(--t5em) var(--t5vp) calc(100% - var(--t5hp) + var(--t5hs));
+		overflow: hidden;
+		color: #fff;
+		font-family: report, courier, monospace;
+		font-size: .80em;
+		line-height: normal;
+		z-index: 10000;
+		transition: visibility 0s .5s, opacity .5s linear;
+	}
+
+	article.slide:target {
+		visibility: visible;
+		opacity: 1;
+		transition: opacity 1s linear;
+	}
+
+
+
+	/*\
+	|*|
+	|*|	A layer and an animated hashtag at the bottom right corner...
+	|*|
+	\*/
+
+
+	article.slide::before {
+		content: attr(data-context);
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		box-sizing: border-box;
+		width: 100%;
+		height: 100%;
+		padding: var(--t5em) 71% var(--t5em) var(--t5em);
+		font-size: .85em;
+		overflow: hidden;
+		z-index: 10007;
+	}
+
+	article.slide[data-context]::before {
+		transition: color 1s 2.5s linear;
+	}
+
+	article.slide[data-context]:not(:target)::before {
+		color: transparent;
+		transition: color .5s 0s linear;
+	}
+
+	article.slide::after {
+		display: block;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		margin: var(--t5em);
+		box-sizing: border-box;
+		font-size: 1.05em;
+		transition: bottom 1.5s ease;
+		text-align: right;
+		max-width: 50%;
+		z-index: 10001;
+	}
+
+	article.slide:not(:target)::after {
+		bottom: var(--t5fo);
+	}
+
+	article.slide:not(.no-hashtag)::after {
+		content: "hashtag: #" attr(id);
+	}
+
+
+
+	/*\
+	|*|
+	|*|	Functional elements
+	|*|
+	\*/
+
+
+	article.slide a[href], 
+	article.slide a[href]:link,
+	article.slide a[href]:hover,
+	article.slide a[href]:active,
+	article.slide a[href]:visited {
+		color: inherit;
+		text-decoration: none;
+		font-weight: bold;
+		background-color: transparent;
+		border: none;
+	}
+
+	article.slide a[href][rel~="tag"]::before {
+		content: "\2605";
+		font-size: inherit;
+	}
+
+
+	/*  User-set labels for links  */
+
+	article.slide a[href][data-label]:not(.no-label)::before {
+		content: attr(data-label);
+	}
+
+	article.slide a[href]:not(.no-label)::before {
+		margin-right: .3em;
+	}
+
+
+
+	/*\
+	|*|
+	|*|	The `<leeloo>` element
+	|*|
+	\*/
+
+
+	/*
+
+	Find the first semantically valid element to be centered in the slide, i.e.,
+	`:not(nav):not(header):not(footer):not(aside)`, a.k.a. "the <leeloo> element".
+
+	*/
+
+	@keyframes slidein {
+
+		from {
+			transform: translate(-50%, -50%) scale(0.001);
+		}
+
+		to {
+			transform: translate(-50%, -50%);
+		}
+	}
+
+	@keyframes slideout {
+
+		from {
+			transform: translate(-50%, -50%);
+		}
+
+		to {
+			transform: translate(-50%, -50%) scale(0.001);
+		}
+
+	}
+
+	article.slide > :not(nav):not(header):not(footer):not(aside) {
+	/*
+		:: Whatever you set here, unless you want differently, please restore
+		   it in the *unset place* `@not_leeloo` ::
+	*/
+		position: absolute;
+		box-sizing: border-box;
+		left: 50%;
+		top: 50%;
+		width: auto;
+		height: auto;
+		max-height: calc(100% - var(--t5vp) * 2);
+		max-width: calc(100% - (var(--t5hp) + var(--t5hs) + var(--t5gs)) * 2);
+		margin: auto -50% auto auto;
+		transform: translate(-50%, -50%);
+		animation: 1s ease 0s 1 slidein;
+		z-index: 10012;
+	}
+
+	article.slide:not(:target) > :not(nav):not(header):not(footer):not(aside) {
+	/*
+		:: Whatever you set here, unless you want differently, please restore
+		   it in the *unset place* `@not_closed_slide_leeloo` ::
+	*/
+		transform: translate(-50%, -50%) scale(0.001);
+		animation: .5s ease 0s 1 slideout;
+	}
+
+	article.slide > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside) {
+	/*
+		:: UNSET PLACE `@not_leeloo` ::
+	*/
+		width: auto;
+		height: auto;
+		animation: none;
+		transform: none;
+	/*
+		Kept values:
+
+		- `max-height`, `max-width`, `box-sizing`; these will be re-assigned in
+		  the *extend place* `@default_styles`
+		- `position`, `left`, `top`, `margin`, `z-index`; these will be
+		  re-assigned in the *extend place* `@not_one_of_five`
+	*/
+	}
+
+	article.slide:not(:target) > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside) {
+	/*
+		:: UNSET PLACE `@not_closed_slide_leeloo` ::
+	*/
+		animation: none;
+		transform: none;
+	}
+
+
+	/*  Generic content (any slide container except <section> and <article>)  */
+
+	article.slide > :not(nav):not(header):not(footer):not(aside):not(section):not(article) {
+	/*
+		:: Whatever you set here, unless you want differently, please restore
+		   it in the *unset place* `@generic_content_not_leeloo` ::
+	*/
+		overflow: visible;
+	}
+
+	article.slide > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside):not(section):not(article) {
+	/*
+		:: UNSET PLACE `@generic_content_not_leeloo` ::
+	*/
+		overflow: revert;
+	}
+
+
+	/*  Text content (<section> and <article> slide containers)  */
+
+	article.slide > article,
+	article.slide > section {
+	/*
+		:: Whatever you set here, unless you want differently, please restore
+		   it in the *unset place* `@text_content_not_leeloo` ::
+	*/
+		overflow: auto;
+		padding: .5em;
+	}
+
+	article.slide > :not(nav):not(header):not(footer):not(aside) ~ article,
+	article.slide > :not(nav):not(header):not(footer):not(aside) ~ section {
+	/*
+		:: UNSET PLACE `@text_content_not_leeloo` ::
+	*/
+		padding: 0;
+		overflow: visible;
+		all: revert;
+	}
+
+
+
+	/*\
+	|*|
+	|*|	Everything else
+	|*|
+	\*/
+
+
+	article.slide > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside),
+	article.slide * {
+	/*
+		:: EXTEND PLACE `@default_styles` ::
+	*/
+		max-height: 100%;
+		max-width: 100%;
+		box-sizing: border-box;
+	}
+
+
+
+	/*\
+	|*|
+	|*|	HTML5 semantic children
+	|*|
+	\*/
+
+
+	/*  All direct children but <leeloo>, one <header>, one <nav>, one <footer> and one <aside>  */
+
+	article.slide > nav:not(:first-of-type),
+	article.slide > header:not(:first-of-type),
+	article.slide > footer:not(:first-of-type),
+	article.slide > aside:not(:first-of-type),
+	article.slide > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside) {
+	/*
+		:: EXTEND PLACE `@not_one_of_five` ::
+	*/
+		position: relative;
+		left: 0;
+		top: 0;
+		margin: 0;
+		z-index: 10011;
+	}
+
+
+	/*  One <nav>, if present  */
+
+	article.slide > nav:first-of-type {
+		display: block;
+		position: absolute;
+		left: var(--t5em);
+		top: calc(var(--t5vp) + var(--t5nvs));
+		box-sizing: border-box;
+		width: calc(var(--t5hp) - var(--t5em) - var(--t5hs));
+		height: auto;
+		margin: 0;
+		overflow: visible;
+		padding: 0;
+		text-align: left;
+	}
+
+
+	/*  One <header>, if present  */
+
+	article.slide > header:first-of-type {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: calc(100% - var(--t5vp) + var(--t5as));
+		box-sizing: border-box;
+		width: calc(100% - var(--t5em) * 2);
+		height: auto;
+		margin: 0 auto;
+		padding: 0 calc(var(--t5hp) + var(--t5gs) + var(--t5hs) - var(--t5em));
+		text-align: center;
+		overflow: visible;
+		font-size: larger;
+		z-index: 10002;		/*  the header is always under the clickable layer  */
+	}
+
+
+	/*  One <footer> and one <aside>, if present  */
+
+	article.slide > footer:first-of-type,
+	article.slide > aside:first-of-type {
+		position: absolute;
+		bottom: var(--t5fp);
+		box-sizing: border-box;
+		width: calc(var(--t5hp) - var(--t5em) - var(--t5hs));
+		height: auto;
+		margin: 0;
+		max-height: calc(100% - var(--t5fp) * 2);
+		padding: 0;
+		overflow: hidden;
+	}
+
+	article.slide > footer:first-of-type {
+		right: var(--t5em);
+		z-index: 10010;
+		text-align: right;
+
+	}
+
+	article.slide > aside:first-of-type {
+		left: var(--t5em);
+		z-index: 10009;
+		text-align: left;
+	}
+
+	article.slide.wrap > footer:first-of-type {
+		z-index: 10004;
+
+	}
+
+	article.slide.wrap > aside:first-of-type {
+		z-index: 10003;
+	}
+
+	article.slide.wrap > :not(nav):not(header):not(footer):not(aside) {
+		z-index: 10006;
+	}
+
+	article.slide.wrap > nav:not(:first-of-type),
+	article.slide.wrap > header:not(:first-of-type),
+	article.slide.wrap > footer:not(:first-of-type),
+	article.slide.wrap > aside:not(:first-of-type),
+	article.slide.wrap > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside) {
+		z-index: 10005;
+	}
+
+
+
+	/*\
+	|*|
+	|*|	HTML5 semantic sub-children
+	|*|
+	\*/
+
+
+	/*  Header's sub-children  */
+
+	article.slide > header:first-of-type * {
+		text-align: center;
+	}
+
+	article.slide > header:first-of-type * {
+		margin: var(--t5as) 0 0 0;
+	}
+
+	article.slide > header:first-of-type > :only-child {
+		margin: var(--t5as) 0 var(--t5as) 0;
+	}
+
+	article.slide > footer:first-of-type > :last-child,
+	article.slide > aside:first-of-type > :last-child {
+		margin-bottom: 0;
+	}
+
+
+	/*  Navigation links  */
+
+	article.slide > nav:first-of-type a[href].vision,
+	article.slide > nav:first-of-type a[href][rel~="first"],
+	article.slide > nav:first-of-type a[href][rel~="index"],
+	article.slide > nav:first-of-type a[href][rel~="last"],
+	article.slide > nav:first-of-type a[href][rel~="prev"],
+	article.slide > nav:first-of-type a[href][rel~="next"],
+	article.slide > nav:first-of-type a[href][rel~="attachment"],
+	article.slide > nav:first-of-type a[href][rel~="bookmark"],
+	article.slide > nav:first-of-type a[href][rel~="author"],
+	article.slide > nav:first-of-type a[href][rel~="discussion"],
+	article.slide > nav:first-of-type a[href][rel~="parent"],
+	article.slide.foyer > nav:first-of-type a[href][rel~="parent"],
+	article.slide > nav:first-of-type a[href][rel~="child"][rel~="parent"] {
+		display: block;
+		position: fixed;
+		top: 0;
+		right: 0;
+		cursor: default;
+		background-color: transparent;
+		font-style: italic;
+		box-sizing: border-box;
+		text-align: right;
+		border: none;
+		box-shadow: none;
+		color: transparent;
+		width: auto;
+		height: auto;
+		border-radius: 0;
+		margin: var(--t5em) calc(var(--t5es) + var(--t5as)) var(--t5em) var(--t5em);
+		padding: 0;
+		visibility: hidden;
+		transition: visibility 0s 1s, color 1s 0s linear;
+	}
+
+	article.slide > nav:first-of-type a[href].vision:hover,
+	article.slide > nav:first-of-type a[href][rel~="first"]:hover,
+	article.slide > nav:first-of-type a[href][rel~="index"]:hover,
+	article.slide > nav:first-of-type a[href][rel~="last"]:hover,
+	article.slide > nav:first-of-type a[href][rel~="prev"]:hover,
+	article.slide > nav:first-of-type a[href][rel~="next"]:hover,
+	article.slide > nav:first-of-type a[href][rel~="attachment"]:hover,
+	article.slide > nav:first-of-type a[href][rel~="bookmark"]:hover,
+	article.slide > nav:first-of-type a[href][rel~="author"]:hover,
+	article.slide > nav:first-of-type a[href][rel~="discussion"]:hover,
+	article.slide > nav:first-of-type a[href][rel~="parent"]:hover,
+	article.slide.foyer > nav:first-of-type a[href][rel~="parent"]:hover,
+	article.slide > nav:first-of-type a[href][rel~="child"][rel~="parent"]:hover {
+		right: 0;
+		visibility: inherit;
+		color: #fff;
+		transition: color 1s 0s linear;
+		background-color: transparent;
+	}
+
+	article.slide > nav:first-of-type a[href][rel~="parent"]:hover {
+		transition: color 1s .5s linear;
+	}
+
+	article.slide:not(.pinned) > nav:first-of-type a[href][rel~="parent"] {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: var(--t5em) calc(var(--t5es) + var(--t5as)) var(--t5em) var(--t5em);
+		visibility: inherit;
+		z-index: 10008;
+	}
+
+
+	/*  All links  */
+
+	article.slide > nav:first-of-type a[href],
+	article.slide > nav:first-of-type a[href][rel].tab,
+	article.slide > nav:first-of-type a[href][rel].no-rel,
+	article.slide.foyer > nav:first-of-type a[href] {
+		display: block;
+		position: relative;
+		width: calc(100% + var(--t5lxw) + var(--t5lho));
+		visibility: inherit;
+		color: inherit;
+		cursor: pointer;
+		max-width: none;
+		top: 0;
+		right: calc(100% + var(--t5lxw) + var(--t5lho) - var(--t5lo));
+		margin: 0;
+		padding: .133em .4em .133em var(--t5lxw);
+		border-top: 2px #fff solid;
+		border-right: 2px #fff solid;
+		border-radius: 0 var(--t5br) var(--t5br) 0;
+		box-shadow: var(--t5sh);
+		box-sizing: border-box;
+		text-align: right;
+		transition: right .5s ease;
+		background-color: rgba(25, 25, 25, .9);
+		font-size: 1.1em;
+		line-height: 1.2em;
+		font-weight: normal;
+		overflow: hidden;
+		font-style: normal;
+		z-index: 10014;
+	}
+
+	article.slide > nav:first-of-type a[href]:hover,
+	article.slide > nav:first-of-type a[href][rel].tab:hover,
+	article.slide > nav:first-of-type a[href][rel].no-rel:hover,
+	article.slide.foyer > nav:first-of-type a[href]:hover {
+		right: var(--t5lxw);
+		background-color: rgba(25, 25, 25, .9);
+		color: inherit;
+		transition: right .5s ease;
+	}
+
+	/*  Sub-gallery buttons  */
+
+	article.slide > nav:first-of-type a[href].plate,
+	article.slide > nav:first-of-type a[href][rel].plate,
+	article.slide > nav:first-of-type a[href][rel~="child"] {
+		position: relative;
+		display: block;
+		width: auto;
+		height: auto;
+		top: 0;
+		right: 0;
+		margin: var(--t5nvs) 0 var(--t5nvs) var(--t5shm);
+		max-width: calc(100% - var(--t5shm) * 2);
+		padding: .5em;
+		visibility: inherit;
+		font-style: normal;
+		cursor: pointer;
+		color: inherit;
+		border-radius: var(--t5br);
+		box-sizing: border-box;
+		box-shadow: var(--t5sh);
+		text-align: center;
+		background-color: rgba(25, 25, 25, .9);
+		border: 2px #fff solid;
+		transition: background-color .5s linear, color .5s linear;
+		z-index: 10013;
+	}
+
+	article.slide > nav:first-of-type a[href].plate:hover,
+	article.slide > nav:first-of-type a[href][rel].plate:hover,
+	article.slide > nav:first-of-type a[href][rel~="child"]:hover {
+		background-color: #fff;
+		color: #000;
+		right: 0;
+		transition: background-color .5s linear, color .5s linear;
+	}
+
+
+	/*  Labels of semantic links  */
+
+	article.slide > nav:first-of-type a[href]:not(:empty)::before {
+		display: block;
+		font-size: .70em;
+		font-style: normal;
+		margin: 0;
+	}
+
+
+	/*  No `rel` attributes given  */
+
+	article.slide > nav:first-of-type a[href]::before {
+		content: "See also";
+	}
+
+
+	/*  Unknown `rel` attributes  */
+
+	article.slide > nav:first-of-type a[href][rel]::before {
+		content: attr(rel);
+		text-transform: capitalize;
+	}
+
+
+	/*  Known `rel` attributes  */
+
+	article.slide > nav:first-of-type a[href][rel~="tag"]::before {
+		content: "Tagged content";
+		text-transform: none;
+	}
+
+	article.slide > nav:first-of-type a[href][rel~="discussion"]::before {
+		content: "Comments";
+		text-transform: none;
+	}
+
+	article.slide > nav:first-of-type a[href][rel~="author"]::before {
+		content: "Author";
+		text-transform: none;
+	}
+
+	article.slide > nav:first-of-type a[href][rel~="attachment"]::before {
+		content: "Download";
+		text-transform: none;
+	}
+
+	article.slide > nav:first-of-type a[href][rel~="bookmark"]::before {
+		content: "Share it!";
+		text-transform: none;
+	}
+
+	article.slide > nav:first-of-type a[href][rel~="index"]::before {
+		content: "Index";
+		text-transform: none;
+	}
+
+	article.slide > nav:first-of-type a[href][rel~="first"]::before {
+		content: "First slide";
+		text-transform: none;
+	}
+
+	article.slide > nav:first-of-type a[href][rel~="last"]::before {
+		content: "Last slide";
+		text-transform: none;
+	}
+
+	article.slide > nav:first-of-type a[href][rel~="prev"]::before {
+		content: "Previous slide";
+		text-transform: none;
+	}
+
+	article.slide > nav:first-of-type a[href][rel~="next"]::before {
+		content: "Next slide";
+		text-transform: none;
+	}
+
+	article.slide > nav:first-of-type a[href][rel~="child"]::before {
+		content: "More";
+		text-transform: none;
+	}
+
+	article.slide > nav:first-of-type a[href][rel~="parent"]::before {
+		content: "Back to";
+		text-transform: none;
+	}
+
+	article.slide > nav:first-of-type a[href][rel~="parent"]:not(.no-label):empty::before {
+		content: "Exit";
+		text-transform: none;
+	}
+
+	article.slide > nav:first-of-type a[href][rel~="parent"]:not(.tab):not(.no-rel):not(.no-label):empty::before {
+		content: "Click to exit";
+		text-transform: none;
+	}
+
+
+	/*  Remove user-given labels when necessary  */
+
+	article.slide > nav:first-of-type a[href].no-label::before,
+	article.slide:not(.verbose) > nav:first-of-type a[href]:not([rel~="parent"]):not(.with-label):not(:empty)::before,
+	article.slide:not(.verbose) > nav:first-of-type a[href][rel~="parent"].tab:not(.with-label):not(:empty)::before,
+	article.slide:not(.verbose) > nav:first-of-type a[href][rel~="parent"].no-rel:not(.with-label):not(:empty)::before,
+	article.slide.pinned > nav:first-of-type a[href][rel~="parent"]:not(.tab):not(.no-rel):empty::before {
+		content: none;
+	}
+
+
+	/*  Buttons  */
+
+	article.slide > nav:first-of-type a[href]::after {
+		content: none;
+		position: fixed;
+		display: block;
+		margin: auto;
+		width: var(--t5gs);
+		height: var(--t5gs);
+		text-align: center;
+		z-index: 10014;
+		transition: none;
+		color: #fff;
+		font-style: normal;
+		cursor: pointer;
+		line-height: var(--t5gs);
+		font-size: calc(var(--t5gs) * 4 / 5);
+		transition: visibility 0s .5s;
+	}
+
+	article.slide:target > nav:first-of-type a[href]::after {
+		visibility: visible;
+		transition: none;
+	}
+
+
+	/*  Buttons generated by "Author" "Bookmark" "First" "Last" "Index" "Prev" "Next" - order matters!  */
+
+	/*  Glyph slot `lctrl-b1`  */
+	article.slide > nav:first-of-type a[href][rel~="discussion"]:not(.no-rel)::after {
+		content: "\1F5E8";
+		/*  try also: `content: "\1F4AD";`  */
+		/*  try also: `content: "\1F5EF";`  */
+		/*  try also: `content: "\1F5E3";`  */
+		left: var(--t5hp);
+		bottom: var(--t5vp);
+	}
+
+	/*  Glyph slot `rctrl-b1`  */
+	article.slide > nav:first-of-type a[href][rel~="attachment"]:not(.no-rel)::after {
+		content: "\1F4CE";
+		/*  try also: `content: "\1F4E5";`  */
+		/*  try also: `content: "\2913";`  */
+		left: calc(100% - var(--t5hp) - var(--t5gs));
+		bottom: var(--t5vp);
+	}
+
+	/*  Glyph slot `lctrl-t1`  */
+	article.slide > nav:first-of-type a[href][rel~="bookmark"]:not(.no-rel)::after {
+		content: "\1F517";
+		/*  try also: `content: "\1F3F7";`  */
+		/*  try also: `content: "\1F4D1";`  */
+		/*  try also: `content: "\1F516";`  */
+		/*  try also: `content: "\1F587";`  */
+		/*  try also: `content: "\1F4D6";`  */
+		/*  try also: `content: "\2B50";`  */
+		/*  try also: `content: "#";`  */
+		left: var(--t5hp);
+		top: var(--t5vp);
+	}
+
+	/*  Glyph slot `rctrl-t1`  */
+	article.slide > nav:first-of-type a[href][rel~="author"]:not(.no-rel)::after {
+		content: "\2709\FE0F";
+		/*  try also: `content: "\2709";`  */
+		/*  try also: `content: "\FF20";`  */
+		/*  try also: `content: "\270D\FE0F";`  */
+		/*  try also: `content: "\270D";`  */
+		/*  try also: `content: "\1FAB6";`  */
+		/*  try also: `content: "\1F464";`  */
+		/*  try also: `content: "\1F58B";`  */
+		/*  try also: `content: "@";`  */
+		left: calc(100% - var(--t5hp) - var(--t5gs));
+		top: var(--t5vp);
+	}
+
+	/*  Glyph slot `bctrl-c2`  */
+	article.slide > nav:first-of-type a[href][rel~="index"]:not(.no-rel)::after {
+		content: "\2302";
+		bottom: calc(var(--t5vp) - var(--t5gs) - var(--t5vs));
+		left: calc(50% - var(--t5gs) / 2);
+		font-size: var(--t5gs);
+	}
+
+	/*  Glyph slot `bctrl-c3`  */
+	article.slide > nav:first-of-type a[href][rel~="last"]:not(.no-rel)::after {
+		content: "\23ED";
+		/*  try also: `content: "\21E5";`  */
+		bottom: calc(var(--t5vp) - var(--t5gs) - var(--t5vs));
+		left: calc(50% + var(--t5gs) / 2 + var(--t5as));
+		font-size: calc(var(--t5gs) / 5 * 3);
+	}
+
+	/*  Glyph slot `bctrl-c1`  */
+	article.slide > nav:first-of-type a[href][rel~="first"]:not(.no-rel)::after {
+		content: "\23EE";
+		/*  try also: `content: "\21E4";`  */
+		bottom: calc(var(--t5vp) - var(--t5gs) - var(--t5vs));
+		left: calc(50% - 3 * var(--t5gs) / 2 - var(--t5as));
+		font-size: calc(var(--t5gs) / 5 * 3);
+	}
+
+	/*  Glyph slot `lctrl-c1`  */
+	article.slide > nav:first-of-type a[href][rel~="prev"]:not(.no-rel)::after {
+		content: "\276E";
+		left: var(--t5hp);
+		top: 0;
+		bottom: 0;
+		height: calc(var(--t5gs) * 9 / 5);
+		line-height: calc(var(--t5gs) * 9 / 5);
+		font-size: calc(var(--t5gs) * 9 / 5);
+	}
+
+	/*  Glyph slot `rctrl-c1`  */
+	article.slide > nav:first-of-type a[href][rel~="next"]:not(.no-rel)::after {
+		content: "\276F";
+		left: calc(100% - var(--t5hp) - var(--t5gs));
+		top: 0;
+		bottom: 0;
+		height: calc(var(--t5gs) * 9 / 5);
+		line-height: calc(var(--t5gs) * 9 / 5);
+		font-size: calc(var(--t5gs) * 9 / 5);
+	}
+
+
+	/*  Exit button  */
+
+	/*  Glyph slot `ctrl-exit`  */
+	article.slide > nav:first-of-type a[href][rel~="parent"]:not(.no-rel)::after {
+		content: "\00D7";
+		width: var(--t5es);
+		height: calc(var(--t5es) * 4 / 5);
+		line-height: calc(var(--t5es)  * 4 / 5);
+		font-size: calc(var(--t5es) * 16 / 25);
+		top: 0;
+		right: 0;
+		left: unset;
+		bottom: unset;
+		font-family: serif;
+		z-index: 10030;
+		transition: top 1.5s ease;
+	}
+
+	article.slide:not(:target) > nav:first-of-type a[href][rel~="parent"]:not(.no-rel)::after {
+		top: var(--t5fo);
+	}
+
+
+	/*
+		If `a[href][rel~="parent"]` is inside the <leeloo> element and is
+		*empty* a transparent clickable layer will cover the whole (and only)
+		`<leeloo>` element.
+	*/
+
+	article.slide > :not(nav):not(header):not(footer):not(aside) > a[href][rel~="parent"]:not(.no-rel):empty::before {
+	/*
+		:: Whatever you set here, unless you want differently, please restore
+		   it in the *unset place* `@not_exit_layer` ::
+	*/
+		content: "";
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		z-index: 10015;
+	}
+
+	article.slide > :not(nav):not(header):not(footer):not(aside) > a[href][rel~="parent"]:not(.no-rel):empty::after {
+		content: none;
+	}
+
+	article.slide > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside) > a[href][rel~="parent"]:not(.no-rel):empty::before,
+	article.slide > :not(nav):not(header):not(footer):not(aside) > a[href][rel~="parent"]:not(.no-rel):empty ~ a[href][rel~="parent"]:not(.no-rel):empty::before {
+	/*
+		:: UNSET PLACE `@not_exit_layer` ::
+	*/
+		content: none;
+		display: inline;
+		position: static;
+		top: initial;
+		left: initial;
+		margin: 0;
+		padding: 0;
+		width: auto;
+		height: auto;
+		z-index: auto;
+		all: revert;
+	}
+
+
+
+	/*\
+	|*|
+	|*|	Content elements -- keep it short!
+	|*|
+	\*/
+
+
+	/*  Multimedia  */
+
+	article.slide figure {
+		text-align: center;
+		margin: 1em 2em;
+	}
+
+	article.slide figure figcaption {
+		margin: .6em 0;
+		font-style: normal;
+		font-size: 1em;
+	}
+
+	article.slide img,
+	article.slide svg,
+	article.slide audio,
+	article.slide video,
+	article.slide iframe {
+		border: 3px #fff solid;
+		box-shadow: var(--t5sh);
+		box-sizing: border-box;
+		max-height: 75vh;
+	}
+
+
+	/*  Text content  */
+
+	article.slide p,
+	article.slide h1,
+	article.slide h2,
+	article.slide h3,
+	article.slide h4,
+	article.slide h5,
+	article.slide h6,
+	article.slide ol,
+	article.slide ul,
+	article.slide dl,
+	article.slide pre {
+		font-family: inherit;
+		color: inherit;
+		margin: 1em 0;
+	}
+
+	article.slide h1 {
+		font-size: 1.5em;
+		font-weight: bold;
+	}
+
+	article.slide h2 {
+		font-size: 1.3em;
+		font-weight: bold;
+	}
+
+	article.slide h3 {
+		font-size: 1.18em;
+		font-weight: bold;
+	}
+
+	article.slide h4 {
+		font-size: 1.05em;
+		font-weight: bold;
+	}
+
+	article.slide h5 {
+		font-size: 1em;
+		font-weight: bold;
+	}
+
+	article.slide h6 {
+		font-size: 1em;
+		font-style: italic;
+	}
+
+	article.slide hr {
+		border: none;
+		color: inherit;
+		height: auto;
+		width: auto;
+		margin: 2em auto;
+	}
+
+	article.slide hr::before {
+		content: "\2747\2747\2747";
+		display: block;
+		text-align: center;
+		letter-spacing: 2em;
+	}
+
+	article.slide ul,
+	article.slide ol,
+	article.slide menu {
+		padding: 0 0 0 2.5em;
+	}
+
+
+	/*  All `<blockquote>` elements  */
+
+	article.slide blockquote {
+		position: relative;
+		color: #afafaf;
+		font-style: italic;
+		padding: 0 1.75em;
+	}
+
+	article.slide blockquote em {
+		font-style: normal;
+	}
+
+	article.slide > blockquote {
+	/*
+		:: Whatever you set here, unless you want differently, please restore
+		   it in the *unset place* `@blockquote_not_leeloo` ::
+	*/
+		font-size: 1.4em;
+	}
+
+	article.slide > :not(nav):not(header):not(footer):not(aside) ~ blockquote {
+	/*
+		:: UNSET PLACE `@blockquote_not_leeloo` ::
+	*/
+		font-size: inherit;
+		font-size: revert;
+	}
+
+	article.slide blockquote::before,
+	article.slide blockquote::after {
+		position: absolute;
+		display: block;
+		line-height: 1em;
+		font-size: 2.2em;
+		color: #ccc;
+		width: .75em;
+		height: 1em;
+	}
+
+	article.slide blockquote::before {
+		content: "\201C";
+		left: 0;
+		top: 0;
+		text-align: left;
+	}
+
+	article.slide blockquote::after {
+		content: "\201E";
+		right: 0;
+		bottom: 0;
+		text-align: right;
+	}
+
+	article.slide blockquote cite {
+		display: block;
+		margin: 1em 0 1em 1.5em;
+		font-style: normal;
+	}
+
+	article.slide blockquote cite::before {
+		content: "\2014";
+		display: inline-block;
+		width: 1em;
+	}
+
+	article.slide dl {
+		overflow: hidden;
+		padding: 0;
+	}
+
+	article.slide dl > dt {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0 .5em 0 2em;
+		float: left;
+		width: 25%;
+		clear: left;
+	}
+
+	article.slide dl > dd {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0 2em 0 .5em;
+		float: left;
+		width: 75%;
+		clear: right;
+	}
+
+	article.slide fieldset {
+		color: inherit;
+		border: 1px #fff solid;
+		border-radius: var(--t5br);
+	}
+
+	article.slide fieldset > legend {
+		font-size: 1.5em;
+		font-weight: bold;
+		padding: .133em .5em;
+		border: none;
+	}
+
+	article.slide code,
+	article.slide pre {
+		font-family: monospace;
+		font-size: 1.1em;
+	}
+
+	article.slide pre {
+		border-left: 1px #fff solid;
+		padding: .5em .5em .5em 1em;
+		line-height: 1.5em;
+	}
+
+	article.slide input,
+	article.slide textarea,
+	article.slide select,
+	article.slide button,
+	article.slide output {
+		background-color: transparent;
+		border: 1px #fff solid;
+		box-sizing: border-box;
+		color: inherit;
+		font-family: inherit;
+		font-size: 1.2em;
+		border-radius: var(--t5br);
+	}
+
+	article.slide mark {
+		background-color: rgba(255, 255, 20, .7);
+	}
+
+
+
+	/*\
+	|*|
+	|*|	General classes
+	|*|
+	\*/
+
+
+	article.slide :not(.z-auto).z-low {
+		z-index: 10005;
+	}
+
+	article.slide :not(.z-auto).z-mid {
+		z-index: 10011;
+	}
+
+	article.slide :not(.z-auto).z-high {
+		z-index: 10031;
+	}
+
+	article.slide :not(.z-auto).z-none {
+		z-index: unset;
+	}
+
+	article.slide .clean {
+		border: none;
+		box-shadow: none;
+	}
+
+	article.slide .roomy {
+		max-height: 100%;
+		overflow: auto;
+		padding: 0 .5em 0 0;
+	}
+
+}
+
+
+
+/*\
+|*|
+|*|	Smartphones, touchscreens, etc.
+|*|
+\*/
+
+
+@media
+ only screen and (pointer: coarse),
+ only screen and (pointer: none),
+ only screen and (hover: none) {
+
+	article.slide > nav:first-of-type a[href],
+	article.slide > nav:first-of-type a[href][rel].tab,
+	article.slide > nav:first-of-type a[href][rel].no-rel,
+	article.slide.foyer > nav:first-of-type a[href] {
+		right: var(--t5lxw);
+	}
+
+	/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@ !DEV_ONLY! @@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+	/*  increase the clickable area  */
+
+	/*
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="prev"]:not([rel~="parent"]):not(.no-rel)::after {
+		left: calc(var(--t5hp) - var(--t5gs) * 3 / 2);
+		width: calc(var(--t5gs) * 5 / 2);
+		text-align: right;
+	}
+
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="next"]:not([rel~="parent"]):not(.no-rel)::after {
+		right: calc(var(--t5hp) - var(--t5gs) * 3 / 2);
+		width: calc(var(--t5gs) * 5 / 2);
+		text-align: left;
+	}
+	*/
+	/*@@@@@@@@@@@@@@@@@@@@@@@@@@ !END_DEV_ONLY! @@@@@@@@@@@@@@@@@@@@@@@@@*/
+}
+
+
+/*  Small height  */
+
+@media only screen and (max-height: 500px) {
+
+	/*  Remove labels from `<nav>` links when screen height is too low  */
+
+	article.slide:not(.nonadaptive).foyer > nav:first-of-type a[href]:not(.vision):not(:empty)::before,
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href]:not([rel~="parent"]):not([rel~="first"]):not([rel~="index"]):not([rel~="last"]):not([rel~="prev"]):not([rel~="next"]):not([rel~="attachment"]):not([rel~="bookmark"]):not([rel~="author"]):not([rel~="discussion"]):not(.vision):not(:empty)::before,
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href].tab:not(:empty)::before,
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href].no-rel:not(:empty)::before {
+		content: none;
+	}
+
+}
+
+
+/*  Small width  */
+
+@media only screen and (max-width: 768px) {
+
+	@keyframes slidein {
+
+		from {
+			transform: scale(0.001);
+		}
+
+		to {
+			transform: none;
+		}
+	}
+
+	@keyframes slideout {
+
+		from {
+			transform: none;
+		}
+
+		to {
+			transform: scale(0.001);
+		}
+
+	}
+
+	article.slide:not(.nonadaptive) {
+		padding: calc(var(--t5abgs) * 4 / 5 + var(--t5ags) * 2 + var(--t5vs)) var(--t5em) var(--t5em) var(--t5em);
+		overflow: auto;
+		font-size: 1em;
+
+	}
+
+	article.slide:not(.nonadaptive)::before {
+		padding: calc(var(--t5em) + var(--t5abgs) + var(--t5vs) / 2) 0 0 0;
+		font-size: 1.8vmin;
+		line-height: 1.8vmin;
+		text-align: center;
+	}
+
+	article.slide:not(.nonadaptive)::after {
+		position: static;
+		margin: auto 0 var(--t5em) auto;
+		max-width: 100%;
+	}
+
+	article.slide:not(.nonadaptive) > :not(nav):not(header):not(footer):not(aside) {
+	/*
+		:: Whatever you set here, unless you want differently, please restore
+		   it in the *unset place* `@not_small_leeloo` ::
+	*/
+		position: relative;
+		top: 0;
+		left: 0;
+		max-width: 100%;
+		max-height: 100vh;
+		margin: 1em auto;
+		transform: none;
+	}
+
+	article.slide:not(.nonadaptive):not(:target) > :not(nav):not(header):not(footer):not(aside) {
+	/*
+		:: Whatever you set here, unless you want differently, please restore
+		   it in the *unset place* `@not_small_closed_slide_leeloo` ::
+	*/
+		transform: scale(0.001);
+	}
+
+	article.slide:not(.nonadaptive) > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside) {
+	/*
+		:: UNSET PLACE `@not_small_leeloo` ::
+	*/
+		max-width: none;
+		max-height: none;
+	/*
+		Kept values:
+
+		- `position`, `top`, `left`, `margin`, `transform`
+	*/
+	}
+
+	article.slide:not(.nonadaptive):not(:target) > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside) {
+	/*
+		:: UNSET PLACE `@not_small_closed_slide_leeloo` ::
+	*/
+		transform: none;
+	}
+
+	article.slide:not(.nonadaptive) > header:first-of-type {
+		bottom: calc(100% - var(--t5abgs) * 4 / 5 - var(--t5ags) * 2);
+		padding: 0 var(--t5ags);
+		font-size: 1em;
+	}
+
+	article.slide:not(.nonadaptive) > nav:first-of-type {
+		display: block;
+		position: static;
+		width: auto;
+		margin: 1em auto;
+		text-align: center;
+
+	}
+
+	article.slide:not(.nonadaptive) > aside:first-of-type,
+	article.slide:not(.nonadaptive) > footer:first-of-type {
+		position: relative;
+		bottom: 0;
+		left: 0;
+		width: auto;
+		max-height: auto;
+		margin: 1em auto;
+	}
+
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href].vision,
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel],
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="index"],
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="last"],
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="prev"],
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="next"],
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="attachment"],
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="bookmark"],
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="author"],
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="discussion"],
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="parent"],
+	article.slide:not(.nonadaptive).foyer > nav:first-of-type a[href][rel~="parent"],
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="child"][rel~="parent"] {
+		display: block;
+		position: absolute;
+		top: 0;
+		right: unset;
+		left: 0;
+		padding: 0;
+		margin: .5vmin calc(var(--t5em) + var(--t5abgs)) .5vmin 1vmin;
+		text-align: left;
+		font-size: .7em;
+		border: none;
+		border-radius: 0;
+	}
+
+	article.slide:not(.nonadaptive):not(.pinned) > nav:first-of-type a[href][rel~="parent"] {
+		margin: 0;
+		padding: .5vmin calc(var(--t5em) + var(--t5abgs)) .5vmin 1vmin;
+		width: 100%;
+	}
+
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href],
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel].tab,
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel].no-rel,
+	article.slide:not(.nonadaptive).foyer > nav:first-of-type a[href] {
+		display: inline-block;
+		position: relative;
+		top: 0;
+		right: unset;
+		left: 0;
+		width: auto;
+		margin: .133em;
+		padding: .133em .4em .133em .4em;
+		font-size: 1em;
+		max-width: auto;
+		border: 2px #fff solid;
+		border-radius: var(--t5br);
+		text-align: center;
+
+
+	}
+
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href]::before {
+		content: none;
+	}
+
+
+	/*  Sub-gallery buttons  */
+
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href].plate,
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel].plate,
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="child"] {
+		display: block;
+		position: relative;
+		width: auto;
+		max-width: 15em;
+		margin: auto;
+		padding: .5em;
+		border: 2px #fff solid;
+		border-radius: var(--t5br);
+		font-size: 1em;
+		text-align: center;
+	}
+
+
+	/*  Buttons  */
+
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href]::after {
+		width: var(--t5ags);
+		height: var(--t5ags);
+		line-height: var(--t5ags);
+		font-size: calc(var(--t5ags) * 4 / 5);
+	}
+
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="discussion"]:not(.no-rel)::after {
+		top: calc(var(--t5abgs) * 4 / 5 + var(--t5ags));
+		bottom: unset;
+		left: var(--t5em);
+	}
+
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="attachment"]:not(.no-rel)::after {
+		top: calc(var(--t5abgs) * 4 / 5 + var(--t5ags));
+		bottom: unset;
+		left: calc(100% - var(--t5em) * 2 - var(--t5ags));
+
+	}
+
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="bookmark"]:not(.no-rel)::after {
+		top: calc(var(--t5abgs) * 4 / 5);
+		bottom: unset;
+		left: var(--t5em);
+
+	}
+
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="author"]:not(.no-rel)::after {
+		top: calc(var(--t5abgs) * 4 / 5);
+		bottom: unset;
+		left: calc(100% - var(--t5em) * 2 - var(--t5ags));
+
+	}
+
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="index"]:not(.no-rel)::after {
+		top: calc(var(--t5em) + var(--t5vs));
+		bottom: unset;
+		left: calc(50% - var(--t5abgs) / 2);
+		font-size: var(--t5abgs);
+		height: var(--t5abgs);
+		width: var(--t5abgs);
+		line-height: var(--t5abgs);
+	}
+
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="last"]:not(.no-rel)::after {
+		top: calc(var(--t5em) + var(--t5vs));
+		bottom: unset;
+		left: calc(50% + 3 * var(--t5abgs) / 2 + var(--t5hs) * 6);
+		font-size: var(--t5abgs);
+		height: var(--t5abgs);
+		width: var(--t5abgs);
+		line-height: var(--t5abgs);
+	}
+
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="first"]:not(.no-rel)::after {
+		top: calc(var(--t5em) + var(--t5vs));
+		bottom: unset;
+		left: calc(50% - 5 * var(--t5abgs) / 2 - var(--t5hs) * 6);
+		font-size: var(--t5abgs);
+		height: var(--t5abgs);
+		width: var(--t5abgs);
+		line-height: var(--t5abgs);
+	}
+
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="prev"]:not(.no-rel)::after {
+		top: calc(var(--t5em) + var(--t5vs));
+		bottom: unset;
+		left: calc(50% - 3 * var(--t5abgs) / 2 - var(--t5hs) * 3);
+		width: var(--t5abgs);
+		height: var(--t5abgs);
+		line-height: var(--t5abgs);
+		font-size: var(--t5abgs);
+		text-align: center;
+	}
+
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="next"]:not(.no-rel)::after {
+		top: calc(var(--t5em) + var(--t5vs));
+		bottom: unset;
+		left: calc(50% + var(--t5abgs) / 2 + var(--t5hs) * 3);
+		text-align: center;
+		width: var(--t5abgs);
+		height: var(--t5abgs);
+		line-height: var(--t5abgs);
+		font-size: var(--t5abgs);
+	}
+
+	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="parent"]:not(.no-rel)::after {
+		top: 0;
+		bottom: unset;
+		left: unset;
+		right: 0;
+		width: var(--t5abgs);
+		height: calc(var(--t5abgs) * 4 / 5);
+		line-height: calc(var(--t5abgs)  * 4 / 5);
+		font-size: calc(var(--t5abgs) * 16 / 25);
+	}
+
+
+	/*  General classes  */
+
+	article.slide .roomy {
+		max-height: none;
+		overflow: visible;
+		padding: 0;
+	}
+
+}
+
+
+
+/*\
+|*|
+|*|	Printed page
+|*|
+\*/
+
+
+@media only print {
+
+	article.slide {
+		position: relative;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		break-before: always;
+		break-inside: avoid;
+		break-after: always;
+		/*  Old syntax  */
+		page-break-before: always;
+		page-break-inside: avoid;
+		page-break-after: always;
+	}
+
+	article.slide[data-context] {
+		padding-top: .8em;
+	}
+
+	article.slide::before,
+	article.slide::after {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 1.5em;
+		padding: 0;
+		margin: 0;
+		border-bottom: 1px #000 solid;
+		font-size: .8em;
+		font-style: italic;
+	}
+
+	article.slide[data-context]::before {
+		content: attr(data-context);
+		text-align: center;
+	}
+
+	article.slide::after {
+		text-align: right;
+	}
+
+	article.slide nav {
+		display: none;
+	}
+
+	article.slide header {
+		margin-bottom: 2em;
+	}
+
+	article.slide footer {
+		margin-top: 2em;
+	}
+
+}
+
+
+/*  EOF  */
+

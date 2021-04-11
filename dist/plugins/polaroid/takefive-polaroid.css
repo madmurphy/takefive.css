@@ -1,0 +1,21 @@
+@media only screen {
+
+	article.slide .polaroid {
+		background-color: #fff;
+		color: #000;
+		border: 3px #fff solid;
+		box-shadow: 0 0 20px #000;
+		box-sizing: border-box;
+		text-align: center;
+	}
+
+	article.slide .polaroid * {
+		border: none;
+		box-shadow: none;
+	}
+
+}
+
+
+/*  EOF  */
+

@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/print.css" />
+<link rel="stylesheet" type="text/css" href="css/docs.css" />
+<link rel="stylesheet" type="text/css" href="css/docs-classes.css" />
+<link rel="stylesheet" type="text/css" href="css/takefive.min.css" />
+<script>"Stop crbug.com/332189 and crbug.com/167083";</script>
+<title>Take Five! &ndash; Exit modes</title>
+</head>
+
+<body>
+
+<h1>Take Five! &ndash; Exit modes</h1>
+<ol>
+	<li><a href="#default-nonempty-exit">Default case</a></li>
+	<li><a href="#default-empty-exit">Default case and a link with empty content</a></li>
+	<li><a href="#pinned-nonempty-exit">The <code>"pinned"</code> class</a></li>
+	<li><a href="#pinned-empty-exit">The <code>"pinned"</code> class and a link with empty content</a></li>
+	<li><a href="#a-layer-above-leeloo">A layer above <em><code>&lt;leeloo&gt;</code></em></a></li>
+</ol>
+
+<section>
+
+	<article class="slide" id="default-nonempty-exit">
+		<header>
+			<h2>Default case</h2>
+		</header>
+		<section>
+			<p>This example shows a very typical situation: a normal slide and a link with the <code>rel</code> attribute set to <code>"parent"</code>.</p>
+			<p>As you can see, by clicking on an empty area of the viewport the slide disappears.</p>
+			<pre>&lt;article class="slide" id="photo-of-the-day"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Photo of the day&lt;/h2&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark>&lt;a href="#nowhere" rel="parent"&gt;My diary&lt;/a&gt;</mark><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;figure&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="media/1.jpg" /&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;figcaption&gt;Into the woods&lt;/figcaption&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/figure&gt;<br />&lt;/article&gt;</pre>
+		</section>
+		<nav>
+			<a href="#nowhere" rel="parent">Exit modes</a>
+			<a href="#default-empty-exit" rel="next">Default case and a link with empty content</a>
+			<a href="#a-layer-above-leeloo" rel="last">A layer above <em><code>&lt;leeloo&gt;</code></em></a>
+		</nav>
+	</article>
+
+	<article class="slide" id="default-empty-exit">
+		<header>
+			<h2>Default case and a link with empty content</h2>
+		</header>
+		<section>
+			<p>This example shows a less common scenario: a normal slide and a link with the <code>rel</code> attribute set to <code>"parent"</code> and an empty content.</p>
+			<p>As you can see, by clicking on an empty area of the viewport the slide disappears.</p>
+			<pre>&lt;article class="slide" id="photo-of-the-day"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Photo of the day&lt;/h2&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark>&lt;a href="#nowhere" rel="parent"&gt;&lt;/a&gt;</mark><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;figure&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="media/1.jpg" /&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;figcaption&gt;Into the woods&lt;/figcaption&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/figure&gt;<br />&lt;/article&gt;</pre>
+		</section>
+		<nav>
+			<a href="#nowhere" rel="parent"></a>
+			<a href="#default-nonempty-exit" rel="prev first">Default case</a>
+			<a href="#pinned-nonempty-exit" rel="next">The <code>"pinned"</code> class</a>
+			<a href="#a-layer-above-leeloo" rel="last">A layer above <em><code>&lt;leeloo&gt;</code></em></a>
+		</nav>
+	</article>
+
+	<article class="pinned slide" id="pinned-nonempty-exit">
+		<header>
+			<h2>The <code>"pinned"</code> class</h2>
+		</header>
+		<section>
+			<p>This example shows a possible scenario: a slide declared with the <code>"pinned"</code> class and a link with the <code>rel</code> attribute set to <code>"parent"</code>.</p>
+			<p>As you can see, by clicking on an empty area of the viewport nothing happens.</p>
+			<pre>&lt;article <mark>class="pinned slide"</mark> id="photo-of-the-day"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Photo of the day&lt;/h2&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark>&lt;a href="#nowhere" rel="parent"&gt;My diary&lt;/a&gt;</mark><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;figure&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="media/1.jpg" /&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;figcaption&gt;Into the woods&lt;/figcaption&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/figure&gt;<br />&lt;/article&gt;</pre>
+		</section>
+		<nav>
+			<a href="#nowhere" rel="parent">Exit modes</a>
+			<a href="#default-nonempty-exit" rel="first">Default case</a>
+			<a href="#default-empty-exit" rel="prev">Default case and a link with empty content</a>
+			<a href="#pinned-empty-exit" rel="next">The <code>"pinned"</code> class and a link with empty content</a>
+			<a href="#a-layer-above-leeloo" rel="last">A layer above <em><code>&lt;leeloo&gt;</code></em></a>
+		</nav>
+	</article>
+
+	<article class="pinned slide" id="pinned-empty-exit">
+		<header>
+			<h2>The <code>"pinned"</code> class and a link with empty content</h2>
+		</header>
+		<section>
+			<p>This example shows a less common scenario: a slide declared with the <code>"pinned"</code> class and a link with the <code>rel</code> attribute set to <code>"parent"</code> and an empty content.</p>
+			<p>As you can see, by clicking on an empty area of the viewport nothing happens.</p>
+			<pre>&lt;article <mark>class="pinned slide"</mark> id="photo-of-the-day"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Photo of the day&lt;/h2&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark>&lt;a href="#nowhere" rel="parent"&gt;&lt;/a&gt;</mark><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;figure&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="media/1.jpg" /&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;figcaption&gt;Into the woods&lt;/figcaption&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/figure&gt;<br />&lt;/article&gt;</pre>
+		</section>
+		<nav>
+			<a href="#nowhere" rel="parent"></a>
+			<a href="#default-nonempty-exit" rel="first">Default case</a>
+			<a href="#pinned-nonempty-exit" rel="prev">The <code>"pinned"</code> class</a>
+			<a href="#a-layer-above-leeloo" rel="next last">A layer above <em><code>&lt;leeloo&gt;</code></em></a>
+		</nav>
+	</article>
+
+	<article class="slide" id="a-layer-above-leeloo">
+		<header>
+			<h2>A layer above <em><code>&lt;leeloo&gt;</code></em></h2>
+		</header>
+		<section>
+			<a href="#nowhere" rel="parent"></a>
+			<p>By putting an empty link with the <code>rel</code> attribute set to <code>"parent"</code> inside <em><code>&lt;leeloo&gt;</code></em>, <em>as a direct child</em>, an invisible clickable layer will cover the entire element.</p>
+			<p>Try to come close with your mouse!</p>
+			<pre>&lt;article class="slide" id="photo-of-the-day"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Photo of the day&lt;/h2&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;figure&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark>&lt;a href="#nowhere" rel="parent"&gt;&lt;/a&gt;</mark><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="media/1.jpg" /&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;figcaption&gt;Into the woods&lt;/figcaption&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/figure&gt;<br />&lt;/article&gt;</pre>
+		</section>
+		<nav>
+			<a href="#default-nonempty-exit" rel="first">Default case</a>
+			<a href="#pinned-empty-exit" rel="prev">The <code>"pinned"</code> class and a link with empty content</a>
+		</nav>
+	</article>
+
+</section>
+
+<footer>
+<h2>Free software</h2>
+<p><strong>Take Five!</strong> is free software. You can redistribute it and/or modify it under the terms of the <a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html" target="_blank" rel="noopener">GPL license</a>, version 3 or any later version. The code is <a href="https://github.com/madmurphy/takefive.css/" target="_blank" rel="noopener">available on GitHub</a>.</p>
+</footer>
+
+</body>
+</html>

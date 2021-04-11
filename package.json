@@ -1,11 +1,11 @@
 {
 	"name": "Take Five!",
-	"version": "2.0.0",
+	"version": "3.0.0",
 	"description": "A semantically-consistent pure-CSS slide renderer",
 	"author": "madmurphy333@gmail.com",
 	"license": "GPL-3.0-or-later",
 	"homepage": "https://madmurphy.github.io/takefive.css",
-	"style": "takefive.css",
+	"style": "dist/takefive.min.css",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/madmurphy/takefive.css.git"
@@ -15,12 +15,9 @@
 		"email": "madmurphy333@gmail.com"
 	},
 	"src": [
-		"takefive.css",
-		"takefive-min.css",
-		"fonts/1942-report/1942-report.eot",
-		"fonts/1942-report/1942-report.svg",
-		"fonts/1942-report/1942-report.ttf",
-		"fonts/1942-report/1942-report.woff"
+		"dist",
+		"dev",
+		"fonts/1942-report"
 	],
 	"keywords": [
 		"css",

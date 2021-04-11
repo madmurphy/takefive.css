@@ -1,43 +1,55 @@
 <!doctype html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" type="text/css" href="css/takefive-min.css" media="screen" />
-	<title>Take Five! &ndash; Schematic</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/print.css" />
+<link rel="stylesheet" type="text/css" href="css/docs.css" />
+<link rel="stylesheet" type="text/css" href="css/takefive.min.css" />
+<script>"Stop crbug.com/332189 and crbug.com/167083";</script>
+<title>Take Five! &ndash; Schematic</title>
+<style>
+article.slide > * {
+	background-color: #600;
+}
+</style>
 </head>
 
 <body>
 
-	<p style="text-align: center; font-size: 2em;">
-		<a href="#schematic"><em>Take Five!</em> &ndash; Schematic</a>
+<p style="text-align: center; font-size: 2em;">
+	<a href="#schematic"><em>Take Five!</em> &ndash; Schematic</a>
+</p>
+
+<article class="slide" id="schematic">
+	<header>
+		<h2>The (first) <code>&lt;header&gt;</code> element if present</h2>
+	</header>
+	<div>
+		The first direct child found to be neither <code>&lt;nav&gt;</code>, nor <code>&lt;header&gt;</code>, nor <code>&lt;footer&gt;</code>, nor <code>&lt;aside&gt;</code> (i.e. the <code><em>&lt;leeloo&gt;</em></code> element)
+	</div>
+	<p>
+		Any further elements if present (<code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;aside&gt;</code>, etc.)
 	</p>
+	<p style="margin-top: 1em;">
+		Etc. etc.
+	</p>
+	<aside>
+		The first <code>&lt;aside&gt;</code> element if present
+	</aside>
+	<nav>
+		The first <code>&lt;nav&gt;</code> element if present
+		<a href="#nowhere" rel="parent">Main page</a>
+	</nav>
+	<footer>
+		The (first) <code>&lt;footer&gt;</code> element if present
+	</footer>
+</article>
 
-	<article class="slide" id="schematic">
-		<header style="background-color: #660000;">
-			<h2>The (first) <code>&lt;header&gt;</code> element if present</h2>
-		</header>
-		<nav style="background-color: #660000;">
-			The first <code>&lt;nav&gt;</code> element if present
-			<a href="#nowhere" rel="parent">Main page</a>
-		</nav>
-		<div style="background-color: #660000;">
-			The first direct child found to be neither <code>&lt;nav&gt;</code>, nor <code>&lt;header&gt;</code>, nor <code>&lt;footer&gt;</code>, nor <code>&lt;aside&gt;</code> (i.e. the <code><em>&lt;leeloo&gt;</em></code> element)
-		</div>
-		<p style="background-color: #660000;">
-			Any further elements if present (<code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;aside&gt;</code>, etc.)
-		</p>
-		<p style="background-color: #660000;">
-			Etc. etc.
-		</p>
-		<aside style="background-color: #660000;">
-			The first <code>&lt;aside&gt;</code> element if present
-		</aside>
-		<footer style="background-color: #660000;">
-			The (first) <code>&lt;footer&gt;</code> element if present
-		</footer>
-	</article>
-
-	<p>This page is powered by <a href="https://madmurphy.github.io/takefive.css/"><em>Take Five!</em></a> pure-CSS slide renderer.</p>
+<footer>
+<h2>Free software</h2>
+<p><strong>Take Five!</strong> is free software. You can redistribute it and/or modify it under the terms of the <a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html" target="_blank" rel="noopener">GPL license</a>, version 3 or any later version. The code is <a href="https://github.com/madmurphy/takefive.css/" target="_blank" rel="noopener">available on GitHub</a>.</p>
+</footer>
 
 </body>
 </html>

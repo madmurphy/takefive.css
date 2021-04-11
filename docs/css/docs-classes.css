@@ -1,0 +1,907 @@
+/* Based on: https://tabatkins.github.io/specs/css-aliases/ */
+
+div.figure, div.sidefigure, pre, table.propdef, table.propdef-extra, .example {
+	break-inside: avoid;
+}
+
+.head {
+	margin-bottom: 1em;
+}
+
+.head h1 {
+	margin-top: 2em;
+	clear: both;
+}
+
+.head table {
+	margin-left: 2em;
+	margin-top: 2em;
+}
+
+.head dd {
+	margin-bottom: 0;
+}
+
+p.copyright {
+	font-size: small;
+}
+
+p.copyright small {
+	font-size: small;
+}
+
+td.pre {
+	white-space: pre-wrap;
+}
+
+.css, .property {
+	color: #005a9c;
+}
+
+.property {
+	white-space: nowrap;
+}
+
+/* Boilerplate sections */
+
+ul.indexlist {
+	margin-left: 0;
+	columns: 13em;
+}
+
+ul.indexlist li {
+	margin-left: 0;
+	list-style: none
+}
+
+ul.indexlist li li {
+	margin-left: 1em;
+}
+
+ul.indexlist a {
+	font-weight: bold;
+}
+
+ul.indexlist ul, ul.indexlist dl {
+	font-size: smaller;
+}
+
+ul.indexlist dl {
+	margin-top: 0;
+}
+
+ul.indexlist dt {
+	margin: .2em 0 .2em 20px;
+}
+
+ul.indexlist dd {
+	margin: .2em 0 .2em 40px;
+}
+
+.toc {
+	font-weight: bold;
+	line-height: 1.3;
+	list-style: none;
+	margin: 1em 0 0 5em;
+	padding: 0;
+}
+
+.toc ul {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
+
+.toc ul ul {
+	margin: 0 0 0 2em;
+	font-style: italic;
+}
+
+.toc ul ul ul {
+	margin: 0
+}
+
+.toc > li {
+	margin: 1.5em 0;
+	padding: 0;
+}
+
+.toc li {
+	clear: both;
+}
+
+.toc ul.toc li {
+	margin: 0.3em 0 0 0;
+}
+
+.toc a {
+	border-bottom-style: none;
+}
+
+.toc a:hover, ul.toc a:focus {
+	border-bottom-style: solid;
+}
+
+/* Section numbers in a column of their own */
+.toc span.secno {
+	float: left;
+	width: 4em;
+	margin-left: -5em
+}
+
+.toc ul ul span.secno {
+	margin-left: -7em;
+}
+
+table.proptable {
+	font-size: small;
+	border-collapse: collapse;
+	border-spacing: 0;
+	text-align: left;
+	margin: 1em 0;
+}
+
+table.proptable td, table.proptable th {
+	padding: 0.4em;
+	text-align: center;
+}
+
+table.proptable tr:hover td {
+	background: #DEF;
+}
+
+img, a.logo {
+	border-style: none;
+}
+
+.heading, .issue, .note, .example, li, dt {
+	position: relative;
+}
+
+/* CSS-ish link types */
+[data-link-type="property"]::before,
+[data-link-type="propdesc"]::before,
+[data-link-type="descriptor"]::before,
+[data-link-type="value"]::before,
+[data-link-type="function"]::before,
+[data-link-type="at-rule"]::before,
+[data-link-type="selector"]::before,
+[data-link-type="maybe"]::before {
+	content: "“";
+}
+
+[data-link-type="property"]::after,
+[data-link-type="propdesc"]::after,
+[data-link-type="descriptor"]::after,
+[data-link-type="value"]::after,
+[data-link-type="function"]::after,
+[data-link-type="at-rule"]::after,
+[data-link-type="selector"]::after,
+[data-link-type="maybe"]::after {
+	content: "”";
+}
+
+[data-link-type].production::before,
+[data-link-type].production::after,
+.prod [data-link-type]::before,
+.prod [data-link-type]::after {
+	content: "";
+}
+
+/* Element-type link styling */
+[data-link-type=element] {
+	font-family: monospace;
+}
+
+[data-link-type=element]::before {
+	content: "<"
+}
+
+[data-link-type=element]::after {
+	content: ">"
+}
+
+/* Self-links */
+a.self-link {
+	position: absolute;
+	top: 0;
+	left: -2.5em;
+	width: 2em;
+	height: 2em;
+	text-align: center;
+	border: none;
+	transition: opacity .2s;
+	opacity: .5;
+}
+
+a.self-link:hover {
+	opacity: 1;
+}
+
+.heading > a.self-link {
+	font-size: 83%;
+}
+
+li > a.self-link {
+	left: -3.5em;
+}
+
+dfn > a.self-link {
+	top: auto;
+	left: auto;
+	opacity: 0;
+	width: 1.5em;
+	height: 1.5em;
+	background: gray;
+	color: white;
+	font-style: normal;
+	transition: opacity .2s, background-color .2s, color .2s;
+}
+
+dfn:hover > a.self-link {
+	opacity: 1;
+}
+
+dfn > a.self-link:hover {
+	color: black;
+}
+
+a.self-link::before {
+	content: "¶";
+}
+
+.heading > a.self-link::before {
+	content: "§";
+}
+
+dfn > a.self-link::before {
+	content: "#";
+}
+
+/* Figures */
+
+figure.sidefigure {
+	float: right;
+	width: 50%;
+	margin: 0 0 0.5em 0.5em
+}
+
+figcaption {
+	counter-increment: figure;
+	font-size: 90%;
+	font-style: italic;
+	text-align: center;
+}
+
+figcaption::before {
+	content: "Figure " counter(figure) ". ";
+	font-weight: bold;
+}
+
+article.slide figcaption {
+	counter-increment: none;
+}
+
+article.slide figcaption::before {
+	content: none;
+}
+
+dd figure {
+	margin-left: -2em;
+}
+
+/* Various tables */
+
+table.definition, table.grid {
+	box-sizing: border-box;
+	border-spacing: 0;
+	padding: 0 1em 0.5em;
+	width: 100%;
+	table-layout: fixed;
+	margin: 1.2em 0;
+}
+
+table.definition td, table.definition th {
+	padding: 0.5em;
+	vertical-align: baseline;
+	border-bottom: 1px solid #bbd7e9;
+}
+
+table.definition th:first-child {
+	font-style: italic;
+	font-weight: normal;
+	text-align: left;
+	width: 8.3em;
+	padding-left: 1em;
+}
+
+table.definition th,
+table.definition thead th:first-child {
+	font-weight: bold;
+}
+
+table.definition > tbody > tr:last-child > th,
+table.definition > tbody > tr:last-child > td,
+table.definition > tbody > tr:nth-last-child(2) > th[rowspan="2"],
+table.definition > tbody > tr:nth-last-child(2) > td[rowspan="2"],
+table.definition > tbody > tr:nth-last-child(3) > th[rowspan="3"],
+table.definition > tbody > tr:nth-last-child(3) > td[rowspan="3"] {
+	border-bottom: none;
+}
+
+table.definition tr:first-child > th,
+table.definition tr:first-child > td {
+	padding-top: 1em;
+}
+
+/* Footnotes at the bottom of a definition table */
+table.definition td.footnote {
+	font-style: normal;
+	padding-top: .6em;
+	width: auto;
+}
+
+table.definition td.footnote::before {
+	content: " ";
+	display: block;
+	height: 0.6em;
+	width: 4em;
+	border-top: thin solid;
+}
+
+table.definition.autolayout {
+	table-layout: auto;
+}
+
+table.definition.autolayout th:first-child {
+	width: auto;
+}
+
+table.grid {
+	border-collapse: collapse;
+	border: none;
+	border-left: .5rem solid hsl(210, 80%, 87%);
+}
+
+table.grid pre:only-child,
+table.grid .resultbox:only-child {
+	width: 100%;
+	height: 100%;
+}
+
+table.grid th,
+table.grid td {
+	padding: 1em;
+	vertical-align: top;
+	border-bottom: 1px solid hsl(210, 51%, 82%);
+	border-right: 1px solid hsl(210, 51%, 82%);
+}
+
+table.grid > thead > tr {
+	background: hsl(210, 70%, 95%);
+}
+
+table.grid > tbody > tr {
+	background: hsl(210, 15%, 95%);
+}
+
+table.grid > tbody > tr:nth-child(2n) {
+	background: hsl(210, 15%, 91%);
+}
+
+
+table.grid th,
+table.grid thead {
+	font-weight: bold;
+}
+
+table.grid > tbody > tr:last-child > th,
+table.grid > tbody > tr:last-child > td {
+	border-bottom: none;
+}
+
+table.grid > * > tr > th:last-child,
+table.grid > * > tr > td:last-child,
+table.grid > tr > th:last-child,
+table.grid > tr > td:last-child {
+	border-right: none;
+}
+
+table.grid tr:first-child > th,
+table.grid tr:first-child > td {
+	padding-top: 1em;
+}
+
+table td.centered,
+table th.centered {
+	text-align: center;
+	vertical-align: middle;
+}
+
+
+/* Generic code */
+
+pre.code {
+	padding: .5em 1em;
+	margin: 1.2em 0;
+	overflow: auto;
+}
+
+pre.code :link, pre.code :visited {
+	color: inherit;
+	background: transparent;
+}
+
+/* Data tables */
+/* Comes in plain, long, complex, or define varieties */
+
+.data {
+	margin: 1em auto;
+	border-collapse: collapse;
+	width: 100%;
+	border: hidden;
+}
+
+.data {
+	text-align: center;
+	width: auto;
+}
+
+.data caption {
+	width: 100%;
+}
+
+.data td, .data th {
+	padding: 0.5em;
+	border-width: 1px;
+	border-color: silver;
+	border-top-style: solid;
+}
+
+.data thead td:empty {
+	padding: 0;
+	border: 0;
+}
+
+.data thead th[scope="row"] {
+	text-align: right;
+	color: inherit;
+}
+
+.data thead,
+.data tbody {
+	color: inherit;
+	border-bottom: 2px solid;
+}
+
+.data colgroup {
+	border-left: 2px solid;
+}
+
+.data tbody th:first-child,
+.data tbody td[scope="row"]:first-child {
+	text-align: right;
+	color: inherit;
+	border-right: 2px solid;
+	border-top: 1px solid silver;
+	padding-right: 1em;
+}
+
+.data.define td:last-child {
+	text-align: left;
+}
+
+.data tbody th[rowspan],
+.data tbody td[rowspan] {
+	border-left: 1px solid silver;
+}
+
+.data tbody th[rowspan]:first-child,
+.data tbody td[rowspan]:first-child {
+	border-left: 0;
+	border-right: 1px solid silver;
+}
+
+.data.complex th,
+.data.complex td {
+	border: 1px solid silver;
+}
+
+.data td.long {
+	vertical-align: baseline;
+	text-align: left;
+}
+
+.data img {
+	vertical-align: middle;
+}
+
+/* Switch/case <dl>s */
+
+dl.switch {
+	padding-left: 2em;
+}
+
+dl.switch > dt {
+	text-indent: -1.5em;
+}
+
+dl.switch > dt::before {
+	content: '↪';
+	padding: 0 0.5em 0 0;
+	display: inline-block;
+	width: 1em;
+	text-align: right;
+	line-height: 0.5em;
+}
+
+/* Style for At Risk features (intended as editorial aid, not intended for publishing) */
+.atrisk::before {
+	position: absolute;
+	margin-left: -5em;
+	margin-top: -2px;
+	padding: 4px;
+	border: 1px solid;
+	content: 'At risk';
+	font-size: small;
+	background-color: white;
+	color: gray;
+	border-radius: 1em;
+	text-align: center;
+}
+
+/* Obsoletion notice */
+details.annoying-warning[open] {
+	background: #fdd;
+	color: red;
+	font-weight: bold;
+	text-align: center;
+	padding: .5em;
+	border: thick solid red;
+	border-radius: 1em;
+	position: fixed;
+	left: 1em;
+	right: 1em;
+	bottom: 1em;
+	z-index: 1000;
+}
+
+details.annoying-warning:not([open]) > summary {
+	background: #fdd;
+	color: red;
+	font-weight: bold;
+	text-align: center;
+	padding: .5em;
+}
+
+/* Examples */
+
+.note::before, .example::before {
+	min-width: 7.5em;
+	text-transform: uppercase;
+	display: block;
+}
+
+.example {
+	counter-increment: exampleno;
+}
+
+.example::before {
+	content: "Example";
+	content: "Example " counter(exampleno);
+}
+
+.illegal-example::before {
+	content: "Invalid Example";
+	content: "Invalid Example" counter(exampleno);
+}
+
+.example, .illegal-example, .html, .illegal-html, .xml, .illegal-xml {
+	padding: 0.5em;
+	margin: 1em 0;
+	position: relative;
+	clear: both;
+}
+
+pre.example, pre.illegal-example, pre.html,
+pre.illegal-html, pre.xml, pre.illegal-xml {
+	padding-top: 1.5em;
+	max-height: 75vh;
+	overflow-x: visible;
+	overflow-y: auto;
+	box-sizing: border-box;
+}
+
+table.grid pre.example, table.grid pre.illegal-example, table.grid pre.html,
+table.grid pre.illegal-html, table.grid pre.xml, table.grid pre.illegal-xml {
+	border: 2px inset;
+	box-shadow: inset 0 0 4px;
+}
+
+.illegal-example {
+	color: red;
+}
+
+.illegal-example p {
+	color: black;
+}
+
+.html {
+	color: #600;
+}
+
+.illegal-html {
+	color: red;
+}
+
+.illegal-html p {
+	color: black;
+}
+
+.xml {
+	color: #600;
+}
+
+.illegal-xml {
+	color: red;
+}
+
+.illegal-xml p {
+	color: black;
+}
+
+code.css {
+	font-family: inherit;
+	font-size: 100%
+}
+
+code.html {
+	color: #600
+}
+	/* inline HTML */
+code.xml {
+	color: #600
+}
+	/* inline XML */
+
+/* Issues */
+
+.issue {
+	border-color: #E05252;
+	background: #FBE9E9;
+	counter-increment: issue;
+}
+
+.issue::before {
+	content: "Issue " counter(issue);
+	padding-right: 1em;
+	text-transform: uppercase;
+	color: #E05252;
+}
+
+/* Whys */
+
+details.why > summary {
+	font-style: italic;
+}
+
+details.why[open] > summary {
+	border-bottom: 1px silver solid;
+}
+
+/* All the blocks get similarly styled */
+
+table.definition, pre.code, .example, .note, details.why, .issue {
+	border: none;
+	border-left: .5em solid black;
+	border-left: .5rem solid black;
+}
+
+.issue, .note, .example, .why {
+	padding: .5em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+table.definition, pre.code {
+	background: hsl(210, 70%, 95%);
+	border-color: hsl(210, 80%, 75%);
+}
+
+.example {
+	background: hsl(50, 70%, 95%);
+	border-color: hsl(50, 70%, 60%);
+}
+
+.example::before {
+	color: hsl(50, 70%, 60%);
+}
+
+.note, details.why {
+	background: hsl(120, 70%, 95%);
+	border-color: hsl(120, 70%, 60%);
+}
+
+.note::before {
+	content: "Note";
+	font-size: .8em;
+	color: hsl(120, 70%, 60%);
+}
+
+.issue {
+	background: hsl(0, 70%, 95%);
+	border-color: hsl(0, 70%, 60%);
+}
+
+.issue::before {
+	color: hsl(0, 70%, 60%);
+}
+
+span.issue, span.note {
+	padding: .1em .5em .15em;
+	border-right-width: .5em;
+	border-right-style: solid;
+}
+
+details.faq > summary:first-of-type,
+div.faq_list > details > summary:first-of-type,
+.question,
+dl.faq_list dt {
+	font-weight: normal;
+	color: #005A9C;
+}
+
+div.faq_list > details > summary:first-of-type ~ *,
+details.faq > summary:first-of-type ~ *,
+.answer,
+dl.faq_list dd {
+	margin: 1em 0 1em 1em;
+}
+
+dl.faq_list dt::before,
+div.faq_list > details > summary:first-of-type::before,
+details.faq > summary:first-of-type::before,
+summary.question::before,
+div.faq_list > details > summary:first-of-type ~ *::before,
+details.faq > summary:first-of-type ~ *::before,
+div.answer::before,
+dl.faq_list dd::before,
+.question::before,
+.answer::before {
+	display: inline-block;
+	border: 1px #000 solid;
+	margin-right: 6px;
+	padding: 2px;
+	height: 1em;
+	width: 1em;
+	line-height: 1em;
+	border-radius: 1em;
+	text-align: center;
+	box-sizing: border-radius;
+}
+
+dl.faq_list dt::before,
+div.faq_list > details > summary:first-of-type::before,
+details.faq > summary:first-of-type::before,
+summary.question::before,
+.question::before {
+	content: "Q";
+	color: #000;
+}
+
+div.faq_list > details > summary:first-of-type ~ *::before,
+details.faq > summary:first-of-type ~ *::before,
+div.answer::before,
+dl.faq_list dd::before,
+.answer::before {
+	content: "A";
+}
+
+div.faq_list > details > summary:first-of-type ~ * ~ *,
+details.faq > summary:first-of-type ~ * ~ * {
+	content: revert;
+	border: revert;
+	margin-right: revert;
+	padding: revert;
+	font-weight: revert;
+}
+
+div.faq_list > details > summary:first-of-type,
+details.faq > summary:first-of-type {
+	cursor: pointer;
+	/*  Remove the default decoration in Firefox  */
+	list-style: none;
+}
+
+div.faq_list > details > summary:first-of-type::-webkit-details-marker,
+details.faq > summary:first-of-type::-webkit-details-marker {
+	/*  Remove the default decoration in WebKit  */
+	display: none;
+}
+
+mark, .bg0 {
+	background-color: #ffff00;
+}
+
+.bg1 {
+	background-color: #0098ff;
+}
+
+.resultbox {
+	box-sizing: border-box;
+	border: 2px inset;
+	background: #fff;
+	box-shadow: inset 0 0 4px;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding: 1em;
+	max-height: 75vh;
+	overflow: auto;
+}
+
+ul.panel-list {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+ul.panel-list > li {
+	position: relative;
+	padding: 0;
+	margin: 2em 1.2em;
+	box-sizing: border-box;
+}
+
+ul.panel-list > li::before,
+ul.panel-list > li::after {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 3em;
+	height: 1.75em;
+	box-sizing: border-box;
+}
+
+ul.panel-list > li::before {
+	left: -.6em;
+	top: -.6em;
+	border-top: .333em silver dotted;
+	border-left: .333em silver dotted;
+}
+
+ul.panel-list > li::after {
+	right: -.6em;
+	bottom: -.6em;
+	border-bottom: .333em silver dotted;
+	border-right: .333em silver dotted;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+	table.definition {
+		display: block;
+		width: 100%;
+		overflow-x: scroll;
+	}
+
+	table.definition th,
+	table.definition td {
+		min-width: 150px;
+	}
+
+	table.definition th:first-child {
+		width: auto;
+	}
+
+}
+
+
+@media only print {
+
+	.example::before {
+		font-family: serif !important;
+	}
+
+}
+

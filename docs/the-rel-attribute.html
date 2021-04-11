@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/print.css" />
+<link rel="stylesheet" type="text/css" href="css/docs.css" />
+<link rel="stylesheet" type="text/css" href="css/docs-classes.css" />
+<title>Take Five! pure-CSS slide renderer &ndash; The rel attribute</title>
+</head>
+
+<body>
+
+<header>
+<hgroup>
+<h1>Take Five! &ndash; The <code>rel</code> attribute</h1>
+<p>Within the main <code>&lt;nav&gt;</code> container &ndash; and in one case within the <code><em>&lt;leeloo&gt;</em></code> element &ndash; <strong>Take Five!</strong> is responsive to the <code>rel</code> attributes given to links. These can generate labels and navigation buttons according to the following table:</p>
+<table class="definition autolayout">
+<thead>
+<tr><th><code>rel</code> attribute</th><th>Declared as</th><th>Label</th><th>Button</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"index"</code></td>
+<td><code>article.slide &gt; nav:first-of-type a[rel~="index"]</code></td>
+<td>&ldquo;Index&rdquo;</td>
+<td>⌂</td>
+</tr>
+<tr>
+<td><code>"first"</code></td>
+<td><code>article.slide &gt; nav:first-of-type a[rel~="first"]</code></td>
+<td>&ldquo;First slide&rdquo;</td>
+<td>⏮</td>
+</tr>
+<tr>
+<td><code>"next"</code></td>
+<td><code>article.slide &gt; nav:first-of-type a[rel~="next"]</code></td>
+<td>&ldquo;Next slide&rdquo;</td>
+<td>❯</td>
+</tr>
+<tr>
+<td><code>"prev"</code></td>
+<td><code>article.slide &gt; nav:first-of-type a[rel~="prev"]</code></td>
+<td>&ldquo;Previous slide&rdquo;</td>
+<td>❮</td>
+</tr>
+<tr>
+<td><code>"last"</code></td>
+<td><code>article.slide &gt; nav:first-of-type a[rel~="last"]</code></td>
+<td>&ldquo;Last slide&rdquo;</td>
+<td>⏭</td>
+</tr>
+<tr>
+<td><code>"attachment"</code></td>
+<td><code>article.slide &gt; nav:first-of-type a[rel~="attachment"]</code></td>
+<td>&ldquo;Download&rdquo;</td>
+<td>📎</td>
+</tr>
+<tr>
+<td><code>"bookmark"</code></td>
+<td><code>article.slide &gt; nav:first-of-type a[rel~="bookmark"]</code></td>
+<td>&ldquo;Share it!&rdquo;</td>
+<td>🔗</td>
+</tr>
+<tr>
+<td><code>"author"</code></td>
+<td><code>article.slide &gt; nav:first-of-type a[rel~="author"]</code></td>
+<td>&ldquo;Author&rdquo;</td>
+<td>✉️</td>
+</tr>
+<tr>
+<td><code>"discussion"</code></td>
+<td><code>article.slide &gt; nav:first-of-type a[rel~="discussion"]</code></td>
+<td>&ldquo;Comments&rdquo;</td>
+<td>🗨</td>
+</tr>
+<tr>
+<td rowspan="2"><code>"parent"</code></td>
+<td><code>article.slide &gt; nav:first-of-type a[rel~="parent"]</code></td>
+<td>&ldquo;Back to&rdquo; when not empty or &ldquo;Click to exit&rdquo; when empty</td>
+<td>&times;</td>
+</tr>
+<tr>
+<td><code><mark><em>leeloo</em> &gt; a[rel~="parent"]:empty</mark></code></td>
+<td><em>None</em> (a clickable transparent layer will cover entirely the <code><em>&lt;leeloo&gt;</em></code> element)</td>
+<td><em>None</em></td>
+</tr>
+<tr>
+<td><code>"child"</code></td>
+<td><code>article.slide &gt; nav:first-of-type a[rel~="child"]</code></td>
+<td>&ldquo;More&rdquo;</td>
+<td><em>None</em></td>
+</tr>
+<tr>
+<td rowspan="2"><code>"tag"</code></td>
+<td><code>article.slide &gt; nav:first-of-type a[rel~="tag"]</code></td>
+<td>&ldquo;Tagged content&rdquo;</td>
+<td rowspan="2"><em>None</em></td>
+</tr>
+<tr>
+<td><code><mark>article.slide a[rel~="tag"]</mark></code></td>
+<td>&ldquo;★&rdquo;</td>
+</tr>
+</tbody>
+</table>
+<h2>Notes</h2>
+<ul>
+<li>Each of the elements matching the selectors above may be omitted (but at least one of the two cases of <code>a[rel="parent"]</code> should be present in order to give the possibility to exit from the slide), and all of them can cohabitate together (note: also both cases of <code>a[rel="parent"]</code>).</li>
+<li>When present, it is important that each of the <code>rel</code> attributes above that generate buttons occur <strong>only once for each slide</strong>, or the button will be generated twice in the same position. Setting a <code>"no-rel"</code> class on the links will prevent the creation of buttons, thus allowing duplications &ndash; a typical case is the duplication of <code>a[rel~="author"]</code> in slides with more than one author (but consider to use a dedicated slide for listing more than one author). Other <code>a[rel="..."]</code> elements (for example, <code>a[rel="archives"]</code>, or <code>a[rel="child"]</code>, or <code>a[rel="tag"]</code>), do not generate buttons and may occur more the once within the main <code>&lt;nav&gt;</code>. Moreover, additional duplications of the above cited <code>a[rel="..."]</code> elements, but placed elsewhere (e.g.: <code>article.slide &gt; div a[rel="next"]</code>), are irrelevant for this CSS.</li>
+<li>Other <code>a[rel]</code> elements not listed above placed inside the main <code>&lt;nav&gt;</code> will be accompanied by a label containing their <code>rel</code> attribute. If no <code>rel</code> attribute is given, they will be accompanied by a &ldquo;See also&rdquo; label. Outside the main <code>&lt;nav&gt;</code>, tag links <em>placed anywhere else within the slide</em> (i.e., <code>article.slide a[rel="tag"]</code>) will be styled with a star preceding the text.</li>
+<li>Custom labels can express a pseudo-relationship in links without a <code>rel</code> attribute, or replace default labels in links with a <code>rel</code> attribute, by setting a <code>data-label</code> attribute on the link &ndash; as in <code>&lt;a href="#my-sweetheart" <mark>data-label="Thanks to"</mark>&gt;Carla&lt;/a&gt;</code> or <code>&lt;a href="#my-sweetheart" <mark class="bg1">rel="sweetheart"</mark> <mark>data-label="Thanks to"</mark>&gt;Carla&lt;/a&gt;</code>. The <code>data-label</code> attribute can also be used to replace tags' stars or to add a custom label to any link within a slide.</li>
+<li>It is possible to remove the default labels by assigning a <code>"no-label"</code> class to the link &ndash; as in: <code>&lt;a href="#sample-photo" rel="next" <mark>class="no-label"</mark>&gt;Sample photo&lt;/a&gt;</code>.</li>
+</ul>
+<h2>Further considerations</h2>
+<h3>The <code>a[rel~="parent"]</code> element</h3>
+<p>In order to exit from the viewport the <code>a[rel~="parent"]</code> element is used (see above). <em>Normally this links to any unexisting hash</em> (in our examples we used the <code>"#nowhere"</code> hash link, although a simple <code>"#"</code> can be enough), but in the case of nested galleries it can optionally link to the parent gallery.</p>
+<p>The special link <code>a[rel~="parent"]</code> complies with the following rule:</p>
+<ul>
+<li>If it is inside the main <code>&lt;nav&gt;</code> &rArr; it will be shown on the top right corner; a transparent, clickable, full-screen layer will be created.</li>
+<li>If it is inside the <code><em>&lt;leeloo&gt;</em></code> element (direct child) and is <em>empty</em> &rArr; a transparent clickable layer will cover the whole (and only) <code><em>&lt;leeloo&gt;</em></code> element.</li>
+<li>If, instead,
+<ul>
+<li>it is inside the <code><em>&lt;leeloo&gt;</em></code> element but is <em>not empty</em>,</li>
+<li>or it is outside both the main <code>&lt;nav&gt;</code> and the <code><em>&lt;leeloo&gt;</em></code> element (empty or not empty),</li>
+<li>or <code>a[rel~="parent"]</code> <strong>is</strong> the <code><em>&lt;leeloo&gt;</em></code> element itself</li>
+</ul>
+then &rArr; it will be ignored by this CSS and displayed as a normal link.</li>
+</ul>
+<h3>More than one token in the <code>rel</code> attribute</h3>
+<p>It is syntactically and semantically valid to assign more than one token to the <code>rel</code> attribute. As explained in the <a href="https://html.spec.whatwg.org/multipage/links.html#links-created-by-a-and-area-elements" target="_blank" rel="noopener">W3C Recommendation 28 October 2014</a>,</p>
+<blockquote>The attribute's value must be a set of space-separated tokens.</blockquote>
+<p>In this case, within the main <code>&lt;nav&gt;</code>, the CSS will choose the most important token according to the following order (the more down in the list the less important):</p>
+<ol>
+<li><code>"parent"</code></li>
+<li><code>"child"</code></li>
+<li><code>"next"</code></li>
+<li><code>"prev"</code></li>
+<li><code>"first"</code></li>
+<li><code>"last"</code></li>
+<li><code>"index"</code></li>
+<li><code>"attachment"</code></li>
+<li><code>"bookmark"</code></li>
+<li><code>"author"</code></li>
+<li><code>"discussion"</code></li>
+<li><code>"tag"</code></li>
+</ol>
+<p>For instance, <code>&lt;a href="#hello-world" rel="<mark>index prev</mark>"&gt;Hello world&lt;/a&gt;</code> will be styled as if it contained just the token <code>"prev"</code>, while <code>&lt;a href="#hello-world" rel="<mark>prev parent</mark>"&gt;Hello world&lt;/a&gt;</code> will be styled as if it contained just the token <code>"parent"</code>, and so on. The token <code>"child"</code> used together with one of the tokens 3-11 listed above will preserve the button generated by the latter.</p>
+<p>Possible values for the <code>rel</code> attribute are several (it might be worth having a look at the <a href="https://html.spec.whatwg.org/multipage/links.html#linkTypes">HTML Living Standard</a> and the <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml" target="_blank" rel="noopener">IANA link relation registry</a>), and you are free to use the keywords that suit your needs. <a href="https://html.spec.whatwg.org/multipage/links.html#other-link-types" target="_blank" rel="noopener">Furthermore</a>:</p>
+<blockquote>Extensions to the predefined set of link types may be registered in the <a href="https://microformats.org/wiki/existing-rel-values#HTML5_link_type_extensions" target="_blank" rel="noopener">microformats wiki existing-rel-values page</a>.</blockquote>
+<footer>
+<h2>Free software</h2>
+<p><strong>Take Five!</strong> is free software. You can redistribute it and/or modify it under the terms of the <a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html" target="_blank" rel="noopener">GPL license</a>, version 3 or any later version. The code is <a href="https://github.com/madmurphy/takefive.css/" target="_blank" rel="noopener">available on GitHub</a>.</p>
+</footer>
+
+</body>
+</html>

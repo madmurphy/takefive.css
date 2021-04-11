@@ -1,0 +1,82 @@
+@media only screen and not (max-width: 768px) {
+
+	article.slide.maxsize > :not(nav):not(header):not(footer):not(aside) {
+
+		max-width: calc(100% - (var(--t5hs) + var(--t5gs) + var(--t5em)) * 2);
+		max-height: 90%;
+	}
+
+	article.slide.maxsize > :not(nav):not(header):not(footer):not(aside) ~ :not(nav):not(header):not(footer):not(aside) {
+		/*  Check the *extend place* `@default_styles` for these values  */
+		max-height: 100%;
+		max-width: 100%;
+	}
+
+
+	article.slide.maxsize img,
+	article.slide.maxsize svg,
+	article.slide.maxsize audio,
+	article.slide.maxsize video,
+	article.slide.maxsize iframe {
+		max-height: 89vh;
+	}
+
+	article.slide.maxsize > nav:first-of-type a[href][rel~="discussion"]:not(.no-rel)::after {
+		top: unset;
+		bottom: var(--t5vp);
+		left: var(--t5em);
+	}
+
+	article.slide.maxsize > nav:first-of-type a[href][rel~="attachment"]:not(.no-rel)::after {
+		top: unset;
+		bottom: calc(100% - var(--t5vp) - var(--t5gs) * 2);
+		left: var(--t5em);
+	}
+
+	article.slide.maxsize > nav:first-of-type a[href][rel~="bookmark"]:not(.no-rel)::after {
+		top: var(--t5vp);
+		bottom: unset;
+		left: var(--t5em);
+	}
+
+	article.slide.maxsize > nav:first-of-type a[href][rel~="author"]:not(.no-rel)::after {
+		top: var(--t5vp);
+		bottom: unset;
+		left: calc(100% - var(--t5gs) - var(--t5em));
+	}
+
+	article.slide.maxsize > nav:first-of-type a[href][rel~="index"]:not(.no-rel)::after {
+		top: unset;
+		bottom: var(--t5vp);
+		left: calc(100% - var(--t5gs) - var(--t5em));
+	}
+
+	article.slide.maxsize > nav:first-of-type a[href][rel~="last"]:not(.no-rel)::after {
+		top: unset;
+		bottom: calc(var(--t5vp) + var(--t5gs));
+		left: calc(100% - var(--t5gs) - var(--t5em));
+	}
+
+	article.slide.maxsize > nav:first-of-type a[href][rel~="first"]:not(.no-rel)::after {
+		top: unset;
+		bottom: calc(var(--t5vp) + var(--t5gs) * 2);
+		left: calc(100% - var(--t5gs) - var(--t5em));
+	}
+
+	article.slide.maxsize > nav:first-of-type a[href][rel~="prev"]:not(.no-rel)::after {
+		top: 0;
+		bottom: 0;
+		left: var(--t5em);
+	}
+
+	article.slide.maxsize > nav:first-of-type a[href][rel~="next"]:not(.no-rel)::after {
+		top: 0;
+		bottom: 0;
+		left: calc(100% - var(--t5gs) - var(--t5em));
+	}
+
+}
+
+
+/*  EOF  */
+

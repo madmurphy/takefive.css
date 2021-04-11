@@ -1,108 +1,114 @@
 <!doctype html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link rel="stylesheet" type="text/css" href="css/takefive-min.css" media="screen" />
-	<title>Take Five! &ndash; Nested galleries</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/print.css" />
+<link rel="stylesheet" type="text/css" href="css/docs.css" />
+<link rel="stylesheet" type="text/css" href="css/takefive.min.css" />
+<script>"Stop crbug.com/332189 and crbug.com/167083";</script>
+<title>Take Five! &ndash; Nested galleries</title>
 </head>
 
 <body>
 
-	<p style="text-align: center; font-size: 2em;"><a href="#item-1">Nested galleries</a></p>
+<p style="text-align: center; font-size: 2em;"><a href="#slide-1">Nested galleries</a></p>
 
-	<nav>
-		<h3>Table of contents</h3>
-		<ul>
-			<li>
-				<a href="#item-1">Item #1</a>
-				<ul>
-					<li><a href="#item-1-1">Item #1.1</a></li>
-					<li>
-						<a href="#item-1-2">Item #1.2</a>
-						<ul>
-							<li><a href="#item-1-2-1">Item #1.2.1</a></li>
-						</ul>
-					</li>
-				</ul>
-			</li>
-			<li><a href="#item-2">Item #2</a></li>
-		</ul>
-	</nav>
+<nav>
+	<h3>Table of contents</h3>
+	<ul>
+		<li>
+			<a href="#slide-1">Slide 1</a>
+			<ul>
+				<li><a href="#slide-1-1">Slide 1.1</a></li>
+				<li>
+					<a href="#slide-1-2">Slide 1.2</a>
+					<ul>
+						<li><a href="#slide-1-2-1">Slide 1.2.1</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li><a href="#slide-2">Slide 2</a></li>
+	</ul>
+</nav>
 
+<section itemscope itemtype="https://schema.org/ImageGallery">
+	<article id="slide-1" class="slide" itemscope itemtype="https://schema.org/ImageObject">
+		<header>
+			<h2>Slide 1</h2>
+		</header>
+		<figure>
+			<img src="media/1.jpg" itemprop="image" alt="Into the woods" />
+			<figcaption itemprop="caption">Into the woods</figcaption>
+		</figure>
+		<nav>
+			<a href="#nowhere" rel="parent">My diary</a>
+			<a href="#slide-2" rel="next">Slide 2</a>
+			<a href="#slide-1-1" rel="child">Nested sub-gallery</a>
+		</nav>
+	</article>
 	<section itemscope itemtype="https://schema.org/ImageGallery">
-		<article id="item-1" class="slide" itemscope itemtype="https://schema.org/ImageObject">
+		<article id="slide-1-1" class="slide" itemscope itemtype="https://schema.org/ImageObject">
 			<header>
-				<h2>Item #1</h2>
+				<h2>Slide 1.1</h2>
 			</header>
-			<nav>
-				<a href="#nowhere" rel="parent">My diary</a>
-				<a href="#item-2" rel="next">Item #2</a>
-				<a href="#item-1-1" rel="child">Nested sub-gallery</a>
-			</nav>
 			<figure>
-				<img src="media/1.jpg" itemprop="image" alt="Into the woods" />
-				<figcaption itemprop="caption">Into the woods</figcaption>
+				<img src="media/3.jpg" itemprop="image" alt="Winter tree" />
+				<figcaption itemprop="caption">Winter tree</figcaption>
 			</figure>
+			<nav>
+				<a href="#slide-1" rel="parent">Slide 1</a>
+				<a href="#slide-1-2" rel="next">Slide 1.2</a>
+			</nav>
+		</article>
+		<article id="slide-1-2" class="slide" itemscope itemtype="https://schema.org/ImageObject">
+			<header>
+				<h2>Slide 1.2</h2>
+			</header>
+			<figure>
+				<img src="media/4.jpg" itemprop="image" alt="Autumn" />
+				<figcaption itemprop="caption">Autumn</figcaption>
+			</figure>
+			<nav>
+				<a href="#slide-1" rel="parent">Slide 1</a>
+				<a href="#slide-1-1" rel="prev">Slide 1.1</a>
+				<a href="#slide-1-2-1" rel="child">Nested sub-sub-gallery</a>
+			</nav>
 		</article>
 		<section itemscope itemtype="https://schema.org/ImageGallery">
-			<article id="item-1-1" class="slide" itemscope itemtype="https://schema.org/ImageObject">
+			<article id="slide-1-2-1" class="slide" itemscope itemtype="https://schema.org/ImageObject">
 				<header>
-					<h2>Item #1.1</h2>
+					<h2>Slide 1.2.1</h2>
 				</header>
-				<nav>
-					<a href="#item-1" rel="parent">Item #1</a>
-					<a href="#item-1-2" rel="next">Item #1.2</a>
-				</nav>
 				<figure>
-					<img src="media/3.jpg" itemprop="image" alt="Winter tree" />
-					<figcaption itemprop="caption">Winter tree</figcaption>
+					<img src="media/5.jpg" itemprop="image" alt="The old castle" />
+					<figcaption itemprop="caption">The old castle</figcaption>
 				</figure>
-			</article>
-			<article id="item-1-2" class="slide" itemscope itemtype="https://schema.org/ImageObject">
-				<header>
-					<h2>Item #1.2</h2>
-				</header>
 				<nav>
-					<a href="#item-1" rel="parent">Item #1</a>
-					<a href="#item-1-1" rel="prev">Item #1.1</a>
-					<a href="#item-1-2-1" rel="child">Nested sub-sub-gallery</a>
+					<a href="#slide-1-2" rel="parent">Slide 1.2</a>
 				</nav>
-				<figure>
-					<img src="media/4.jpg" itemprop="image" alt="Autumn" />
-					<figcaption itemprop="caption">Autumn</figcaption>
-				</figure>
 			</article>
-			<section itemscope itemtype="https://schema.org/ImageGallery">
-				<article id="item-1-2-1" class="slide" itemscope itemtype="https://schema.org/ImageObject">
-					<header>
-						<h2>Item #1.2.1</h2>
-					</header>
-					<nav>
-						<a href="#item-1-2" rel="parent">Item #1.2</a>
-					</nav>
-					<figure>
-						<img src="media/5.jpg" itemprop="image" alt="The old castle" />
-						<figcaption itemprop="caption">The old castle</figcaption>
-					</figure>
-				</article>
-			</section>
 		</section>
-		<article id="item-2" class="slide" itemscope itemtype="https://schema.org/ImageObject">
-			<header>
-				<h2>Item #2</h2>
-			</header>
-			<nav>
-				<a href="#nowhere" rel="parent">My diary</a>
-				<a href="#item-1" rel="prev">Item #1</a>
-			</nav>
-			<figure>
-				<img src="media/2.jpg" itemprop="image" alt="Yellow at the lake" />
-				<figcaption itemprop="caption">Yellow at the lake</figcaption>
-			</figure>
-		</article>
 	</section>
+	<article id="slide-2" class="slide" itemscope itemtype="https://schema.org/ImageObject">
+		<header>
+			<h2>Slide 2</h2>
+		</header>
+		<figure>
+			<img src="media/2.jpg" itemprop="image" alt="Yellow at the lake" />
+			<figcaption itemprop="caption">Yellow at the lake</figcaption>
+		</figure>
+		<nav>
+			<a href="#nowhere" rel="parent">My diary</a>
+			<a href="#slide-1" rel="prev">Slide 1</a>
+		</nav>
+	</article>
+</section>
 
-	<p>This page is powered by <a href="https://madmurphy.github.io/takefive.css/"><em>Take Five!</em></a> pure-CSS slide renderer.</p>
+<footer>
+<p>This page is powered by <a href="https://madmurphy.github.io/takefive.css/"><em>Take Five!</em></a> pure-CSS slide renderer.</p>
+</footer>
 
 </body>
 </html>

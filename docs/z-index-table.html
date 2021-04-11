@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/print.css" />
+<link rel="stylesheet" type="text/css" href="css/docs.css" />
+<link rel="stylesheet" type="text/css" href="css/docs-classes.css" />
+<title>Take Five! pure-CSS slide renderer &ndash; Manual</title>
+</head>
+
+<body>
+
+<h1>Table of all the <code>z-indices</code> assigned by <em>Take Five!</em></h1>
+<table class="definition">
+<thead>
+<tr><th style="text-align: left; padding-right: 1em;"><code>z-index</code></th><th style="text-align: left; padding-left: 1em;">Assigned in</th></tr>
+</thead>
+<tbody>
+<tr>
+<td style="padding-right: 1em;"><code>10000</code></td>
+<td style="padding-left: 1em;"><code>article.slide</code></td>
+</tr>
+<tr>
+<td style="padding-right: 1em;"><code>10001 (internal)</code></td>
+<td style="padding-left: 1em;"><code>article.slide::after</code> (bottom right hashtag text)</td>
+</tr>
+<tr>
+<td style="padding-right: 1em;"><code>10002 (internal)</code></td>
+<td style="padding-left: 1em;"><code>article.slide &gt; header:first-of-type</code></td>
+</tr>
+<tr>
+<td style="padding-right: 1em;"><code>10003 (internal)</code></td>
+<td style="padding-left: 1em;"><code>article.slide.wrap &gt; footer:first-of-type</code></td>
+</tr>
+<tr>
+<td style="padding-right: 1em;"><code>10004 (internal)</code></td>
+<td style="padding-left: 1em;"><code>article.slide.wrap &gt; aside:first-of-type</code></td>
+</tr>
+<tr>
+<td style="padding-right: 1em;"><code>10005 (internal)</code></td>
+<td style="padding-left: 1em;"><code>article.slide.wrap &gt; *:not(nav:first-of-type,header:first-of-type,footer:first-of-type,aside:first-of-type,<em>leeloo</em>)</code>,<br /><code>article.slide .z-low</code></td>
+</tr>
+<tr>
+<td style="padding-right: 1em;"><code>10006 (internal)</code></td>
+<td style="padding-left: 1em;"><code>article.slide.wrap &gt; <em>leeloo</em></code></td>
+</tr>
+<tr>
+<td style="padding-right: 1em;"><code>10007 (internal)</code></td>
+<td style="padding-left: 1em;"><code>article.slide::before</code> (invisible full-screen layer)</td>
+</tr>
+<tr>
+<td style="padding-right: 1em;"><code>10008 (internal)</code></td>
+<td style="padding-left: 1em;"><code>article.slide &gt; nav:first-of-type a[href][rel~="parent"]</code> (clickable invisible full-screen layer)</td>
+</tr>
+<tr>
+<td style="padding-right: 1em;"><code>10009 (internal)</code></td>
+<td style="padding-left: 1em;"><code>article.slide &gt; footer:first-of-type</code></td>
+</tr>
+<tr>
+<td style="padding-right: 1em;"><code>10010 (internal)</code></td>
+<td style="padding-left: 1em;"><code>article.slide &gt; aside:first-of-type</code></td>
+</tr>
+<tr>
+<td style="padding-right: 1em;"><code>10011 (internal)</code></td>
+<td style="padding-left: 1em;"><code>article.slide &gt; *:not(nav:first-of-type,header:first-of-type,footer:first-of-type,aside:first-of-type,<em>leeloo</em>)</code>,<br /><code>article.slide .z-mid</code></td>
+</tr>
+<tr>
+<td style="padding-right: 1em;"><code>10012 (internal)</code></td>
+<td style="padding-left: 1em;"><code>article.slide &gt; <em>leeloo</em></code></td>
+</tr>
+<tr>
+<td style="padding-right: 1em;"><code>10013 (internal)</code></td>
+<td style="padding-left: 1em;"><code>article.slide &gt; nav:first-of-type a[href][rel~="child"]</code></td>
+</tr>
+<tr>
+<td style="padding-right: 1em;"><code>10014 (internal)</code></td>
+<td style="padding-left: 1em;"><code>article.slide &gt; nav:first-of-type a[href]</code></td>
+</tr>
+<tr>
+<td style="padding-right: 1em;"><code>10015 (internal)</code></td>
+<td style="padding-left: 1em;"><code><em>leeloo</em> &gt; a[href][rel~="parent"]:empty::before</code></td>
+</tr>
+<tr>
+<td style="padding-right: 1em;"><code>10016-10029 (internal)</code></td>
+<td style="padding-left: 1em;">Usable by plugins</td>
+</tr>
+<tr>
+<td style="padding-right: 1em;"><code>10030 (internal)</code></td>
+<td style="padding-left: 1em;">Reserved</td>
+</tr>
+<tr>
+<td style="padding-right: 1em;"><code>10031 (internal)</code></td>
+<td style="padding-left: 1em;"><code>article.slide .z-high</code></td>
+</tr>
+</tbody>
+</table>
+<footer>
+<h2>Free software</h2>
+<p><strong>Take Five!</strong> is free software. You can redistribute it and/or modify it under the terms of the <a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html" target="_blank" rel="noopener">GPL license</a>, version 3 or any later version. The code is <a href="https://github.com/madmurphy/takefive.css/" target="_blank" rel="noopener">available on GitHub</a>.</p>
+</footer>
+
+</body>
+</html>

@@ -1,6 +1,36 @@
 # Change Log
 
 
+## 3.0.0 (2021-03-11)
+
+Changes:
+
+* The framework is now adaptive
+* The size of the slides has been made bigger
+* Printing is now fully supported
+* Classes `"pinned"`, `"verbose"`, `"wrap"`, `"nonadaptive"`, `"foyer"` have
+  been made available to slide containers
+* Classes `"vision"`, `"tab"`, `"plate"`, `"with-label"` have been made
+  available to navigation links
+* Generic classes `"z-auto"`, `"z-none"`, `"z-low"`, `"z-mid"`, `"z-high"`,
+  `"clean"`, `"roomy"` have been created
+* Class `"offstage"` has been renamed to `"no-rel"`
+* All occurrences of `!important` have been removed from the CSS
+* The text contained in the `data-context` attribute has now been moved to the
+  top left corner
+* The opening animation now relies only on `transform`
+* Support for two new `rel` attributes has been added (`"attachment"` and
+  `"discussion"`)
+* The `z-index` property has been updated everywhere
+* Vendor-specific properties `-moz-transform`, `-webkit-transform` and
+  `-o-transform` have been removed
+* New plugins have been created (`takefive-counters.css`,
+  `takefive-glyphs.css`, `takefive-maxsize.css`, `takefive-polaroid.css` and
+  `takefive-toolbar.css`)
+* Documentation
+* Examples
+
+
 ## 2.0.0 (2021-03-18)
 
 Changes:
