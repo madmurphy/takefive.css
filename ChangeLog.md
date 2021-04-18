@@ -1,7 +1,22 @@
 # Change Log
 
 
-## 3.0.0 (2021-03-12)
+## 3.1.0 (2021-04-19)
+
+Changes:
+
+* The default font has been set to `Victoria Typewriter` (this is due to the
+  previous `1942 report` font lacking support for accented characters)
+* Support for internationalization has been added (`takefive-i18n-*.css`)
+* A further new plugin has been created (`takefive-slides.css`)
+* A bug affecting the usage of `data-label` has been fixed
+* The layout of the slides on small screens in landscape mode has been improved
+* Minor adjustments
+* Documentation
+* Examples
+
+
+## 3.0.0 (2021-04-12)
 
 Changes:
 

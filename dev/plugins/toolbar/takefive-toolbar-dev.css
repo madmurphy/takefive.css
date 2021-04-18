@@ -1,3 +1,14 @@
+/*\
+|*|
+|*|	:: Take Five! -- Toolbar ::
+|*|
+|*|	Version 1.0.1
+|*|
+|*|	https://github.com/madmurphy/takefive.css/
+|*|
+\*/
+
+
 @media only screen {
 
 	article.slide .toolbar {
@@ -16,7 +27,7 @@
 		position: fixed;
 		top: 0;
 		left: calc(var(--t5as) - var(--t5hp) + var(--t5fo));
-		height: calc(100% - var(--t5fp));
+		height: calc(100% - var(--t5vp) + var(--t5fh));
 		width: calc(var(--t5hp) - var(--t5as));
 		background-color: rgba(25, 25, 25, .9);
 		border-radius: 0 0 var(--t5br) 0;
@@ -212,7 +223,7 @@
 
 	article.slide:not(.nonadaptive) .toolbar > details {
 		left: calc(-50% + var(--t5fo));
-		height: calc(100% - var(--t5fp));
+		height: calc(100% - var(--t5em) - var(--t5ags) - 1.5em);
 		width: 50%;
 	}
 
@@ -228,9 +239,7 @@
 	article.slide:not(.nonadaptive):target .toolbar > :not(details):hover,
 	article.slide:not(.nonadaptive):target .toolbar > details[open] > summary:first-of-type,
 	article.slide:not(.nonadaptive):target .toolbar > details > summary:first-of-type:hover {
-		bottom: var(--t5fp);
-		visibility: visible;
-		transition: bottom 1s ease;
+		bottom: calc(var(--t5vp) - var(--t5fh));
 	}
 
 	article.slide:not(.nonadaptive) .toolbar > :not(details)[data-glyph]::after,

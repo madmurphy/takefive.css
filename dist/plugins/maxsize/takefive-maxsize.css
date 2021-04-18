@@ -1,8 +1,19 @@
+/*\
+|*|
+|*|	:: Take Five! -- MaxSize ::
+|*|
+|*|	Version 1.0.0
+|*|
+|*|	https://github.com/madmurphy/takefive.css/
+|*|
+\*/
+
+
 @media only screen and not (max-width: 768px) {
 
 	article.slide.maxsize > :not(nav):not(header):not(footer):not(aside) {
 
-		max-width: calc(100% - 3.774vmin - 1.776vw - 80px);
+		max-width: calc(100% - 3.76vmin - 1.76vw - 80px);
 		max-height: 90%;
 	}
 
@@ -23,56 +34,56 @@
 
 	article.slide.maxsize > nav:first-of-type a[href][rel~="discussion"]:not(.no-rel)::after {
 		top: unset;
-		bottom: 60px;
-		left: 1.887vmin;
+		bottom: 9.5vh;
+		left: 1.88vmin;
 	}
 
 	article.slide.maxsize > nav:first-of-type a[href][rel~="attachment"]:not(.no-rel)::after {
 		top: unset;
-		bottom: calc(100% - 140px);
-		left: 1.887vmin;
+		bottom: calc(100% - 9.5vh - 80px);
+		left: 1.88vmin;
 	}
 
 	article.slide.maxsize > nav:first-of-type a[href][rel~="bookmark"]:not(.no-rel)::after {
-		top: 60px;
+		top: 9.5vh;
 		bottom: unset;
-		left: 1.887vmin;
+		left: 1.88vmin;
 	}
 
 	article.slide.maxsize > nav:first-of-type a[href][rel~="author"]:not(.no-rel)::after {
-		top: 60px;
+		top: 9.5vh;
 		bottom: unset;
-		left: calc(100% - 1.887vmin - 40px);
+		left: calc(100% - 1.88vmin - 40px);
 	}
 
 	article.slide.maxsize > nav:first-of-type a[href][rel~="index"]:not(.no-rel)::after {
 		top: unset;
-		bottom: 60px;
-		left: calc(100% - 1.887vmin - 40px);
+		bottom: 9.5vh;
+		left: calc(100% - 1.88vmin - 40px);
 	}
 
 	article.slide.maxsize > nav:first-of-type a[href][rel~="last"]:not(.no-rel)::after {
 		top: unset;
-		bottom: 100px;
-		left: calc(100% - 1.887vmin - 40px);
+		bottom: calc(9.5vh + 40px);
+		left: calc(100% - 1.88vmin - 40px);
 	}
 
 	article.slide.maxsize > nav:first-of-type a[href][rel~="first"]:not(.no-rel)::after {
 		top: unset;
-		bottom: 140px;
-		left: calc(100% - 1.887vmin - 40px);
+		bottom: calc(9.5vh + 80px);
+		left: calc(100% - 1.88vmin - 40px);
 	}
 
 	article.slide.maxsize > nav:first-of-type a[href][rel~="prev"]:not(.no-rel)::after {
 		top: 0;
 		bottom: 0;
-		left: 1.887vmin;
+		left: 1.88vmin;
 	}
 
 	article.slide.maxsize > nav:first-of-type a[href][rel~="next"]:not(.no-rel)::after {
 		top: 0;
 		bottom: 0;
-		left: calc(100% - 1.887vmin - 40px);
+		left: calc(100% - 1.88vmin - 40px);
 	}
 
 }

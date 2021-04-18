@@ -1,0 +1,58 @@
+@font-face {
+	font-family: "Essays1743";
+	src: url("essays1743-bold.eot");
+	src:
+		local("Essays1743 Bold"), local("essays1743-bold"), local("Essays1743-Bold"),
+		url("essays1743-bold.eot?#iefix") format("embedded-opentype"),
+		url("essays1743-bold.woff2") format("woff2"),
+		url("essays1743-bold.woff") format("woff"),
+		url("essays1743-bold.ttf") format("truetype"),
+		url("essays1743-bold.svg#essays1743-bold") format("svg");
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Essays1743";
+	src: url("essays1743-italic.eot");
+	src:
+		local("Essays1743 Italic"), local("essays1743-italic"), local("Essays1743-Italic"),
+		url("essays1743-italic.eot?#iefix") format("embedded-opentype"),
+		url("essays1743-italic.woff2") format("woff2"),
+		url("essays1743-italic.woff") format("woff"),
+		url("essays1743-italic.ttf") format("truetype"),
+		url("essays1743-italic.svg#essays1743-italic") format("svg");
+	font-style: italic;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "Essays1743";
+	src: url("essays1743-bold-italic.eot");
+	src:
+		local("Essays1743 Bold Italic"), local("essays1743-bold-italic"), local("Essays1743-BoldItalic"),
+		url("essays1743-bold-italic.eot?#iefix") format("embedded-opentype"),
+		url("essays1743-bold-italic.woff2") format("woff2"),
+		url("essays1743-bold-italic.woff") format("woff"),
+		url("essays1743-bold-italic.ttf") format("truetype"),
+		url("essays1743-bold-italic.svg#essays1743-bold-italic") format("svg");
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "Essays1743";
+	src: url("essays1743-regular.eot");
+	src:
+		local("Essays1743"), local("essays1743-regular"),
+		url("essays1743-regular.eot?#iefix") format("embedded-opentype"),
+		url("essays1743-regular.woff2") format("woff2"),
+		url("essays1743-regular.woff") format("woff"),
+		url("essays1743-regular.ttf") format("truetype"),
+		url("essays1743-regular.svg#Essays1743") format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+/*  EOF  */
+

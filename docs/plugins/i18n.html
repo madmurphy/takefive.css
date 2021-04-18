@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../css/print.css" />
+<link rel="stylesheet" type="text/css" href="../css/docs.css" />
+<link rel="stylesheet" type="text/css" href="../css/docs-classes.css" />
+<link rel="stylesheet" type="text/css" href="../css/takefive.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/takefive-i18n-la.min.css" />
+<script>"Stop crbug.com/332189 and crbug.com/167083";</script>
+<title>Take Five! &ndash; Internationalization</title>
+<style>
+@media only screen {
+
+	#latin-box {
+		box-shadow: 0 8px 8px #000;
+		margin: 2em auto 1em auto;
+		padding: 2em .5em;
+		box-sizing: border-box;
+		background-color: #f7f7f0;
+		width: 300px;
+	}
+
+	#latin-box img {
+		border: none;
+		box-shadow: none;
+	}
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Take Five! Internationalization</h1>
+<p class="title-cont"><code>&gt; plugins/i18n/takefive-i18n-*.css</code></p>
+</header>
+
+<p>Localization with <strong>Take Five!</strong> takes place by including a translation style sheet in the document and setting a <code>lang</code> attribute on any of the parents of a slide (usually the <code>&lt;html&gt;</code> or the <code>&lt;body&gt;</code> element), or the slide itself. If a translation into a particular language is not available it is relatively easy to use an existing translation as a template to create a new one &ndash; if you do so, please consider to submit your work upstream.</p>
+<p>The following box has the <code>lang</code> attribute set to <code>"la"</code> (Latin). Try to open the nested slide by clicking on the picture below, then hover with your mouse above the navigation buttons.</p>
+
+<div lang="la">
+
+<figure class="unnumbered" id="latin-box">
+<a href="#tres-gratiae"><img src="../media/the_three_graces_fresco_from_pompeii_s.jpg" /></a>
+<figcaption>Tres Gratiae</figcaption>
+</figure>
+
+<article class="verbose slide" id="tres-gratiae">
+	<header>
+		<h2>Tres Gratiae</h2>
+	</header>
+	<img src="../media/the_three_graces_fresco_from_pompeii.jpg" />
+	<blockquote>
+		Quare tres Gratiae et quare sorores sint, et quare manibus inplexis, et quare<br />
+		ridentes et iuvenes et virgines solutaque ac perlucida veste. Alii quidem<br />
+		videri volunt unam esse, quae det beneficium, alteram, quae accipiat,<br />
+		tertiam, quae reddat; alii tria beneficorum esse genera, promerentium,<br />
+		reddentium, simul accipientium reddentiumque.
+		<footer>Lucius Annaeus Seneca, <cite>De beneficiis</cite> I,3</footer>
+	</blockquote>
+	<nav>
+		<a href="#nowhere" rel="parent">Localization</a>
+		<a href="#test1" rel="index">[test]</a>
+		<a href="#test2" rel="prev">[test]</a>
+		<a href="#test3" rel="next">[test]</a>
+		<a href="#test4" rel="first">[test]</a>
+		<a href="#test5" rel="last">[test]</a>
+		<a href="#test6" rel="bookmark">[test]</a>
+		<a href="../media/the_three_graces_fresco_from_pompeii.jpg" rel="attachment" target="_blank">Tres Gratiae</a>
+		<a href="#test7" rel="author">[test]</a>
+		<a href="#test8" rel="discussion">[test]</a>
+	</nav>
+</article>
+
+</div>
+
+<footer>
+<h2>Free software</h2>
+<p><strong>Take Five!</strong> is free software. You can redistribute it and/or modify it under the terms of the <a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html" target="_blank" rel="noopener">GPL license</a>, version 3 or any later version. The code is <a href="https://github.com/madmurphy/takefive.css/" target="_blank" rel="noopener">available on GitHub</a>.</p>
+</footer>
+
+</body>
+</html>

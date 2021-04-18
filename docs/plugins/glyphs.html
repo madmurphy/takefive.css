@@ -14,14 +14,12 @@
 
 <body>
 
-<hgroup>
+<header>
 <h1>Take Five! Glyphs</h1>
-<h2><code>&gt; plugins/counters/takefive-glyphs.css</code></h2>
-</hgroup>
-
-<p style="text-align: center; font-size: 2em;"><a href="#example-photo-6">Take Five! &ndash; Glyphs Plugin Example</a></p>
-
-<p>This plugin allows to edit the default glyphs used in the navigation buttons or generate new ones.</p>
+<p class="title-cont"><code>&gt; plugins/glyphs/takefive-glyphs.css</code></p>
+</header>
+<p style="text-align: center; font-size: 2em;"><a href="#glyph-example">Take Five! &ndash; Glyphs Plugin Example</a></p>
+<p>This plugin allows to edit the default glyphs used for navigation buttons or generate new ones.</p>
 <h2>Available classes</h2>
 <table class="definition">
 <thead>
@@ -51,7 +49,7 @@
 <tr>
 <td><code>"no-glyph"</code></td>
 <td><code>article.slide &gt; nav:first-of-type a[href].small-glyph</code></td>
-<td>Assume no glyph is given</td>
+<td>Do not display any glyph</td>
 </tr>
 </tbody>
 </table>
@@ -69,44 +67,38 @@
 <tr>
 <td><code>data-slot</code></td>
 <td><code>article.slide &gt; nav:first-of-type a[href][data-slot]</code></td>
-<td>Set the position of the glyph generated; for example: <code>&lt;a href="#example-photo-6" rel="whatever" data-glyph="&amp;#9881;&amp;#65039;" <mark>data-slot="lctrl-t1"</mark> class="vision"&gt;New button #1&lt;/a&gt;</code>. Possible values are: <code>"lctrl-b1"</code>, <code>"lctrl-b2"</code>, <code>"lctrl-b3"</code>, <code>"rctrl-b1"</code>, <code>"rctrl-b2"</code>, <code>"rctrl-b3"</code>, <code>"lctrl-t1"</code>, <code>"lctrl-t2"</code>, <code>"lctrl-t3"</code>, <code>"rctrl-t1"</code>, <code>"rctrl-t2"</code>, <code>"rctrl-t3"</code>, <code>"bctrl-c1"</code>, <code>"bctrl-c2"</code>, <code>"bctrl-c3"</code>, <code>"lctrl-c1"</code>, <code>"rctrl-c1"</code> and <code>"ctrl-exit"</code>.</td>
+<td>Set the position of the glyph generated; for example: <code>&lt;a href="#glyph-example" rel="whatever" data-glyph="&amp;#9881;&amp;#65039;" <mark>data-slot="lctrl-t1"</mark> class="vision"&gt;New button #1&lt;/a&gt;</code>. Possible values are: <code>"lctrl-b1"</code>, <code>"lctrl-b2"</code>, <code>"lctrl-b3"</code>, <code>"rctrl-b1"</code>, <code>"rctrl-b2"</code>, <code>"rctrl-b3"</code>, <code>"lctrl-t1"</code>, <code>"lctrl-t2"</code>, <code>"lctrl-t3"</code>, <code>"rctrl-t1"</code>, <code>"rctrl-t2"</code>, <code>"rctrl-t3"</code>, <code>"bctrl-c1"</code>, <code>"bctrl-c2"</code>, <code>"bctrl-c3"</code>, <code>"lctrl-c1"</code>, <code>"rctrl-c1"</code> and <code>"ctrl-exit"</code>.</td>
 </tr>
 </tbody>
 </table>
 
-<article class="verbose slide" id="example-photo-6" itemscope itemtype="https://schema.org/ImageObject">
+<article class="verbose slide" id="glyph-example">
 	<header>
 		<h2>Glyphs</h2>
 	</header>
 	<figure>
-		<img src="../media/3.jpg" itemprop="image" />
-		<figcaption itemprop="caption">Winter tree</figcaption>
+		<img src="../media/3.jpg" />
+		<figcaption>Winter tree</figcaption>
 	</figure>
 	<nav>
-		<a href="#nowhere" rel="parent">My diary</a>
-		<a href="#my-gallery" rel="index" data-glyph="&#127968;" class="medium-glyph">All photos</a>
-		<a href="#example-photo-5" rel="prev" data-glyph="&lt;">The old castle</a>
-		<a href="#example-photo-7" rel="next" data-glyph="&gt;">Water drop</a>
-		<a href="#example-photo-1" rel="first" data-glyph="&#8676;" class="big-glyph">Into the woods</a>
-		<a href="#audio-example" rel="last" data-glyph="&#8677;" class="big-glyph">Audio example</a>
-		<a href="#example-photo-6" rel="bookmark" itemprop="url" data-slot="lctrl-t2">Frozen source</a>
-		<a href="../media/6.jpg" rel="attachment" itemprop="contentUrl" target="_blank" data-slot="rctrl-b3" class="tab">Frozen source</a>
-		<a href="mailto:me@example.org" rel="author" itemprop="author">John Doe</a>
-		<a href="#example-photo-6" rel="discussion">Join the discussion</a>
-
-
-		<a href="#example-photo-6" rel="whatever" data-glyph="&#9881;&#65039;" data-slot="lctrl-t1" class="vision">New button #1</a>
-		<a href="#example-photo-6" rel="whatever" data-glyph="&#11088;" data-slot="lctrl-t3" class="vision">New button #2</a>
-
-		<a href="#example-photo-6" rel="whatever" data-glyph="&#128242;" data-slot="lctrl-b2" class="vision">New button #3</a>
-		<a href="#example-photo-6" rel="whatever" data-glyph="&#9997;&#65039;" data-slot="lctrl-b3" class="vision">New button #4</a>
-
-		<a href="#example-photo-6" rel="whatever" data-glyph="&#128276;" data-slot="rctrl-t2" class="vision">New button #5</a>
-		<a href="#example-photo-6" rel="whatever" data-glyph="&#128269;" data-slot="rctrl-t3" class="vision">New button #6</a>
-
-		<a href="#example-photo-6" rel="whatever" data-glyph="&#128336;" data-slot="rctrl-b1">New button #7</a>
-		<a href="#example-photo-6" rel="whatever" data-glyph="&#127916;" data-slot="rctrl-b2">New button #8</a>
-
+		<a href="#nowhere" rel="parent">Manual</a>
+		<a href="#glyph-example" rel="index" data-glyph="&#127968;" class="medium-glyph">All photos</a>
+		<a href="#glyph-example" rel="prev" data-glyph="&lt;">The old castle</a>
+		<a href="#glyph-example" rel="next" data-glyph="&gt;">Water drop</a>
+		<a href="#glyph-example" rel="first" data-glyph="&#8676;" class="big-glyph">Into the woods</a>
+		<a href="#glyph-example" rel="last" data-glyph="&#8677;" class="big-glyph">Audio example</a>
+		<a href="#glyph-example" rel="bookmark" data-slot="lctrl-t2">Frozen source</a>
+		<a href="../media/3.jpg" rel="attachment" target="_blank" data-slot="rctrl-b3" class="tab">Winter tree</a>
+		<a href="mailto:me@example.org" rel="author">John Doe</a>
+		<a href="#glyph-example" rel="discussion">Join the discussion</a>
+		<a href="#glyph-example" rel="whatever" data-glyph="&#9881;&#65039;" data-slot="lctrl-t1" class="vision">New button #1</a>
+		<a href="#glyph-example" rel="whatever" data-glyph="&#11088;" data-slot="lctrl-t3" class="vision">New button #2</a>
+		<a href="#glyph-example" rel="whatever" data-glyph="&#128242;" data-slot="lctrl-b2" class="vision">New button #3</a>
+		<a href="#glyph-example" rel="whatever" data-glyph="&#9997;&#65039;" data-slot="lctrl-b3" class="vision">New button #4</a>
+		<a href="#glyph-example" rel="whatever" data-glyph="&#128276;" data-slot="rctrl-t2" class="vision">New button #5</a>
+		<a href="#glyph-example" rel="whatever" data-glyph="&#128269;" data-slot="rctrl-t3" class="vision">New button #6</a>
+		<a href="#glyph-example" rel="whatever" data-glyph="&#128336;" data-slot="rctrl-b1">New button #7</a>
+		<a href="#glyph-example" rel="whatever" data-glyph="&#127916;" data-slot="rctrl-b2">New button #8</a>
 	</nav>
 
 </article>

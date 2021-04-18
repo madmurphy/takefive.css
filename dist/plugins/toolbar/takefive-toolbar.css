@@ -1,3 +1,14 @@
+/*\
+|*|
+|*|	:: Take Five! -- Toolbar ::
+|*|
+|*|	Version 1.0.1
+|*|
+|*|	https://github.com/madmurphy/takefive.css/
+|*|
+\*/
+
+
 @media only screen {
 
 	article.slide .toolbar {
@@ -15,9 +26,9 @@
 	article.slide .toolbar > details {
 		position: fixed;
 		top: 0;
-		left: calc(.786vmin - 18% - 80px);
-		height: calc(100% - 40px);
-		width: calc(18% - .786vmin);
+		left: calc(.78vmin - 18% - 80px);
+		height: calc(100% - 6.2vh);
+		width: calc(18% - .78vmin);
 		background-color: rgba(25, 25, 25, .9);
 		border-radius: 0 0 8px 0;
 		padding: .133em .5em .133em .5em;
@@ -47,7 +58,7 @@
 		bottom: -80px;
 		cursor: default;
 		display: block;
-		margin: 1.887vmin;
+		margin: 1.88vmin;
 		font-size: 1.05em;
 		max-width: 29%;
 		visibility: hidden;
@@ -110,7 +121,7 @@
 		display: block;
 		position: fixed;
 		left: calc(50% + 280px);
-		bottom: calc(20px - .472vh);
+		bottom: calc(9.03vh - 40px);
 		opacity: 1;
 		padding: 0;
 		width: 40px;
@@ -129,7 +140,7 @@
 
 	article.slide:target .toolbar > details[open] > summary:first-of-type::after {
 		bottom: calc(100% - 40px);
-		left: calc(18% - .786vmin);
+		left: calc(18% - .78vmin);
 		transition: bottom 1s 1s ease, left 1s 1s ease;
 	}
 
@@ -212,7 +223,7 @@
 
 	article.slide:not(.nonadaptive) .toolbar > details {
 		left: calc(-50% - 80px);
-		height: calc(100% - 40px);
+		height: calc(100% - 8.88vmin - 1.5em);
 		width: 50%;
 	}
 
@@ -228,15 +239,13 @@
 	article.slide:not(.nonadaptive):target .toolbar > :not(details):hover,
 	article.slide:not(.nonadaptive):target .toolbar > details[open] > summary:first-of-type,
 	article.slide:not(.nonadaptive):target .toolbar > details > summary:first-of-type:hover {
-		bottom: 40px;
-		visibility: visible;
-		transition: bottom 1s ease;
+		bottom: 6.2vh;
 	}
 
 	article.slide:not(.nonadaptive) .toolbar > :not(details)[data-glyph]::after,
 	article.slide:not(.nonadaptive) .toolbar > details > summary:first-of-type::after {
-		left: calc(100% - 10.774vmin);
-		bottom: 1.887vmin;
+		left: calc(100% - 10.76vmin);
+		bottom: 1.88vmin;
 		width: 7vmin;
 		height: 7vmin;
 		line-height: 7vmin;
@@ -265,49 +274,49 @@
 
 	article.slide:not(.nonadaptive) .toolbar > :not(details)[data-slot="bctrl-l1"]::after,
 	article.slide:not(.nonadaptive) .toolbar > details > summary[data-slot="bctrl-l1"]:first-of-type::after {
-		left: 1.887vmin;
+		left: 1.88vmin;
 	}
 
 	article.slide:not(.nonadaptive) .toolbar > :not(details)[data-slot="bctrl-l2"]::after,
 	article.slide:not(.nonadaptive) .toolbar > details > summary[data-slot="bctrl-l2"]:first-of-type::after {
-		left: 8.887vmin;
+		left: 8.88vmin;
 	}
 
 	article.slide:not(.nonadaptive) .toolbar > :not(details)[data-slot="bctrl-l3"]::after,
 	article.slide:not(.nonadaptive) .toolbar > details > summary[data-slot="bctrl-l3"]:first-of-type::after {
-		left: 15.887vmin;
+		left: 15.88vmin;
 	}
 
 	article.slide:not(.nonadaptive) .toolbar > :not(details)[data-slot="bctrl-l4"]::after,
 	article.slide:not(.nonadaptive) .toolbar > details > summary[data-slot="bctrl-l4"]:first-of-type::after {
-		left: 22.887vmin;
+		left: 22.88vmin;
 	}
 
 	article.slide:not(.nonadaptive) .toolbar > :not(details)[data-slot="bctrl-l5"]::after,
 	article.slide:not(.nonadaptive) .toolbar > details > summary[data-slot="bctrl-l5"]:first-of-type::after {
-		left: 29.887vmin;
+		left: 29.88vmin;
 	}
 
 	/*  `bctrl-r1` is unnecessary: default slot  */
 
 	article.slide:not(.nonadaptive) .toolbar > :not(details)[data-slot="bctrl-r2"]::after,
 	article.slide:not(.nonadaptive) .toolbar > details > summary[data-slot="bctrl-r2"]:first-of-type::after {
-		left: calc(100% - 17.774vmin);
+		left: calc(100% - 17.76vmin);
 	}
 
 	article.slide:not(.nonadaptive) .toolbar > :not(details)[data-slot="bctrl-r3"]::after,
 	article.slide:not(.nonadaptive) .toolbar > details > summary[data-slot="bctrl-r3"]:first-of-type::after {
-		left: calc(100% - 24.774vmin);
+		left: calc(100% - 24.76vmin);
 	}
 
 	article.slide:not(.nonadaptive) .toolbar > :not(details)[data-slot="bctrl-r4"]::after,
 	article.slide:not(.nonadaptive) .toolbar > details > summary[data-slot="bctrl-r4"]:first-of-type::after {
-		left: calc(100% - 31.774vmin);
+		left: calc(100% - 31.76vmin);
 	}
 
 	article.slide:not(.nonadaptive) .toolbar > :not(details)[data-slot="bctrl-r5"]::after,
 	article.slide:not(.nonadaptive) .toolbar > details > summary[data-slot="bctrl-r5"]:first-of-type::after {
-		left: calc(100% - 38.774vmin);
+		left: calc(100% - 38.76vmin);
 	}
 
 }

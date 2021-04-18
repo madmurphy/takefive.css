@@ -1,3 +1,14 @@
+/*\
+|*|
+|*|	:: Take Five! -- MaxSize ::
+|*|
+|*|	Version 1.0.0
+|*|
+|*|	https://github.com/madmurphy/takefive.css/
+|*|
+\*/
+
+
 @media only screen and not (max-width: 768px) {
 
 	article.slide.maxsize > :not(nav):not(header):not(footer):not(aside) {

@@ -1,11 +1,14 @@
 # Take Five!
 
-A semantically-consistent pure-CSS slide renderer
+The most advanced pure CSS lightbox &ndash; not one single line of JavaScript
+has been wasted
 
 See:
 
 * [Live demo][1]
 * [Manual][2]
+
+Please refer to the `dist` subdirectory for the current release of the CSS.
 
 
 Free software

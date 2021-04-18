@@ -1,0 +1,100 @@
+/*\
+|*|
+|*|	:: German translation of **Take Five!** ::
+|*|
+|*|	Version 1.0.0
+|*|
+|*|	https://github.com/madmurphy/takefive.css/
+|*|
+\*/
+
+
+@media only screen {
+
+	/*
+		No need to use `!important`, these selectors already have sufficient
+		specificity.
+
+		Do not change the order whereby the selectors are listed.
+	*/
+
+	article.slide:lang(de) > nav:first-of-type a[href]:not([rel])::before {
+		/*  English: "See also";  */
+		content: "Siehe auch";
+	}
+
+	article.slide:lang(de) > nav:first-of-type a[href][rel~="tag"]::before {
+		/*  English: "Tagged content";  */
+		content: "Verwandte Inhalte";
+	}
+
+	article.slide:lang(de) > nav:first-of-type a[href][rel~="discussion"]::before {
+		/*  English: "Comments";  */
+		content: "Kommentare";
+	}
+
+	article.slide:lang(de) > nav:first-of-type a[href][rel~="author"]::before {
+		/*  English: "Author";  */
+		content: "Autor";
+	}
+
+	article.slide:lang(de) > nav:first-of-type a[href][rel~="attachment"]::before {
+		/*  English: "Download";  */
+		content: "Herunterladen";
+	}
+
+	article.slide:lang(de) > nav:first-of-type a[href][rel~="bookmark"]::before {
+		/*  English: "Share it!";  */
+		content: "Verbreite";
+	}
+
+	article.slide:lang(de) > nav:first-of-type a[href][rel~="index"]::before {
+		/*  English: "Index";  */
+		content: "Index";
+	}
+
+	article.slide:lang(de) > nav:first-of-type a[href][rel~="first"]::before {
+		/*  English: "First slide";  */
+		content: "Erste Folie";
+	}
+
+	article.slide:lang(de) > nav:first-of-type a[href][rel~="last"]::before {
+		/*  English: "Last slide";  */
+		content: "Letzte Folie ";
+	}
+
+	article.slide:lang(de) > nav:first-of-type a[href][rel~="prev"]::before {
+		/*  English: "Previous slide";  */
+		content: "Vorherige Folie";
+	}
+
+	article.slide:lang(de) > nav:first-of-type a[href][rel~="next"]::before {
+		/*  English: "Next slide";  */
+		content: "N\0000E4chste Folie";
+	}
+
+	article.slide:lang(de) > nav:first-of-type a[href][rel~="child"]::before {
+		/*  English: "More";  */
+		content: "Mehr";
+	}
+
+	article.slide:lang(de) > nav:first-of-type a[href][rel~="parent"]::before {
+		/*  English: "Back to";  */
+		content: "Zur\0000FCck zu";
+	}
+
+	article.slide:lang(de) > nav:first-of-type a[href][rel~="parent"]:empty::before {
+		/*  English: "Exit";  */
+		content: "Ausgang";
+	}
+
+	article.slide:lang(de) > nav:first-of-type a[href][rel~="parent"]:not(.tab):not(.plate):not(.no-rel):empty::before {
+		/*  English: "Click to exit";  */
+		content: "Klick zum Verlassen";
+	}
+
+}
+
+
+/*  EOF  */
+

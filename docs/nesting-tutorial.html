@@ -14,12 +14,15 @@
 <body>
 
 <h1>Take Five! &ndash; Gallery nesting tutorial</h1>
-<p>Galleries do not need to be nested inside each other in order to be shown as such. However it can be useful for both the semantics of the page and the rendering of its printed version to nest <code>&lt;section&gt;</code> elements within other <code>&lt;section&gt;</code> elements to reflect the physicality of a gallery tree. Some plugins, such as <a href="plugins/counters.html" target="_blank" rel="noopener">takefive-counters.css</a>, actually rely on this to function. This tutorial provides a simple general procedure to create a tree of nested galleries.
-<h2>Step 1</h2>
-<p>An easy way to begin is to create a map of the gallery tree using <code>&lt;ul&gt;</code> elements and simple labels, without any formatting:</p>
+<p>Galleries do not need to be nested inside each other in order to be shown as such. However it can be useful for both the semantics of the page and the rendering of its printed version to nest <code>&lt;section&gt;</code> elements within other <code>&lt;section&gt;</code> elements to reflect the physicality of a gallery tree. Some plugins, such as <a href="plugins/counters.html" target="_blank" rel="noopener">takefive-counters.css</a>, actually rely on this to function. This tutorial provides a simple general procedure to create a tree of nested galleries.</p>
+<h2 class="unnumbered">Step 1</h2>
+<p>An easy way to begin is to create a map of the planned tree using <code>&lt;ul&gt;</code> elements and simple labels, without any formatting:</p>
 <table class="grid">
 <thead>
-<tr><th>HTML</th><th>Result</th></tr>
+<tr>
+<th>HTML</th>
+<th>Result</th>
+</tr>
 </thead>
 <tbody>
 <tr>
@@ -113,11 +116,14 @@
 </tr>
 </tbody>
 </table>
-<h2>Step 2</h2>
+<h2 class="unnumbered">Step 2</h2>
 <p>Each label can now be nested inside an <code>&lt;em&gt;</code> element:</p>
 <table class="grid">
 <thead>
-<tr><th>HTML</th><th>Result</th></tr>
+<tr>
+<th>HTML</th>
+<th>Result</th>
+</tr>
 </thead>
 <tbody>
 <tr>
@@ -211,7 +217,7 @@
 </tr>
 </tbody>
 </table>
-<h2>Step 3</h2>
+<h2 class="unnumbered">Step 3</h2>
 <p>The following simple passages will turn the previous example into an ordered structure of <code>&lt;section&gt;</code> and <code>&lt;article&gt;</code> elements:</p>
 <ul>
 <li>Replace all <code>&lt;em&gt;</code> elements with <code>&lt;article&gt;</code> elements</li>
@@ -220,7 +226,10 @@
 </ul>
 <table class="grid">
 <thead>
-<tr><th>HTML</th><th>Result</th></tr>
+<tr>
+<th>HTML</th>
+<th>Result</th>
+</tr>
 </thead>
 <tbody>
 <tr>
@@ -283,11 +292,14 @@
 </tr>
 </tbody>
 </table>
-<h2>Step 4</h2>
+<h2 class="unnumbered">Step 4</h2>
 <p>It is now possible to add the <code>"slide"</code> class to all the <code>&lt;article&gt;</code> elements, add a unique <code>id</code> to each slide and start populating them. Finally, a link to the first slide can be added to the page to make the gallery tree accessible:</p>
 <table class="grid">
 <thead>
-<tr><th>HTML</th><th>Result</th></tr>
+<tr>
+<th>HTML</th>
+<th>Result</th>
+</tr>
 </thead>
 <tbody>
 <tr>
@@ -477,6 +489,10 @@
 </tr>
 </tbody>
 </table>
+<footer>
+<h2>Free software</h2>
+<p><strong>Take Five!</strong> is free software. You can redistribute it and/or modify it under the terms of the <a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html" target="_blank" rel="noopener">GPL license</a>, version 3 or any later version. The code is <a href="https://github.com/madmurphy/takefive.css/" target="_blank" rel="noopener">available on GitHub</a>.</p>
+</footer>
 
 <section>
 	<article id="slide-1" class="slide">
@@ -652,11 +668,6 @@
 		</nav>
 	</article>
 </section>
-
-<footer>
-<h2>Free software</h2>
-<p><strong>Take Five!</strong> is free software. You can redistribute it and/or modify it under the terms of the <a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html" target="_blank" rel="noopener">GPL license</a>, version 3 or any later version. The code is <a href="https://github.com/madmurphy/takefive.css/" target="_blank" rel="noopener">available on GitHub</a>.</p>
-</footer>
 
 </body>
 </html>

@@ -1,8 +1,4 @@
-/* Based on: https://tabatkins.github.io/specs/css-aliases/ */
-
-:root {
-	counter-reset: exampleno figureno issueno;
-}
+/* Originally based on: https://tabatkins.github.io/specs/css-aliases/ */
 
 div.figure, div.sidefigure, pre, table.propdef, table.propdef-extra, .example {
 	break-inside: avoid;
@@ -26,12 +22,34 @@ div.figure, div.sidefigure, pre, table.propdef, table.propdef-extra, .example {
 	margin-bottom: 0;
 }
 
+h2::before {
+	content: counter(h2no) ". ";
+}
+
+h3::before {
+	content: counter(h2no) "." counter(h3no) ". ";
+}
+
+h4::before {
+	content: counter(h2no) "." counter(h3no) "." counter(h4no) ". ";
+}
+
 p.copyright {
 	font-size: small;
 }
 
 p.copyright small {
 	font-size: small;
+}
+
+p.subtitle {
+	font: italic 100% sans-serif;
+}
+
+p.title-cont {
+	font: 140% sans-serif;
+	color: #005A9C;
+	margin-top: 0;
 }
 
 td.pre {
@@ -264,6 +282,10 @@ dfn > a.self-link::before {
 
 /* Figures */
 
+article.slide > figure {
+	margin: auto;
+}
+
 figure.sidefigure {
 	float: right;
 	width: 50%;
@@ -282,11 +304,39 @@ figcaption::before {
 	font-weight: bold;
 }
 
-article.slide figcaption {
+figure.unnumbered figcaption,
+article.slide figcaption,
+section.slides > header > * {
 	counter-increment: none;
 }
 
-article.slide figcaption::before {
+figure.unnumbered figcaption::before,
+article.slide figcaption::before,
+section.slides > header > *::before {
+	content: none;
+}
+
+footer h2,
+footer h3,
+footer h4,
+h2.unnumbered,
+h3.unnumbered,
+h4.unnumbered,
+article.slide h2,
+article.slide h3,
+article.slide h4 {
+	counter-increment: none;
+}
+
+footer h2::before,
+footer h3::before,
+footer h4::before,
+h2.unnumbered::before,
+h3.unnumbered::before,
+h4.unnumbered::before,
+article.slide h2::before,
+article.slide h3::before,
+article.slide h4::before {
 	content: none;
 }
 
@@ -828,7 +878,7 @@ mark, .bg0 {
 }
 
 .bg1 {
-	background-color: #0098ff;
+	background-color: #87e4ff;
 }
 
 .resultbox {
@@ -871,6 +921,9 @@ ul.panel-list > li::before {
 	top: -.6em;
 	border-top: .333em silver dotted;
 	border-left: .333em silver dotted;
+	break-after: avoid;
+	/*  Old syntax  */
+	page-break-after: avoid;
 }
 
 ul.panel-list > li::after {
@@ -878,6 +931,23 @@ ul.panel-list > li::after {
 	bottom: -.6em;
 	border-bottom: .333em silver dotted;
 	border-right: .333em silver dotted;
+	break-before: avoid;
+	/*  Old syntax  */
+	page-break-before: avoid;
+}
+
+.section-ref {
+	font-style: italic;
+}
+
+.section-ref[data-num]::before {
+	content: "\A7\A0" attr(data-num) "\A0";
+}
+
+.section-ref[data-num=""]::before,
+.section-ref::before {
+	content: "\A7\A0";
+	font-style: normal;
 }
 
 
@@ -905,6 +975,16 @@ ul.panel-list > li::after {
 
 	.example::before {
 		font-family: serif !important;
+	}
+
+	table.definition {
+		table-layout: auto;
+		font-size: .7em;
+	}
+
+	table.definition th:first-child {
+		width: auto;
+		min-width: 7em;
 	}
 
 }

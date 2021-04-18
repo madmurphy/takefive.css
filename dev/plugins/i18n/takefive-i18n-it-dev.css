@@ -1,0 +1,100 @@
+/*\
+|*|
+|*|	:: Italian translation of **Take Five!** ::
+|*|
+|*|	Version 1.0.0
+|*|
+|*|	https://github.com/madmurphy/takefive.css/
+|*|
+\*/
+
+
+@media only screen {
+
+	/*
+		No need to use `!important`, these selectors already have sufficient
+		specificity.
+
+		Do not change the order whereby the selectors are listed.
+	*/
+
+	article.slide:lang(it) > nav:first-of-type a[href]:not([rel])::before {
+		/*  English: "See also";  */
+		content: "Vedi anche";
+	}
+
+	article.slide:lang(it) > nav:first-of-type a[href][rel~="tag"]::before {
+		/*  English: "Tagged content";  */
+		content: "Contenuto correlato";
+	}
+
+	article.slide:lang(it) > nav:first-of-type a[href][rel~="discussion"]::before {
+		/*  English: "Comments";  */
+		content: "Commenti";
+	}
+
+	article.slide:lang(it) > nav:first-of-type a[href][rel~="author"]::before {
+		/*  English: "Author";  */
+		content: "Autore";
+	}
+
+	article.slide:lang(it) > nav:first-of-type a[href][rel~="attachment"]::before {
+		/*  English: "Download";  */
+		content: "Download";
+	}
+
+	article.slide:lang(it) > nav:first-of-type a[href][rel~="bookmark"]::before {
+		/*  English: "Share it!";  */
+		content: "Condividi!";
+	}
+
+	article.slide:lang(it) > nav:first-of-type a[href][rel~="index"]::before {
+		/*  English: "Index";  */
+		content: "Indice";
+	}
+
+	article.slide:lang(it) > nav:first-of-type a[href][rel~="first"]::before {
+		/*  English: "First slide";  */
+		content: "Prima slide";
+	}
+
+	article.slide:lang(it) > nav:first-of-type a[href][rel~="last"]::before {
+		/*  English: "Last slide";  */
+		content: "Ultima slide";
+	}
+
+	article.slide:lang(it) > nav:first-of-type a[href][rel~="prev"]::before {
+		/*  English: "Previous slide";  */
+		content: "Slide precedente";
+	}
+
+	article.slide:lang(it) > nav:first-of-type a[href][rel~="next"]::before {
+		/*  English: "Next slide";  */
+		content: "Slide successiva";
+	}
+
+	article.slide:lang(it) > nav:first-of-type a[href][rel~="child"]::before {
+		/*  English: "More";  */
+		content: "Di pi\F9";
+	}
+
+	article.slide:lang(it) > nav:first-of-type a[href][rel~="parent"]::before {
+		/*  English: "Back to";  */
+		content: "Torna a";
+	}
+
+	article.slide:lang(it) > nav:first-of-type a[href][rel~="parent"]:empty::before {
+		/*  English: "Exit";  */
+		content: "Esci";
+	}
+
+	article.slide:lang(it) > nav:first-of-type a[href][rel~="parent"]:not(.tab):not(.plate):not(.no-rel):empty::before {
+		/*  English: "Click to exit";  */
+		content: "Clicca per uscire";
+	}
+
+}
+
+
+/*  EOF  */
+

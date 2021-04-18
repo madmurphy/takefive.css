@@ -7,22 +7,21 @@
 <link rel="stylesheet" type="text/css" href="css/docs.css" />
 <link rel="stylesheet" type="text/css" href="css/docs-classes.css" />
 <link rel="stylesheet" type="text/css" href="css/takefive.min.css" />
+<link rel="stylesheet" type="text/css" href="css/takefive-slides.min.css" />
 <script>"Stop crbug.com/332189 and crbug.com/167083";</script>
-<title>Take Five! pure-CSS slide renderer &ndash; Manual</title>
+<title>Take Five! pure CSS slide renderer &ndash; Manual</title>
 </head>
 
 <body>
 
 <header>
-<hgroup>
 <h1>Take Five!</h1>
-<h6>A semantically-consistent pure-CSS slide renderer</h6>
-</hgroup>
+<p class="subtitle">A semantically-consistent pure CSS slide renderer</p>
 </header>
 <h2>Introduction</h2>
-<p><strong>Take Five!</strong> is a slide renderer written in pure CSS and oriented to the semantics of HTML (<a href="https://www.w3schools.com/html/html5_semantic_elements.asp" target="_blank" rel="noopener">semantic nodes</a>, <a href="https://en.wikipedia.org/wiki/Microdata_(HTML)" target="_blank" rel="noopener">microdata</a>, <a href="https://microformats.org/wiki/what-are-microformats">microformats</a>, <a href="https://en.wikipedia.org/wiki/RDFa" target="_blank" rel="noopener">RDFa</a>). It can be used as a simple lightbox for images and videos, or as a complete slide viewer for complex contents. Before further reading, please see the <a href="index.html">live demo</a>.</p>
+<p><strong>Take Five!</strong> is a slide renderer written in pure CSS and oriented to the semantics of HTML (<a href="https://www.w3schools.com/html/html5_semantic_elements.asp" target="_blank" rel="noopener">semantic nodes</a>, <a href="https://en.wikipedia.org/wiki/Microdata_(HTML)" target="_blank" rel="noopener">microdata</a>, <a href="https://microformats.org/wiki/what-are-microformats">microformats</a>, <a href="https://en.wikipedia.org/wiki/RDFa" target="_blank" rel="noopener">RDFa</a>). It can be used as a simple lightbox for images and videos, or as a complete slide viewer for complex contents. Before further reading, please visit <a href="index.html">the live demo</a>.</p>
 <h2>Getting started</h2>
-<p>In order to create a slide with <strong>Take Five!</strong> all you need to do is to include <strong>takefive.css</strong> in your document, then use one of the following basic syntaxes:</p>
+<p>In order to create a slide with <strong>Take Five!</strong> all you need to do is to include <code>takefive(.min).css</code> in your document, then use one of the following basic syntaxes:</p>
 <ul class="panel-list">
 <li>
 <pre class="example">&lt;p&gt;&lt;a href="#my_hash"&gt;My slide&lt;/a&gt;&lt;/p&gt;
@@ -52,16 +51,19 @@
 &lt;/article&gt;</pre>
 </li>
 <li>
-<pre class="example">&lt;p&gt;&lt;a href="#my_hash"&gt;My slide&lt;/a&gt;&lt;/p&gt;
+<pre class="example">&lt;p&gt;&lt;a href="#my_hash5"&gt;My slide&lt;/a&gt;&lt;/p&gt;
 
-&lt;article id="my_hash" class="slide"&gt;
+&lt;article id="my_hash5" class="slide"&gt;
     &lt;header&gt;
         &lt;h2&gt;[title]&lt;/h2&gt;
     &lt;/header&gt;
     &lt;nav&gt;
         &lt;a href="#nowhere" rel="parent"&gt;My home page&lt;/a&gt;
-        &lt;a href="#my_hash" rel="prev"&gt;[previous slide name]&lt;/a&gt;
-        &lt;a href="#my_hash" rel="next"&gt;[next slide name]&lt;/a&gt;
+        &lt;a href="#my_hash4" rel="prev"&gt;[previous slide name]&lt;/a&gt;
+        &lt;a href="#my_hash6" rel="next"&gt;[next slide name]&lt;/a&gt;
+        &lt;a href="#my_hash1" rel="first"&gt;[first slide name]&lt;/a&gt;
+        &lt;a href="#my_hash10" rel="last"&gt;[last slide name]&lt;/a&gt;
+        <mark class="bg1">Etc. etc.</mark>
     &lt;/nav&gt;
     <mark>&lt;this-element-will-be-slided /&gt;</mark>
     <mark class="bg1">&lt;this-element-will-be-displayed-on-the-right-side-of-the-screen /&gt;</mark>
@@ -87,77 +89,80 @@
         &lt;img src="media/1.jpg" alt="Photo of the day" /&gt;
         &lt;figcaption&gt;Photo of the day&lt;/figcaption&gt;
     &lt;/figure&gt;
-    &lt;nav&gt;&lt;a href="#nowhere" rel="parent"&gt;My diary&lt;/a&gt;&lt;/nav&gt;
+    &lt;nav&gt;
+        &lt;a href="#nowhere" rel="parent"&gt;My diary&lt;/a&gt;
+    &lt;/nav&gt;
 &lt;/article&gt;</pre>
-<p>will produce <a href="base-example.html" target="_blank">this result</a>.</p>
+<p>will produce <a href="simple-example.html" target="_blank" rel="noopener">this result</a>.</p>
 <h2>Philosophy</h2>
+<p>The philosophy of <strong>Take Five!</strong> is that of facilitating a general semantics for expressing a slide with HTML (independently of how this is rendered) rather than focusing on means to express a layout.</p>
 <p>In the original meaning of the term a slide is a single page projected on a wall through a beamer or a lightbox. The term does not describe weather a slide is blue or red, or whether it contains a picture or text, but only that its content must fit in a single page and the lights in the room are usually switched off.</p>
 <p>A slide projected on a wall can also be taken in the hands and read with the lights on in its physical form (not on a wall), so the most characterizing aspect of a slide is actually its conciseness and independence, not how it is displayed.</p>
-<p>The philosophy of <strong>Take Five!</strong> is that of facilitating a general semantics for expressing a slide with HTML (independently of how this is rendered) rather than focusing on means to express a layout.</p>
 <p>HTML5 introduced six semantic elements (<code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code> and <code>&lt;section&gt;</code>). One of these suits well to describe a self-contained content: the <code>&lt;article&gt;</code> element.</p>
 <blockquote>The <a href="https://www.w3.org/TR/html52/sections.html#elementdef-article" target="_blank" rel="noopener"><code>&lt;article&gt;</code></a> element <a href="https://www.w3.org/TR/html52/dom.html#represent" target="_blank" rel="noopener">represents</a> a complete, or self-contained, composition in a document, page, application, or site. This could be a magazine, newspaper, technical or scholarly article, an essay or report, a blog or other social media post.</blockquote>
 <p>For non-semantic aspects, HTML possesses also a <code>class</code> attribute, which although cannot describe what things are, can still be used to describe how they look. For describing an <code>&lt;article&gt;</code> that is projected on a wall it is thus possible to write <code>&lt;article class="slide"&gt;</code>.</p>
 <p>Since a <code>class</code> attribute does not express semantics, such a slide remains primarily an <code>&lt;article&gt;</code> element; and <code>&lt;article class="slide"&gt;</code> translates as &ldquo;<code>&lt;article&gt;</code> that <em>looks like</em> a slide&rdquo;, but not as &ldquo;<code>&lt;article&gt;</code> that <a href="https://www.w3.org/TR/html52/dom.html#represent" target="_blank" rel="noopener">represents</a> a slide&rdquo;.</p>
-<p><strong>Take Five!</strong> is a slide renderer written in CSS, which means that it can only decide how things will look, not what they are. However, in deciding what to give a style to, <strong>Take Five!</strong> focuses on elements that have a meaning (semantic elements), instead of generic elements that simply claim a layout (as it would be, for instance <code>&lt;div class="i-want-a-layout"&gt;...&lt;/div&gt;</code>).</p>
+<p><strong>Take Five!</strong> is a slide renderer written in CSS, which means that it can only decide how things look, not what they are. However, in deciding what to give a style to, <strong>Take Five!</strong> focuses on elements that have a meaning (semantic elements), instead of generic elements that simply claim a layout (as it would be, for instance <code>&lt;div class="i-want-a-layout"&gt; ... &lt;/div&gt;</code>).</p>
 <p>Concretely speaking this has two effects:</p>
 <ul>
 <li>The <code>class</code> attribute is not used to identify elements, since the elements' intrinsic semantics (i.e., their tag names) is already sufficient</li>
 <li>When it is used, the <code>class</code> attribute is used only for expressing minor options</li>
 </ul>
-<p>A densely populated slide (<code>&lt;article&gt;</code>), besides its main content, can possess a title, a footer and some other information aside, therefore when this happens <strong>Take Five!</strong> gives a style to the <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code> and <code>&lt;aside&gt;</code> elements nested in it. In an internet context a slide can also be linked to other slides, hence <strong>Take Five!</strong> gives a layout to a <code>&lt;nav&gt;</code> element as well. A <code>&lt;nav&gt;</code> element however does not make much sense in a printed page, so when the slide is &ldquo;taken in the hands&rdquo; (printed) the <code>&lt;nav&gt;</code> element is not displayed.</p>
-<p>Elements are not the only things that can express semantics in HTML, a further place that conveys semantics is the <code>rel</code> attribute given to links. Therefore, when a slide is displayed on a screen and the <code>&lt;nav&gt;</code> element is shown, <strong>Take Five!</strong> relies on the <code>rel</code> attributes to decide how to style each link and what role it will have in the viewport.</p>
+<p>A densely populated slide (<code>&lt;article&gt;</code>), besides its main content, can possess a title, a footer and some other information aside, therefore when this happens <strong>Take Five!</strong> gives a style to the <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code> and <code>&lt;aside&gt;</code> elements nested in it. In an internet context a slide can also be linked to other slides, hence <strong>Take Five!</strong> gives a layout to the <code>&lt;nav&gt;</code> element as well. A <code>&lt;nav&gt;</code> element however does not make much sense in a printed page, so when the slide is &ldquo;taken in the hands&rdquo; (printed) the <code>&lt;nav&gt;</code> element is not displayed.</p>
+<p>Elements are not the only things that can express semantics in HTML, a further place that conveys semantics is the <code>rel</code> attribute given to links. Therefore, when a slide is displayed on a screen and the <code>&lt;nav&gt;</code> element is shown, <strong>Take Five!</strong> relies on the <code>rel</code> attributes to decide how to style each link and what role it has in the viewport.</p>
 <h2>The viewport</h2>
-<p>Each slide (<code>&lt;article <mark>id="my-hash-tag"</mark> class="slide"&gt; ... &lt;/article&gt;</code>)</p>
+<p>Each slide (<code>&lt;article <mark>id="my-hash-tag" class="slide"</mark>&gt; ... &lt;/article&gt;</code>)</p>
 <ul>
-<li>is displayed fixed, fullscreen and can be accessed through its hashtag</li>
-<li>is independent and does not require any special container; can nevertheless link to other slides, forming so a gallery</li>
+<li>is displayed fixed, fullscreen and can be accessed through its hashtag (the <code>id</code> attribute)</li>
+<li>is independent and does not require any special container; can nevertheless link to other slides to form a gallery</li>
 <li>can contain any kind of HTML elements, in any number and in any order (but be aware of the limits of the screen)</li>
 <li>does not require further classes besides the <code>"slide"</code> class defined above (but a few additional classes are available for special options)</li>
 <li>is compatible with <a href="https://en.wikipedia.org/wiki/Microdata_(HTML)" target="_blank" rel="noopener">microdata</a>, <a href="https://microformats.org/wiki/what-are-microformats">microformats</a> and <a href="https://en.wikipedia.org/wiki/RDFa" target="_blank" rel="noopener">RDFa</a>.</li>
 </ul>
-<p>Several slides belonging to a single gallery can be logically packed together within any parent element &ndash; normally a <code>&lt;section&gt;</code> element is chosen for this.</p>
-<h2>Nested galleries</h2>
-<p>Galleries can be nested within other galleries, possibly using the <code>&lt;section&gt;</code> element. In this case a link to the child gallery is usually given using the <code>"child"</code> <code>rel</code> attribute.</p>
-<pre class="example">&lt;p style="text-align: center; font-size: 2em;"&gt;
-    &lt;a href="#item-1"&gt;Nested galleries&lt;/a&gt;
-&lt;/p&gt;
-
-&lt;section&gt;
-    &lt;article id="item-1" class="slide"&gt;
-        <mark>&lt;element-to-be-slided /&gt;</mark>
-        &lt;nav&gt;
-            &lt;a <mark class="bg1">href="#item-1-1" rel="child"</mark>&gt;Nested gallery&lt;/a&gt;
-            &lt;a href="#nowhere" rel="parent"&gt;My diary&lt;/a&gt;
-        &lt;/nav&gt;
-    &lt;/article&gt;
-    &lt;section&gt;
-        &lt;article id="item-1-1" class="slide"&gt;
-            <mark>&lt;element-to-be-slided /&gt;</mark>
-            &lt;nav&gt;
-                &lt;a <mark class="bg1">href="#item-1" rel="parent"</mark>&gt;Item #1&lt;/a&gt;
-            &lt;/nav&gt;
-        &lt;/article&gt;
-    &lt;/section&gt;
-&lt;/section&gt;</pre>
-<p>A more articulated example is available <a href="nested-example.html" target="_blank">here</a>. For more information about how to create a gallery tree it is possible to follow <a href="nesting-tutorial.html" target="_blank">this tutorial</a>.</p>
+<p>Several slides belonging to a single gallery can be logically packed together within any parent element &ndash; normally a <code>&lt;section&gt;</code> element is chosen for it.</p>
 <h2>Children elements</h2>
 <h3>Direct children of the viewport</h3>
 <p>The way this CSS operates is quite simple: the first direct child of the <code>&lt;article class="slide"&gt;</code> element found to be neither a <code>&lt;header&gt;</code>, nor a <code>&lt;nav&gt;</code>, nor a <code>&lt;footer&gt;</code>, nor an <code>&lt;aside&gt;</code> will be placed at the center of the viewport (from now on, this will be called &ldquo;the fifth element&rdquo; or &ldquo;<mark>the <code>&lt;<em>leeloo</em>&gt;</code> element</mark>&rdquo;, after <a href="https://en.wikipedia.org/wiki/The_Fifth_Element" target="_blank" rel="noopener">Luc Besson's movie</a>). Further direct children that match the previous condition, if present, will be displayed on the right side of the screen, in their normal order.</p>
-<p>When present, the <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;footer&gt;</code> and <code>&lt;aside&gt;</code> elements are positioned to fill the entire space of the viewport.</p>
+<p>On large screens, when present, the <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;footer&gt;</code> and <code>&lt;aside&gt;</code> elements are positioned to fill the entire space of the viewport.</p>
 <figure>
 <p><a href="#schematic-of-the-viewport"><img src="media/schematic_s.png" alt="Schematic of the viewport" /></a></p>
 <figcaption>Schematic of the viewport</figcaption>
 </figure>
-<p>On small screens everything is aligned in one scrollable single column instead, in which only the <code>&lt;header&gt;</code>, if present, occupies a fixed position on top of the slide, while all other elements follow their natural disposition assigned via HTML</p>
+<p>On small screens everything is aligned in one scrollable single column instead, in which only the <code>&lt;header&gt;</code>, if present, is always positioned on top of the slide, while all other elements follow their natural disposition assigned via HTML</p>
 <figure>
-<p><a href="#schematic-of-small-screens"><img src="media/phone_schematic_s.png" alt="Schematic of the viewport on small devices" /></a></p>
+<p><a href="#schematic-on-small-screens"><img src="media/phone_schematic_s.png" alt="Schematic of the viewport on small devices" /></a></p>
 <figcaption>Schematic of the viewport on small devices</figcaption>
 </figure>
-<p>It is possible to test the disposition of the direct children by visiting the <a href="schematic.html" target="_blank">live schematic</a>.</p>
+<p>It is possible to test the order of the elements by visiting the <a href="schematic.html" target="_blank" rel="noopener">Schematic</a> page.</p>
 <h3>Non-direct children of the viewport (sub-children)</h3>
-<p>Sub-children of the viewport are displayed normally, in their natural order. The only exception is created for links that are children of the main <code>&lt;nav&gt;</code>, which are considered as internal navigation links and styled according to their <code>rel</code> attribute (<a href="the-rel-attribute.html" target="_blank">here</a> is the list of the supported keywords).</p>
+<p>Sub-children of the viewport are displayed normally, in their natural order and without any style applied beyond basic layout. The only exception is made for links that are children of the main <code>&lt;nav&gt;</code>, which are considered as internal navigation links and styled according to their <code>rel</code> attribute (<a href="the-rel-attribute.html" target="_blank" rel="noopener">here</a> is the list of the supported keywords).</p>
+<h2>Nested galleries</h2>
+<p>Galleries can be nested within other galleries, possibly relying on the <code>&lt;section&gt;</code> element. In this case a reference to the child gallery is usually given by an anchor with the <code>"child"</code> keyword assigned to its <code>rel</code> attribute.</p>
+<pre class="example">&lt;p style="text-align: center; font-size: 2em;"&gt;
+    &lt;a href="#slide-1"&gt;Nested galleries&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;section&gt;
+    &lt;article id="slide-1" class="slide"&gt;
+        <mark>&lt;element-to-be-slided /&gt;</mark>
+        &lt;nav&gt;
+            &lt;a <mark class="bg1">href="#slide-1-1" rel="child"</mark>&gt;Nested gallery&lt;/a&gt;
+            &lt;a href="#nowhere" rel="parent"&gt;My diary&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/article&gt;
+    &lt;section&gt;
+        &lt;article id="slide-1-1" class="slide"&gt;
+            <mark>&lt;element-to-be-slided /&gt;</mark>
+            &lt;nav&gt;
+                &lt;a <mark class="bg1">href="#slide-1" rel="parent"</mark>&gt;Item #1&lt;/a&gt;
+            &lt;/nav&gt;
+        &lt;/article&gt;
+    &lt;/section&gt;
+&lt;/section&gt;</pre>
+<p>A more articulated example is available <a href="nested-example.html" target="_blank" rel="noopener">here</a>. For more information about how to create a gallery tree it is possible to follow <a href="nesting-tutorial.html" target="_blank" rel="noopener">this tutorial</a>.</p>
 <h2>Available classes</h2>
-<h3>The <code>&lt;article&gt;</code> element (i.e., the slide)</h3>
+<p><strong>Take Five!</strong> relies only one single class: the <code>"slide"</code> class applied to an <code>&lt;article&gt;</code> element. Further classes are available for optional features, but none of them is structurally required. Here follows the complete list of available classes.</p>
+<h3>Classes for the <code>&lt;article&gt;</code> element (i.e., the slide)</h3>
 <table class="definition">
 <thead>
 <tr>
@@ -175,7 +180,7 @@
 <tr>
 <td><code>"verbose"</code></td>
 <td><code>article.slide.verbose</code></td>
-<td>When a slide is declared with the <code>"verbose"</code> class a label will be added by default to all the links nested inside the main <code>&lt;nav&gt;</code>. Without <code>"verbose"</code> only <code>a[rel="parent"]</code> will display a label.</td>
+<td>When a slide is declared with the <code>"verbose"</code> class a label will be added by default to all the links nested inside the main <code>&lt;nav&gt;</code>. Without <code>"verbose"</code> only <code>a[rel="parent"]</code> is displayed with a label.</td>
 </tr>
 <tr>
 <td><code>"foyer"</code></td>
@@ -185,27 +190,27 @@
 <tr>
 <td><code>"wrap"</code></td>
 <td><code>article.slide.wrap</code></td>
-<td>A transparent layer will cover the entire slide. Scrolling will become inaccessible, therefore there should be no scrollable content when a slide is declared as <code>"wrap"</code>.</td>
+<td>A transparent layer will cover the entire slide. Scrolling will become inaccessible, therefore there should be no scrollable content when a slide is declared as a <code>"wrap"</code>.</td>
 </tr>
 <tr>
 <td><code>"pinned"</code></td>
 <td><code>article.slide.pinned</code></td>
-<td>A slide declared with the <code>"pinned"</code> class will not generate a clickable background layer to exit (<a href="exit-modes.html" target="_blank">see example</a>).</td>
+<td>A slide declared with the <code>"pinned"</code> class will not generate a clickable background layer to exit (<a href="exit-modes.html" target="_blank" rel="noopener">see example</a>).</td>
 </tr>
 <tr>
 <td><code>"no-hashtag"</code></td>
 <td><code>article.slide.no-hashtag</code></td>
-<td>It is possible to prevent the hashtag from being displayed on the bottom-right side of the viewport by using the <code>"no-hashtag"</code> class &ndash; as in <code>&lt;article class="slide <mark>no-hashtag</mark>" id="my-hash-name"&gt; ... &lt;/article&gt;</code>.</td>
+<td>It is possible to prevent the hashtag from being displayed on the bottom-right corner of the viewport by using the <code>"no-hashtag"</code> class &ndash; as in <code>&lt;article class="slide <mark>no-hashtag</mark>" id="my-hash-name"&gt; ... &lt;/article&gt;</code>.</td>
 </tr>
 <tr>
 <td><code>"nonadaptive"</code></td>
 <td><code>article.slide.nonadaptive</code></td>
-<td>Automatic adjustments for touchscreens or particular devices will be disabled if the <code>"nonadaptive"</code> class is present. Slides will appear equal in every screen.</td>
+<td>Automatic adjustments for small screens or particular devices will be disabled if the <code>"nonadaptive"</code> class is present. Slides will look alike on every screen.</td>
 </tr>
 </tbody>
 </table>
 <p>All the classes above can form compound class names, as in <code>&lt;article class="<mark>verbose foyer wrap pinned nonadaptive no-hashtag slide</mark>"&gt; ... &lt;/article&gt;</code>.</p>
-<h3>Links of the main <code>&lt;nav&gt;</code></h3>
+<h3>Classes for the links of the main <code>&lt;nav&gt;</code></h3>
 <table class="definition">
 <thead>
 <tr>
@@ -241,13 +246,13 @@
 <tr>
 <td><code>"vision"</code></td>
 <td><code>article.slide &gt; nav:first-of-type a[href].vision</code></td>
-<td>Links with the <code>"vision"</code> class will not appear in the <code>&lt;nav&gt;</code> menu at all, but as notifications on the top right corner of the viewport. This class is meaningful only with links that generate buttons via <code>rel</code> attribute.</td>
+<td>Links with the <code>"vision"</code> class will not appear in the <code>&lt;nav&gt;</code> menu at all, but as notifications on the top right corner of the viewport. This class is meaningful only for links that generate buttons via <code>rel</code> attribute.</td>
 </tr>
 <tr>
 <td><code>"no-rel"</code></td>
 <td><code>article.slide &gt; nav:first-of-type a[href][rel].no-rel</code></td>
 <td class="centered">relation</td>
-<td>Links with the <code>"no-rel"</code> class will be treated as links with an unknown <code>rel</code> attribute (as in <code>&lt;a href="#sample-slide" rel="next" class="<mark>no-rel</mark>"&gt;Sample slide&lt;/a&gt;</code> or <code>&lt;a href="#sample-slide" rel="next" class="no-label <mark>no-rel</mark>"&gt;Sample slide&lt;/a&gt;)</code>. As in links with an unknown <code>rel</code> attribute, the latter is still taken into account to generate a label when necessary.</td>
+<td>Links with the <code>"no-rel"</code> class will be treated as links with an unknown <code>rel</code> attribute (as in <code>&lt;a href="#sample-slide" rel="next" class="<mark>no-rel</mark>"&gt;Sample slide&lt;/a&gt;</code> or <code>&lt;a href="#sample-slide" rel="next" class="no-label <mark>no-rel</mark>"&gt;Sample slide&lt;/a&gt;)</code>. The <code>rel</code> attribute is still taken into account to generate a label if necessary.</td>
 </tr>
 </tbody>
 </table>
@@ -266,7 +271,7 @@
 <tr>
 <td><code>"z-low"</code></td>
 <td><code>article.slide .<code>z-</code>low</code></td>
-<td class="centered" rowspan="5">proximity</td>
+<td class="centered" rowspan="5">stacking context</td>
 <td>The <code>"z-low"</code> class assigns a low <code>z-index</code> to the element (lower than the background layer). Before applying this class to subchildren keep in mind that all direct children of the slide have a <code>z-index</code> already assigned; this needs to be canceled by applying the <code>"z-none"</code> class on the direct child.</td>
 </tr>
 <tr>
@@ -317,7 +322,7 @@
 <tr>
 <td><code>data-context</code></td>
 <td><code>article.slide[data-context]</code></td>
-<td>The slide container (<code>article.slide</code>) can optionally possess a <code>data-context</code> attribute, whose content will be displayed on the top left side of the viewport &ndash; as in <code>&lt;article class="slide" <mark>data-context="Hello world!"</mark> id="my-hash-name"&gt; ... &lt;/article&gt;</code> (it takes 2.5 seconds to show up, so you must wait to see it).</td>
+<td>The slide container (<code>article.slide</code>) can optionally possess a <code>data-context</code> attribute, whose content will be displayed on the top left side of the viewport &ndash; as in <code>&lt;article class="slide" <mark>data-context="Hello world!"</mark> id="my-hash-name"&gt; ... &lt;/article&gt;</code> (it takes 2.5 seconds to show up, so you must wait to see it). See note below.</td>
 </tr>
 <tr>
 <td><code>data-label</code></td>
@@ -326,57 +331,50 @@
 </tr>
 </tbody>
 </table>
+<div class="note">A slide in <strong>Take Five!</strong> is an <code>&lt;article&gt;</code> element; such element delimits a self-contained content, meaning that if all the other HTML except the <code>&lt;article&gt;</code> are removed the content would still make sense to a reader. The function of the <code>data-context</code> attribute then is that of contextualizing the <code>&lt;article&gt;</code>'s content. It is confined to an attribute, so that the content of the <code>&lt;article&gt;</code> remains still independent. It usually contains a small motto, a copyright notice or a mention of the hosting website. Feel free to use it in complete freedom.</div>
 <h2>Plugins</h2>
-<p>This is the optional section of this framework. Some of these plugins could have been merged with the main CSS, but they have been kept separate to preserve modularity. Please feel free to bring new ideas.</p>
+<p>Here comes the optional section of the framework. Some of these plugins could have been merged with the main CSS, but they have been kept separate to preserve modularity. Please feel free to bring new ideas.</p>
 <dl>
-<dt><a href="plugins/counters.html" target="_blank">takefive-counters.css</a></dt>
+<dt><a href="plugins/counters.html" target="_blank" rel="noopener"><code>takefive-counters.css</code></a></dt>
 <dd>Plugin for numbering the slides</dd>
-<dt><a href="plugins/glyphs.html" target="_blank">takefive-glyphs.css</a></dt>
-<dd>Plugin for editing the default glyphs used in the navigation buttons and generating new ones</dd>
-<dt><a href="plugins/maxsize.html" target="_blank">takefive-maxsize.css</a></dt>
+<dt><a href="plugins/glyphs.html" target="_blank" rel="noopener"><code>takefive-glyphs.css</code></a></dt>
+<dd>Plugin for editing the default glyphs used for navigation buttons or generating new ones</dd>
+<dt><a href="plugins/i18n.html" target="_blank" rel="noopener"><code>takefive-i18n-*.css</code></a></dt>
+<dd>Internationalization style sheets</dd>
+<dt><a href="plugins/maxsize.html" target="_blank" rel="noopener"><code>takefive-maxsize.css</code></a></dt>
 <dd>Plugin for increasing the size of the <code><em>&lt;leeeloo&gt;</em></code> element when there are no visible links in the main <code>&lt;nav&gt;</code> and no further content besides the <code><em>&lt;leeeloo&gt;</em></code> element itself</dd>
-<dt><a href="plugins/polaroid.html" target="_blank">takefive-polaroid.css</a></dt>
+<dt><a href="plugins/polaroid.html" target="_blank" rel="noopener"><code>takefive-polaroid.css</code></a></dt>
 <dd>Very minimal plugin for creating a simple Polaroid-like border in pictures</dd>
-<dt><a href="plugins/toolbar.html" target="_blank">takefive-toolbar.css</a></dt>
-<dd>Plugin for creating a toolbar of clickable <code>&lt;span&gt;</code> / <code>&lt;div&gt;</code> elements, or openable <code>&lt;details&gt;</code> elements, to be completed by JavaScript</dd>
+<dt><a href="plugins/slides.html" target="_blank" rel="noopener"><code>takefive-slides.css</code></a></dt>
+<dd>Minimal plugin for hiding all <code>&lt;section&gt;</code> elements with class <code>"slides"</code> on screen, in order to display them only on the printed page.</dd>
+<dt><a href="plugins/toolbar.html" target="_blank" rel="noopener"><code>takefive-toolbar.css</code></a></dt>
+<dd>Plugin for creating a toolbar of clickable <code>&lt;span&gt;</code> / <code>&lt;div&gt;</code> elements, or openable <code>&lt;details&gt;</code> elements, to be completed via JavaScript</dd>
 </dl>
-<h2>Issues</h2>
-<h3>All animations fire on page load</h3>
-<p>There is currently a bug in Chromium that causes the CSS to explode from user-agent defaults to applied styles on page load (discussion at <a href="https://crbug.com/332189" target="_blank" rel="noopener">crbug.com/332189</a> and <a href="https://crbug.com/167083" target="_blank" rel="noopener">crbug.com/167083</a>). The way to fix it is to add</p>
-<pre class="code">&lt;script&gt;"whatever";&lt;/script&gt;</pre>
-<p>to the <code>&lt;head&gt;</code> of the page (any text within the double quotes will do).</p>
-<p>To test weather the bug still affects your browser you can visit <a href="https://lab.laukstein.com/bug/input" target="_blank" rel="noopener">lab.laukstein.com/bug/input</a>.</p>
-<h3>The <code>z-index</code> collision</h3>
-<p>The <code>&lt;article class="slide"&gt;</code> element has the <code>z-index</code> property set to <code>10000</code>, therefore no other elements within the document must have a <code>z-index</code> higher than <code>10000</code> in order not to be displayed above the slide. For more information, see <a href="z-index-table.html" target="_blank">the table of all the <code>z-indices</code> assigned by <strong>Take Five!</strong></a>.</p>
-<h3>Internet Explorer</h3>
-<p>Internet Explorer is not officially supported. It is possible to obtain some results by adding this stylesheet:</p>
-<pre class="code">/*  IE only  */
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-
-    article.slide &gt; nav:first-of-type a[href] {
-        visibility: inherit !important;
-    }
-
-}</pre>
 <h2>FAQ</h2>
-<div class="faq_list"><details>
+<div class="faq_list">
+<details>
 <summary>How many class names does <em>Take Five!</em> require?</summary>
 <div>Only one class name is required: the <code>"slide"</code> class applied to an <code>&lt;article&gt;</code> element. Optionally the latter supports also the following six classes: <code>"verbose"</code>, <code>"foyer"</code>, <code>"wrap"</code>, <code>"pinned"</code>, <code>"no-hashtag"</code> and <code>"nonadaptive"</code>. Six optional classes are available for the navigation links: <code>"with-label"</code>, <code>"no-label"</code>, <code>"tab"</code>, <code>"plate"</code>, <code>"vision"</code> and <code>"no-rel"</code>.</div>
-</details><details>
+</details>
+<details>
 <summary>How many <code>data-*</code> attributes does <em>Take Five!</em> support?</summary>
 <div>Two <code>data-*</code> attributes are supported: <code>data-context</code>, optionally applied to the slide, and <code>data-label</code>, optionally applied to all links.</div>
-</details><details>
+</details>
+<details>
 <summary>Does <em>Take Five!</em> require a particular DOM tree?</summary>
 <div>The only (aesthetic and logical) requirement is a custom element nested inside an <code>&lt;article class="slide"&gt;</code> element, to be displayed at the center of the screen (plain text direct child of the slide is always displayed on the right side of the screen instead). When present, the CSS takes also care of styling other children element of the main <code>&lt;article&gt;</code>, but these are not required.</div>
-</details><details>
-<summary>Can I apply also my own stylesheets on top of this CSS?</summary>
+</details>
+<details>
+<summary>Can I apply also my own style sheets on top of this CSS?</summary>
 <div>Of course, feel free to re-style every element in your slides. For your own sake you should try not to affect the following properties of the <code>&lt;<em>leeloo</em>&gt;</code> element: <code>margin</code>, <code>position</code>, <code>left</code>, <code>top</code>, <code>box-sizing</code>, <code>transform</code>, <code>animation</code> and <code>z-index</code>. No particular caution is required for <code>&lt;<em>leeloo</em>&gt;</code>'s children, so if you want to show fullscreen an element that relies on animations (i.e., it uses the <code>animation</code> property), nest it inside a blank <code>&lt;div&gt;</code> element (or any other container at your choice).</div>
-</details><details>
+</details>
+<details>
 <summary>I have many images in my page. How can I avoid that the browser preloads all of them?</summary>
 <div>If you are interested in this slide renderer probably you don't want to leave any semantic content out of your HTML (as it would be to load the slides through JavaScript, for example). The correct way to deal with lazy loading is to set a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-loading"><code>loading="lazy"</code></a> attribute on the <code>&lt;img&gt;</code> and <code>&lt;iframe&gt;</code> elements.</div>
-</details><details>
-<summary>How can I enable the <code>escape</code> key for closing the slides?</summary>
-<div>You need to use JavaScript. I intentionally did not write any line of JavaScript code for this CSS, but you can work around it. Here follows a basic script for closing the slides by pressing the <code>escape</code> key.
+</details>
+<details>
+<summary>How can I enable the <code>escape</code> key for exiting the slides?</summary>
+<div>You need to use JavaScript. I intentionally did not write any line of JavaScript code for this CSS, but you can work around it. Here follows a basic script for exiting the slides by pressing the <code>escape</code> key.
 <pre class="example">/* close the slide currently open or do nothing */
 function closeCurrentSlide () {
     var oSlide = document.querySelector("article.slide:target");
@@ -392,9 +390,10 @@ window.addEventListener("keyup", function (oEvt) {
     }
 }, false);</pre>
 </div>
-</details><details>
+</details>
+<details>
 <summary>How can I swipe left and right through the slides with my smartphone?</summary>
-<div>You need to handle touch events via JavaScript. Here is a possible snippet:
+<div>You need to handle touch events via JavaScript. Here is a possible minimal snippet:
 <pre class="example">(function() {
 
     var nDownX = null, nDownY = null;
@@ -436,7 +435,7 @@ window.addEventListener("keyup", function (oEvt) {
 
     };
 
-    window.addEventListener("load", function () {
+    window.addEventListener("DOMContentLoaded", function () {
 
         const aSlides = document.querySelectorAll("article.slide");
 
@@ -451,13 +450,75 @@ window.addEventListener("keyup", function (oEvt) {
 
 })();</pre>
 </div>
-</details><details>
+</details>
+<details>
+<summary>Too much <code>history</code>!</summary>
+<div>One of the useful outcomes of relying on an hashtag in the URL is that the slides visited leave a trace in the browser history. Sometimes however that can be too much. For these cases it is possible to use JavaScript to do a partial reset of the history every time a gallery is closed:
+<pre class="example">(function () {
+
+    var bOpenedWithSlide = false, nHistCount = -1;
+
+    function newSlideClicked () {
+
+        nHistCount--;
+
+    }
+
+    function exitClicked () {
+
+        if (bOpenedWithSlide) {
+
+            /*  Can't do much, the page had been loaded on with a slide open...  */
+            nHistCount = -1;
+            bOpenedWithSlide = false;
+
+        } else {
+
+            history.go(nHistCount);
+            nHistCount = -1;
+            return false;
+
+        }
+
+    }
+
+    addEventListener("DOMContentLoaded", function () {
+
+        var
+            elIter,
+            aLinks = document.querySelectorAll("article.slide a"),
+            elTest = document.createElement("a");
+
+        bOpenedWithSlide = Boolean(document.querySelector("article.slide:target"));
+        elTest.href = location.href;
+
+        for (var nLen = aLinks.length, nIdx = 0; nIdx &lt; nLen; nIdx++) {
+
+            elIter = aLinks[nIdx];
+            elTest.hash = elIter.hash;
+
+            if (elTest.href === elIter.href) {
+                elIter.onclick = document.querySelector("article.slide" + elIter.hash) ?
+                    newSlideClicked
+                :
+                    exitClicked;
+            }
+
+        }
+
+    }, false);
+
+})();</pre>
+</div>
+</details>
+<details>
 <summary>How will the slides look on a printed page?</summary>
-<div>This CSS establishes minimal rules for the printed version of the slides (it does not attempt for example to center them vertically, as this could disrupt the printed version of your website), the rest is left to your own CSS. Writing a good CSS for printing is a forgotten art, so you should think carefully about it. A good starting point might be <a href="css/print.css" target="_blank">this CSS</a>.</div>
-</details><details>
+<div>This CSS establishes minimal rules for the printed version of the slides (it does not attempt for example to center them vertically, as this could disrupt the printed version of your website), the rest is left to your own CSS. Writing a good CSS for printing is a forgotten art, so you should think carefully about it. A good starting point might be <a href="css/print.css" target="_blank" rel="noopener">this CSS</a>.</div>
+</details>
+<details>
 <summary>I really don't like the <code>#</code> or <code>#whatever</code> link for exiting the slides. How can I do?</summary>
-<div>The empty hash (<code>#</code>) is the semantically correct way to refer to the page in its entirety, so if that is what you are referring to there are no better ways to express it. However it is possible to use JavaScript for cleaning the address bar after clicking on any link that ends with an empty hash:
-<pre class="example">window.addEventListener("load", function () {
+<div>The empty hash (<code>#</code>) is the semantically correct way to refer to the page in its entirety, so if that is what you are referring to there are no better ways to express it, especially for the sake of search engines. It is possible however to use JavaScript for cleaning the address bar after clicking on any link that ends with an empty hash:
+<pre class="example">window.addEventListener("DOMContentLoaded", function () {
     var aEmptyHashLinks = document.querySelectorAll("a[href$=\"#\"]");
     for (var nIdx = 0; nIdx &lt; aEmptyHashLinks.length; nIdx++) {
         aEmptyHashLinks[nIdx].onclick = function () {
@@ -469,31 +530,77 @@ window.addEventListener("keyup", function (oEvt) {
 }, false);</pre>
 <div class="note">The <code>history.replaceState()</code> method might not be available locally, but only when the page is hosted in a webserver.</div>
 </div>
+</details>
+<details>
+<summary>Can I use <em>Take Five!</em> for commercial projects?</summary>
+<div><strong>Take Five!</strong> is released under the terms of the GPL license, which <a href="https://www.gnu.org/philosophy/selling.html" target="_blank" rel="noopener">encourages</a> commercial use. The author of the default <code>"Victoria Typewriter"</code> font however asks for a fee for commercial use. So in this case you either contact them or choose another font (please have a look at <code>dist/fonts</code> for possible alternatives). Here is their message:
+<blockquote class="plain-text">Hello, you've just downloaded the "Victoria Typewriter" font (2021) which has been created by Lukas Krakora and is free for non-commercial use only.<br /><br />If you'd like to use the font commercially please contact me at my email <a href="mailto:krraaa@yahoo.com">krraaa@yahoo.com</a> to get an information about pricing.<br /><br />I can add any extra characters or customize the font for purchasers of the commercial license.<br /><br />Any donation from non-commercial users to my Paypal <a href="mailto:krraaa@yahoo.com">krraaa@yahoo.com</a> is welcome.<br /><br />You can find my other fonts on <a href="https://www.typewriterfonts.net" target="_blank" rel="noopener">www.typewriterfonts.net</a><br /><br />And my FB page is: <a href="https://facebook.com/typewriterfonts" target="_blank" rel="noopener">facebook.com/typewriterfonts</a><br /><br />Thank you.<br /><br />Lukas Krakora</blockquote>
+</div>
 </details></div>
+<h2>Issues</h2>
+<h3>All animations fire on page load</h3>
+<p>There is currently a bug in Chromium that causes the CSS to explode from user-agent defaults to applied styles on page load (discussion at <a class="obvious" href="https://crbug.com/332189" target="_blank" rel="noopener">crbug.com/332189</a> and <a class="obvious" href="https://crbug.com/167083" target="_blank" rel="noopener">crbug.com/167083</a>). A way to fix it is to add</p>
+<pre class="code">&lt;script&gt;"whatever";&lt;/script&gt;</pre>
+<p>to the <code>&lt;head&gt;</code> of the page (any text within double quotes will do).</p>
+<p>To test weather your browser is affected by the bug you can visit <a class="obvious" href="https://lab.laukstein.com/bug/input" target="_blank" rel="noopener">lab.laukstein.com/bug/input</a>.</p>
+<h3>The <code>z-index</code> collision</h3>
+<p>The <code>&lt;article class="slide"&gt;</code> element has the <code>z-index</code> property set to <code>10000</code>, hence no other elements within the document must have a <code>z-index</code> higher than <code>10000</code> in order not to be displayed above the slides. If there is no way to prevent that, it is possible to assign a higher <code>z-index</code> to the slides manually,</p>
+<pre class="example">&lt;article id="my_hashtag" class="slide" <mark>style="z-index: 99999;"</mark>&gt; ... &lt;/article&gt;</pre>
+<p>or nest them within a higher stacking context.</p>
+<pre class="example"><mark>&lt;div style="position: relative; z-index: 99999;"&gt;</mark>
+    &lt;article id="my_hashtag" class="slide"&gt; ... &lt;/article&gt;
+&lt;/div&gt;</pre>
+<p>For more details, see <a href="z-index-table.html" target="_blank" rel="noopener" aria-invalid="true">the table of all the internal <code>z-indices</code> assigned by <strong>Take Five!</strong></a>.</p>
+<h3>Internet Explorer</h3>
+<p>Internet Explorer is not officially supported. It is possible to obtain some results by adding the following style sheet to the document (but you should seriously consider to abandon hope):</p>
+<pre class="code">/*  IE only  */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+
+    article.slide &gt; nav:first-of-type a[href] {
+        visibility: inherit !important;
+    }
+
+}</pre>
 <h2>Notes</h2>
 <ul>
-<li>The <code>&lt;article&gt;</code> elements containing the slides will not be visible on the screen unless activated via their hashtag. However they will <em>not</em> be invisible in the printed version of the page, so you should think carefully about which section of your page must be dedicated to hosting your galleries. Usually a dedicated section at the end works well.</li>
-<li>Although displayed on big screens in a fixed position, the <code>&lt;nav&gt;</code>,&nbsp;<code>&lt;aside&gt;</code> and <code>&lt;footer&gt;</code> elements preserve their original disposition on the printed page and small screens, so you should not feel indifferent to their order. On the printed page also the&nbsp;<code>&lt;header&gt;</code> element preserves its original place.</li>
+<li>The <code>&lt;article&gt;</code> elements containing the slides will not be visible on the screen unless activated via their hashtag. However they will <em>not</em> be invisible on the printed version of the page, so you should think carefully about which part of your page will host your galleries. Usually a dedicated section in the end works well.</li>
+<li>Although displayed on big screens in a fixed position, the <code>&lt;nav&gt;</code>, <code>&lt;aside&gt;</code> and <code>&lt;footer&gt;</code> elements preserve their original disposition on the printed page and small screens, so you should not feel indifferent to their order. On the printed page also the <code>&lt;header&gt;</code> element preserves its original position.</li>
 <li><strong>Take Five!</strong> focuses on the semantics aspects of HTML5 (i.e., how a slide can be naturally declared), while the graphical result can still be improved. If you have new ideas, please do not hesitate to propose them on <a href="https://github.com/madmurphy/takefive.css" target="_blank" rel="noopener">GitHub</a>. Normally I accept good ideas, but in case of proposals too specific for a general-purpose slide renderer the project can eventually be forked and released again as a new project under the terms of the GPL3 (let me know!).</li>
 <li>For learning more about the <code>itemscope</code> attribute and microdata, please see <a href="https://schema.org/" target="_blank" rel="noopener">schema.org</a>. A lists of the main <code>rel</code> attributes instead can be found <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel" target="_blank" rel="noopener">here</a>, while its extension, together with information about microformats, can be found <a href="https://microformats.org/wiki/existing-rel-values" target="_blank" rel="noopener">here</a>.</li>
-<li><strong>Take Five!</strong> aims to be compatible with microdata, microformats and RDFa. But <em>neither microdata, nor microformats, nor RDFa are required by <strong>Take Five!</strong></em>, the only required condition is a <code>class="slide"</code> assigned to an <code>&lt;article&gt;</code> element.</li>
+<li><strong>Take Five!</strong> aims to be compatible with microdata, microformats and RDFa. But <em>neither microdata, nor microformats, nor RDFa are required by <strong>Take Five!</strong></em>, the only required condition is a <code>"slide"</code> class assigned to an <code>&lt;article&gt;</code> element.</li>
 <li><strong>Take Five!</strong> does not require JavaScript, but it does not discourage its usage. JavaScript can be useful in many ways, such as touch events for navigating through the slides, printing of single contents, etc.</li>
-<li>Feel free to make experiments. <strong>Take Five!</strong> is very flexible, but in in case of problems, please do not hesitate to <a href="https://github.com/madmurphy/takefive.css/issues" target="_blank" rel="noopener">write</a>.</li>
+<li>Feel free to make experiments. <strong>Take Five!</strong> is very flexible, but in in case of problems, do not hesitate to <a href="https://github.com/madmurphy/takefive.css/issues" target="_blank" rel="noopener">write</a>.</li>
 </ul>
 <footer>
 <h2>Free software</h2>
 <p><strong>Take Five!</strong> is free software. You can redistribute it and/or modify it under the terms of the <a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html" target="_blank" rel="noopener">GPL license</a>, version 3 or any later version. The code is <a href="https://github.com/madmurphy/takefive.css/" target="_blank" rel="noopener">available on GitHub</a>.</p>
 </footer>
-<article id="schematic-of-the-viewport" class="slide">
-<figure><img src="media/schematic.png" alt="Schematic of the viewport" />
-<figcaption>Schematic of the viewport</figcaption>
-</figure>
-<nav><a href="#nowhere" rel="parent">Manual</a><a href="media/schematic.png" target="_blank" rel="attachment">Download this picture</a></nav></article>
-<article id="schematic-of-small-screens" class="slide">
-<figure><img src="media/phone_schematic.png" alt="Schematic of the viewport on small devices" />
-<figcaption>Schematic of the viewport on small devices</figcaption>
-</figure>
-<nav><a href="#nowhere" rel="parent">Manual</a><a href="media/phone_schematic.png" target="_blank" rel="attachment">Download this picture</a></nav></article>
+
+<section class="slides">
+	<header>
+		<h2>Slides</h2>
+	</header>
+	<article id="schematic-of-the-viewport" class="slide">
+		<figure>
+			<img src="media/schematic.png" alt="Schematic of the viewport" />
+			<figcaption>Schematic of the viewport</figcaption>
+		</figure>
+		<nav>
+			<a href="#nowhere" rel="parent">Manual</a>
+			<a href="media/schematic.png" target="_blank" rel="attachment noopener">Download this picture</a>
+		</nav>
+	</article>
+	<article id="schematic-on-small-screens" class="slide">
+		<figure>
+			<img src="media/phone_schematic.png" alt="Schematic of the viewport on small devices" />
+			<figcaption>Schematic of the viewport on small devices</figcaption>
+		</figure>
+		<nav>
+			<a href="#nowhere" rel="parent">Manual</a>
+			<a href="media/phone_schematic.png" target="_blank" rel="attachment noopener">Download this picture</a>
+		</nav>
+	</article>
+</section>
 
 </body>
 </html>

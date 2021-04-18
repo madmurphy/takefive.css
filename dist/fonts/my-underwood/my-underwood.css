@@ -1,0 +1,6 @@
+@font-face {
+	font-family: "My Underwood";
+	src: url("my-underwood.woff2") format("woff2"), url("my-underwood.eot") format("embedded-opentype"), url("my-underwood.woff") format("woff"), url("my-underwood.ttf") format("truetype"), url("my-underwood.otf") format("opentype");
+}
+
+/*  EOF  */

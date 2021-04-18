@@ -7,7 +7,7 @@
 |*|
 |*|	https://github.com/madmurphy/takefive.css/
 |*|
-|*|	Version 3.0.0
+|*|	Version 3.1.0
 |*|
 |*|	(c) madmurphy333@gmail.com
 |*|
@@ -15,7 +15,6 @@
 |*|	it under the terms of the GPL license, version 3 or any later version.
 |*|
 |*|	https://www.gnu.org/licenses/gpl-3.0.html
-|*|
 |*|
 \*/
 
@@ -28,28 +27,21 @@
 \*/
 
 
-@font-face {
-	font-family: "report";
-	src: url("fonts/1942-report/1942-report.eot") format("embedded-opentype"), url("fonts/1942-report/1942-report.woff") format("woff"), url("fonts/1942-report/1942-report.ttf") format("truetype"), url("fonts/1942-report/1942-report.svg") format("svg");
-}
-
-
-/*  Uncomment this for using the GNU Typewriter font  */
+@import url("fonts/victoria-typewriter/victoria-typewriter.css");
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@ !DEV_ONLY! @@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 /*
-@font-face {
-	font-family: "typewriter";
-	src: url("fonts/gnutypewriter/gnutypewriter.eot") format("embedded-opentype"), url("fonts/gnutypewriter/gnutypewriter.otf") format("opentype"), url("fonts/gnutypewriter/gnutypewriter.woff") format("woff"), url("fonts/gnutypewriter/gnutypewriter.ttf") format("truetype"), url("fonts/gnutypewriter/gnutypewriter.svg") format("svg");
-}
-*/
 
+	Other possible fonts:
 
-/*  Uncomment this for using the My Underwood font  */
-/*
-@font-face {
-	font-family: "My Underwood";
-	src: url("fonts/my-underwood/my-underwood.woff2") format("woff2"), url("fonts/my-underwood/my-underwood.eot") format("embedded-opentype"), url("fonts/my-underwood/my-underwood.woff") format("woff"), url("fonts/my-underwood/my-underwood.ttf") format("truetype"), url("fonts/my-underwood/my-underwood.otf") format("opentype");
-}
+	* "1942 report" --> @import url("fonts/1942-report/1942-report.css");
+	* "GNUTypewriter" --> @import url("fonts/gnutypewriter/gnutypewriter.css");
+	* "My Underwood" --> @import url("fonts/my-underwood/my-underwood.css");
+
+	Although beautiful, unfortunately these fonts do not support accented
+	characters.
+
 */
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@ !END_DEV_ONLY! @@@@@@@@@@@@@@@@@@@@@@@@@*/
 
 
 
@@ -74,29 +66,35 @@
 	article.slide {
 		/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@ !DEV_ONLY! @@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
+		/*  Font size  */
+		--t5fs: var(--take5-font-size, .8em);	/*  preferably `em`  */
+
 		/*  Vertical padding  */
-		--t5vp: var(--take5-vpadding, 60px);	/*  accepts viewport percentage (height)  */
+		--t5vp: var(--take5-vpadding, 9.5vh);	/*  absolute values only  */
 
 		/*  Horizontal padding  */
 		--t5hp: var(--take5-hpadding, 18%);	/*  accepts viewport percentage (width) */
 
 		/*  A vertical space   */
-		--t5vs: var(--take5-vspace, .472vh);	/*  absolute values only  */
+		--t5vs: var(--take5-vspace, .47vh);	/*  absolute values only  */
 
 		/*  An orientation-agnostic (`vmin`) space  */
-		--t5as: var(--take5-aspace, .786vmin);	/*  absolute values only  */
+		--t5as: var(--take5-aspace, .78vmin);	/*  absolute values only  */
 
 		/*  A horizontal space  */
-		--t5hs: var(--take5-hspace, .888vw);	/*  absolute values only  */
+		--t5hs: var(--take5-hspace, .88vw);	/*  absolute values only  */
 
 		/*  Icon size  */
 		--t5gs: var(--take5-glyphsize, 40px);	/*  absolute values only  */
 
-		/*  `<footer>` and  `<aside>` vertical positioning  */
-		--t5fp: var(--take5-footer-y, 40px);	/*  accepts viewport percentage (height)  */
+		/*  `<footer>` and  `<aside>` **minimum** height  */
+		--t5fh: var(--take5-footer-h, 3.3vh);	/*  absolute values only  */
 
 		/*  External margins  */
-		--t5em: var(--take5-margin, 1.887vmin);	/*  absolute values only  */
+		--t5em: var(--take5-margin, 1.88vmin);	/*  absolute values only  */
+
+		/*  `<nav>` vertical positioning (top)  */
+		--t5np: var(--take5-nav-y, 3.8vh);	/*  accepts viewport percentage (height)  */
 
 		/*  Horizontal overflow of tabs when `:not(:hover)`  */
 		--t5lo: var(--take5-navlink-of, 10%);	/*  percentages only (for IE)  */
@@ -108,10 +106,10 @@
 		--t5lxw: var(--take5-navlink-xw, 40%);	/*  percentages only (for IE)  */
 
 		/*  Vertical separator between `<nav>` links  */
-		--t5nvs: var(--take5-nav-vsep, 24px);	/*  absolute values only  */
+		--t5nvs: var(--take5-nav-vsep, 3.8vh);	/*  absolute values only  */
 
 		/*  Horizontal separator between `<nav>` links and margins  */
-		--t5shm: var(--take5-nav-hsep, 32px);	/*  absolute values only  */
+		--t5shm: var(--take5-nav-hsep, 2.37vw);	/*  absolute values only  */
 
 		/*  Shadows  */
 		--t5sh: var(--take5-shadows, 0 0 20px #000);
@@ -145,8 +143,8 @@
 		padding: var(--t5vp) var(--t5em) var(--t5vp) calc(100% - var(--t5hp) + var(--t5hs));
 		overflow: hidden;
 		color: #fff;
-		font-family: report, courier, monospace;
-		font-size: .80em;
+		font-family: "Victoria Typewriter", courier, monospace;
+		font-size: var(--t5fs);
 		line-height: normal;
 		z-index: 10000;
 		transition: visibility 0s .5s, opacity .5s linear;
@@ -162,7 +160,8 @@
 
 	/*\
 	|*|
-	|*|	A layer and an animated hashtag at the bottom right corner...
+	|*|	An "apparition" at the top left corner and an animated hashtag at the
+	|*|	bottom right corner...
 	|*|
 	\*/
 
@@ -198,7 +197,7 @@
 		right: 0;
 		margin: var(--t5em);
 		box-sizing: border-box;
-		font-size: 1.05em;
+		font-size: .95em;
 		transition: bottom 1.5s ease;
 		text-align: right;
 		max-width: 50%;
@@ -436,7 +435,7 @@
 		display: block;
 		position: absolute;
 		left: var(--t5em);
-		top: calc(var(--t5vp) + var(--t5nvs));
+		top: calc(var(--t5vp) + var(--t5np));
 		box-sizing: border-box;
 		width: calc(var(--t5hp) - var(--t5em) - var(--t5hs));
 		height: auto;
@@ -471,12 +470,13 @@
 	article.slide > footer:first-of-type,
 	article.slide > aside:first-of-type {
 		position: absolute;
-		bottom: var(--t5fp);
+		bottom: calc(var(--t5vp) - var(--t5fh));
 		box-sizing: border-box;
 		width: calc(var(--t5hp) - var(--t5em) - var(--t5hs));
 		height: auto;
 		margin: 0;
-		max-height: calc(100% - var(--t5fp) * 2);
+		max-height: calc(100% - (var(--t5vp) - var(--t5fh)) * 2);
+		font-size: min(calc(var(--t5fh) * 3 / 4), 1em);
 		padding: 0;
 		overflow: hidden;
 	}
@@ -707,7 +707,7 @@
 
 	/*  No `rel` attributes given  */
 
-	article.slide > nav:first-of-type a[href]::before {
+	article.slide > nav:first-of-type a[href]:not([rel])::before {
 		content: "See also";
 	}
 
@@ -782,25 +782,51 @@
 		text-transform: none;
 	}
 
-	article.slide > nav:first-of-type a[href][rel~="parent"]:not(.no-label):empty::before {
+	article.slide > nav:first-of-type a[href][rel~="parent"]:empty::before {
 		content: "Exit";
 		text-transform: none;
 	}
 
-	article.slide > nav:first-of-type a[href][rel~="parent"]:not(.tab):not(.no-rel):not(.no-label):empty::before {
+	article.slide > nav:first-of-type a[href][rel~="parent"]:not(.tab):not(.plate):not(.no-rel):empty::before {
 		content: "Click to exit";
 		text-transform: none;
 	}
 
 
-	/*  Remove user-given labels when necessary  */
+	/*  Remove default labels when necessary  */
 
-	article.slide > nav:first-of-type a[href].no-label::before,
+	/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ !DEV_ONLY! @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+	/*
+		Classes `flr` ("Forbid Label Removal") and `flc` ("Forbid Label
+		Change") are used with the only purpose of increasing specificity,
+		however nothing forbids using them in real life.
+
+		As the acronyms suggest, a slide declared with the `flr` class inhibits
+		the effect of the `no-label` class assigned to its links, while a slide
+		declared with the `flc` class inhibits the effect of both the `no-label`
+		class and the `data-label` attribute assigned to its links -- note that
+		the `with-label` class will still be functional in both cases.
+	*/
+	/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ !END_DEV_ONLY! @@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+	/*  High specificity here allows to create localization plugins easily  */
+	article.slide:not(.flr):not(.flc) > nav:first-of-type a[href].no-label::before,
+	article.slide:not(.flr):not(.flc) > nav:first-of-type a[href].no-label:not(.tab):not(.plate):not(.no-rel):empty::before,
 	article.slide:not(.verbose) > nav:first-of-type a[href]:not([rel~="parent"]):not(.with-label):not(:empty)::before,
-	article.slide:not(.verbose) > nav:first-of-type a[href][rel~="parent"].tab:not(.with-label):not(:empty)::before,
-	article.slide:not(.verbose) > nav:first-of-type a[href][rel~="parent"].no-rel:not(.with-label):not(:empty)::before,
-	article.slide.pinned > nav:first-of-type a[href][rel~="parent"]:not(.tab):not(.no-rel):empty::before {
+	article.slide:not(.verbose) > nav:first-of-type a[href].tab:not(.with-label):not(:empty)::before,
+	article.slide:not(.verbose) > nav:first-of-type a[href].plate:not(.with-label):not(:empty)::before,
+	article.slide:not(.verbose) > nav:first-of-type a[href].no-rel:not(.with-label):not(:empty)::before,
+	article.slide.pinned:not(.verbose) > nav:first-of-type a[href][rel~="parent"]:not(.plate):not(.tab):not(.no-rel):not(.with-label):empty::before {
 		content: none;
+	}
+
+
+	/*  Create user-given labels when necessary  */
+
+	/*  High specificity here allows to create localization plugins easily  */
+	article.slide:not(.flc) > nav:first-of-type a[href][data-label]:not([data-label=""]):not(.no-label)::before,
+	article.slide:not(.flc) > nav:first-of-type a[href][data-label]:not([data-label=""]):not(.plate):not(.tab):not(.no-rel):not(.no-label):empty::before {
+		content: attr(data-label);
+		text-transform: none;
 	}
 
 
@@ -1059,7 +1085,7 @@
 
 	article.slide blockquote {
 		position: relative;
-		color: #afafaf;
+		color: #d0d0d0;
 		font-style: italic;
 		padding: 0 1.75em;
 	}
@@ -1081,7 +1107,6 @@
 		:: UNSET PLACE `@blockquote_not_leeloo` ::
 	*/
 		font-size: inherit;
-		font-size: revert;
 	}
 
 	article.slide blockquote::before,
@@ -1109,16 +1134,8 @@
 		text-align: right;
 	}
 
-	article.slide blockquote cite {
-		display: block;
-		margin: 1em 0 1em 1.5em;
-		font-style: normal;
-	}
-
-	article.slide blockquote cite::before {
-		content: "\2014";
-		display: inline-block;
-		width: 1em;
+	article.slide blockquote footer em {
+		font-style: italic;
 	}
 
 	article.slide dl {
@@ -1137,11 +1154,15 @@
 
 	article.slide dl > dd {
 		box-sizing: border-box;
-		margin: 0;
+		margin: 0 0 0 25%;
 		padding: 0 2em 0 .5em;
 		float: left;
 		width: 75%;
 		clear: right;
+	}
+
+	article.slide dl > dt + dd {
+		margin: 0;
 	}
 
 	article.slide fieldset {
@@ -1159,13 +1180,13 @@
 
 	article.slide code,
 	article.slide pre {
-		font-family: monospace;
+		font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
 		font-size: 1.1em;
 	}
 
 	article.slide pre {
-		border-left: 1px #fff solid;
-		padding: .5em .5em .5em 1em;
+		border-left: 3px #bbb solid;
+		padding: .5em .5em .5em 1.4em;
 		line-height: 1.5em;
 	}
 
@@ -1235,9 +1256,8 @@
 
 
 @media
- only screen and (pointer: coarse),
- only screen and (pointer: none),
- only screen and (hover: none) {
+ only screen and not (pointer: fine),
+ only screen and not (hover: hover) {
 
 	article.slide > nav:first-of-type a[href],
 	article.slide > nav:first-of-type a[href][rel].tab,
@@ -1252,6 +1272,10 @@
 /*  Small height  */
 
 @media only screen and (max-height: 500px) {
+
+	article.slide:not(.nonadaptive) {
+		font-size: calc(var(--t5fs) * 7 / 8);
+	}
 
 	/*  Remove labels from `<nav>` links when screen height is too low  */
 
@@ -1296,7 +1320,6 @@
 		padding: calc(var(--t5abgs) * 4 / 5 + var(--t5ags) * 2 + var(--t5vs)) var(--t5em) var(--t5em) var(--t5em);
 		overflow: auto;
 		font-size: 1em;
-
 	}
 
 	article.slide:not(.nonadaptive)::before {
@@ -1356,7 +1379,7 @@
 
 	article.slide:not(.nonadaptive) > header:first-of-type {
 		bottom: calc(100% - var(--t5abgs) * 4 / 5 - var(--t5ags) * 2);
-		padding: 0 var(--t5ags);
+		padding: 0 calc(var(--t5ags) + var(--t5em));
 		font-size: 1em;
 	}
 
@@ -1590,6 +1613,20 @@
 		page-break-after: always;
 	}
 
+	/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@ !DEV_ONLY! @@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+	article.slide:first-child {
+		break-before: auto;
+		/*  Old syntax  */
+		page-break-before: auto;
+	}
+	/*@@@@@@@@@@@@@@@@@@@@@@@@@@ !END_DEV_ONLY! @@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+	article.slide:last-child {
+		break-after: auto;
+		/*  Old syntax  */
+		page-break-after: auto;
+	}
+
 	article.slide[data-context] {
 		padding-top: .8em;
 	}
@@ -1628,6 +1665,39 @@
 
 	article.slide footer {
 		margin-top: 2em;
+	}
+
+	article.slide img,
+	article.slide svg,
+	article.slide audio,
+	article.slide video,
+	article.slide iframe {
+		max-height: 87vh;
+	}
+
+}
+
+
+
+/*\
+|*|
+|*|	All media
+|*|
+\*/
+
+
+@media all {
+
+	article.slide blockquote footer {
+		display: block;
+		margin: 1em 0 1em 1.5em;
+		font-style: normal;
+	}
+
+	article.slide blockquote footer::before {
+		content: "\2014";
+		display: inline-block;
+		margin-right: .5em;
 	}
 
 }

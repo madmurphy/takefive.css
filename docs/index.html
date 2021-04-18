@@ -3,10 +3,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The most advanced pure CSS lightbox &ndash; not one single line of JavaScript has been wasted">
 <link rel="stylesheet" type="text/css" href="css/print.css" />
 <link rel="stylesheet" type="text/css" href="css/docs.css" />
 <link rel="stylesheet" type="text/css" href="css/takefive.min.css" />
-<title>Take Five! pure-CSS slide renderer</title>
+<title>Take Five! pure CSS slide renderer</title>
 <script>"Stop crbug.com/332189 and crbug.com/167083";</script>
 </head>
 
@@ -14,7 +15,7 @@
 
 <header>
 	<h1>Take Five!</h1>
-	<h6>A semantically-consistent pure-CSS slide renderer</h6>
+	<p class="subtitle">A semantically-consistent pure CSS slide renderer</p>
 </header>
 
 <p style="text-align: center; font-size: 1.5em;"><a href="#my-gallery">I want to see the demo</a></p>
@@ -41,6 +42,10 @@
 		</ol>
 	</li>
 </ol>
+<footer>
+<h2>Free software</h2>
+<p><strong>Take Five!</strong> is free software. You can redistribute it and/or modify it under the terms of the <a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html" target="_blank" rel="noopener">GPL license</a>, version 3 or any later version. The code is <a href="https://github.com/madmurphy/takefive.css/" target="_blank" rel="noopener">available on GitHub</a>.</p>
+</footer>
 
 <section itemscope itemtype="https://schema.org/ImageGallery">
 
@@ -101,7 +106,7 @@
 			<p>(c) John Doe</p>
 		</footer>
 		<aside>
-			<p>This presentation is powered by <a href="https://github.com/madmurphy/takefive.css" target="_blank">Take Five!</a> pure-CSS slide renderer.</p>
+			<p>This presentation is powered by <a href="https://github.com/madmurphy/takefive.css" target="_blank">Take Five!</a> pure CSS slide renderer.</p>
 		</aside>
 		<nav>
 			<a href="#nowhere" rel="parent">My diary</a>
@@ -135,7 +140,10 @@
 			<a href="#audio-example" rel="last">Audio example</a>
 			<a href="#example-gallery-about">About</a>
 		</nav>
-		<blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning. <cite>Albert Einstein</cite></blockquote>
+		<blockquote>
+			Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning.
+			<footer>Albert Einstein</footer>
+		</blockquote>
 	</article>
 
 	<article class="verbose slide" id="into-the-woods" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
@@ -238,7 +246,7 @@
 			<p>Phasellus nec odio velit. In hac habitasse platea dictumst. Aliquam blandit nec nulla a aliquam. Donec eget erat a leo dapibus egestas sed a nunc. Phasellus elementum laoreet urna, vel porttitor lectus iaculis vitae. Duis a euismod lorem. Pellentesque quis auctor eros, at mollis mauris. Etiam sit amet finibus nulla. Cras at mi vitae lorem ultricies tristique.</p>
 		</article>
 		<aside>
-			<p>This presentation is powered by <a href="https://github.com/madmurphy/takefive.css" target="_blank">Take Five!</a> pure-CSS slide renderer.</p>
+			<p>This presentation is powered by <a href="https://github.com/madmurphy/takefive.css" target="_blank">Take Five!</a> pure CSS slide renderer.</p>
 		</aside>
 		<footer>
 			<p>(c) John Doe</p>
@@ -263,7 +271,7 @@
 			<figcaption itemprop="caption">Frozen source</figcaption>
 		</figure>
 		<p>Pay attention to the left menu and the text that appears on the top right corner. This is an example of default layout (simply <code>&lt;article class="<mark>slide</mark>"&gt;</code>).</p>
-		<p style="margin-top: 1em;">Note that the link for exiting the slide is still shown with a label. Labels can be removed individually on the single links by adding a <code>"no-label"</code> class to them.</p>
+		<p style="margin-top: 1em;">Note that the link for exiting the slide is still shown with a label. Labels can be removed individually from the links by assigning a <code>"no-label"</code> class to them.</p>
 		<footer>
 			<p>(c) John Doe</p>
 		</footer>
@@ -313,7 +321,7 @@
 		</figure>
 		<aside>
 			<p>The <code>&lt;aside&gt;</code> element is the perfect place for additional <code>&lt;nav&gt;</code> containers.</p>
-			<nav style="font-size:24px;">
+			<nav style="font-size: 24px;">
 				<a href="#video-example" style="font-weight: normal;">&#9881;&#65039;</a>
 				<a href="#video-example" style="font-weight: normal;">&#128265;</a>
 				<a href="#video-example" style="font-weight: normal;">&#127916;</a>
@@ -364,7 +372,7 @@
 				<a href="https://www.youtube.com/watch?v=df-eLzao63I" rel="canonical bookmark" itemprop="embedUrl" target="_blank">YouTube example</a>
 				<a href="https://www.example.com/">Custom link</a>
 			</div>
-			<p>Labels can be shown individually on the single links by adding a <code>"with-label"</code> class to them.</p>
+			<p>Labels can be added individually to the links by assigning a <code>"with-label"</code> class to them.</p>
 			<div>
 				<a href="https://www.example.com/" class="with-label">Custom link</a>
 				<a href="https://www.example.com/" class="with-label" data-label="Other">Custom link</a>
@@ -459,7 +467,6 @@
 			<nav>
 				<a href="#example-gallery-about" rel="parent">About</a>
 				<a href="#my-gallery" rel="index">All photos</a>
-				<a href="#example-gallery-contact-me" rel="bookmark" itemprop="url">Contact me</a>
 			</nav>
 		</article>
 
@@ -468,11 +475,6 @@
 	<!-- End of nested gallery -->
 
 </section>
-
-<footer>
-<h2>Free software</h2>
-<p><strong>Take Five!</strong> is free software. You can redistribute it and/or modify it under the terms of the <a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html" target="_blank" rel="noopener">GPL license</a>, version 3 or any later version. The code is <a href="https://github.com/madmurphy/takefive.css/" target="_blank" rel="noopener">available on GitHub</a>.</p>
-</footer>
 
 </body>
 </html>

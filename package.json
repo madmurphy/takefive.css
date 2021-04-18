@@ -1,7 +1,7 @@
 {
 	"name": "Take Five!",
-	"version": "3.0.0",
-	"description": "A semantically-consistent pure-CSS slide renderer",
+	"version": "3.1.0",
+	"description": "The most advanced pure CSS lightbox \u2014 not one single line of JavaScript has been wasted",
 	"author": "madmurphy333@gmail.com",
 	"license": "GPL-3.0-or-later",
 	"homepage": "https://madmurphy.github.io/takefive.css",

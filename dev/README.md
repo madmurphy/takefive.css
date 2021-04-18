@@ -9,3 +9,6 @@ A shell script is available for stripping the variables and minifying the CSS
 files (the original files will not be overwritten -- `qalc` and `uglifycss` are
 required).
 
+If you are only interested in using the CSS for a website, please refer to the
+`dist` subdirectory.
+

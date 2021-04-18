@@ -14,17 +14,17 @@
 
 <body>
 
-<hgroup>
+<header>
 <h1>Take Five! Counters</h1>
-<h2><code>&gt; plugins/counters/takefive-counters.css</code></h2>
-</hgroup>
-<p>This plugin numbers the slides that are nested inside a <code>&lt;section&gt;</code> element with class <code>"slides"</code>. The CSS can show two different outputs on the bottom right corner of the viewport: a simple number (<code>"numbered"</code>) or a full path in respect to a tree of nested galleries, in the form of &ldquo;1.2.3.4&rdquo; (<code>"tracked"</code>). The numbering will appear also in the printed version of the page.</p>
+<p class="title-cont"><code>&gt; plugins/counters/takefive-counters.css</code></p>
+</header>
+<p>This plugin numbers the slides that are nested inside a <code>&lt;section&gt;</code> element with class <code>"slides"</code>. The CSS can show two different outputs on the bottom right corner of the viewport: a simple number (<code>"numbered"</code> class) or a full path in respect to a tree of nested galleries, in the form of &ldquo;1.2.3.4&rdquo; (<code>"tracked"</code> class). The numbering will appear also in the printed version of the page.</p>
 <ul>
 <li><a href="#numbered-slide-1">See example with <code>"numbered"</code> class</a></li>
 <li><a href="#tracked-slide-1.4.1">See example with <code>"tracked"</code> class</a></li>
 <li><a href="#isolated-slide">See isolated slide</a></li>
 </ul>
-<h2>Available classes</h2>
+<h2 class="unnumbered">Available classes</h2>
 <table class="autolayout definition">
 <thead>
 <tr>
@@ -37,20 +37,24 @@
 <tr>
 <td><code>"slides"</code></td>
 <td><code>section.slides</code></td>
-<td>A new <code>counter()</code> scope will be created for the slides nested within. Not all slides need to be nested inside a gallery, the <code>&lt;article class="slide"&gt;</code> element can still be placed everywhere in a page in case of isolated slides. This class is used only for packing together several related slides that logically belong to a gallery.</td>
+<td>A new <code>counter()</code> scope will be created for the slides nested within. Not all slides need to be nested inside a gallery, the <code>&lt;article class="slide"&gt;</code> element can still be placed everywhere in a page in case of isolated slides. This class is used only for packing together several related slides that logically belong to a gallery. Note that another plugin relies on the <code>"slides"</code> class: <a href="slides.html"><code>takefive-slides.css</code></a>. The two plugins can cohabit.</td>
 </tr>
 <tr>
 <td><code>"numbered"</code></td>
 <td><code>article.slide.numbered</code></td>
-<td>A <code>"numbered"</code> slide will display only its slide number within the current gallery, or &ldquo;single slide&rdquo;&nbsp;when not nested in any gallery (bottom-right corner of the viewport).</td>
+<td>A <code>"numbered"</code> slide will display only its slide number within the current gallery, or &ldquo;single slide&rdquo; when not nested inside any gallery (bottom-right corner of the viewport).</td>
 </tr>
 <tr>
 <td><code>"tracked"</code></td>
 <td><code>article.slide.tracked<br /></code></td>
-<td>A <code>"tracked"</code> slide will display its full path within the gallery tree (e.g., 3.14.6), or &ldquo;single slide&rdquo; when not nested in any gallery (bottom-right corner of the viewport).</td>
+<td>A <code>"tracked"</code> slide will display its full path within the gallery tree (e.g., 3.14.6), or &ldquo;single slide&rdquo; when not nested inside any gallery (bottom-right corner of the viewport).</td>
 </tr>
 </tbody>
 </table>
+<footer>
+<h2>Free software</h2>
+<p><strong>Take Five!</strong> is free software. You can redistribute it and/or modify it under the terms of the <a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html" target="_blank" rel="noopener">GPL license</a>, version 3 or any later version. The code is <a href="https://github.com/madmurphy/takefive.css/" target="_blank" rel="noopener">available on GitHub</a>.</p>
+</footer>
 
 <!-- "numbered" class -->
 <section class="slides">
@@ -60,7 +64,7 @@
 			<figcaption>Into the woods</figcaption>
 		</figure>
 		<nav>
-			<a href="#nowhere" rel="parent">My diary</a>
+			<a href="#nowhere" rel="parent">Counters</a>
 			<a href="#numbered-slide-2" rel="next">Frozen source</a>
 			<a href="#numbered-slide-5" rel="last">The old castle</a>
 			<a href="../media/1.jpg" download rel="attachment" target="_blank">Download this picture</a>
@@ -120,7 +124,7 @@
 				<a href="../media/9.jpg" download rel="attachment" target="_blank">Download this picture</a>
 			</nav>
 		</article>
-			<section class="slides">
+		<section class="slides">
 			<article class="slide numbered" id="numbered-slide-1.4.1">
 				<figure>
 					<img src="../media/10.jpg" />
@@ -179,7 +183,7 @@
 			<figcaption>Yellow at the lake</figcaption>
 		</figure>
 		<nav>
-			<a href="#nowhere" rel="parent">My diary</a>
+			<a href="#nowhere" rel="parent">Counters</a>
 			<a href="#numbered-slide-1" rel="prev first">Into the woods</a>
 			<a href="#numbered-slide-3" rel="next">Winter tree</a>
 			<a href="#numbered-slide-5" rel="last">The old castle</a>
@@ -192,7 +196,7 @@
 			<figcaption>Winter tree</figcaption>
 		</figure>
 		<nav>
-			<a href="#nowhere" rel="parent">My diary</a>
+			<a href="#nowhere" rel="parent">Counters</a>
 			<a href="#numbered-slide-2" rel="prev">Yellow at the lake</a>
 			<a href="#numbered-slide-4" rel="next">Autumn</a>
 			<a href="#numbered-slide-1" rel="first">Into the woods</a>
@@ -206,7 +210,7 @@
 			<figcaption>Autumn</figcaption>
 		</figure>
 		<nav>
-			<a href="#nowhere" rel="parent">My diary</a>
+			<a href="#nowhere" rel="parent">Counters</a>
 			<a href="#numbered-slide-3" rel="prev">Winter tree</a>
 			<a href="#numbered-slide-5" rel="next last">The old castle</a>
 			<a href="#numbered-slide-1" rel="first">Into the woods</a>
@@ -219,7 +223,7 @@
 			<figcaption>The old castle</figcaption>
 		</figure>
 		<nav>
-			<a href="#nowhere" rel="parent">My diary</a>
+			<a href="#nowhere" rel="parent">Counters</a>
 			<a href="#numbered-slide-4" rel="prev">Autumn</a>
 			<a href="#numbered-slide-1" rel="first">Into the woods</a>
 			<a href="../media/5.jpg" download rel="attachment" target="_blank">Download this picture</a>
@@ -235,7 +239,7 @@
 			<figcaption>Into the woods</figcaption>
 		</figure>
 		<nav>
-			<a href="#nowhere" rel="parent">My diary</a>
+			<a href="#nowhere" rel="parent">Counters</a>
 			<a href="#tracked-slide-2" rel="next">Frozen source</a>
 			<a href="#tracked-slide-5" rel="last">The old castle</a>
 			<a href="../media/1.jpg" download rel="attachment" target="_blank">Download this picture</a>
@@ -295,7 +299,7 @@
 				<a href="../media/9.jpg" download rel="attachment" target="_blank">Download this picture</a>
 			</nav>
 		</article>
-			<section class="slides">
+		<section class="slides">
 			<article class="slide tracked" id="tracked-slide-1.4.1">
 				<figure>
 					<img src="../media/10.jpg" />
@@ -354,7 +358,7 @@
 			<figcaption>Yellow at the lake</figcaption>
 		</figure>
 		<nav>
-			<a href="#nowhere" rel="parent">My diary</a>
+			<a href="#nowhere" rel="parent">Counters</a>
 			<a href="#tracked-slide-1" rel="prev first">Into the woods</a>
 			<a href="#tracked-slide-3" rel="next">Winter tree</a>
 			<a href="#tracked-slide-5" rel="last">The old castle</a>
@@ -367,7 +371,7 @@
 			<figcaption>Winter tree</figcaption>
 		</figure>
 		<nav>
-			<a href="#nowhere" rel="parent">My diary</a>
+			<a href="#nowhere" rel="parent">Counters</a>
 			<a href="#tracked-slide-2" rel="prev">Yellow at the lake</a>
 			<a href="#tracked-slide-4" rel="next">Autumn</a>
 			<a href="#tracked-slide-1" rel="first">Into the woods</a>
@@ -381,7 +385,7 @@
 			<figcaption>Autumn</figcaption>
 		</figure>
 		<nav>
-			<a href="#nowhere" rel="parent">My diary</a>
+			<a href="#nowhere" rel="parent">Counters</a>
 			<a href="#tracked-slide-3" rel="prev">Winter tree</a>
 			<a href="#tracked-slide-5" rel="next last">The old castle</a>
 			<a href="#tracked-slide-1" rel="first">Into the woods</a>
@@ -394,7 +398,7 @@
 			<figcaption>The old castle</figcaption>
 		</figure>
 		<nav>
-			<a href="#nowhere" rel="parent">My diary</a>
+			<a href="#nowhere" rel="parent">Counters</a>
 			<a href="#tracked-slide-4" rel="prev">Autumn</a>
 			<a href="#tracked-slide-1" rel="first">Into the woods</a>
 			<a href="../media/5.jpg" download rel="attachment" target="_blank">Download this picture</a>
@@ -402,7 +406,7 @@
 	</article>
 </section>
 
-<!-- isolated slide - "numbered" or "tracked" will create the same result -->
+<!-- isolated slide - "numbered" or "tracked" will bring to the same result -->
 <article class="slide numbered" id="isolated-slide">
 	<header>
 		<h2>Isolated slide</h2>
@@ -412,15 +416,10 @@
 		<figcaption>Gray bridge and trees</figcaption>
 	</figure>
 	<nav>
-		<a href="#nowhere" rel="parent">My diary</a>
+		<a href="#nowhere" rel="parent">Counters</a>
 		<a href="../media/8.jpg" download rel="attachment" target="_blank">Download this picture</a>
 	</nav>
 </article>
-
-<footer>
-<h2>Free software</h2>
-<p><strong>Take Five!</strong> is free software. You can redistribute it and/or modify it under the terms of the <a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html" target="_blank" rel="noopener">GPL license</a>, version 3 or any later version. The code is <a href="https://github.com/madmurphy/takefive.css/" target="_blank" rel="noopener">available on GitHub</a>.</p>
-</footer>
 
 </body>
 </html>

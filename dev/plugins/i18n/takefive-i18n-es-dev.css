@@ -1,0 +1,100 @@
+/*\
+|*|
+|*|	:: Spanish translation of **Take Five!** ::
+|*|
+|*|	Version 1.0.0
+|*|
+|*|	https://github.com/madmurphy/takefive.css/
+|*|
+\*/
+
+
+@media only screen {
+
+	/*
+		No need to use `!important`, these selectors already have sufficient
+		specificity.
+
+		Do not change the order whereby the selectors are listed.
+	*/
+
+	article.slide:lang(es) > nav:first-of-type a[href]:not([rel])::before {
+		/*  English: "See also";  */
+		content: "Ver también";
+	}
+
+	article.slide:lang(es) > nav:first-of-type a[href][rel~="tag"]::before {
+		/*  English: "Tagged content";  */
+		content: "Contenido relacionado";
+	}
+
+	article.slide:lang(es) > nav:first-of-type a[href][rel~="discussion"]::before {
+		/*  English: "Comments";  */
+		content: "Comentarios";
+	}
+
+	article.slide:lang(es) > nav:first-of-type a[href][rel~="author"]::before {
+		/*  English: "Author";  */
+		content: "Autor";
+	}
+
+	article.slide:lang(es) > nav:first-of-type a[href][rel~="attachment"]::before {
+		/*  English: "Download";  */
+		content: "Descargar";
+	}
+
+	article.slide:lang(es) > nav:first-of-type a[href][rel~="bookmark"]::before {
+		/*  English: "Share it!";  */
+		content: "Difundir";
+	}
+
+	article.slide:lang(es) > nav:first-of-type a[href][rel~="index"]::before {
+		/*  English: "Index";  */
+		content: "\0000CDndice";
+	}
+
+	article.slide:lang(es) > nav:first-of-type a[href][rel~="first"]::before {
+		/*  English: "First slide";  */
+		content: "Primera diapositiva";
+	}
+
+	article.slide:lang(es) > nav:first-of-type a[href][rel~="last"]::before {
+		/*  English: "Last slide";  */
+		content: "\0000DAltima diapositiva";
+	}
+
+	article.slide:lang(es) > nav:first-of-type a[href][rel~="prev"]::before {
+		/*  English: "Previous slide";  */
+		content: "Diapositiva anterior";
+	}
+
+	article.slide:lang(es) > nav:first-of-type a[href][rel~="next"]::before {
+		/*  English: "Next slide";  */
+		content: "Diapositiva siguiente";
+	}
+
+	article.slide:lang(es) > nav:first-of-type a[href][rel~="child"]::before {
+		/*  English: "More";  */
+		content: "M\0000E1s";
+	}
+
+	article.slide:lang(es) > nav:first-of-type a[href][rel~="parent"]::before {
+		/*  English: "Back to";  */
+		content: "Regresar a";
+	}
+
+	article.slide:lang(es) > nav:first-of-type a[href][rel~="parent"]:empty::before {
+		/*  English: "Exit";  */
+		content: "Salida";
+	}
+
+	article.slide:lang(es) > nav:first-of-type a[href][rel~="parent"]:not(.tab):not(.plate):not(.no-rel):empty::before {
+		/*  English: "Click to exit";  */
+		content: "Haga clic para salir";
+	}
+
+}
+
+
+/*  EOF  */
+

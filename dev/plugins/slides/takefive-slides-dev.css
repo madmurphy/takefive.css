@@ -1,0 +1,96 @@
+/*\
+|*|
+|*|	:: Take Five! -- Slides ::
+|*|
+|*|	Version 1.0.0
+|*|
+|*|	https://github.com/madmurphy/takefive.css/
+|*|
+\*/
+
+
+@media all {
+
+	section.slides {
+		margin: 0;
+		padding: 0;
+	}
+
+}
+
+
+@media only screen {
+
+	section.slides {
+		position: fixed;
+		top: 0;
+		left: 0;
+		visibility: hidden;
+		z-index: 10000;
+	}
+
+	section.slides > :not(article),
+	section.slides > :not(.slide) {
+		display: none;
+	}
+
+	section.slides section.slides {
+		position: revert;
+		top: revert;
+		left: revert;
+		visibility: revert;
+		z-index: revert;
+	}
+
+}
+
+
+@media only print {
+
+	section.slides {
+		position: relative;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		break-before: always;
+		break-after: always;
+		/*  Old syntax  */
+		page-break-before: always;
+		page-break-after: always;
+	}
+
+	/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@ !DEV_ONLY! @@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+	section.slides:first-child {
+		break-before: auto;
+		/*  Old syntax  */
+		page-break-before: auto;
+	}
+	/*@@@@@@@@@@@@@@@@@@@@@@@@@@ !END_DEV_ONLY! @@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+	section.slides:last-child {
+		break-after: auto;
+		/*  Old syntax  */
+		page-break-after: auto;
+	}
+
+	section.slides > header {
+		position: relative;
+		top: 40vh;
+		left: 0;
+		font-size: 1.5em;
+		break-before: always;
+		break-after: always;
+		/*  Old syntax  */
+		page-break-before: always;
+		page-break-after: always;
+	}
+
+	section.slides > header > * {
+		text-align: center;
+	}
+
+}
+
+
+/*  EOF  */
+

@@ -1,3 +1,14 @@
+/*\
+|*|
+|*|	:: Take Five! -- Glyphs ::
+|*|
+|*|	Version 1.0.0
+|*|
+|*|	https://github.com/madmurphy/takefive.css/
+|*|
+\*/
+
+
 @media only screen {
 
 	article.slide > nav:first-of-type a[href][data-glyph]:not(.no-glyph)::after {
@@ -29,75 +40,75 @@
 	/*  [rel="discussion"]  */
 	article.slide > nav:first-of-type a[href][data-slot="lctrl-b1"]:not(.no-glyph)::after {
 		top: unset;
-		bottom: 60px;
+		bottom: 9.5vh;
 		left: 18%;
 	}
 
 	article.slide > nav:first-of-type a[href][data-slot="lctrl-b2"]:not(.no-glyph)::after {
 		top: unset;
-		bottom: 100px;
+		bottom: calc(9.5vh + 40px);
 		left: 18%;
 	}
 
 	article.slide > nav:first-of-type a[href][data-slot="lctrl-b3"]:not(.no-glyph)::after {
 		top: unset;
-		bottom: 140px;
+		bottom: calc(9.5vh + 80px);
 		left: 18%;
 	}
 
 	/*  [rel="attachment"]  */
 	article.slide > nav:first-of-type a[href][data-slot="rctrl-b1"]:not(.no-glyph)::after {
 		top: unset;
-		bottom: 60px;
+		bottom: 9.5vh;
 		left: calc(82% - 40px);
 	}
 
 	article.slide > nav:first-of-type a[href][data-slot="rctrl-b2"]:not(.no-glyph)::after {
 		top: unset;
-		bottom: 100px;
+		bottom: calc(9.5vh + 40px);
 		left: calc(82% - 40px);
 	}
 
 	article.slide > nav:first-of-type a[href][data-slot="rctrl-b3"]:not(.no-glyph)::after {
 		top: unset;
-		bottom: 140px;
+		bottom: calc(9.5vh + 80px);
 		left: calc(82% - 40px);
 	}
 
 	/*  [rel="bookmark"]  */
 	article.slide > nav:first-of-type a[href][data-slot="lctrl-t1"]:not(.no-glyph)::after {
-		top: 60px;
+		top: 9.5vh;
 		bottom: unset;
 		left: 18%;
 	}
 
 	article.slide > nav:first-of-type a[href][data-slot="lctrl-t2"]:not(.no-glyph)::after {
-		top: 100px;
+		top: calc(9.5vh + 40px);
 		bottom: unset;
 		left: 18%;
 	}
 
 	article.slide > nav:first-of-type a[href][data-slot="lctrl-t3"]:not(.no-glyph)::after {
-		top: 140px;
+		top: calc(9.5vh + 80px);
 		bottom: unset;
 		left: 18%;
 	}
 
 	/*  [rel="author"]  */
 	article.slide > nav:first-of-type a[href][data-slot="rctrl-t1"]:not(.no-glyph)::after {
-		top: 60px;
+		top: 9.5vh;
 		bottom: unset;
 		left: calc(82% - 40px);
 	}
 
 	article.slide > nav:first-of-type a[href][data-slot="rctrl-t2"]:not(.no-glyph)::after {
-		top: 100px;
+		top: calc(9.5vh + 40px);
 		bottom: unset;
 		left: calc(82% - 40px);
 	}
 
 	article.slide > nav:first-of-type a[href][data-slot="rctrl-t3"]:not(.no-glyph)::after {
-		top: 140px;
+		top: calc(9.5vh + 80px);
 		bottom: unset;
 		left: calc(82% - 40px);
 	}
@@ -105,22 +116,22 @@
 	/*  [rel="first"]  */
 	article.slide > nav:first-of-type a[href][data-slot="bctrl-c1"]:not(.no-glyph)::after {
 		top: unset;
-		bottom: calc(20px - .472vh);
-		left: calc(50% - .786vmin - 60px);
+		bottom: calc(9.03vh - 40px);
+		left: calc(50% - .78vmin - 60px);
 	}
 
 	/*  [rel="index"]  */
 	article.slide > nav:first-of-type a[href][data-slot="bctrl-c2"]:not(.no-glyph)::after {
 		top: unset;
-		bottom: calc(20px - .472vh);
+		bottom: calc(9.03vh - 40px);
 		left: calc(50% - 20px);
 	}
 
 	/*  [rel="last"]  */
 	article.slide > nav:first-of-type a[href][data-slot="bctrl-c3"]:not(.no-glyph)::after {
 		top: unset;
-		bottom: calc(20px - .472vh);
-		left: calc(.786vmin + 50% + 20px);
+		bottom: calc(9.03vh - 40px);
+		left: calc(.78vmin + 50% + 20px);
 	}
 
 	/*  [rel="prev"]  */
@@ -175,111 +186,111 @@
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][data-slot="lctrl-b1"]:not(.no-glyph)::after {
 		top: 15.8vmin;
 		bottom: unset;
-		left: 1.887vmin;
+		left: 1.88vmin;
 	}
 
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][data-slot="lctrl-b2"]:not(.no-glyph)::after {
 		top: 22.8vmin;
 		bottom: unset;
-		left: 1.887vmin;
+		left: 1.88vmin;
 	}
 
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][data-slot="lctrl-b3"]:not(.no-glyph)::after {
 		top: 22.8vmin;
 		bottom: unset;
-		left: 15.887vmin;
+		left: 15.88vmin;
 	}
 
 	/*  [rel="attachment"]  */
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][data-slot="rctrl-b1"]:not(.no-glyph)::after {
 		top: 15.8vmin;
 		bottom: unset;
-		left: calc(100% - 10.774vmin);
+		left: calc(100% - 10.76vmin);
 	}
 
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][data-slot="rctrl-b2"]:not(.no-glyph)::after {
 		top: 22.8vmin;
 		bottom: unset;
-		left: calc(100% - 10.774vmin);
+		left: calc(100% - 10.76vmin);
 	}
 
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][data-slot="rctrl-b3"]:not(.no-glyph)::after {
 		top: 22.8vmin;
 		bottom: unset;
-		left: calc(100% - 24.774vmin);
+		left: calc(100% - 24.76vmin);
 	}
 
 	/*  [rel="bookmark"]  */
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][data-slot="lctrl-t1"]:not(.no-glyph)::after {
 		top: 8.8vmin;
 		bottom: unset;
-		left: 1.887vmin;
+		left: 1.88vmin;
 	}
 
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][data-slot="lctrl-t2"]:not(.no-glyph)::after {
 		top: 15.8vmin;
 		bottom: unset;
-		left: 8.887vmin;
+		left: 8.88vmin;
 	}
 
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][data-slot="lctrl-t3"]:not(.no-glyph)::after {
 		top: 22.8vmin;
 		bottom: unset;
-		left: 8.887vmin;
+		left: 8.88vmin;
 	}
 
 	/*  [rel="author"]  */
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][data-slot="rctrl-t1"]:not(.no-glyph)::after {
 		top: 8.8vmin;
 		bottom: unset;
-		left: calc(100% - 10.774vmin);
+		left: calc(100% - 10.76vmin);
 	}
 
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][data-slot="rctrl-t2"]:not(.no-glyph)::after {
 		top: 15.8vmin;
 		bottom: unset;
-		left: calc(100% - 17.774vmin);
+		left: calc(100% - 17.76vmin);
 	}
 
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][data-slot="rctrl-t3"]:not(.no-glyph)::after {
 		top: 22.8vmin;
 		bottom: unset;
-		left: calc(100% - 17.774vmin);
+		left: calc(100% - 17.76vmin);
 	}
 
 	/*  [rel="first"]  */
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][data-slot="bctrl-c1"]:not(.no-glyph)::after {
-		top: calc(1.887vmin + .472vh);
+		top: calc(1.88vmin + .47vh);
 		bottom: unset;
-		left: calc(50% - 27.5vmin - 5.328vw);
+		left: calc(50% - 27.5vmin - 5.28vw);
 	}
 
 	/*  [rel="index"]  */
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][data-slot="bctrl-c2"]:not(.no-glyph)::after {
-		top: calc(1.887vmin + .472vh);
+		top: calc(1.88vmin + .47vh);
 		bottom: unset;
 		left: calc(50% - 5.5vmin);
 	}
 
 	/*  [rel="last"]  */
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][data-slot="bctrl-c3"]:not(.no-glyph)::after {
-		top: calc(1.887vmin + .472vh);
+		top: calc(1.88vmin + .47vh);
 		bottom: unset;
-		left: calc(16.5vmin + 50% + 5.328vw);
+		left: calc(16.5vmin + 50% + 5.28vw);
 	}
 
 	/*  [rel="prev"]  */
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][data-slot="lctrl-c1"]:not(.no-glyph)::after {
-		top: calc(1.887vmin + .472vh);
+		top: calc(1.88vmin + .47vh);
 		bottom: unset;
-		left: calc(50% - 16.5vmin - 2.664vw);
+		left: calc(50% - 16.5vmin - 2.64vw);
 	}
 
 	/*  [rel="next"]  */
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][data-slot="rctrl-c1"]:not(.no-glyph)::after {
-		top: calc(1.887vmin + .472vh);
+		top: calc(1.88vmin + .47vh);
 		bottom: unset;
-		left: calc(5.5vmin + 50% + 2.664vw);
+		left: calc(5.5vmin + 50% + 2.64vw);
 	}
 
 	/*  [rel="parent"]  */

@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../css/print.css" />
+<link rel="stylesheet" type="text/css" href="../css/docs.css" />
+<link rel="stylesheet" type="text/css" href="../css/docs-classes.css" />
+<link rel="stylesheet" type="text/css" href="../css/takefive.min.css" />
+<link rel="stylesheet" type="text/css" href="../css/takefive-slides.min.css" />
+<script>"Stop crbug.com/332189 and crbug.com/167083";</script>
+<title>Take Five! &ndash; Slides</title>
+</head>
+
+<body>
+
+<header>
+<h1>Take Five! Slides</h1>
+<p class="title-cont"><code>&gt; plugins/slides/takefive-slides.css</code></p>
+</header>
+<p>This plugin does nothing else than making sure that all the <code>&lt;section&gt;</code> elements with class <code>"slides"</code> are hidden from the screen, but displayed on the printed page. This makes it possible to accompany these sections with a proper <code>&lt;header&gt;</code> that will be visible only when printed.</p>
+<p>The page you are reading <a href="#example-slide-1">contains a few slides</a>. Please check the printed result.</p>
+<h2 class="unnumbered">Available classes</h2>
+<table class="autolayout definition">
+<thead>
+<tr>
+<th>Class</th>
+<th>Declared as</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>"slides"</code></td>
+<td><code>section.slides</code></td>
+<td>All <code>&lt;section&gt;</code> elements with class <code>"slides"</code> are hidden on screen but visible on the printed page. If a section with class <code>"slides"</code> contains a <code>&lt;header&gt;</code> <em>as a direct child</em>, this will be displayed in its own dedicated page. Note that another plugin relies on the <code>"slides"</code> class: <a href="counters.html"><code>takefive-counters.css</code></a>. The two plugins can cohabit.</td>
+</tr>
+</tbody>
+</table>
+<footer>
+<h2>Free software</h2>
+<p><strong>Take Five!</strong> is free software. You can redistribute it and/or modify it under the terms of the <a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html" target="_blank" rel="noopener">GPL license</a>, version 3 or any later version. The code is <a href="https://github.com/madmurphy/takefive.css/" target="_blank" rel="noopener">available on GitHub</a>.</p>
+</footer>
+
+<section class="slides">
+	<header>
+		<h2>Slides</h2>
+	</header>
+	<article class="slide" id="example-slide-1">
+		<header>
+			<h3>Slide 1</h3>
+		</header>
+		<figure>
+			<img src="../media/10.jpg" />
+			<figcaption>Silhouette of tree near body of water during golden hour</figcaption>
+		</figure>
+		<nav>
+			<a href="#nowhere" rel="parent">Manual</a>
+			<a href="#example-slide-2" rel="next">Close up of leaf</a>
+			<a href="#example-slide-4" rel="last">Gray asphalt road surrounded by tall trees</a>
+			<a href="../media/10.jpg" download rel="attachment" target="_blank">Download this picture</a>
+		</nav>
+	</article>
+	<article class="slide" id="example-slide-2">
+		<header>
+			<h3>Slide 2</h3>
+		</header>
+		<figure>
+			<img src="../media/11.jpg" />
+			<figcaption>Close up of leaf</figcaption>
+		</figure>
+		<nav>
+			<a href="#nowhere" rel="parent">Manual</a>
+			<a href="#example-slide-1" rel="prev first">Silhouette of tree near body of water during golden hour</a>
+			<a href="#example-slide-3" rel="next">Green hill near body of water</a>
+			<a href="#example-slide-4" rel="last">Gray asphalt road surrounded by tall trees</a>
+			<a href="../media/11.jpg" download rel="attachment" target="_blank">Download this picture</a>
+		</nav>
+	</article>
+	<article class="slide" id="example-slide-3">
+		<header>
+			<h3>Slide 3</h3>
+		</header>
+		<figure>
+			<img src="../media/12.jpg" />
+			<figcaption>Green hill near body of water</figcaption>
+		</figure>
+		<nav>
+			<a href="#nowhere" rel="parent">Manual</a>
+			<a href="#example-slide-2" rel="prev">Close up of leaf</a>
+			<a href="#example-slide-4" rel="next last">Gray asphalt road surrounded by tall trees</a>
+			<a href="#example-slide-1" rel="first">Silhouette of tree near body of water during golden hour</a>
+			<a href="../media/12.jpg" download rel="attachment" target="_blank">Download this picture</a>
+		</nav>
+	</article>
+	<article class="slide" id="example-slide-4">
+		<header>
+			<h3>Slide 4</h3>
+		</header>
+		<figure>
+			<img src="../media/13.jpg" />
+			<figcaption>Gray asphalt road surrounded by tall trees</figcaption>
+		</figure>
+		<nav>
+			<a href="#nowhere" rel="parent">Manual</a>
+			<a href="#example-slide-3" rel="prev">Green hill near body of water</a>
+			<a href="#example-slide-1" rel="first">Silhouette of tree near body of water during golden hour</a>
+			<a href="../media/13.jpg" download rel="attachment" target="_blank">Download this picture</a>
+		</nav>
+	</article>
+</section>
+
+</body>
+</html>

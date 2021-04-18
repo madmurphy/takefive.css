@@ -1,4 +1,8 @@
-/* Based on: https://tabatkins.github.io/specs/css-aliases/ */
+/* Originally based on: https://tabatkins.github.io/specs/css-aliases/ */
+
+:root {
+	counter-reset: exampleno figureno issueno h2no h3no h4no;
+}
 
 /* General structural markup */
 
@@ -15,14 +19,17 @@ h1 {
 }
 
 h2 {
+	counter-increment: h2no;
 	font: 140% sans-serif;
 }
 
 h3 {
+	counter-increment: h3no;
 	font: 120% sans-serif;
 }
 
 h4 {
+	counter-increment: h4no;
 	font: bold 110% sans-serif;
 }
 
@@ -50,7 +57,7 @@ pre {
 	margin: 1em 0 1em 2em;
 }
 
-pre, code, .formatted-code {
+pre, code, .plain-text {
 	font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
 	font-size: .9em;
 }
@@ -146,6 +153,10 @@ figure img, figure object {
 	max-width: 100%
 }
 
+mark {
+	border: none;
+}
+
 
 @media only screen {
 
@@ -161,6 +172,10 @@ figure img, figure object {
 		margin: 0 auto;
 		max-width: 50em;
 		padding: 2em 1em 2em 70px;
+	}
+
+	figure img, figure object {
+		box-shadow: 0 8px 8px #000;
 	}
 
 }
@@ -232,3 +247,7 @@ figure img, figure object {
 	}
 
 }
+
+
+/*  EOF  */
+

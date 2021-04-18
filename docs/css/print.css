@@ -3,12 +3,12 @@
 |*|			:: print.css ::
 |*|
 |*|
-|*|	The basic CSS to carry around in every website to make it adaptable to
-|*|	the printed page
+|*|	The universal CSS to carry around in every website to make it adaptable
+|*|	to the printed page
 |*|
 |*|	https://github.com/madmurphy/print.css/
 |*|
-|*|	Version 1.0.0
+|*|	Version 1.1.0
 |*|
 |*|	(c) madmurphy333@gmail.com
 |*|
@@ -23,6 +23,29 @@
 
 @media only print {
 
+	/*
+
+		Available classes:
+
+		`"new-page"`		Print the element in a new page
+
+		`"non-printable"`		Do not print the element
+
+		`"obvious"`		Prevent the expansion of attributes (such as
+					`href`, `title`, etc.) - useful when the
+					content makes them redundant
+
+		`"printable"`		Print the element - useful for elements that
+					would not be printed otherwise, such as `<nav>`
+					containers, form buttons, etc.
+
+		`"trackable"`		Expand the content of the `value` attributes
+					assigned to (nested) `<data>` elements and the
+					`datetime` attributes assigned to (nested)
+					`<time>` elements
+
+	*/
+
 	@page {
 		margin: 6em;
 		box-decoration-break: clone;
@@ -31,6 +54,7 @@
 	body {
 		height: 100%;
 		width: 100%;
+		margin: 0;
 		box-sizing: border-box;
 		font-family: Palatino, Georgia, "Times New Roman", Times, serif;
 		text-align: justify;
@@ -50,25 +74,27 @@
 		page-break-before: avoid;
 	}
 
-	h1, h2, h3, h4, h5, h6, figure, img, hr, li, summary {
+	h1, h2, h3, h4, h5, h6, figure, img, hr, li, summary, tr {
 		break-inside: avoid;
 		/*  Old syntax  */
 		page-break-inside: avoid;
 	}
 
-	h1, h2, h3, h4, h5, h6, dt, summary {
+	h1, h2, h3, h4, h5, h6, dt, summary, thead {
 		break-after: avoid;
 		/*  Old syntax  */
 		page-break-after: avoid;
 	}
 
-	figure {
-		text-align: center;
-		border: none;
+	address,
+	cite {
+		font-style: italic;
 	}
 
-	abbr[title]:after {
-		content: ' (' attr(title) ')';
+	i em,
+	address em,
+	cite em {
+		font-style: normal;
 	}
 
 	a[href] {
@@ -81,19 +107,13 @@
 	a[href^="ftp://"]::after {
 		content: "(" attr(href) ")";
 		vertical-align: super;
-		font-size: x-small;
+		font-size: .625em;
+		margin-left: .1em;
+		overflow-wrap: break-word;
 	}
 
-	hr {
-		border: none;
-		margin: 2em auto;
-	}
-
-	hr::before {
-		content: "\2747\2747\2747";
-		display: block;
-		text-align: center;
-		letter-spacing: 1.5em;
+	abbr[title]::after {
+		content: " (" attr(title) ") ";
 	}
 
 	article > p:first-of-type::first-letter,
@@ -115,11 +135,15 @@
 		margin: 0;
 	}
 
-	mark {
-		color: inherit;
-		background: none;
-		border-bottom: 1px #000 dashed;
-		text-decoration: none;
+	blockquote[cite]::after {
+		content: "(" attr(cite) ") ";
+		display: block;
+		margin: 1em 0 0 1em;
+	}
+
+	blockquote[cite=""]::after {
+		content: none;
+		all: revert;
 	}
 
 	details > summary {
@@ -134,7 +158,7 @@
 	}
 
 	details:not([open]) > summary::after {
-		content: "\2014  ceteris omissis  \2014";
+		content: "\2014\0000A0ceteris\0000A0omissis\A0\2014";
 		display: block;
 		font-style: italic;
 		font-weight: normal;
@@ -144,8 +168,110 @@
 		margin: 0 0 1em 1em;
 	}
 
-	nav, .non-printed {
-		display: none;
+	del[cite][datetime]::after,
+	ins[cite][datetime]::after {
+		content: " (see " attr(cite) ", " attr(datetime) ")";
+	}
+
+	del[cite]::after,
+	del[cite][datetime=""]::after,
+	ins[cite]::after,
+	ins[cite][datetime=""]::after {
+		content: " (see " attr(cite) ")";
+	}
+
+	del[datetime]::after,
+	del[cite=""][datetime]::after,
+	ins[datetime]::after,
+	ins[cite=""][datetime]::after {
+		content: " (" attr(datetime) ")";
+	}
+
+	del[cite=""]::after, del[datetime=""]::after,
+	del[cite=""][datetime=""]::after,
+	ins[cite=""]::after, ins[datetime=""]::after,
+	ins[cite=""][datetime=""]::after {
+		content: none;
+		all: revert;
+	}
+
+	del {
+		position: relative;
+		top: 0;
+		left: 0;
+		color: inherit;
+	}
+
+	del[cite]::after, del[datetime]::after {
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		background: rgba(230, 230, 230, .9);
+		padding: 0 .5em;
+		border-radius: .5em;
+		font-size: .7em;
+		line-height: 1em;
+		font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
+		text-align: left;
+		box-shadow: 0 0 .2em .2em rgba(230, 230, 230, .9);
+	}
+
+	ins {
+		color: inherit;
+		background: none;
+		border-bottom: 1px #000 dotted;
+		text-decoration: none;
+	}
+
+	ins[cite]::after, ins[datetime]::after {
+		vertical-align: sub;
+		font-size: .7em;
+	}
+
+	figure {
+		text-align: center;
+		border: none;
+	}
+
+	hr {
+		border: none;
+		margin: 2em auto;
+	}
+
+	hr::before {
+		content: "\2747\2747\2747";
+		display: block;
+		text-align: center;
+		letter-spacing: 1.5em;
+	}
+
+	iframe {
+		border: 1px #000 solid;
+	}
+
+	q::before {
+		content: open-quote;
+	}
+
+	q[cite]::after {
+		content: close-quote " (" attr(cite) ") ";
+	}
+
+	q::after,
+	q[cite=""]::after {
+		content: close-quote;
+	}
+
+	mark {
+		color: inherit;
+		background: none;
+		border-bottom: 1px #000 dashed;
+		text-decoration: none;
+	}
+
+	pre, code {
+		font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
 	}
 
 	/*  Forms  */
@@ -156,20 +282,29 @@
 		padding: 1em 1.5em;
 	}
 
+	fieldset legend {
+		padding: 0 .5em;
+	}
+
+	::placeholder {
+		opacity: 0;
+	}
+
 	input,
 	output,
 	textarea,
 	select {
 		background-color: transparent;
 		color: inherit;
-		font-family: monospace;
-		font-size: 1em;
+		font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
+		font-size: .9em;
 		box-shadow: none;
 		outline: none;
 	}
 
 	input,
-	output {
+	output,
+	select:not([multiple]) {
 		border-top: none;
 		border-right: none;
 		border-bottom: 1px #000 dashed;
@@ -182,10 +317,20 @@
 		border: 1px #000 dashed;
 	}
 
+	select {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		appearance: none;
+	}
+
+	textarea {
+		resize: none;
+	}
+
 	button,
-	input[type="button"],
-	input[type="submit"],
-	input[type="reset"] {
+	input[type="button"]:not(.printable),
+	input[type="submit"]:not(.printable),
+	input[type="reset"]:not(.printable) {
 		visibility: hidden;
 	}
 
@@ -201,9 +346,7 @@
 	}
 
 	input:read-only,
-	output:read-only,
-	textarea:read-only,
-	select:read-only {
+	textarea:read-only {
 		border: none;
 	}
 
@@ -227,7 +370,6 @@
 
 	input[type="range"]::-webkit-slider-runnable-track {
 		background-color: #ffffff;
-
 	}
 
 	input[type="range"]::-moz-range-track {
@@ -238,5 +380,86 @@
 		background-color: transparent;
 	}
 
+
+	/*  A few classes...  */
+
+	.new-page {
+		break-before: always;
+		/*  Old syntax  */
+		page-break-before: always;
+	}
+
+	nav:not(.printable), .non-printable {
+		display: none;
+	}
+
+	.trackable data[value]::after,
+	data[value].trackable::after,
+	.trackable time[datetime]::after,
+	time[datetime].trackable::after {
+		font-size: .625em;
+		vertical-align: sub;
+		overflow-wrap: break-word;
+		font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
+	}
+
+	.trackable data[value]::after,
+	data[value].trackable::after {
+		content: "(ID\A0" attr(value) ")";
+	}
+
+	.trackable time[datetime]::after,
+	time[datetime].trackable::after {
+		content: "(" attr(datetime) ")";
+	}
+
+	/*  (optional) You can add to your page:  */
+	/*
+	@media screen {
+		.trackable data[value]:hover::after,
+		data[value].trackable:hover::after,
+		.trackable time[datetime]:hover::after,
+		time[datetime].trackable:hover::after {
+			font-size: .625em;
+			vertical-align: sub;
+			overflow-wrap: break-word;
+			font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
+		}
+
+		.trackable data[value]:hover::after,
+		data[value].trackable:hover::after {
+			content: "(ID\A0" attr(value) ")";
+		}
+
+		.trackable time[datetime]:hover::after,
+		time[datetime].trackable:hover::after {
+			content: "(" attr(datetime) ")";
+		}
+		.trackable data[value].obvious:hover::after,
+		.trackable time[datetime].obvious:hover::after {
+			content: none;
+		}
+	}
+	*/
+
+	a[href].obvious::after,
+	abbr[title].obvious::after,
+	q[cite].obvious::after,
+	blockquote[cite].obvious::after,
+	.trackable data[value].obvious::after,
+	.trackable time[datetime].obvious::after,
+	del[cite].obvious::after,
+	del[datetime].obvious::after,
+	del[cite][datetime].obvious::after,
+	ins[cite].obvious::after,
+	ins[datetime].obvious::after,
+	ins[cite][datetime].obvious::after {
+		content: none;
+		all: revert;
+	}
+
 }
+
+
+/*  EOF  */
 

@@ -20,9 +20,11 @@
 	<li><a href="#pinned-nonempty-exit">The <code>"pinned"</code> class</a></li>
 	<li><a href="#pinned-empty-exit">The <code>"pinned"</code> class and a link with empty content</a></li>
 </ol>
-
+<footer>
+	<h2>Free software</h2>
+	<p><strong>Take Five!</strong> is free software. You can redistribute it and/or modify it under the terms of the <a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html" target="_blank" rel="noopener">GPL license</a>, version 3 or any later version. The code is <a href="https://github.com/madmurphy/takefive.css/" target="_blank" rel="noopener">available on GitHub</a>.</p>
+</footer>
 <section>
-
 	<article class="slide" id="default-nonempty-exit">
 		<header>
 			<h2>Default case</h2>
@@ -38,13 +40,12 @@
 			<a href="#pinned-empty-exit" rel="last">The <code>"pinned"</code> class and a link with empty content</a>
 		</nav>
 	</article>
-
 	<article class="slide" id="default-empty-exit">
 		<header>
 			<h2>Default case and a link with empty content</h2>
 		</header>
 		<section>
-			<p>This example shows a less common scenario: a normal slide and a link with the <code>rel</code> attribute set to <code>"parent"</code> and an empty content.</p>
+			<p>This example shows a possible scenario: a normal slide and a link with the <code>rel</code> attribute set to <code>"parent"</code> with no content.</p>
 			<p>As you can see, by clicking on an empty area of the viewport the slide disappears.</p>
 			<pre>&lt;article class="slide" id="photo-of-the-day"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Photo of the day&lt;/h2&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark>&lt;a href="#nowhere" rel="parent"&gt;&lt;/a&gt;</mark><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;figure&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="media/1.jpg" /&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;figcaption&gt;Into the woods&lt;/figcaption&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/figure&gt;<br />&lt;/article&gt;</pre>
 		</section>
@@ -55,13 +56,12 @@
 			<a href="#pinned-empty-exit" rel="last">The <code>"pinned"</code> class and a link with empty content</a>
 		</nav>
 	</article>
-
 	<article class="pinned slide" id="pinned-nonempty-exit">
 		<header>
 			<h2>The <code>"pinned"</code> class</h2>
 		</header>
 		<section>
-			<p>This example shows a possible scenario: a slide declared with the <code>"pinned"</code> class and a link with the <code>rel</code> attribute set to <code>"parent"</code>.</p>
+			<p>This example shows a common scenario: a slide declared with the <code>"pinned"</code> class and a link with the <code>rel</code> attribute set to <code>"parent"</code>.</p>
 			<p>As you can see, by clicking on an empty area of the viewport nothing happens.</p>
 			<pre>&lt;article <mark>class="pinned slide"</mark> id="photo-of-the-day"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Photo of the day&lt;/h2&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark>&lt;a href="#nowhere" rel="parent"&gt;My diary&lt;/a&gt;</mark><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;figure&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="media/1.jpg" /&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;figcaption&gt;Into the woods&lt;/figcaption&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/figure&gt;<br />&lt;/article&gt;</pre>
 		</section>
@@ -72,13 +72,12 @@
 			<a href="#pinned-empty-exit" rel="next last">The <code>"pinned"</code> class and a link with empty content</a>
 		</nav>
 	</article>
-
 	<article class="pinned slide" id="pinned-empty-exit">
 		<header>
 			<h2>The <code>"pinned"</code> class and a link with empty content</h2>
 		</header>
 		<section>
-			<p>This example shows a less common scenario: a slide declared with the <code>"pinned"</code> class and a link with the <code>rel</code> attribute set to <code>"parent"</code> and an empty content.</p>
+			<p>This example shows a possible scenario: a slide declared with the <code>"pinned"</code> class and a link with the <code>rel</code> attribute set to <code>"parent"</code> with no content.</p>
 			<p>As you can see, by clicking on an empty area of the viewport nothing happens.</p>
 			<pre>&lt;article <mark>class="pinned slide"</mark> id="photo-of-the-day"&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Photo of the day&lt;/h2&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/header&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark>&lt;a href="#nowhere" rel="parent"&gt;&lt;/a&gt;</mark><br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/nav&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;figure&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="media/1.jpg" /&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;figcaption&gt;Into the woods&lt;/figcaption&gt;<br />&nbsp;&nbsp;&nbsp;&nbsp;&lt;/figure&gt;<br />&lt;/article&gt;</pre>
 		</section>
@@ -88,13 +87,7 @@
 			<a href="#pinned-nonempty-exit" rel="prev">The <code>"pinned"</code> class</a>
 		</nav>
 	</article>
-
 </section>
-
-<footer>
-<h2>Free software</h2>
-<p><strong>Take Five!</strong> is free software. You can redistribute it and/or modify it under the terms of the <a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html" target="_blank" rel="noopener">GPL license</a>, version 3 or any later version. The code is <a href="https://github.com/madmurphy/takefive.css/" target="_blank" rel="noopener">available on GitHub</a>.</p>
-</footer>
 
 </body>
 </html>
