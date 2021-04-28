@@ -60,11 +60,12 @@
 	}
 
 	/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@ !DEV_ONLY! @@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+	/*
 	section.slides:first-child {
 		break-before: auto;
-		/*  Old syntax  */
 		page-break-before: auto;
 	}
+	*/
 	/*@@@@@@@@@@@@@@@@@@@@@@@@@@ !END_DEV_ONLY! @@@@@@@@@@@@@@@@@@@@@@@@@*/
 
 	section.slides:last-child {

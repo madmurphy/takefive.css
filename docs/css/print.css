@@ -8,7 +8,7 @@
 |*|
 |*|	https://github.com/madmurphy/print.css/
 |*|
-|*|	Version 1.1.0
+|*|	Version 1.1.1
 |*|
 |*|	(c) madmurphy333@gmail.com
 |*|
@@ -327,7 +327,7 @@
 		resize: none;
 	}
 
-	button,
+	button:not(.printable),
 	input[type="button"]:not(.printable),
 	input[type="submit"]:not(.printable),
 	input[type="reset"]:not(.printable) {
@@ -413,35 +413,6 @@
 		content: "(" attr(datetime) ")";
 	}
 
-	/*  (optional) You can add to your page:  */
-	/*
-	@media screen {
-		.trackable data[value]:hover::after,
-		data[value].trackable:hover::after,
-		.trackable time[datetime]:hover::after,
-		time[datetime].trackable:hover::after {
-			font-size: .625em;
-			vertical-align: sub;
-			overflow-wrap: break-word;
-			font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
-		}
-
-		.trackable data[value]:hover::after,
-		data[value].trackable:hover::after {
-			content: "(ID\A0" attr(value) ")";
-		}
-
-		.trackable time[datetime]:hover::after,
-		time[datetime].trackable:hover::after {
-			content: "(" attr(datetime) ")";
-		}
-		.trackable data[value].obvious:hover::after,
-		.trackable time[datetime].obvious:hover::after {
-			content: none;
-		}
-	}
-	*/
-
 	a[href].obvious::after,
 	abbr[title].obvious::after,
 	q[cite].obvious::after,
@@ -459,6 +430,36 @@
 	}
 
 }
+
+
+/*  (optional) You can add to your page:  */
+/*
+@media screen {
+	.trackable data[value]:hover::after,
+	data[value].trackable:hover::after,
+	.trackable time[datetime]:hover::after,
+	time[datetime].trackable:hover::after {
+		font-size: .625em;
+		vertical-align: sub;
+		overflow-wrap: break-word;
+		font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace;
+	}
+
+	.trackable data[value]:hover::after,
+	data[value].trackable:hover::after {
+		content: "(ID\A0" attr(value) ")";
+	}
+
+	.trackable time[datetime]:hover::after,
+	time[datetime].trackable:hover::after {
+		content: "(" attr(datetime) ")";
+	}
+	.trackable data[value].obvious:hover::after,
+	.trackable time[datetime].obvious:hover::after {
+		content: none;
+	}
+}
+*/
 
 
 /*  EOF  */

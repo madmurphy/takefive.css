@@ -7,7 +7,7 @@
 |*|
 |*|	https://github.com/madmurphy/takefive.css/
 |*|
-|*|	Version 3.1.0
+|*|	Version 3.1.1
 |*|
 |*|	(c) madmurphy333@gmail.com
 |*|
@@ -1231,7 +1231,7 @@
 	article.slide:not(.nonadaptive)::before {
 		padding: calc(12.88vmin + .235vh) 0 0 0;
 		font-size: 1.8vmin;
-		line-height: 1.8vmin;
+		line-height: 2vmin;
 		text-align: center;
 	}
 
@@ -1322,7 +1322,7 @@
 	article.slide:not(.nonadaptive).foyer > nav:first-of-type a[href][rel~="parent"],
 	article.slide:not(.nonadaptive) > nav:first-of-type a[href][rel~="child"][rel~="parent"] {
 		display: block;
-		position: absolute;
+		position: fixed;
 		top: 0;
 		right: unset;
 		left: 0;

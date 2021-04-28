@@ -1,6 +1,14 @@
 # Change Log
 
 
+## 3.1.1 (2021-04-28)
+
+Changes:
+
+* A small bug involving the exit layer on small screens has been fixed
+* Documentation
+
+
 ## 3.1.0 (2021-04-19)
 
 Changes:
