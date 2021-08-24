@@ -95,25 +95,25 @@
 &lt;/article&gt;</pre>
 <p>will produce <a href="simple-example.html" target="_blank" rel="noopener">this result</a>.</p>
 <h2>Philosophy</h2>
-<p>The philosophy of <strong>Take Five!</strong> is that of facilitating a general semantics for expressing a slide with HTML (independently of how this is rendered) rather than focusing on means to express a layout.</p>
+<p>The philosophy of <strong>Take Five!</strong> is that of facilitating a general semantics for expressing a slide with HTML (independently of how this is rendered), rather than focusing on means to express a layout.</p>
 <p>In the original meaning of the term a slide is a single page projected on a wall through a beamer or a lightbox. The term does not describe weather a slide is blue or red, or whether it contains a picture or text, but only that its content must fit in a single page and the lights in the room are usually switched off.</p>
-<p>A slide projected on a wall can also be taken in the hands and read with the lights on in its physical form (not on a wall), so the most characterizing aspect of a slide is actually its conciseness and independence, not how it is displayed.</p>
-<p>HTML5 introduced six semantic elements (<code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code> and <code>&lt;section&gt;</code>). One of these suits well to describe a self-contained content: the <code>&lt;article&gt;</code> element.</p>
+<p>A slide can also be taken in the hands and read in its physical form with the lights on, thus the most characterizing aspect of a slide is actually its conciseness and independence, not how it is displayed.</p>
+<p>With its inception HTML5 introduced six semantic elements (<code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code> and <code>&lt;section&gt;</code>), one of which is well suited to represent a self-contained section: the <code>&lt;article&gt;</code> element.</p>
 <blockquote>The <a href="https://www.w3.org/TR/html52/sections.html#elementdef-article" target="_blank" rel="noopener"><code>&lt;article&gt;</code></a> element <a href="https://www.w3.org/TR/html52/dom.html#represent" target="_blank" rel="noopener">represents</a> a complete, or self-contained, composition in a document, page, application, or site. This could be a magazine, newspaper, technical or scholarly article, an essay or report, a blog or other social media post.</blockquote>
-<p>For non-semantic aspects, HTML possesses also a <code>class</code> attribute, which although cannot describe what things are, can still be used to describe how they look. For describing an <code>&lt;article&gt;</code> that is projected on a wall it is thus possible to write <code>&lt;article class="slide"&gt;</code>.</p>
-<p>Since a <code>class</code> attribute does not express semantics, such a slide remains primarily an <code>&lt;article&gt;</code> element; and <code>&lt;article class="slide"&gt;</code> translates as &ldquo;<code>&lt;article&gt;</code> that <em>looks like</em> a slide&rdquo;, but not as &ldquo;<code>&lt;article&gt;</code> that <a href="https://www.w3.org/TR/html52/dom.html#represent" target="_blank" rel="noopener">represents</a> a slide&rdquo;.</p>
+<p>For non-semantic aspects, HTML possesses also a <code>class</code> attribute, which although cannot describe what things are, can still be used to describe how they look. For describing an <code>&lt;article&gt;</code> that is projected on a wall it is then possible to write <code>&lt;article class="slide"&gt;</code>.</p>
+<p>Since a <code>class</code> attribute does not express semantics, such a slide remains primarily an <code>&lt;article&gt;</code> element, and <code>&lt;article class="slide"&gt;</code> translates as &ldquo;<code>&lt;article&gt;</code> that <em>looks like</em> a slide&rdquo; (but not as &ldquo;<code>&lt;article&gt;</code> that <a href="https://www.w3.org/TR/html52/dom.html#represent" target="_blank" rel="noopener">represents</a> a slide&rdquo;).</p>
 <p><strong>Take Five!</strong> is a slide renderer written in CSS, which means that it can only decide how things look, not what they are. However, in deciding what to give a style to, <strong>Take Five!</strong> focuses on elements that have a meaning (semantic elements), instead of generic elements that simply claim a layout (as it would be, for instance <code>&lt;div class="i-want-a-layout"&gt; ... &lt;/div&gt;</code>).</p>
 <p>Concretely speaking this has two effects:</p>
 <ul>
-<li>The <code>class</code> attribute is not used to identify elements, since the elements' intrinsic semantics (i.e., their tag names) is already sufficient</li>
-<li>When it is used, the <code>class</code> attribute is used only for expressing minor options</li>
+<li>The <code>class</code> attribute is not used to identify further elements besides the <code>&lt;article class="slide"&gt;</code> container: the elements' intrinsic semantics (i.e., their tag names) is already sufficient</li>
+<li>When it is used, the <code>class</code> attribute is used only for expressing layout options</li>
 </ul>
-<p>A densely populated slide (<code>&lt;article&gt;</code>), besides its main content, can possess a title, a footer and some other information aside, therefore when this happens <strong>Take Five!</strong> gives a style to the <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code> and <code>&lt;aside&gt;</code> elements nested in it. In an internet context a slide can also be linked to other slides, hence <strong>Take Five!</strong> gives a layout to the <code>&lt;nav&gt;</code> element as well. A <code>&lt;nav&gt;</code> element however does not make much sense in a printed page, so when the slide is &ldquo;taken in the hands&rdquo; (printed) the <code>&lt;nav&gt;</code> element is not displayed.</p>
-<p>Elements are not the only things that can express semantics in HTML, a further place that conveys semantics is the <code>rel</code> attribute given to links. Therefore, when a slide is displayed on a screen and the <code>&lt;nav&gt;</code> element is shown, <strong>Take Five!</strong> relies on the <code>rel</code> attributes to decide how to style each link and what role it has in the viewport.</p>
+<p>A densely populated slide (<code>&lt;article&gt;</code>), besides its main content, can possess a title, a footer and some other information aside; therefore when this happens <strong>Take Five!</strong> gives a style to the <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code> and <code>&lt;aside&gt;</code> elements nested within it. In an internet context a slide can also be linked to other slides, hence <strong>Take Five!</strong> gives a layout to the <code>&lt;nav&gt;</code> element as well. A <code>&lt;nav&gt;</code> element however does not make much sense in a printed page, so when the slide is &ldquo;taken in the hands&rdquo; (printed) the <code>&lt;nav&gt;</code> element is not displayed.</p>
+<p>Elements are not the only things that can express semantics in HTML, a further place that conveys semantics is the <code>rel</code> attribute assigned to links. Therefore, when a slide is displayed on a screen and the <code>&lt;nav&gt;</code> element is shown, <strong>Take Five!</strong> relies on the <code>rel</code> attributes to decide how to style each link and what role it has in the viewport.</p>
 <h2>The viewport</h2>
 <p>Each slide (<code>&lt;article <mark>id="my-hash-tag" class="slide"</mark>&gt; ... &lt;/article&gt;</code>)</p>
 <ul>
-<li>is displayed fixed, covers the entire page and can be accessed through its hashtag (the <code>id</code> attribute)</li>
+<li>is displayed fixed, covers the entire page and can be accessed through its hashtag (its <code>id</code> attribute)</li>
 <li>is independent and does not require any special container; can nevertheless link to other slides to form a gallery</li>
 <li>can contain any kind of HTML elements, in any number and in any order (but be aware of the limits of the screen)</li>
 <li>does not require further classes besides the <code>"slide"</code> class defined above (but a few additional classes are available for special options)</li>
@@ -128,14 +128,14 @@
 <p><a href="#schematic-of-the-viewport"><img src="media/schematic_s.png" alt="Schematic of the viewport" /></a></p>
 <figcaption>Schematic of the viewport</figcaption>
 </figure>
-<p>On small screens everything is aligned in one scrollable single column instead, in which only the <code>&lt;header&gt;</code>, if present, is always positioned on top of the slide, while all other elements follow their natural disposition assigned via HTML</p>
+<p>On small screens everything is aligned in one scrollable single column, where only the <code>&lt;header&gt;</code>, if present, is always positioned on top of the slide, while all other elements follow their natural disposition assigned via HTML</p>
 <figure>
 <p><a href="#schematic-on-small-screens"><img src="media/phone_schematic_s.png" alt="Schematic of the viewport on small devices" /></a></p>
 <figcaption>Schematic of the viewport on small devices</figcaption>
 </figure>
 <p>It is possible to test the order of the elements by visiting the <a href="schematic.html" target="_blank" rel="noopener">Schematic</a> page.</p>
 <h3>Non-direct children of the viewport (sub-children)</h3>
-<p>Sub-children of the viewport are displayed normally, in their natural order and without any style applied beyond basic layout. The only exception is made for links that are children of the main <code>&lt;nav&gt;</code>, which are considered as internal navigation links and styled according to their <code>rel</code> attribute (<a href="the-rel-attribute.html" target="_blank" rel="noopener">here</a> is the list of the supported keywords).</p>
+<p>Sub-children of the viewport are displayed normally, in their natural order and without any style applied beyond basic layout. The only exception is made for links that are children of the main <code>&lt;nav&gt;</code>, which are considered as internal navigation links and styled according to their <code>rel</code> attribute (<a href="the-rel-attribute.html" target="_blank" rel="noopener">here</a> the list of the supported keywords).</p>
 <h2>Nested galleries</h2>
 <p>Galleries can be nested within other galleries, possibly relying on the <code>&lt;section&gt;</code> element. In this case a reference to the child gallery is usually given by an anchor with the <code>"child"</code> keyword assigned to its <code>rel</code> attribute.</p>
 <pre class="example">&lt;p style="text-align: center; font-size: 2em;"&gt;
@@ -161,7 +161,7 @@
 &lt;/section&gt;</pre>
 <p>A more articulated example is available <a href="nested-example.html" target="_blank" rel="noopener">here</a>. For more information about how to create a gallery tree it is possible to follow <a href="nesting-tutorial.html" target="_blank" rel="noopener">this tutorial</a>.</p>
 <h2>Available classes</h2>
-<p><strong>Take Five!</strong> relies only on one single class: the <code>"slide"</code> class applied to an <code>&lt;article&gt;</code> element. Further classes are available for optional features, but none of them is structurally required. The complete list of available classes comes next.</p>
+<p><strong>Take Five!</strong> relies only on one single class: the <code>"slide"</code> class applied to an <code>&lt;article&gt;</code> element. Further classes are available for optional features, although none of them is structurally required. The complete list of available classes is shown below.</p>
 <h3>Classes for the <code>&lt;article&gt;</code> element (i.e., the slide)</h3>
 <table class="definition">
 <thead>
@@ -190,7 +190,7 @@
 <tr>
 <td><code>"wrap"</code></td>
 <td><code>article.slide.wrap</code></td>
-<td>A transparent layer will cover the entire slide. Scrolling will become inaccessible, therefore there should be no scrollable content when a slide is declared as a <code>"wrap"</code>.</td>
+<td>A transparent layer will cover the entire slide. As scrolling will become inaccessible, there should be no scrollable content when a slide is declared as a <code>"wrap"</code>.</td>
 </tr>
 <tr>
 <td><code>"pinned"</code></td>
@@ -257,7 +257,7 @@
 </tbody>
 </table>
 <p>Classes belonging to the same domain are alternative to each other. Classes belonging to different domains instead can form compound class names, as in <code>&lt;a href="mailto:me@example.org" rel="author" class="<mark>plate with-label no-rel</mark>"&gt;John Doe&lt;/a&gt;</code>.</p>
-<h3>Generic classes</h3>
+<h3>General classes</h3>
 <table class="definition">
 <thead>
 <tr>
@@ -322,7 +322,7 @@
 <tr>
 <td><code>data-context</code></td>
 <td><code>article.slide[data-context]</code></td>
-<td>The slide container (<code>article.slide</code>) can optionally possess a <code>data-context</code> attribute, whose content will be displayed on the top left side of the viewport &ndash; as in <code>&lt;article class="slide" <mark>data-context="Hello world!"</mark> id="my-hash-name"&gt; ... &lt;/article&gt;</code> (it takes 2.5 seconds to show up, so you must wait to see it). See note below.</td>
+<td>The slide container (<code>article.slide</code>) can optionally possess a <code>data-context</code> attribute, whose content will be displayed on the top left side of the viewport &ndash; as in <code>&lt;article class="slide" <mark>data-context="Hello world!"</mark> id="my-hash-name"&gt; ... &lt;/article&gt;</code> (it takes 2.5 seconds to show up, so you must wait to see it). See also note below.</td>
 </tr>
 <tr>
 <td><code>data-label</code></td>
@@ -331,9 +331,9 @@
 </tr>
 </tbody>
 </table>
-<div class="note">A slide in <strong>Take Five!</strong> is an <code>&lt;article&gt;</code> element; such element delimits a self-contained content, meaning that if all the other HTML except the <code>&lt;article&gt;</code> are removed the content would still make sense to a reader. The function of the <code>data-context</code> attribute then is that of contextualizing the <code>&lt;article&gt;</code>'s content. It is confined to an attribute, so that the content of the <code>&lt;article&gt;</code> remains still independent. It usually contains a small motto, a copyright notice or a mention of the hosting website. Feel free to use it in complete freedom.</div>
+<div class="note">A slide in <strong>Take Five!</strong> is an <code>&lt;article&gt;</code> element; such element delimits a self-contained content, meaning that if all the other HTML except the <code>&lt;article&gt;</code> are removed the content would still make sense to a reader. The function of the <code>data-context</code> attribute then is that of contextualizing the <code>&lt;article&gt;</code>'s content. It is confined to an attribute, so that the content of the <code>&lt;article&gt;</code> remains still independent. It usually contains a small motto, a copyright notice or a mention of the hosting website. Users should feel free to use it in complete freedom.</div>
 <h2>Plugins</h2>
-<p>Here comes the optional section of the framework. Some of these plugins could have been merged with the main CSS, but they have been kept separate to preserve modularity. Please feel free to bring new ideas.</p>
+<p>This is the optional section of the framework. Some of these plugins could have been merged with the main CSS, but they have been kept separate to preserve modularity. Please feel free to bring new ideas.</p>
 <dl>
 <dt><a href="plugins/counters.html" target="_blank" rel="noopener"><code>takefive-counters.css</code></a></dt>
 <dd>Plugin for numbering the slides</dd>
@@ -453,7 +453,7 @@ window.addEventListener("keyup", function (oEvt) {
 </details>
 <details>
 <summary>Too much <code>history</code>!</summary>
-<div>One of the useful outcomes of relying on an hashtag in the URL is that the slides visited leave a trace in the browser history. Sometimes however that can be too much. For these cases it is possible to use JavaScript to do a partial reset of the history every time a gallery is closed:
+<div>One of the useful outcomes of relying on an hashtag in the URL is that the slides visited leave a trace in the browser history. Sometimes however the history can be too much. For these cases it is possible to use JavaScript to do a partial reset of the history every time a gallery is closed:
 <pre class="example">(function () {
 
     var bOpenedWithSlide = false, nHistCount = -1;

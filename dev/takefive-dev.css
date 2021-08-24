@@ -7,7 +7,7 @@
 |*|
 |*|	https://github.com/madmurphy/takefive.css/
 |*|
-|*|	Version 3.1.1
+|*|	Version 3.1.2
 |*|
 |*|	(c) madmurphy333@gmail.com
 |*|
@@ -37,8 +37,9 @@
 	* "GNUTypewriter" --> @import url("fonts/gnutypewriter/gnutypewriter.css");
 	* "My Underwood" --> @import url("fonts/my-underwood/my-underwood.css");
 
-	Although beautiful, unfortunately these fonts do not support accented
-	characters.
+	Although beautiful, unfortunately these fonts do not support
+	accented characters. If you make successful experiments with
+	other custom fonts, please consider to share them.
 
 */
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@ !END_DEV_ONLY! @@@@@@@@@@@@@@@@@@@@@@@@@*/

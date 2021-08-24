@@ -1,6 +1,14 @@
 # Change Log
 
 
+## 3.1.2 (2021-08-24)
+
+Changes:
+
+* Documentation
+* Examples
+
+
 ## 3.1.1 (2021-04-28)
 
 Changes:
