@@ -8,7 +8,7 @@ See:
 * [Live demo][1]
 * [Manual][2]
 
-Please refer to the `dist` subdirectory for the current release of the CSS.
+Please refer to the `dist` subdirectory for the latest release of the CSS.
 
 
 Free software
