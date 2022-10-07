@@ -77,7 +77,7 @@
 <p>Etc. etc.</p>
 <p>If you want <strong>Take Five!</strong> to behave responsively on small screens, add</p>
 <pre class="code">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</pre>
-<p>to the <code>&lt;head&gt;</code> of your page.</p>
+<p>to the <code>&lt;head&gt;</code> of your page. For more advanced tweaks, such as touch and keyboard events and cleaning the browser history, see the &sect; Plugins and &sect; FAQ sections below or visit the <a href="js-add-ons.html" target="_blank">JavaScript Add-Ons</a> page.</p>
 <h3>Example</h3>
 <p>The following minimalistic code</p>
 <pre class="example">&lt;p style="text-align: center; font-size: 2em;"&gt;
@@ -190,12 +190,12 @@
 <tr>
 <td><code>"wrap"</code></td>
 <td><code>article.slide.wrap</code></td>
-<td>A transparent layer will cover the entire slide. As scrolling will become inaccessible, there should be no scrollable content when a slide is declared as a <code>"wrap"</code>.</td>
+<td>A transparent layer will cover the entire slide. As scrolling will become inaccessible, there should be no scrollable content when a slide is declared as <code>"wrap"</code>.</td>
 </tr>
 <tr>
 <td><code>"pinned"</code></td>
 <td><code>article.slide.pinned</code></td>
-<td>A slide declared with the <code>"pinned"</code> class will not generate a clickable background layer to exit (<a href="exit-modes.html" target="_blank" rel="noopener">see example</a>).</td>
+<td>A slide declared with the <code>"pinned"</code> class will not generate a clickable background layer to exit (<a href="exit-modes.html#pinned-nonempty-exit" target="_blank">see example</a>).</td>
 </tr>
 <tr>
 <td><code>"no-hashtag"</code></td>
@@ -213,66 +213,56 @@
 <h3>Classes for the links of the main <code>&lt;nav&gt;</code></h3>
 <table class="definition">
 <thead>
-<tr>
-<th>Class</th>
-<th>Declared as</th>
-<th>Domain</th>
-<th>Meaning</th>
-</tr>
+<tr><th>Class</th><th>Declared as</th><th>Meaning</th><th>Domain</th></tr>
 </thead>
 <tbody>
 <tr>
 <td><code>"with-label"</code></td>
 <td><code>article.slide &gt; nav:first-of-type a[href].with-label</code></td>
+<td>Links declared with the <code>"with-label"</code> class will be accompanied by a label.</td>
 <td class="centered" rowspan="2">verbosity</td>
-<td>Links with the <code>"with-label"</code> class will be accompanied by a label.</td>
 </tr>
 <tr>
 <td><code>"no-label"</code></td>
 <td><code>article.slide &gt; nav:first-of-type a[href].no-label</code></td>
-<td>Links with the <code>"no-label"</code> class will not be accompanied by a label.</td>
+<td>Links declared with the <code>"no-label"</code> class will not be accompanied by a label.</td>
 </tr>
 <tr>
 <td><code>"tab"</code></td>
 <td><code>article.slide &gt; nav:first-of-type a[href].tab</code></td>
+<td>Links declared with the <code>"tab"</code> class will appear in the <code>&lt;nav&gt;</code> menu as tabs.</td>
 <td class="centered" rowspan="3">appearance</td>
-<td>Links with the <code>"tab"</code> class will appear in the <code>&lt;nav&gt;</code> menu as tabs.</td>
 </tr>
 <tr>
 <td><code>"plate"</code></td>
 <td><code>article.slide &gt; nav:first-of-type a[href].plate</code></td>
-<td>Links with the <code>"plate"</code> class will appear in the <code>&lt;nav&gt;</code> menu as plates. By default only <code>a[rel="child"]</code> is styled as such.</td>
+<td>Links declared with the <code>"plate"</code> class will appear in the <code>&lt;nav&gt;</code> menu as plates. By default only <code>a[rel="child"]</code> is styled as such.</td>
 </tr>
 <tr>
 <td><code>"vision"</code></td>
 <td><code>article.slide &gt; nav:first-of-type a[href].vision</code></td>
-<td>Links with the <code>"vision"</code> class will not appear in the <code>&lt;nav&gt;</code> menu at all, but as notifications on the top right corner of the viewport. This class is meaningful only for links that generate buttons via <code>rel</code> attribute.</td>
+<td>Links declared with the <code>"vision"</code> class will not appear in the <code>&lt;nav&gt;</code> menu at all, but as notifications on the top right corner of the viewport. This class is meaningful only for links that generate buttons via <code>rel</code> attribute.</td>
 </tr>
 <tr>
 <td><code>"no-rel"</code></td>
 <td><code>article.slide &gt; nav:first-of-type a[href][rel].no-rel</code></td>
+<td>Links declared with the <code>"no-rel"</code> class will be treated as links with an unknown <code>rel</code> attribute (as in <code>&lt;a href="#sample-slide" rel="next" class="<mark>no-rel</mark>"&gt;Sample slide&lt;/a&gt;</code> or <code>&lt;a href="#sample-slide" rel="next" class="no-label <mark>no-rel</mark>"&gt;Sample slide&lt;/a&gt;)</code>. The <code>rel</code> attribute is still taken into account to generate a label if necessary.</td>
 <td class="centered">relation</td>
-<td>Links with the <code>"no-rel"</code> class will be treated as links with an unknown <code>rel</code> attribute (as in <code>&lt;a href="#sample-slide" rel="next" class="<mark>no-rel</mark>"&gt;Sample slide&lt;/a&gt;</code> or <code>&lt;a href="#sample-slide" rel="next" class="no-label <mark>no-rel</mark>"&gt;Sample slide&lt;/a&gt;)</code>. The <code>rel</code> attribute is still taken into account to generate a label if necessary.</td>
 </tr>
 </tbody>
 </table>
-<p>Classes belonging to the same domain are alternative to each other. Classes belonging to different domains instead can form compound class names, as in <code>&lt;a href="mailto:me@example.org" rel="author" class="<mark>plate with-label no-rel</mark>"&gt;John Doe&lt;/a&gt;</code>.</p>
+<p>Classes belonging to the same domain are alternative to each other. Classes belonging to different domains can form compound class names, as in <code>&lt;a href="mailto:me@example.org" rel="author" class="<mark>plate with-label no-rel</mark>"&gt;John Doe&lt;/a&gt;</code>.</p>
 <h3>General classes</h3>
 <table class="definition">
 <thead>
-<tr>
-<th>Class</th>
-<th>Declared as</th>
-<th>Domain</th>
-<th>Meaning</th>
-</tr>
+<tr><th>Class</th><th>Declared as</th><th>Meaning</th><th>Domain</th></tr>
 </thead>
 <tbody>
 <tr>
 <td><code>"z-low"</code></td>
 <td><code>article.slide .<code>z-</code>low</code></td>
-<td class="centered" rowspan="5">stacking context</td>
 <td>The <code>"z-low"</code> class assigns a low <code>z-index</code> to the element (lower than the background layer). Before applying this class to subchildren keep in mind that all direct children of the slide have a <code>z-index</code> already assigned; this needs to be canceled by applying the <code>"z-none"</code> class on the direct child.</td>
+<td class="centered" rowspan="5">stacking context</td>
 </tr>
 <tr>
 <td><code>"z-mid"</code></td>
@@ -297,18 +287,18 @@
 <tr>
 <td><code>"clean"</code></td>
 <td><code>article.slide .clean</code></td>
-<td class="centered">decoration</td>
 <td>The <code>"clean"</code> class removes borders and shadow from an element.</td>
+<td class="centered">decoration</td>
 </tr>
 <tr>
 <td><code>"roomy"</code></td>
 <td><code>article.slide .roomy</code></td>
-<td class="centered">size</td>
 <td>The <code>"roomy"</code> class sets the following properties on big screens: <code>max-height: 100%; overflow: auto; padding: 0 .5em 0 0;</code>. On small screens these are transformed into: <code>max-height: none; overflow: visible; padding: 0;</code>.</td>
+<td class="centered">size</td>
 </tr>
 </tbody>
 </table>
-<p>Classes belonging to the same domain are alternative to each other. Classes belonging to different domains instead can form compound class names, as in <code>&lt;figure class="<mark>z-high roomy clean</mark>"&gt; ... &lt;/figure&gt;</code>.</p>
+<p>Classes belonging to the same domain are alternative to each other. Classes belonging to different domains can form compound class names, as in <code>&lt;figure class="<mark>z-high roomy clean</mark>"&gt; ... &lt;/figure&gt;</code>.</p>
 <h2>Supported <code>data-*</code> attributes</h2>
 <table class="definition">
 <thead>
@@ -327,11 +317,11 @@
 <tr>
 <td><code>data-label</code></td>
 <td><code>article.slide a[href][data-label]</code></td>
-<td>The <code>data-label</code> attribute can be used to create custom labels for every link, or replace the default labels in the main <code>&lt;nav&gt;</code>'s links that possess a <code>rel</code> attribute.</td>
+<td>The <code>data-label</code> attribute can be used to create custom labels for individual links, or replace the default labels in the main <code>&lt;nav&gt;</code>'s links that possess a <code>rel</code> attribute.</td>
 </tr>
 </tbody>
 </table>
-<div class="note">A slide in <strong>Take Five!</strong> is an <code>&lt;article&gt;</code> element; such element delimits a self-contained content, meaning that if all the other HTML except the <code>&lt;article&gt;</code> are removed the content would still make sense to a reader. The function of the <code>data-context</code> attribute then is that of contextualizing the <code>&lt;article&gt;</code>'s content. It is confined to an attribute, so that the content of the <code>&lt;article&gt;</code> remains still independent. It usually contains a small motto, a copyright notice or a mention of the hosting website. Users should feel free to use it in complete freedom.</div>
+<div class="note">A slide in <strong>Take Five!</strong> is an <code>&lt;article&gt;</code> element; such element delimits a self-contained content, meaning that if all the other HTML except the <code>&lt;article&gt;</code> are removed the content would still make sense to a reader. The function of the <code>data-context</code> attribute is that of contextualizing the <code>&lt;article&gt;</code>'s content. It is confined to an attribute, so that the content of the <code>&lt;article&gt;</code> remains still independent. It usually contains a small motto, a copyright notice or a mention of the hosting website. It should be used in complete freedom.</div>
 <h2>Plugins</h2>
 <p>This is the optional section of the framework. Some of these plugins could have been merged with the main CSS, but they have been kept separate to preserve modularity. Please feel free to bring new ideas.</p>
 <dl>
@@ -350,45 +340,63 @@
 <dt><a href="plugins/toolbar.html" target="_blank" rel="noopener"><code>takefive-toolbar.css</code></a></dt>
 <dd>Plugin for creating a toolbar of clickable <code>&lt;span&gt;</code> / <code>&lt;div&gt;</code> elements, or openable <code>&lt;details&gt;</code> elements, to be completed via JavaScript</dd>
 </dl>
+<p>In addition to the CSS plugins above, you can have a look at the following JavaScript snippets, to be simply included in the document as such (please keep in mind that <em><a href="js/takefive-clean-empty-hash.js" target="_blank"><code>js-add-ons/takefive-clean-empty-hash.js</code></a> and <a href="js/takefive-clean-history.js" target="_blank"><code>js-add-ons/takefive-clean-history.js</code></a> are alternative to each other</em>).</p>
+<ul>
+<li><a href="js/takefive-keyboard-events.js" target="_blank"><code>js-add-ons/takefive-keyboard-events.js</code></a> &ndash; for exiting a presentation via <code>escape</code> key</li>
+<li><a href="js/takefive-touch-events.js" target="_blank"><code>js-add-ons/takefive-touch-events.js</code></a> &ndash; for enabling touch events</li>
+<li><a href="js/takefive-clean-history.js" target="_blank"><code>js-add-ons/takefive-clean-history.js</code></a> &ndash; for clearing the history after leaving a presentation</li>
+<li><a href="js/takefive-clean-empty-hash.js" target="_blank"><code>js-add-ons/takefive-clean-empty-hash.js</code></a> &ndash; for cleaning the address bar from empty hash signs (<code>#</code>)</li>
+</ul>
+<p>For a live example, please visit the <a href="js-add-ons.html" target="_blank">JavaScript Add-Ons</a> page.</p>
 <h2>FAQ</h2>
 <div class="faq_list">
 <details>
 <summary>How many class names does <em>Take Five!</em> require?</summary>
-<div>Only one class name is required: the <code>"slide"</code> class applied to an <code>&lt;article&gt;</code> element. Optionally the latter supports also the following six classes: <code>"verbose"</code>, <code>"foyer"</code>, <code>"wrap"</code>, <code>"pinned"</code>, <code>"no-hashtag"</code> and <code>"nonadaptive"</code>. Six optional classes are available for the navigation links: <code>"with-label"</code>, <code>"no-label"</code>, <code>"tab"</code>, <code>"plate"</code>, <code>"vision"</code> and <code>"no-rel"</code>.</div>
+<div>Only one class name is required: the <code>"slide"</code> class applied to an <code>&lt;article&gt;</code> element. Optionally the latter supports also the following six classes: <code>"verbose"</code>, <code>"foyer"</code>, <code>"wrap"</code>, <code>"pinned"</code>, <code>"no-hashtag"</code> and <code>"nonadaptive"</code>. Six optional classes are also available to navigation links: <code>"with-label"</code>, <code>"no-label"</code>, <code>"tab"</code>, <code>"plate"</code>, <code>"vision"</code> and <code>"no-rel"</code>.</div>
 </details>
 <details>
 <summary>How many <code>data-*</code> attributes does <em>Take Five!</em> support?</summary>
-<div>Two <code>data-*</code> attributes are supported: <code>data-context</code>, optionally applied to the slide, and <code>data-label</code>, optionally applied to all links.</div>
+<div>Two <code>data-*</code> attributes are supported: <code>data-context</code>, optionally applied to the slide, and <code>data-label</code>, optionally applied to links.</div>
 </details>
 <details>
 <summary>Does <em>Take Five!</em> require a particular DOM tree?</summary>
-<div>The only (aesthetic and logical) requirement is a custom element nested inside an <code>&lt;article class="slide"&gt;</code> element, to be displayed at the center of the screen (plain text direct child of the slide is always displayed on the right side of the screen instead). When present, the CSS takes also care of styling other children element of the main <code>&lt;article&gt;</code>, but these are not required.</div>
+<div>The only (aesthetic and logical) requirement is a custom element nested inside an <code>&lt;article class="slide"&gt;</code> element, to be displayed at the center of the screen (plain text direct child of the slide is always displayed on the right side of the screen). When present, the CSS takes also care of styling other children element of the main <code>&lt;article&gt;</code>, but these are not required.</div>
 </details>
 <details>
 <summary>Can I apply also my own style sheets on top of this CSS?</summary>
-<div>Of course, feel free to re-style every element in your slides. For your own sake you should try not to affect the following properties of the <code>&lt;<em>leeloo</em>&gt;</code> element: <code>margin</code>, <code>position</code>, <code>left</code>, <code>top</code>, <code>box-sizing</code>, <code>transform</code>, <code>animation</code> and <code>z-index</code>. No particular caution is required for <code>&lt;<em>leeloo</em>&gt;</code>'s children, so if you want to show fullscreen an element that relies on animations (i.e., it uses the <code>animation</code> property), nest it inside a blank <code>&lt;div&gt;</code> element (or any other container of your choice).</div>
+<div>Of course, feel free to re-style every element in your slides. For your own sake you should try not to affect the following properties of the <code>&lt;<em>leeloo</em>&gt;</code> element: <code>margin</code>, <code>position</code>, <code>left</code>, <code>top</code>, <code>box-sizing</code>, <code>transform</code>, <code>animation</code> and <code>z-index</code>. No particular caution is required for <code>&lt;<em>leeloo</em>&gt;</code>'s children, so if you want to show fullscreen an element that relies on animations (i.e., it uses the <code>animation</code> property), nest it inside a blank <code>&lt;div&gt;</code> element or any other container of your choice.</div>
 </details>
 <details>
 <summary>I have many images in my page. How can I avoid that the browser preloads all of them?</summary>
-<div>If you are interested in this slide renderer probably you don't want to leave any semantic content out of your HTML (as it would be to load the slides through JavaScript, for example). The correct way to deal with lazy loading is to set a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-loading"><code>loading="lazy"</code></a> attribute on the <code>&lt;img&gt;</code> and <code>&lt;iframe&gt;</code> elements.</div>
+<div>If you are interested in this slide renderer probably you don't want to leave any semantic content out of your HTML (as it would be to load the slides through JavaScript, for example). The correct way to deal with lazy loading is to set a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-loading"><code>loading="lazy"</code></a> attribute on <code>&lt;img&gt;</code> and <code>&lt;iframe&gt;</code> elements.</div>
 </details>
 <details>
 <summary>How can I enable the <code>escape</code> key for exiting the slides?</summary>
 <div>You need to use JavaScript. I intentionally did not write any line of JavaScript code for this CSS, but you can work around it. Here follows a basic script for exiting the slides by pressing the <code>escape</code> key.
 <pre class="example">/* close the slide currently open or do nothing */
 function closeCurrentSlide () {
+
     var oSlide = document.querySelector("article.slide:target");
+
     if (oSlide) {
+
         var oExitLink = oSlide.querySelector("nav:first-of-type a[rel~=\"parent\"]");
         location.assign(oExitLink ? oExitLink.href : "#");
+
     }
+
 }
 
 window.addEventListener("keyup", function (oEvt) {
+
     if (oEvt.key === "Escape") {
+
         closeCurrentSlide();
+
     }
+
 }, false);</pre>
+For a downloadable version, please see <a href="js/takefive-keyboard-events.js" target="_blank"><code>js-add-ons/takefive-keyboard-events.js</code></a>.
 </div>
 </details>
 <details>
@@ -449,11 +457,12 @@ window.addEventListener("keyup", function (oEvt) {
     }, false);
 
 })();</pre>
+For a downloadable version, please see <a href="js/takefive-touch-events.js" target="_blank"><code>js-add-ons/takefive-touch-events.js</code></a>.
 </div>
 </details>
 <details>
 <summary>Too much <code>history</code>!</summary>
-<div>One of the useful outcomes of relying on an hashtag in the URL is that the slides visited leave a trace in the browser history. Sometimes however the history can be too much. For these cases it is possible to use JavaScript to do a partial reset of the history every time a gallery is closed:
+<div>One of the useful outcomes of relying on an hashtag in the URL is that the slides visited leave a trace in the browser history and can produce permalinks. Sometimes however the history can be too much. For these cases it is possible to use JavaScript to do a partial reset of the history every time a gallery is closed:
 <pre class="example">(function () {
 
     var bOpenedWithSlide = false, nHistCount = -1;
@@ -464,21 +473,21 @@ window.addEventListener("keyup", function (oEvt) {
 
     }
 
-    function exitClicked () {
+    function exitClicked (oEvt) {
 
         if (bOpenedWithSlide) {
 
-            /*  Can't do much, the page had been loaded on with a slide open...  */
-            nHistCount = -1;
+            /*  The page was loaded with a slide open  */
             bOpenedWithSlide = false;
 
         } else {
 
             history.go(nHistCount);
-            nHistCount = -1;
-            return false;
+            oEvt.preventDefault();
 
         }
+
+        nHistCount = -1;
 
     }
 
@@ -495,13 +504,15 @@ window.addEventListener("keyup", function (oEvt) {
         for (var nLen = aLinks.length, nIdx = 0; nIdx &lt; nLen; nIdx++) {
 
             elIter = aLinks[nIdx];
-            elTest.hash = elIter.hash;
+            elTest.hash = elIter.hash || "#";
 
             if (elTest.href === elIter.href) {
-                elIter.onclick = document.querySelector("article.slide" + elIter.hash) ?
-                    newSlideClicked
-                :
-                    exitClicked;
+                elIter.addEventListener("click",
+                    elIter.hash &amp;&amp; document.querySelector("article.slide" + elIter.hash) ?
+                        newSlideClicked
+                    :
+                        exitClicked
+                );
             }
 
         }
@@ -509,6 +520,8 @@ window.addEventListener("keyup", function (oEvt) {
     }, false);
 
 })();</pre>
+For a downloadable version, please see <a href="js/takefive-clean-history.js" target="_blank"><code>js-add-ons/takefive-clean-history.js</code></a>.
+<div class="note">Please keep in mind that <em>this script is alternative to <a href="js/takefive-clean-empty-hash.js" target="_blank"><code>js-add-ons/takefive-clean-empty-hash.js</code></a></em>.</div>
 </div>
 </details>
 <details>
@@ -519,16 +532,24 @@ window.addEventListener("keyup", function (oEvt) {
 <summary>I really don't like the <code>#</code> or <code>#whatever</code> link for exiting the slides. How can I do?</summary>
 <div>The empty hash (<code>#</code>) is the semantically correct way to refer to the page in its entirety, so if that is what you are referring to there are no better ways to express it, especially for the sake of search engines. It is possible however to use JavaScript for cleaning the address bar after clicking on any link that ends with an empty hash:
 <pre class="example">window.addEventListener("DOMContentLoaded", function () {
+
     var aEmptyHashLinks = document.querySelectorAll("a[href$=\"#\"]");
+
     for (var nIdx = 0; nIdx &lt; aEmptyHashLinks.length; nIdx++) {
-        aEmptyHashLinks[nIdx].onclick = function () {
+
+        aEmptyHashLinks[nIdx].addEventListener("click", function (oEvt) {
+
             location.hash = "";
             history.replaceState(null, "", this.href.split('#')[0]);
-            return false;
-        };
+            oEvt.preventDefault();
+
+        });
+
     }
+
 }, false);</pre>
-<div class="note">The <code>history.replaceState()</code> method might not be available locally, but only when the page is hosted in a webserver.</div>
+For a downloadable version, please see <a href="js/takefive-clean-empty-hash.js" target="_blank"><code>js-add-ons/takefive-clean-empty-hash.js</code></a>.
+<div class="note">The <code>history.replaceState()</code> method might not be available locally, but only when the page is hosted in a webserver. Please keep in mind that <em>this script is alternative to <a href="js/takefive-clean-history.js" target="_blank"><code>js-add-ons/takefive-clean-history.js</code></a></em>.</div>
 </div>
 </details>
 <details>

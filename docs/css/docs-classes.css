@@ -369,6 +369,10 @@ table.definition th:first-child {
 	padding-left: 1em;
 }
 
+table.definition.longterms th:first-child {
+	width: 13em;
+}
+
 table.definition th,
 table.definition thead th:first-child {
 	font-weight: bold;
@@ -880,6 +884,11 @@ mark, .bg0 {
 .bg1 {
 	background-color: #87e4ff;
 }
+
+.bg2 {
+	background-color: rgba(255, 93, 0, .1);
+}
+
 
 .resultbox {
 	box-sizing: border-box;

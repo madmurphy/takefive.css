@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/print.min.css" />
+<link rel="stylesheet" type="text/css" href="css/docs.css" />
+<link rel="stylesheet" type="text/css" href="css/docs-classes.css" />
+<link rel="stylesheet" type="text/css" href="css/takefive.min.css" />
+<script type="text/javascript" src="js/takefive-clean-history.js"></script>
+<script type="text/javascript" src="js/takefive-keyboard-events.js"></script>
+<script type="text/javascript" src="js/takefive-touch-events.js"></script>
+<title>Take Five! &ndash; JavaScript Add-Ons</title>
+</head>
+
+<body>
+
+<header>
+<h1><em>Take Five!</em> &ndash; JavaScript Add-Ons</h1>
+</header>
+<p>This page includes a few scripts that allow to</p>
+<ul>
+<li>Clean the browser's history after leaving a presentation (<a href="js/takefive-clean-history.js" target="_blank"><code>js-add-ons/takefive-clean-history.js</code></a>)</li>
+<li>Leave a presentation by pressing <code>Esc</code> on the keyboard (<a href="js/takefive-keyboard-events.js" target="_blank"><code>js-add-ons/takefive-keyboard-events.js</code></a>)</li>
+<li>Swipe left and right via touch events (<a href="js/takefive-touch-events.js" target="_blank"><code>js-add-ons/takefive-touch-events.js</code></a>)</li>
+</ul>
+<p>A further script that allows to use an empty hash (<code>#</code>) as the exit link and leave no traces in the address bar is available (<a href="js/takefive-clean-empty-hash.js" target="_blank"><code>js-add-ons/takefive-clean-empty-hash.js</code></a>), however this is alternative to <a href="js/takefive-clean-history.js" target="_blank"><code>takefive-clean-history.js</code></a> and can be used only when the latter is not used.</p>
+<p style="text-align: center; font-size: 2em;"><a href="#example-slide-1">Try them live</a></p>
+<article class="slide" id="example-slide-1">
+	<header>
+		<h3>Slide 1</h3>
+	</header>
+	<figure>
+		<img src="media/10.jpg" />
+		<figcaption>Silhouette of tree near body of water during golden hour</figcaption>
+	</figure>
+	<nav>
+		<a href="#" rel="parent">Manual</a>
+		<a href="#example-slide-2" rel="next">Close up of leaf</a>
+		<a href="#example-slide-4" rel="last">Gray asphalt road surrounded by tall trees</a>
+		<a href="media/10.jpg" download rel="attachment" target="_blank">Download this picture</a>
+	</nav>
+</article>
+<article class="slide" id="example-slide-2">
+	<header>
+		<h3>Slide 2</h3>
+	</header>
+	<figure>
+		<img src="media/11.jpg" />
+		<figcaption>Close up of leaf</figcaption>
+	</figure>
+	<nav>
+		<a href="#" rel="parent">Manual</a>
+		<a href="#example-slide-1" rel="prev first">Silhouette of tree near body of water during golden hour</a>
+		<a href="#example-slide-3" rel="next">Green hill near body of water</a>
+		<a href="#example-slide-4" rel="last">Gray asphalt road surrounded by tall trees</a>
+		<a href="media/11.jpg" download rel="attachment" target="_blank">Download this picture</a>
+	</nav>
+</article>
+<article class="slide" id="example-slide-3">
+	<header>
+		<h3>Slide 3</h3>
+	</header>
+	<figure>
+		<img src="media/12.jpg" />
+		<figcaption>Green hill near body of water</figcaption>
+	</figure>
+	<nav>
+		<a href="#" rel="parent">Manual</a>
+		<a href="#example-slide-2" rel="prev">Close up of leaf</a>
+		<a href="#example-slide-4" rel="next last">Gray asphalt road surrounded by tall trees</a>
+		<a href="#example-slide-1" rel="first">Silhouette of tree near body of water during golden hour</a>
+		<a href="media/12.jpg" download rel="attachment" target="_blank">Download this picture</a>
+	</nav>
+</article>
+<article class="slide" id="example-slide-4">
+	<header>
+		<h3>Slide 4</h3>
+	</header>
+	<figure>
+		<img src="media/13.jpg" />
+		<figcaption>Gray asphalt road surrounded by tall trees</figcaption>
+	</figure>
+	<nav>
+		<a href="#" rel="parent">Manual</a>
+		<a href="#example-slide-3" rel="prev">Green hill near body of water</a>
+		<a href="#example-slide-1" rel="first">Silhouette of tree near body of water during golden hour</a>
+		<a href="media/13.jpg" download rel="attachment" target="_blank">Download this picture</a>
+	</nav>
+</article>
+<footer>
+<h2>Free software</h2>
+<p><strong>Take Five!</strong> is free software. You can redistribute it and/or modify it under the terms of the <a href="https://www.gnu.org/licenses/gpl-3.0-standalone.html" target="_blank" rel="noopener">GPL license</a>, version 3 or any later version. The code is <a href="https://github.com/madmurphy/takefive.css/" target="_blank" rel="noopener">available on GitHub</a>.</p>
+</footer>
+
+</body>
+</html>
